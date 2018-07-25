@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OCTA_Projet_Gestion_Commerciale.Model.Model
+namespace OCTA_Projet_Gestion_Commerciale.Model
 {
     public partial class GEN_Dossiers
     {

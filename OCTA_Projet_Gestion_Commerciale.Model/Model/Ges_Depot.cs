@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Store.Model
+namespace OCTA_Projet_Gestion_Commerciale.Model
 {
     public class GES_Depot
     {

@@ -36,9 +36,6 @@ namespace Gestion_Commerciale.Web.Controllers
 
             adminService.CreateAdminPivot(admin);
 
-
-
-
             adminService.SaveAdminPivot();
 
             return View();

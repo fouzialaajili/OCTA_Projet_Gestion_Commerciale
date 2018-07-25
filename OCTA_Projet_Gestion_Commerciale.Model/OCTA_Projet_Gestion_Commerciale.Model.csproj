@@ -48,7 +48,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Model\CPT_ParametrageComptable.cs" />
     <Compile Include="Model\GES_Admin.cs" />
+    <Compile Include="Model\Ges_Famille.cs" />
+    <Compile Include="Model\GES_FournisseurArticle.cs" />
+    <Compile Include="Model\GES_Ged.cs" />
+    <Compile Include="Model\Ges_Impression.cs" />
+    <Compile Include="Model\GES_Licence.cs" />
+    <Compile Include="Model\GES_Motif.cs" />
+    <Compile Include="Model\GES_MotifTicket.cs" />
+    <Compile Include="Model\GES_MouvementStock.cs" />
+    <Compile Include="Model\GES_Nomenclature.cs" />
+    <Compile Include="Model\GES_Numerotation.cs" />
+    <Compile Include="Model\GES_Objectif.cs" />
+    <Compile Include="Model\GES_Opportunite.cs" />
+    <Compile Include="Model\GES_OpportuniteDetail.cs" />
+    <Compile Include="Model\GES_Periode.cs" />
+    <Compile Include="Model\GES_Reglement.cs" />
+    <Compile Include="Model\GES_ReglementFacture.cs" />
+    <Compile Include="Model\GES_Representant.cs" />
+    <Compile Include="Model\GES_Ticket.cs" />
+    <Compile Include="Model\GES_TicketDetail.cs" />
+    <Compile Include="Model\Ges_Tolerance.cs" />
+    <Compile Include="Model\Ges_Unite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -37,6 +37,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
             builder.RegisterAssemblyTypes(typeof(AdminService).Assembly)
                .Where(t => t.Name.EndsWith("Service"))
                .AsImplementedInterfaces().InstancePerRequest();
+            // Repositories
+            builder.RegisterAssemblyTypes(typeof(LicenceRepositoy).Assembly)
+                .Where(t => t.Name.EndsWith("Repository"))
+                .AsImplementedInterfaces().InstancePerRequest();
+            // Services
+            builder.RegisterAssemblyTypes(typeof(LicenceService).Assembly)
+               .Where(t => t.Name.EndsWith("Service"))
+               .AsImplementedInterfaces().InstancePerRequest();
 
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

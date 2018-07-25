@@ -14,7 +14,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         public StoreEntities() : base("StoreEntities") { }
 
         public DbSet<GES_Admin> Admins { get; set; }
-        
+        public DbSet<GES_Licence> Licences { get; set; }
 
         public virtual void Commit()
         {
@@ -24,7 +24,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new GES_AdminConfiguration());
-        
+            modelBuilder.Configurations.Add(new GES_LicenceConfiguration());
+
         }
     }
 }

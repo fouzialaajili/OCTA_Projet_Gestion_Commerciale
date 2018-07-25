@@ -11,7 +11,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public long  DocumentCommercialId { get; set; }
         public String DocumentCommercialNumeroPiece { get; set; }
         public int DocumentCommercialEtatPiece { get; set; }
-        public long DocumentCommercialTypePiece { get; set; }
+        public long? DocumentCommercialTypePiece { get; set; }
        public DateTime DocumentCommercialDateDocument { get; set; }
        public int  DocumentCommercialReference { get; set; }
        public Double DocumentCommercialTotalHTTC { get; set; }
@@ -29,7 +29,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public int DocumentCommercialSysuser { get; set; }
         public DateTime DocumentCommercialSysDateCreation { get; set; }
         public DateTime DocumentCommercialSysDateUpdate { get; set; }
-      public long  DocumentCommercialSocieteId { get; set; }
+      public long?  DocumentCommercialSocieteId { get; set; }
         public virtual GEN_Dossiers DocumentCommercialSociete { get; set; }
 
         public virtual ICollection<GES_MouvementStock> DocumentCommercialMouvementStock { get; set; }

@@ -42,13 +42,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
         public virtual GEN_Items GEN_Items { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+  
         public virtual ICollection<CPT_ParametrageComptable> CPT_ParametrageComptable { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+  
         public virtual ICollection<CPT_Pieces> CPT_Pieces { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+   
         public virtual ICollection<GEN_Regelement> GEN_Regelement { get; set; }
     }
 }

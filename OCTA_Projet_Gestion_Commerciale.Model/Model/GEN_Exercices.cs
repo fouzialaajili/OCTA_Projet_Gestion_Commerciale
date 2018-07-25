@@ -38,10 +38,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
         public virtual GEN_Dossiers GEN_Dossiers { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+     
         public virtual ICollection<GEN_Periodes> GEN_Periodes { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+     
         public virtual ICollection<GEN_Preferences> GEN_Preferences { get; set; }
     }
 }

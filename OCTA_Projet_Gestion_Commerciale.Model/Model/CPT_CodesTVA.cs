@@ -50,10 +50,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public virtual GEN_Items GEN_Items_TypeTVA { get; set; }
 
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+      
         public virtual ICollection<CPT_CompteG> CPT_CompteG_CodeTVADefault { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+   
         public virtual ICollection<CPT_CompteGDetailTVA> CPT_CompteGDetailTVA { get; set; }
 
         public long TvaSocieteId { get; set; }

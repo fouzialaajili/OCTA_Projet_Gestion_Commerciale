@@ -17,11 +17,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public string TicketDescription { get; set; }
         public string TicketDegre { get; set; }
    
-   /***/   public long TicketIdClient { get; set; }
-   /***/   public long TicketIdRepresentant { get; set; }
+   /***/   public long? TicketIdClient { get; set; }
+   /***/   public long? TicketIdRepresentant { get; set; }
 
    /***/
-        public long TicketIdcontact { get; set; }
+        public long? TicketIdcontact { get; set; }
         public long? TicketTypeaction { get; set; }
         public long TicketSysuser { get; set; }
         public DateTime? TicketSysDateCreation { get; set; }
@@ -30,7 +30,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         virtual public GES_Representant TicketRepresentant { get; set; }
         virtual public GEN_TiersContacts TicketFichetiersContact { get; set; }
     
-  /***/ public long TicketDossierId { get; set; }
+  /***/ public long? TicketDossierId { get; set; }
         virtual  public GEN_Dossiers TicketDossier { get; set; }
 
         public virtual ICollection<GES_MotifTicket> TicketMotifTicket { get; set; }

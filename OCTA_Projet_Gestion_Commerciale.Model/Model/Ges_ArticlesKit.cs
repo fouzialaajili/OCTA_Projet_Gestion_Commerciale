@@ -15,9 +15,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public int ArticlesKitSysuser { get; set; }
         public DateTime ArticlesKitSysDateCreation { get; set; }
         public DateTime ArticlesKitSysDateUpdate { get; set; }
-        public long ArticlesKitArticlesId { get; set; }
+        public long? ArticlesKitArticlesId { get; set; }
         public virtual GES_Article ArticlesKitArticle { get; set; }
-        public long ArticlesKitArticleId1 { get; set; }
+        public long? ArticlesKitArticleId1 { get; set; }
         public virtual GES_Article ArticlesKitArticle1 { get; set; }
 
     }

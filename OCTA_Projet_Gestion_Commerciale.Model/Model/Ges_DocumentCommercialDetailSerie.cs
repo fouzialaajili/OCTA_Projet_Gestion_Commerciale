@@ -18,9 +18,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public DateTime DocumentCommercialDetailSerieSysDateCreation { get; set; }
         public DateTime DocumentCommercialDetailSerieSysDateUpdate { get; set; }
     
-        public long  DocumentCommercialDetailSerieSocieteId { get; set; }
+        public long?  DocumentCommercialDetailSerieSocieteId { get; set; }
         public virtual GEN_Dossiers DocumentCommercialDetailSerieSociete { get; set; }
-        public long  DocumentCommercialDetailSerieDocumentCommercialDetailIdDocumentDetail { get; set; }
+        public long?  DocumentCommercialDetailSerieDocumentCommercialDetailIdDocumentDetail { get; set; }
         public virtual GES_DocumentCommercialDetail DocumentCommercialDetailSerieDocumentCommercialDetail { get; set; }
 
     }

@@ -24,9 +24,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
         public DateTime? sys_dateCreation { get; set; }
 
-        public virtual CPT_Echeances CPT_Echeances { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        
+        public virtual CPT_Echeances CPT_Echeances { get; set; }   
 
         public virtual ICollection<CPT_TVALettrage> CPT_TVALettrage { get; set; }
     }

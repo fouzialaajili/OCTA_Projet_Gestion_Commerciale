@@ -14,7 +14,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public int  DoclieSysuser { get; set; }
         public DateTime DoclieSysDateCreation { get; set; }
         public DateTime DoclieSysDateUpdate { get; set; }
-        public long  DoclieartSocieteId { get; set; }
+        public long?  DoclieartSocieteId { get; set; }
         public virtual GEN_Dossiers DoclieartSociete { get; set; }
     }
 }

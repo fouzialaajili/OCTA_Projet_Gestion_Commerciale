@@ -1,0 +1,35 @@
+﻿
+using OCTA_Projet_Gestion_Commerciale.Model;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
+{
+    public class GEN_DossiersConfiguration : EntityTypeConfiguration<GEN_Dossiers>
+    {
+        public GEN_DossiersConfiguration()
+        {
+            ToTable("Dossier");
+            HasKey(x => x.DossierId);
+
+
+            /***********************************/
+
+            //virtual public GEN_Tiers TicketDetailFichetier { get; set; }
+            //virtual public GES_Ticket TicketDetailTicket { get; set; }
+/*
+            HasOptional<GEN_Tiers>(a => a.TicketDetailFichetier)
+                                  .WithMany(d => d.GES_TicketDetail)
+                                  .HasForeignKey<long?>(a => a.TicketDetailIdcommercial);
+
+            HasOptional<GES_Ticket>(a => a.TicketDetailTicket)
+                                  .WithMany(d => d.GES_TicketDetail)
+                                  .HasForeignKey<long?>(a => a.TicketDetailIdTicket);
+*/
+        }
+    }
+}

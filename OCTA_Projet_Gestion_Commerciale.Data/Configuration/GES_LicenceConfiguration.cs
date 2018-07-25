@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
 {
-    public class GES_LicenceConfiguration : EntityTypeConfiguration<GES_Licence>
+     public class GES_LicenceConfiguration : EntityTypeConfiguration<GES_Licence>
     {
         public GES_LicenceConfiguration()
         {

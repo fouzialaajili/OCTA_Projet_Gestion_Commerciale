@@ -15,7 +15,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public int NomenclatureSysuser { get; set; }
         public DateTime? NomenclatureSysDateCreation { get; set; }
         public DateTime? NomenclatureSysDateUpdate { get; set; }
-     /***/public long NomenclatureIdarticle { get; set; }
+     /***/public long? NomenclatureIdarticle { get; set; }
        
         virtual public GES_Article NomenclatureArticle { get; set; }
     }

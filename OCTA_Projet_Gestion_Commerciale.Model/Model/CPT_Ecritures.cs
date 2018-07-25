@@ -66,7 +66,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
         public virtual CPT_CompteG CPT_CompteG { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+       
         public virtual ICollection<CPT_Echeances> CPT_Echeances { get; set; }
 
         public virtual CPT_Pieces CPT_Pieces { get; set; }

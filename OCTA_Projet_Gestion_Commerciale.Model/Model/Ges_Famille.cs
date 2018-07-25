@@ -11,10 +11,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public long FamilleId { get; set; }
         public int FamilleCode { get; set; }
         public int FamilleLibelle { get; set; }
-public int FamilleSyuser { get; set; }
+         public int FamilleSyuser { get; set; }
         public DateTime FamilleSysDateCreation { get; set; }
         public DateTime FamilleSysDateUpdate { get; set; }
-        public long  FamilleSocieteId { get; set; }
+        public long?  FamilleSocieteId { get; set; }
         public virtual GEN_Dossiers FamilleSociete { get; set; }
     }
 }

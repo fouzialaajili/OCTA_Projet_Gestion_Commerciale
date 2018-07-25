@@ -16,12 +16,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public int NumerotationCompteur { get; set; }
         public int NumerotationIncrement { get; set; }
 
-        public long NumerotationSysuser { get; set; }
+        public long? NumerotationSysuser { get; set; }
         public DateTime? NumerotationSysDateCreation { get; set; }
         public DateTime? NumerotationSysDateUpdate { get; set; }
 
      
-        public long NumerotationDossierId { get; set; }
+        public long? NumerotationDossierId { get; set; }
         virtual public GEN_Dossiers NumerotationDossier { get; set; }
     }
 }

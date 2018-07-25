@@ -20,7 +20,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public int ArticlesPrixSysuser { get; set; }
         public DateTime ArticlesPrixSysDateCreation { get; set; }
         public DateTime ArticlesPrixSysDateUpdate { get; set; }
-        public long ArticlesPrixArticleId { get; set; }
+        public long? ArticlesPrixArticleId { get; set; }
         public virtual GES_Article ArticlesPrixArticle { get; set; }
 
     }

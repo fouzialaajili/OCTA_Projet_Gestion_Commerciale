@@ -19,22 +19,22 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public string RepresentantPays { get; set; }
         public string RepresentantEmail { get; set; }
         public string RepresentantFonction { get; set; }
-        public bool RepresentantActif { get; set; }
-        public bool RepresentantAcheteur { get; set; }
-        public bool RepresentantVenseur { get; set; }
+        public bool? RepresentantActif { get; set; }
+        public bool? RepresentantAcheteur { get; set; }
+        public bool? RepresentantVenseur { get; set; }
         public string RepresentantLogin { get; set; }
         public string RepresentantPasswoord{ get; set; }
 
-        public long RepresentantProfil { get; set; }
+        public long? RepresentantProfil { get; set; }
 
-        public bool RepresentantBc { get; set; }
+        public bool? RepresentantBc { get; set; }
 
-        public long RepresentantSysuser { get; set; }
+        public long? RepresentantSysuser { get; set; }
         public DateTime? RepresentantSysDateCreation { get; set; }
         public DateTime? ZenRepresentantSysDateUpdate { get; set; }
 
       
-       /***/ public long RepresentantDossierId { get; set; }
+       /***/ public long? RepresentantDossierId { get; set; }
         virtual public GEN_Dossiers RepresentantDossier { get; set; }
         public virtual ICollection<GES_Objectif> RepresentantObject { get; set; }
         public virtual ICollection<GEN_Tiers> RepresentantFichetier { get; set; }

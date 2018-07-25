@@ -46,15 +46,15 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public DateTime ArticleSysDateCreation { get; set; }
         public DateTime ArticlesSysDateUpdate { get; set; }
 
-        public long ArticleSocieteId { get; set; }
+        public long? ArticleSocieteId { get; set; }
         public virtual GEN_Dossiers  ArticleSociete { get; set; }
-        public long ArticleDepotId { get; set; }
+        public long? ArticleDepotId { get; set; }
         public virtual GES_Depot ArticleDepot { get; set; }
-        public long ArticleCategorieId { get; set; }
+        public long? ArticleCategorieId { get; set; }
         public virtual GES_Categorie ArticleCategorie { get; set; }
-        public long ArticleUniteId { get; set; }
+        public long? ArticleUniteId { get; set; }
         public virtual GES_Unite ArticleUnite { get; set; }
-        public long ArticleMarqueId { get; set; }
+        public long? ArticleMarqueId { get; set; }
         public virtual GES_Marque ArticleMarque { get; set; }
 
         public virtual ICollection<GES_FournisseurArticle> ArticleFournisseurArticle { get; set; }

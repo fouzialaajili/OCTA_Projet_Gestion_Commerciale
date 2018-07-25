@@ -26,9 +26,9 @@ public int DocumentCommercialDetailCodeLiaison { get; set; }
         public int DocumentCommercialSysuser { get; set; }
         public DateTime DocumentCommercialSysDateCreation { get; set; }
         public DateTime DocumentCommercialSysDateUpdate { get; set; }
-        public long DocumentCommercialDetailArticleId { get; set; }
+        public long? DocumentCommercialDetailArticleId { get; set; }
         public virtual GES_Article DocumentCommercialDetailArticle { get; set; }
-        public  long DocumentCommercialIdDocumentCommercial { get; set; }
+        public  long? DocumentCommercialIdDocumentCommercial { get; set; }
       public virtual GES_DocumentCommercial DocumentCommercialDetailDocumentCommercial { get; set; }
         public virtual ICollection<GES_DocumentCommercialDetailSerie> DocumentCommercialDetailDocumentCommercialDetailSerie { get; set; }
 

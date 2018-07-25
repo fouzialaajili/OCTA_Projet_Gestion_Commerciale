@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public string MouvementStockSens { get; set; }
         public long? MouvementStockTypearticle { get; set; }
         public string MouvementStockCodebundle { get; set; }
-      /***/  public long MouvementStockIdarticle { get; set; }
+      /***/  public long? MouvementStockIdarticle { get; set; }
         public int MouvementStockNiveau { get; set; }
         public DateTime? MouvementStockDatemouvement { get; set; }
         public string MouvementStockOrigine { get; set; }
@@ -25,7 +25,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public int MouvementStockNumerolot { get; set; }
         public int MouvementStockQuantite { get; set; }
         public int MouvementStockCodeliaison { get; set; }
-     /***/   public long MouvementStockIddepot { get; set; }
+     /***/   public long? MouvementStockIddepot { get; set; }
         public string MouvementStockDepot { get; set; }
         public string MouvementStockMotif { get; set; }
         public string MouvementStockDescmotif { get; set; }
@@ -33,7 +33,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public DateTime? MouvementStockSysDateCreation { get; set; }
         public DateTime? MouvementStockSysDateUpdate { get; set; }
 
-        public long MouvementStockDossierId { get; set; }
+        public long? MouvementStockDossierId { get; set; }
         virtual public GEN_Dossiers MouvementStockSociete { get; set; }
        virtual  public GES_Depot MouvementStocksDepot { get; set; }
         virtual public GES_Article MouvementStockArticles { get; set; }

@@ -15,7 +15,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
       public int MarqueSys_user { get; set; }
        public DateTime MarqueSys_DateCreation { get; set; }
        public DateTime MarqueSys_DateUpdate { get; set; }
-       public long MarqueSocieteId { get; set; }
+       public long? MarqueSocieteId { get; set; }
 
         public virtual ICollection<GES_Article> MarqueArticle { get; set; }
        public virtual GEN_Dossiers MarqueSociete { get; set; }

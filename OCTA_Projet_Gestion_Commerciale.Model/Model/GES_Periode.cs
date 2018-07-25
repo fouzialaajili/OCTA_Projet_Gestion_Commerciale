@@ -18,10 +18,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public int PeriodeSysuser { get; set; }
         public DateTime? PeriodeSysDateCreation { get; set; }
         public DateTime? PeriodeSysDateUpdate { get; set; }
-        public bool PeriodeAutoriserVente { get; set; }
-        public bool PeriodeAutoriserAchat{ get; set; }
-        public bool PeriodeAutoriserMvtStock { get; set; }
-        public long PeriodeSocieteId { get; set; }
+        public bool? PeriodeAutoriserVente { get; set; }
+        public bool? PeriodeAutoriserAchat{ get; set; }
+        public bool? PeriodeAutoriserMvtStock { get; set; }
+        public long? PeriodeSocieteId { get; set; }
         virtual public GEN_Dossiers PeriodeSociete { get; set; }
     }
 }

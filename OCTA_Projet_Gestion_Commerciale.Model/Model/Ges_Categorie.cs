@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public DateTime CategorieSysDateCreation { get; set; }
         public DateTime CategorieSysDateUpdate { get; set; }
         public bool CategorieActif{ get; set; }
-    public long  CategorieSocieteId { get; set; }
+    public long?  CategorieSocieteId { get; set; }
         public virtual GEN_Dossiers CategorieSociete { get; set; }
         public virtual ICollection<GES_Article> CategorieArticle { get; set; }
     }

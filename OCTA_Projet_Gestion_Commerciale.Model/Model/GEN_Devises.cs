@@ -30,7 +30,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public DateTime? Devisessys_dateCreation { get; set; }
 
 
-        public long DeviseSocieteId { get; set; }
+        
         public virtual GEN_Dossiers DeviseSociete { get; set; }
 
         public virtual ICollection<CPT_ComptesBancaires> CPT_ComptesBancaires { get; set; }
@@ -50,7 +50,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
         public virtual GEN_Dossiers GEN_Dossiers { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+   
         public virtual ICollection<GEN_Tiers> GEN_Tiers { get; set; }
         public virtual ICollection<GES_Opportunite> GES_Opportunite { get; set; }
     }

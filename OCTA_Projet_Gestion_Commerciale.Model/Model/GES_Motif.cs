@@ -17,7 +17,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public DateTime? MotifSysDateUpdate { get; set; }
 
         virtual public GES_Opportunite MotifOpportunite { get; set; }
-   /***/     public long MotifdossierId { get; set; }
+   /***/     public long? MotifdossierId { get; set; }
         virtual public GEN_Dossiers MotifSociete { get; set; }
     }
 }

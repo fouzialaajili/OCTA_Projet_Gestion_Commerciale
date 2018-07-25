@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OCTA_Projet_Gestion_Commerciale.Model
+namespace Store.Model
 {
     public class GES_FournisseurArticle
     {

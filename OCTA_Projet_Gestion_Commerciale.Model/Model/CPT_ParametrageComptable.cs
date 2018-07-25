@@ -1,4 +1,4 @@
-namespace OCTA_Projet_Gestion_Commerciale.Model
+namespace Store.Model
 {
     using System;
     using System.Collections.Generic;

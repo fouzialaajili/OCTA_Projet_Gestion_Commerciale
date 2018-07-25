@@ -87,23 +87,20 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public virtual GEN_TypePaiement GEN_TypePaiement { get; set; }
 
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GEN_TiersContacts> GEN_TiersContacts { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+      
         public virtual ICollection<CPT_ComptesBancairesTiers> CPT_ComptesBancairesTiers { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CPT_Ecritures> CPT_Ecritures { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<CPT_Pieces> CPT_Pieces { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CPT_RelevesBancairesDetail> CPT_RelevesBancairesDetail { get; set; }
 
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GES_FournisseurArticle> GES_FournisseurArticle { get; set; }
         public virtual ICollection<GES_Opportunite> GES_Opportunite { get; set; }
         public virtual ICollection<GES_OpportuniteDetail> GES_OpportuniteDetail { get; set; }

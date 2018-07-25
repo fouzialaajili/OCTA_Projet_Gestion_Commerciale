@@ -54,6 +54,14 @@
     <Compile Include="Configuration\GEN_DocumentsConfiguration.cs" />
     <Compile Include="Configuration\GEN_DossiersConfiguration.cs" />
     <Compile Include="Configuration\GEN_DossiersContactsConfiguration.cs" />
+    <Compile Include="Configuration\GEN_DossiersSitesConfiguration.cs" />
+    <Compile Include="Configuration\GEN_ExercicesConfiguration.cs" />
+    <Compile Include="Configuration\GEN_ItemsConfiguration.cs" />
+    <Compile Include="Configuration\GEN_ModelConfiguration.cs" />
+    <Compile Include="Configuration\GEN_NumerationConfiguration.cs" />
+    <Compile Include="Configuration\GEN_PeriodesConfiguration.cs" />
+    <Compile Include="Configuration\GEN_PreferencesConfiguration.cs" />
+    <Compile Include="Configuration\GEN_RegelementConfiguration.cs" />
     <Compile Include="Configuration\GEN_TiersConfiguration.cs" />
     <Compile Include="Configuration\GEN_TiersContactsConfiguration.cs" />
     <Compile Include="Configuration\GEN_TypePaiementConfiguration.cs" />
@@ -100,6 +108,14 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201807250950287_InitialCreate.cs" />
+    <Compile Include="Migrations\201807250950287_InitialCreate.Designer.cs">
+      <DependentUpon>201807250950287_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807251533178_first.cs" />
+    <Compile Include="Migrations\201807251533178_first.Designer.cs">
+      <DependentUpon>201807251533178_first.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AdminRepository.cs" />
@@ -117,6 +133,14 @@
       <Project>{569d8d64-8cd8-41fb-b24b-29df9eb51e0a}</Project>
       <Name>OCTA_Projet_Gestion_Commerciale.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807250950287_InitialCreate.resx">
+      <DependentUpon>201807250950287_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807251533178_first.resx">
+      <DependentUpon>201807251533178_first.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

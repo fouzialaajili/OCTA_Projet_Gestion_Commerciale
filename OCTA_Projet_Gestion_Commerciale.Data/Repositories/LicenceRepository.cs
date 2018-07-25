@@ -29,7 +29,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         public GES_Licence GetById(long id)
         {
 
-            var licences = this.DbContext.Licences.Where(c => c.LicenceId == id).SingleOrDefault();
+            var licences = this.DbContext.Licences.Where(c => c.Id == id).SingleOrDefault();
 
             return licences;
         }

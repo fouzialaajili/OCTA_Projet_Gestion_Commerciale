@@ -8,7 +8,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 {
     public class GES_Unite
     {
-        public long UniteId { get; set; }
+        public long Id { get; set; }
        public string UniteCode { get; set; }
 
        public string UniteLibelle

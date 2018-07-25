@@ -8,7 +8,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 {
     public class GES_Depot
     {
-        public int DepotId { get; set; }
+        public long DepotId { get; set; }
 
         public string DepotVille { get; set; }
         public string DepotPays { get; set; }

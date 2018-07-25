@@ -8,7 +8,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 {
    public  class GES_Marque
     {
-        public long  MarqueId { get; set; }
+        public long  Id { get; set; }
      public string MarqueCode { get; set; }
       public string MarqueLibelle { get; set; }
          public bool MarqueActif { get; set; }

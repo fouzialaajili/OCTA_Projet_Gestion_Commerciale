@@ -8,7 +8,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 {
     public class GES_Licence
     {
-     public long  LicenceId { get; set; }
+     public long  Id { get; set; }
       public int LicenceNumeroSerieid
       { get; set; }
      public string LicenceRaisonSociale

@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
         public GES_UniteConfiguration()
         {
             ToTable("Unite");
-            HasKey(a => a.UniteId);
+            HasKey(a => a.Id);
             HasOptional<GEN_Dossiers>(a => a.UniteSociete)
                 .WithMany(d => d.SocieteUnite)
                 .HasForeignKey<long?>(a => a.UniteSocieteId);

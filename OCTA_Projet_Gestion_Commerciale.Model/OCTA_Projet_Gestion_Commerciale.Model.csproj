@@ -77,7 +77,6 @@
     <Compile Include="Model\GEN_Periodes.cs" />
     <Compile Include="Model\GEN_Preferences.cs" />
     <Compile Include="Model\GEN_Regelement.cs" />
-    <Compile Include="Model\GEN_Societes.cs" />
     <Compile Include="Model\GEN_Tiers.cs" />
     <Compile Include="Model\GEN_TiersContacts.cs" />
     <Compile Include="Model\GEN_TypePaiement.cs" />

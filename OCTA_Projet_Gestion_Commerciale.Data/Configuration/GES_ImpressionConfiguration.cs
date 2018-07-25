@@ -14,7 +14,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
         public GES_ImpressionConfiguration()
         {
             ToTable("Impression");
-            HasKey(a => a.ImpressionId);
+            HasKey(a => a.Id);
             HasOptional<GEN_Dossiers>(a => a.ImpressionSociete)
                 .WithMany(d => d.SocieteImpression)
                 .HasForeignKey<long?>(a => a.ImpressionSocieteId);

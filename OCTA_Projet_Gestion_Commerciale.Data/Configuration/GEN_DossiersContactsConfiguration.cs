@@ -12,7 +12,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GEN_DossiersContactsConfiguration()
         {
-            ToTable("DossiersContact");
+            ToTable("GEN_DossiersContact");
             HasKey(x => x.DossiersContactsId);
 
 

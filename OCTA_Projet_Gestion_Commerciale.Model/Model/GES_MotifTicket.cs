@@ -17,9 +17,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public DateTime? MotifTicketSysDateCreation { get; set;}
         public DateTime? MotifTicketSysDateUpdate { get; set;}
 
-    /***/    public long? MotifTicketSocieteId { get; set; }
-         virtual  public GEN_TiersContact MotifTicketTicket { get; set; }
-          virtual public GEN_Dossiers MotifTicketSociete { get; set; }
+    /***/  
+        public long? MotifTicketTiersContactId { get; set; }
+        virtual  public GEN_TiersContact MotifTicketTicket { get; set; }
+        public long? MotifTicketSocieteId { get; set; }
+        virtual public GEN_Dossiers MotifTicketSociete { get; set; }
 
     }
 

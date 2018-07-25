@@ -9,7 +9,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
     public  class GES_Motif
     {
         public long MotifId { get; set; }
-   /****/     public long OpportuniteId { get; set; }
+   /****/     public long? OpportuniteId { get; set; }
         public string MotifEtat { get; set; }
         public string MotifMotif { get; set; }
         public string MotifDescription { get; set; }

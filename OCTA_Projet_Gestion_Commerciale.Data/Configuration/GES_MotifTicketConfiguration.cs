@@ -24,11 +24,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
 
         HasOptional<GEN_TiersContact>(a => a.MotifTicketTicket)
                     .WithMany(d => d.TicketMotifTicket)
-                    .HasForeignKey<long?>(a => a.MotifIdticket);
+                    .HasForeignKey<long?>(a => a.MotifTicketTiersContactId);
 
             HasOptional<GEN_Dossiers>(a => a.MotifTicketSociete)
                     .WithMany(d => d.GES_MotifTicket)
-                    .HasForeignKey<long?>(a => a.MotifTicketId);
+                    .HasForeignKey<long?>(a => a.MotifTicketSocieteId);
 
         }
     }

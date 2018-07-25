@@ -15,9 +15,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
         {
             ToTable("Dossier");
             HasKey(x => x.Id);
-            HasOptional<GEN_Dossiers>(a => a.TvaSociete)
+            HasOptional<GEN_Dossiers>(a => a.GEN_Dossiers)
          .WithMany(d => d.SocieteTVA)
-          .HasForeignKey<long?>(a => a.TvaSocieteId);
+          .HasForeignKey<long?>(a => a.IdDossier);
         }
     }
    

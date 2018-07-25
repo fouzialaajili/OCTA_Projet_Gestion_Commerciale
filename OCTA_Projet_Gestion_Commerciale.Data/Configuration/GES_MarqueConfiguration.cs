@@ -14,7 +14,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
         public GES_MarqueConfiguration()
         {
             ToTable("Marque");
-            HasKey(a => a.MarqueId);
+            HasKey(a => a.Id);
             HasOptional<GEN_Dossiers>(a => a.MarqueSociete)
                 .WithMany(d => d.SocieteMarque)
                 .HasForeignKey<long?>(a => a.MarqueSocieteId);

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
 {
-    class GES_TicketConfiguration : EntityTypeConfiguration<GEN_TiersContact>
+    class GES_TicketConfiguration : EntityTypeConfiguration<GES_Ticket>
     {
         public GES_TicketConfiguration()
         {

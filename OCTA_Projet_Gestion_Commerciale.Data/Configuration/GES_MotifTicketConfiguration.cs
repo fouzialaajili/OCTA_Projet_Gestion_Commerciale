@@ -22,7 +22,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
         //virtual public GEN_Dossiers MotifTicketSociete { get; set; }
 
 
-        HasOptional<GEN_TiersContact>(a => a.MotifTicketTicket)
+        HasOptional<GES_Ticket>(a => a.MotifTicketTicket)
                     .WithMany(d => d.TicketMotifTicket)
                     .HasForeignKey<long?>(a => a.MotifTicketTiersContactId);
 

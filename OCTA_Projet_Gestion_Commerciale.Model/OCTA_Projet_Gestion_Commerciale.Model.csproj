@@ -111,7 +111,7 @@
     <Compile Include="Model\GES_Reglement.cs" />
     <Compile Include="Model\GES_ReglementFacture.cs" />
     <Compile Include="Model\GES_Representant.cs" />
-    <Compile Include="Model\GES_Ticket.cs" />
+    <Compile Include="Model\GES_Ticket.cs.cs" />
     <Compile Include="Model\GES_TicketDetail.cs" />
     <Compile Include="Model\GES_Tolerance.cs" />
     <Compile Include="Model\GES_Unite.cs" />

@@ -105,7 +105,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public virtual ICollection<GES_Opportunite> GES_Opportunite { get; set; }
         public virtual ICollection<GES_OpportuniteDetail> GES_OpportuniteDetail { get; set; }
         public virtual ICollection<GES_Reglement> GES_Reglement { get; set; }
-        public virtual ICollection<GEN_TiersContact> GES_Ticket { get; set; }
+        public virtual ICollection<GES_Ticket> GES_Ticket { get; set; }
         public virtual ICollection<GES_TicketDetail> GES_TicketDetail { get; set; }
             public long TvaSocieteId { get; set; }
         public virtual CPT_CodesTVA TvaSociete { get; set; }

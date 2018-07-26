@@ -20,6 +20,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public string Valeur { get; set; }
 
         public int? Ordre { get; set; }
+        public virtual GEN_Model GEN_Model { get; set; }
 
 
 

@@ -38,7 +38,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public IEnumerable<LicencePivot> GetALL()
         {
-            IEnumerable<GES_Licence> licences = licenceRepository.GetALL().ToList();
+            IEnumerable<GES_Licence> licences = licenceRepository.GetAll().ToList();
             IEnumerable<LicencePivot> licencePivots = Mapper.Map<IEnumerable<GES_Licence>, IEnumerable<LicencePivot>>(licences);
             return licencePivots;
         }

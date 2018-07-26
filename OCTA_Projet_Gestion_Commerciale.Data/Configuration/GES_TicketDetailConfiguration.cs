@@ -26,7 +26,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
                               .WithMany(d => d.GES_TicketDetail)
                               .HasForeignKey<long?>(a => a.TicketDetailIdcommercial);
 
-            HasOptional<GEN_TiersContact>(a => a.TicketDetailTicket)
+            HasOptional<GES_Ticket>(a => a.TicketDetailTicket)
                                   .WithMany(d => d.GES_TicketDetail)
                                   .HasForeignKey<long?>(a => a.TicketDetailIdTicket);
 

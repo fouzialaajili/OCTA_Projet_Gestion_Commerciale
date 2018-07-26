@@ -11,7 +11,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
   
     public interface ILicenceRepository : IRepository<GES_Licence>
     {
-        IEnumerable<GES_Licence> GetALL();
+       
         GES_Licence GetById(long id);
         IEnumerable<GES_Licence> GetItemsByModelLibelle(string identifged);
     }
@@ -21,10 +21,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public LicenceRepositoy(IDbFactory dbFactory) : base(dbFactory) { }
 
-        public IEnumerable<GES_Licence> GetALL()
-        {
-            return DbContext.Licences.ToList();
-        }
+      
 
         public GES_Licence GetById(long id)
         {

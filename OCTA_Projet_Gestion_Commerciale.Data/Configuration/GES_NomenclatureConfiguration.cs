@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_NomenclatureConfiguration()
         {
-            ToTable("Nomenclature");
+            ToTable("GES_Nomenclature");
             HasKey(x => x.NomenclatureId);
 
 

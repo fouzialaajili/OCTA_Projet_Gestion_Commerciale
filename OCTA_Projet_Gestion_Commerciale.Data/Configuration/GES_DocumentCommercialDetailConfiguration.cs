@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_DocumentCommercialDetailConfiguration()
         {
-            ToTable("DocumentCommercialDetail");
+            ToTable("GES_DocumentCommercialDetail");
             HasKey(a => a.DocumentCommercialDetailId);
             HasOptional<GES_Article>(a => a.DocumentCommercialDetailArticle)
       .WithMany(d => d.ArticleDocumentCommercialDetail)

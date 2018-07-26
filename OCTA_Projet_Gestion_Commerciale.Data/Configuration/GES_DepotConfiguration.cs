@@ -12,7 +12,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_DepotConfiguration()
         {
-            ToTable("Depot");
+            ToTable("GES_Depot");
             HasKey(a => a.DepotId);
             HasOptional<GEN_Dossiers>(a => a.DepotSociete)
 .WithMany(d => d.SocieteDepot)

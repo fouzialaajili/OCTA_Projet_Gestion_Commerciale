@@ -12,7 +12,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GEN_PeriodesConfiguration()
         {
-            ToTable(" GEN_Periode");
+            ToTable("GEN_Periode");
             HasKey(x => x.Id);
 
 

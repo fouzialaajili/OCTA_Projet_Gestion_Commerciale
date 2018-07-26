@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_FournisseurArticleConfiguration()
         {
-            ToTable("FournisseurArticle");
+            ToTable("GES_FournisseurArticle");
             HasKey(x => x.FournisseurArticleId);
 
 

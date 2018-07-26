@@ -12,7 +12,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     public class GES_ArticlesPrixConfiguration : EntityTypeConfiguration<GES_ArticlesPrix>
     { public GES_ArticlesPrixConfiguration(){
 
-            ToTable("ArticlesPrix");
+            ToTable("GES_ArticlesPrix");
             HasKey(a => a.ArticlesPrixId);
             HasOptional<GES_Article>(a => a.ArticlesPrixArticle)
 .WithMany(d => d.ArticleArticlesPrix)

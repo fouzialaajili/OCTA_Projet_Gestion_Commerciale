@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_RepresentantConfiguration()
         {
-            ToTable("Representant");
+            ToTable("GES_Representant");
             HasKey(x => x.RepresentantId);
 
 

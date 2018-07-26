@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GEN_TiersContactsConfiguration()
         {
-            ToTable("tiersContact");
+            ToTable("GEN_TiersContacts");
             HasKey(x => x.GEN_TiersContactsId);
 
 

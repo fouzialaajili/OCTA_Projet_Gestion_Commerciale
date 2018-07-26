@@ -8,18 +8,13 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
 {
-    public class CPT_CodesTVAConfiguration : EntityTypeConfiguration<CPT_CodesTVA>
+    public class CPT_NatureOperationConfiguration : EntityTypeConfiguration<CPT_NatureOperation>
     {
-
-        public CPT_CodesTVAConfiguration()
+        public CPT_NatureOperationConfiguration()
         {
-            ToTable("Dossier");
+            ToTable("CPT_NatureOperation");
             HasKey(x => x.Id);
-            HasOptional<GEN_Dossiers>(a => a.GEN_Dossiers)
-         .WithMany(d => d.SocieteTVA)
-          .HasForeignKey<long?>(a => a.IdDossier);
+
         }
     }
-   
-        }
- 
+}

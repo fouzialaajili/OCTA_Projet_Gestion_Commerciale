@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_TicketDetailConfiguration()
         {
-            ToTable("TicketDetail");
+            ToTable("GES_TicketDetail");
             HasKey(x => x.TicketDetailId);
 
 

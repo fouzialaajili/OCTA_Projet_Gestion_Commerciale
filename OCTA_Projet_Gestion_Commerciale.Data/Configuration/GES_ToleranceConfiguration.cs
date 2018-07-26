@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_ToleranceConfiguration()
         {
-            ToTable("Tolerance");
+            ToTable("GES_Tolerance");
             HasKey(a => a.Id);
 
             HasOptional<GEN_Dossiers>(a => a.ToleranceSociete)

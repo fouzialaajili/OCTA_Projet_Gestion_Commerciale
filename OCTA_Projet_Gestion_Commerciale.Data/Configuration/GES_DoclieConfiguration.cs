@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_DoclieConfiguration()
         {
-            ToTable("Doclie");
+            ToTable("GES_Doclie");
             HasKey(a => a.DoclieId);
             HasOptional<GEN_Dossiers>(a => a.DoclieSociete)
          .WithMany(d => d.SocieteDoclie)

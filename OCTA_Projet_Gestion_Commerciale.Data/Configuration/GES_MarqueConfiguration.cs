@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_MarqueConfiguration()
         {
-            ToTable("Marque");
+            ToTable("GES_Marque");
             HasKey(a => a.Id);
             HasOptional<GEN_Dossiers>(a => a.MarqueSociete)
                 .WithMany(d => d.SocieteMarque)

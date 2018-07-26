@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_MouvementStockConfiguration()
         {
-            ToTable("MouvementStock");
+            ToTable("GES_MouvementStock");
             HasKey(x => x.MouvementStockId);
 
 

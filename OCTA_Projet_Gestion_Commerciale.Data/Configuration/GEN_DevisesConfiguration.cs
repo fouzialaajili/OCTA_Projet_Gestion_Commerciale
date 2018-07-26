@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GEN_DevisesConfiguration()
         {
-            ToTable("Devise");
+            ToTable("GEN_Devise");
             HasKey(a => a.DevisesId);
 
 

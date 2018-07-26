@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_OpportuniteConfiguration()
         {
-            ToTable("Opportunite");
+            ToTable("GES_Opportunite");
             HasKey(x => x.OpportuniteId);
 
 

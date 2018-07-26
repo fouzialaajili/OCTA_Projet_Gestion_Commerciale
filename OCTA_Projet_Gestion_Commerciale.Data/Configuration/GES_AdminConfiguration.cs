@@ -11,7 +11,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     public class GES_AdminConfiguration : EntityTypeConfiguration<GES_Admin>
     {
       public GES_AdminConfiguration() {
-           ToTable("Admin");
+           ToTable("GES_Admin");
             HasKey(a => a.AdminId);
            
      

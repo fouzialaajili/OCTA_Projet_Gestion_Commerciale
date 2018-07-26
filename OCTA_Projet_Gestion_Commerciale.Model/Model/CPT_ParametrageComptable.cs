@@ -6,7 +6,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
     public partial class CPT_ParametrageComptable
     {
-        public long CPT_ParametrageComptableId { get; set; }
+        public long Id { get; set; }
      
         public string NumeroPiece { get; set; }
 

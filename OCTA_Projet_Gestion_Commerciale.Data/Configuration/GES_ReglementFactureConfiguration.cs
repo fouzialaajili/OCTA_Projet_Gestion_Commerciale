@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_ReglementFactureConfiguration()
         {
-            ToTable("ReglementFacture");
+            ToTable("GES_ReglementFacture");
             HasKey(x => x.ReglementFactureId);
 
 

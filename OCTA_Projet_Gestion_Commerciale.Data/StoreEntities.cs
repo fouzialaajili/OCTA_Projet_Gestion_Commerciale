@@ -71,6 +71,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         public DbSet<GES_Unite> Unites { get; set; }
 
 
+        public DbSet<CPT_Classe> Classes { get; set; }
+        public DbSet<CPT_ComptesBancairesTiers> ComptesBancairesTiers { get; set; }
+        public DbSet<CPT_Ecritures> Ecritures { get; set; }
+        public DbSet<CPT_Lettrage> Lettrages { get; set; }
+        public DbSet<CPT_NatureOperation> NatureOperations { get; set; }
+        public DbSet<CPT_Pieces> Pieces { get; set; }
+        public DbSet<CPT_PlanAnalytique> PlanAnalytiques { get; set; }
+        public DbSet<CPT_RelevesBancaires> RelevesBancaires { get; set; }
+        public DbSet<CPT_TVALettrage> TVALettrage { get; set; }
+
 
         public virtual void Commit()
         {
@@ -124,9 +134,19 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
             modelBuilder.Configurations.Add(new GEN_DossiersConfiguration());
             modelBuilder.Configurations.Add(new GES_TicketConfiguration());
             modelBuilder.Configurations.Add(new GES_TicketDetailConfiguration());
-            modelBuilder.Configurations.Add(new CPT_CodesTVAConfiguration());
+            //modelBuilder.Configurations.Add(new CPT_CodesTVAConfiguration());
 
             //   modelBuilder.Configurations.Add(new GES_());
-        }
+            modelBuilder.Configurations.Add(new CPT_ClasseConfiguration());
+            modelBuilder.Configurations.Add(new CPT_ComptesBancairesTiersConfiguration());
+            modelBuilder.Configurations.Add(new CPT_EcrituresConfiguration());
+            modelBuilder.Configurations.Add(new CPT_LettrageConfiguration());
+            modelBuilder.Configurations.Add(new CPT_NatureOperationConfiguration());
+            modelBuilder.Configurations.Add(new CPT_PiecesConfiguration());
+            modelBuilder.Configurations.Add(new CPT_PlanAnalytiqueConfiguration());
+
+            modelBuilder.Configurations.Add(new CPT_RelevesBancairesConfiguration());
+            modelBuilder.Configurations.Add(new CPT_TVALettrageConfiguration());
+}
     }
 }

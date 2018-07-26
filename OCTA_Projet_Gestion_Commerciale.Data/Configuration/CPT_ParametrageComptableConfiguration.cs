@@ -14,18 +14,8 @@ namespace Store.Data.Configuration
         public CPT_ParametrageComptableConfiguration()
         {
             ToTable("CPT_ParametrageComptable");
-            HasKey(x => x.CPT_ParametrageComptableId);
+            HasKey(x => x.Id);
 
-
-            /***********************************/
-
-        //     public virtual CPT_CompteG CPT_CompteG { get; set; }
-
-        //public virtual CPT_CompteG CPT_CompteG_CompteDeficit { get; set; }
-
-        //public virtual CPT_Journaux CPT_Journaux { get; set; }
-
-        //public virtual GEN_Dossiers GEN_Dossiers { get; set; }
 
         HasOptional<GEN_Dossiers>(a => a.GEN_Dossiers)
                                   .WithMany(d => d.CPT_ParametrageComptable)

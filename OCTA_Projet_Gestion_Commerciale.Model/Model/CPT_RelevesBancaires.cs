@@ -16,11 +16,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public long? IdCompteBancaire { get; set; }
    
 
-        public string Description { get; set; }
+     
   
 
         public long? IdDevise { get; set; }
-       
+        public string Description { get; set; }
+
         public double? SoldeDebut { get; set; }
      
         public double? SoldeFin { get; set; }

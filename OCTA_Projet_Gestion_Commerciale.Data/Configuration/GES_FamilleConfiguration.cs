@@ -12,7 +12,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     public class GES_FamilleConfiguration : EntityTypeConfiguration<GES_Famille>
     {
         public  GES_FamilleConfiguration(){
-            ToTable("Famille");
+            ToTable("GES_Famille");
             HasKey(a => a.FamilleId);
             HasOptional<GEN_Dossiers>(a => a.FamilleSociete)
             .WithMany(d => d.SocieteFamille)

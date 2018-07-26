@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GEN_TypePaiementConfiguration()
         {
-            ToTable("TypePaiement");
+            ToTable("GEN_TypePaiement");
             HasKey(x => x.TypePaiementId);
 
 

@@ -8,14 +8,12 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
 {
-     public class GES_LicenceConfiguration : EntityTypeConfiguration<GES_Licence>
+    public class CPT_PlanAnalytiqueConfiguration : EntityTypeConfiguration<CPT_PlanAnalytique>
     {
-        public GES_LicenceConfiguration()
+        public CPT_PlanAnalytiqueConfiguration()
         {
-            ToTable("GES_Licence");
-            HasKey(a => a.Id);
-
-
-         }
+            ToTable("CPT_PlanAnalytique");
+            HasKey(x => x.Id);
         }
+    }
 }

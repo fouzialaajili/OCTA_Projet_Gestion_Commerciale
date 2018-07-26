@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GES_GedConfiguration()
         {
-            ToTable("Ged");
+            ToTable("GES_Ged");
             HasKey(x => x.GedId);
            
         }

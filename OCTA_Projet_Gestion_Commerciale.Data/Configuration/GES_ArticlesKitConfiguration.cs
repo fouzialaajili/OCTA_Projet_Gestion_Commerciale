@@ -12,7 +12,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     public class GES_ArticlesKitConfiguration : EntityTypeConfiguration<GES_ArticlesKit>
     {
         public GES_ArticlesKitConfiguration(){
-            ToTable("ArticlesKit");
+            ToTable("GES_ArticlesKit");
             HasKey(a => a.ArticlesKitId);
             HasOptional<GES_Article>(a => a.ArticlesKitArticle)
 .WithMany(d => d.ArticleArticlesKit)

@@ -8,19 +8,16 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
 {
-    class GEN_ItemsConfiguration : EntityTypeConfiguration<GEN_Items>
+   public  class CPT_EcheancesConfiguration : EntityTypeConfiguration<CPT_Echeances>
     {
-        public GEN_ItemsConfiguration()
+        public CPT_EcheancesConfiguration()
         {
-            ToTable("GEN_Items");
+            ToTable("CPT_Classe");
             HasKey(x => x.Id);
-            HasOptional<GEN_Model>(a => a.GEN_Model)
-       .WithMany(d => d.GEN_Items)
-     .HasForeignKey<long?>(a => a.IdModel);
-            
-
-
-
+            HasOptional<CPT_Ecritures>(a => a.CPT_Ecritures)
+        .WithMany(d => d.CPT_Echeances)
+         .HasForeignKey<long?>(a => a.IdEcriture);
+           
     }
     }
 }

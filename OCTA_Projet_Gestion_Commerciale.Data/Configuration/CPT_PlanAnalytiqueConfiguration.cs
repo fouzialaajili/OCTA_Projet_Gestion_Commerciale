@@ -14,6 +14,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
         {
             ToTable("CPT_PlanAnalytique");
             HasKey(x => x.Id);
+         
         }
     }
 }

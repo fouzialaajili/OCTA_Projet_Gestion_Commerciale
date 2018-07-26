@@ -99,7 +99,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
             modelBuilder.Configurations.Add(new GES_DepotConfiguration());
 
 
-            modelBuilder.Configurations.Add(new GES_DeviseConfiguration());
+            modelBuilder.Configurations.Add(new GEN_DevisesConfiguration());
             modelBuilder.Configurations.Add(new GES_DoclieConfiguration());
             modelBuilder.Configurations.Add(new GES_DoclieartConfiguration());
 

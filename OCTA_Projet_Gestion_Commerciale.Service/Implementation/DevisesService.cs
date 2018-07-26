@@ -24,39 +24,51 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             this.unitOfWork = unitOfWork;
 
         }
-        public void CreateDevisesPivot(DevisesPivot devises)
+        public void CreateDevise(DevisesPivot devises)
         {
             GEN_Devises _Devises = Mapper.Map<DevisesPivot, GEN_Devises>(devises);
             devisesRepository.Add(_Devises);
         }
 
-        public void DeleteDevisesPivot(DevisesPivot devises)
+        public void DeleteDevise(DevisesPivot devises)
         {
             devisesRepository.Delete(Mapper.Map<DevisesPivot, GEN_Devises>(devises));
         }
-        public DevisesPivot GetDevisesPivot(long id)
+
+        public IQueryable<GEN_Devises> GetAllDevises()
+        {
+            var devises = devisesRepository.GetAll();//.ToList();
+            //IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devises);
+            return devises.AsQueryable();
+        }
+
+        public DevisesPivot GetDevise(long id)
         {
             var item = devisesRepository.GetById((int)id);
             DevisesPivot devisesPivot = Mapper.Map<GEN_Devises, DevisesPivot>(item);
             return devisesPivot;
         }
 
-        public void SaveDevisesPivot()
+       
+
+        public void SaveDevise()
         {
             unitOfWork.Commit();
         }
 
 
-        public void UpdateDevisesPivot(DevisesPivot devises)
+        public void UpdateDevise(DevisesPivot devises)
         {
             devisesRepository.Update(Mapper.Map<DevisesPivot, GEN_Devises>(devises));
         }
 
-        IEnumerable<DevisesPivot> IDevisesService.GetALL()
-        {
-            IEnumerable<GEN_Devises> devises = devisesRepository.GetAll().ToList();
-            IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devises);
-            return devisesPivot;
-        }
+        
+
+        //IEnumerable<DevisesPivot> GetDevises()
+        //{
+        //    IEnumerable<GEN_Devises> devises = devisesRepository.GetAll().ToList();
+        //    IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devises);
+        //    return devisesPivot;
+        //}
     }
 }

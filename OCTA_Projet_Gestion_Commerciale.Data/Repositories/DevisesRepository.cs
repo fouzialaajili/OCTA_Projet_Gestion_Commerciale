@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class DevisesRepository : RepositoryBase<GEN_Devises>, IDevisesRepository
+    public class DevisesRepository : RepositoryBase<GEN_Devises>, IDevisesRepository
     {
         public DevisesRepository(IDbFactory dbFactory) : base(dbFactory) { }
     }

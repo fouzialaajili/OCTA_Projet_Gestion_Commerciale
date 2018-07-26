@@ -8,7 +8,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 {
     public class AdminPivot
     {
-        public long Id { get; set; }
+        public long AdminId { get; set; }
         public string AdminLogin { get; set; }
         public string AdminPassword { get; set; }
         public bool AdminActif { get; set; }

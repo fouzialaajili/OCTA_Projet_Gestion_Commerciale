@@ -1,4 +1,5 @@
 ﻿
+using OCTA_Projet_Gestion_Commerciale.Model;
 using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
 {
    public interface IDevisesService
     {
-        IEnumerable<DevisesPivot> GetALL();
-        DevisesPivot GetDevisesPivot(long id);
+       //IEnumerable<DevisesPivot> GetDevises();
+        DevisesPivot GetDevise(long id);
      
-        void DeleteDevisesPivot(DevisesPivot devises);
-        void UpdateDevisesPivot(DevisesPivot devises);
-        void CreateDevisesPivot(DevisesPivot devises);
-        void SaveDevisesPivot();
+        void DeleteDevise(DevisesPivot devises);
+        void UpdateDevise(DevisesPivot devises);
+        void CreateDevise(DevisesPivot devises);
+        IQueryable<GEN_Devises> GetAllDevises();
+        void SaveDevise();
     }
 }

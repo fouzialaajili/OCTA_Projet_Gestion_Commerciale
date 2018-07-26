@@ -48,7 +48,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public virtual ICollection<CPT_Pieces> CPT_Pieces_TR { get; set; }
         public virtual ICollection<CPT_RelevesBancaires> CPT_RelevesBancaires { get; set; }
 
-        public virtual GEN_Dossiers GEN_Dossiers { get; set; }
+     
 
    
         public virtual ICollection<GEN_Tiers> GEN_Tiers { get; set; }

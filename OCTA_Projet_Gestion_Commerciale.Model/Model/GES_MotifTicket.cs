@@ -19,7 +19,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
     /***/  
         public long? MotifTicketTiersContactId { get; set; }
-        virtual  public GEN_Ticket MotifTicketTicket { get; set; }
+        virtual  public GES_Ticket MotifTicketTicket { get; set; }
         public long? MotifTicketSocieteId { get; set; }
         virtual public GEN_Dossiers MotifTicketSociete { get; set; }
 

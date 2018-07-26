@@ -59,7 +59,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         public IEnumerable<UnitePivot> GetUnitePivotsByName(string UniteName)
         {
             IEnumerable<GES_Unite> unite = uniteRepository.GetItemsByModelLibelle(UniteName).ToList();
-            IEnumerable<UnitePivot> unitePivots = Mapper.Map<IEnumerable<GES_Unite>, IEnumerable<UnitePivot>>(motif);
+            IEnumerable<UnitePivot> unitePivots = Mapper.Map<IEnumerable<GES_Unite>, IEnumerable<UnitePivot>>(unite);
             return unitePivots;
         }
 

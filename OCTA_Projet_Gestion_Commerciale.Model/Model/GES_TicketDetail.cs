@@ -23,7 +23,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
       
 
         virtual public GEN_Tiers TicketDetailFichetier { get; set; }
-        virtual public GEN_TiersContact TicketDetailTicket { get; set; }
+        virtual public GES_Ticket TicketDetailTicket { get; set; }
        
 
     }

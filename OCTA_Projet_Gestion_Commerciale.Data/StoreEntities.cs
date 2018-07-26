@@ -62,7 +62,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         public DbSet<GES_Representant> Representants { get; set; }
         public DbSet<GEN_Dossiers> Societes { get; set; }
 
-        public DbSet<GEN_TiersContact> Tickets { get; set; }
+        public DbSet<GES_Ticket> Tickets { get; set; }
         public DbSet<GES_TicketDetail> TicketDetails { get; set; }
 
         public DbSet<GES_Tolerance> Tolerances { get; set; }

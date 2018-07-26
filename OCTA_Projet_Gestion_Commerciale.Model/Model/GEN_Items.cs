@@ -24,6 +24,5 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
 
 
-
     }
 }

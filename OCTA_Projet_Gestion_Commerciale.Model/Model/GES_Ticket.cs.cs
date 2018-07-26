@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Model
 {
-    public class GEN_TiersContact
+    public class GES_Ticket
     {
         public long TicketId { get; set; }
         public long TicketNumero { get; set; }

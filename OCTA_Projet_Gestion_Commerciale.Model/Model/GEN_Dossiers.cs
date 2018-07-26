@@ -119,7 +119,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public virtual ICollection<GES_Periode> GES_Periode { get; set; }
         public virtual ICollection<GES_Reglement> GES_Reglement { get; set; }
         public virtual ICollection<GES_Representant> GES_Representant { get; set; }
-        public virtual ICollection<GEN_TiersContact> GES_Ticket { get; set; }
+        public virtual ICollection<GES_Ticket> GES_Ticket { get; set; }
         public virtual ICollection<CPT_CodesTVA> SocieteTVA { get; set; }
     }
 }

@@ -37,6 +37,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public DateTime? sys_dateCreation { get; set; }
 
         public virtual GEN_Tiers GEN_Tiers { get; set; }
-        public virtual ICollection<GEN_TiersContact> GES_Ticket { get; set; }
+        public virtual ICollection<GES_Ticket> GES_Ticket { get; set; }
     }
 }

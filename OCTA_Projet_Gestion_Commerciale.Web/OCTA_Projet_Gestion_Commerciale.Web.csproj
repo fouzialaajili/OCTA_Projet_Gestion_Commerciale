@@ -551,8 +551,8 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
-    <Content Include="Content\css\bootstrap.css" />
-    <Content Include="Content\css\site.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="js\bootstrap.js" />

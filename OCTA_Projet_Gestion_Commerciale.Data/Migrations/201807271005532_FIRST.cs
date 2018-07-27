@@ -3,7 +3,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class FIRST : DbMigration
     {
         public override void Up()
         {
@@ -332,13 +332,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Migrations
                         Devisessys_user = c.String(),
                         Devisessys_dateUpdate = c.DateTime(),
                         Devisessys_dateCreation = c.DateTime(),
-                        GEN_Dossiers_DossierId = c.Long(),
                     })
                 .PrimaryKey(t => t.DevisesId)
                 .ForeignKey("dbo.GEN_Dossier", t => t.DevisesIdDossier)
-                .ForeignKey("dbo.GEN_Dossier", t => t.GEN_Dossiers_DossierId)
-                .Index(t => t.DevisesIdDossier)
-                .Index(t => t.GEN_Dossiers_DossierId);
+                .Index(t => t.DevisesIdDossier);
             
             CreateTable(
                 "dbo.CPT_ComptesBancaires",
@@ -1726,7 +1723,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Migrations
             DropForeignKey("dbo.GES_Opportunite", "OpportuniteIdcommercial", "dbo.GEN_Tier");
             DropForeignKey("dbo.GES_Opportunite", "OpportuniteDossierd", "dbo.GEN_Dossier");
             DropForeignKey("dbo.GES_Opportunite", "OpportuniteIdDevise", "dbo.GEN_Devise");
-            DropForeignKey("dbo.GEN_Devise", "GEN_Dossiers_DossierId", "dbo.GEN_Dossier");
             DropForeignKey("dbo.GEN_Devise", "DevisesIdDossier", "dbo.GEN_Dossier");
             DropForeignKey("dbo.CPT_ComptesBancaires", "GEN_Items_Id", "dbo.GEN_Items");
             DropForeignKey("dbo.CPT_ComptesBancaires", "GEN_Dossiers_DossierId", "dbo.GEN_Dossier");
@@ -1883,7 +1879,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Migrations
             DropIndex("dbo.CPT_ComptesBancaires", new[] { "GEN_Dossiers_DossierId" });
             DropIndex("dbo.CPT_ComptesBancaires", new[] { "GEN_Devises_DevisesId" });
             DropIndex("dbo.CPT_ComptesBancaires", new[] { "CPT_CompteG_Id" });
-            DropIndex("dbo.GEN_Devise", new[] { "GEN_Dossiers_DossierId" });
             DropIndex("dbo.GEN_Devise", new[] { "DevisesIdDossier" });
             DropIndex("dbo.CPT_ComptesBancairesTiers", new[] { "IdTiers" });
             DropIndex("dbo.CPT_ComptesBancairesTiers", new[] { "IdDevise" });

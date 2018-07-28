@@ -13,10 +13,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
             bundles.Add(new ScriptBundle("~/bootstrap/js").Include(
                 "~/js/bootstrap.js", "~/js/site.js"
                 ));
-            //bundles.Add(new StyleBundle("~/bootstrap/css").Include(
-            //    "~/css/bootstrap.css", "~/css/site.css"
-            //    ));
-            bundles.Add(new ScriptBundle("~/bundles/infragisticsLoader").Include(
+         bundles.Add(new StyleBundle("~/bootstrap/css").Include("~/css/bootstrap.css", "~/css/site.css"
+            ));
+            /*bundles.Add(new ScriptBundle("~/bundles/infragisticsLoader").Include(
                 "~/Script/Infragistics/js/Infragistics.loader.js"
                 ));
 
@@ -45,7 +44,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
 
             bundles.Add(new StyleBundle("~/Content/bootstrapcss").Include(
                                                 "~/Content/bootstrap.min.css"));
-
+                                                */
             BundleTable.EnableOptimizations = true;
 
 

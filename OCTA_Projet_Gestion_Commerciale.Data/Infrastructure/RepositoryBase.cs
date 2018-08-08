@@ -43,7 +43,22 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Infrastructure
             dbSet.Attach(entity);
             dataContext.Entry(entity).State = EntityState.Modified;
         }
+        public virtual void Delete(object idSource, T entity)
+        {
+            //dbSet.Attach(entity);
+            //dbSet.Remove(entity);
+            T entityToDelete = dbSet.Find(idSource);
+            if (dataContext.Entry(entityToDelete).State == EntityState.Detached)
+            {
+                dbSet.Attach(entityToDelete);
 
+            }
+            dataContext.Entry(entityToDelete).State = EntityState.Deleted;
+
+
+            //  dbSet.Remove(entityToDelete);
+
+        }
         public virtual void Delete(T entity)
         {
             dbSet.Remove(entity);
@@ -77,6 +92,5 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Infrastructure
         }
 
         #endregion
-
     }
 }

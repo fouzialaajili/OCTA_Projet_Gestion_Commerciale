@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class DepotService : IDepotService
+    public class DepotService : IDepotService
     {
 private readonly IDepotRepository depotRepository;
 private readonly IUnitOfWork unitOfWork;
@@ -37,7 +37,7 @@ private readonly IUnitOfWork unitOfWork;
         void IDepotService.DeleteDepotPivot(DepotPivot depot)
         {
 
-            depotRepository.Delete(Mapper.Map<DepotPivot, GES_Depot>(depot));
+            depotRepository.Delete(depot.DepotId,Mapper.Map<DepotPivot, GES_Depot>(depot));
         }
 
         IEnumerable<DepotPivot> IDepotService.GetALL()

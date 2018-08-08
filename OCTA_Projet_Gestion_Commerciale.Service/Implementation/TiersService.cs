@@ -14,7 +14,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class TiersService : ITiersService
+    public class TiersService : ITiersService
     { 
         private readonly ITiersRepository iTiersRepository;
 
@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         public void DeleteTiers(TiersPivot Tiers)
         {
 
-            iTiersRepository.Delete(Mapper.Map<TiersPivot, GEN_Tiers>(Tiers));
+            iTiersRepository.Delete(Tiers.Id,Mapper.Map<TiersPivot, GEN_Tiers>(Tiers));
         }
 
         public IEnumerable<TiersPivot> GetALL()

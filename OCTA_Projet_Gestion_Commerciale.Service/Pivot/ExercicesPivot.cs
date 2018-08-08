@@ -39,10 +39,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public  DossiersPivot GEN_Dossiers { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+       
         public  ICollection<PeriodesPivot> GEN_Periodes { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+      
         public  ICollection<PreferencesPivot> GEN_Preferences { get; set; }
     }
 }

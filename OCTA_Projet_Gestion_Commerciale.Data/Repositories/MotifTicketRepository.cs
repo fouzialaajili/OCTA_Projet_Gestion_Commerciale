@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class MotifTicketRepository : RepositoryBase<GES_MotifTicket>, IMotifTicketRepository
+ public   class MotifTicketRepository : RepositoryBase<GES_MotifTicket>, IMotifTicketRepository
     {
         public MotifTicketRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

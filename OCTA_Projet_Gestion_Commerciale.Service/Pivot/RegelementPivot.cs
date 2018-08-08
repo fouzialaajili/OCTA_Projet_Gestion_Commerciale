@@ -27,6 +27,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public string Liaison { get; set; }
 
+
         public JournauxPivot CPT_Journaux { get; set; }
 
         public TypePaiementPivot GEN_TypePaiement { get; set; }

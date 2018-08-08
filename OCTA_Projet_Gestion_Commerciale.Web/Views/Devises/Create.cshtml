@@ -1,0 +1,178 @@
+﻿@model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.DevisesFormViewModel
+@{
+    ViewBag.Title = "Create  devise!";
+    //Layout = "";
+}
+
+@section pageButtons {
+
+
+    <div class="btn-group">
+        <button class="btn waves-effect waves-light" type="button" name="action" id="saveAll">Enregistrer</button>
+        <button class="btn-flat with-border waves-effect waves-light" type="button" name="action" onclick="window.location.href='@Url.Action("Index")'">Fermer</button>
+        <button class="btn-flat waves-effect waves-light dropdown-button" type="submit" name="action" data-activates='more-actions'><i class="material-icons">more_vert</i></button>
+        <!-- Dropdown Structure -->
+        <ul id='more-actions' class='dropdown-content'>
+            <li>
+                <a href="@Url.Action("Create", new { id = ""})">
+                    <i class="material-icons">add</i>
+                    <span>Nouveau devise</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Recommencer()">
+                    <i class="material-icons">check</i>
+                    <span>Recommencer à zéro</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Supprimer()">
+                    <i class="material-icons">delete_forever</i>
+                    <span>Supprimer</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+}
+
+
+@using (Html.BeginForm("Delete", "Devises", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce devise?');" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.DevisesId)
+    <button class="btn btn-danger btn-block" type="submit"  id="deleteButton">Supprimer</button>
+
+}
+
+<div class="main-form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" id="createButton" value="Create" class="btn btn-default" />
+        <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" />
+
+        <div class="row">
+            <div class="form-group col s12">
+                @Html.CheckBoxFor(model => model.DevisesActif)
+                <span>Actif</span>
+            </div>
+            <div class="form-group col s12">
+                <div class="row">
+                    <div class="input-field col s12 m6 l3">
+                        @Html.LabelFor(model => model.DevisesCode)
+                        @Html.EditorFor(model => model.DevisesCode, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.ValidationMessageFor(model => model.DevisesCode, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-field col s12 m6 l3">
+                        <div class="row">
+                            <div class="input-field col s12 m6 l6">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.DevisesTenueDeCompte, "1", new { Checked = "checked" })
+                                    @*@Html.span(model => model.TenueDeCompte, "Oui", htmlAttributes: new { @class = "control-label" })*@
+                                    <span>Oui</span>
+                                </label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <label>
+                                    @Html.RadioButtonFor(model => model.DevisesTenueDeCompte, "0")
+                                    @*@Html.LabelFor(model => model.TenueDeCompte, "Non", htmlAttributes: new { @class = "control-label" })*@
+                                    <span>Non</span>
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col s12">
+                <div class="row">
+                    <div class="input-field col s12 m6 l6">
+                        @Html.LabelFor(model => model.DevisesDescription)
+                        @Html.EditorFor(model => model.DevisesDescription, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.ValidationMessageFor(model => model.DevisesCode, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-field col s12 m6 l3">
+                        @Html.LabelFor(model => model.DevisesSymbole)
+                        @Html.EditorFor(model => model.DevisesSymbole, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.ValidationMessageFor(model => model.DevisesSymbole, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-field col s12 m6 l3">
+                        @Html.LabelFor(model => model.DevisesCoursDevise)
+                        @Html.EditorFor(model => model.DevisesCoursDevise, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.ValidationMessageFor(model => model.DevisesCoursDevise, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    }
+</div>
+
+
+
+<br />
+
+<script>
+    $("#saveAll").bind({
+        click: function (e) {
+            if ($('form').valid()) {
+                $('#createButton').click();
+            }
+
+        }
+    });
+    function Recommencer() {
+        $('#recommencer').click();
+
+        function Supprimer() {
+            $('#deleteButton').click();
+        }
+
+    }
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

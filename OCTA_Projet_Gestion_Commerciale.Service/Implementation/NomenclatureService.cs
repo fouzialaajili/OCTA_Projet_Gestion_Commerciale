@@ -14,7 +14,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class NomenclatureService : INomenclatureService
+    public class NomenclatureService : INomenclatureService
     {
         private readonly INomenclatureRepository nomenclatureRepository;
 
@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteNomenclature(NomenclaturePivot nomenclature)
         {
-            nomenclatureRepository.Delete(Mapper.Map<NomenclaturePivot, GES_Nomenclature>(nomenclature));
+            nomenclatureRepository.Delete(nomenclature.ArticlenomencId,Mapper.Map<NomenclaturePivot, GES_Nomenclature>(nomenclature));
         }
 
         public IEnumerable<NomenclaturePivot> GetALL()

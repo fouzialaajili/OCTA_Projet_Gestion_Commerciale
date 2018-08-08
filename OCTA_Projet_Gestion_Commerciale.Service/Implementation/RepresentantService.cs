@@ -14,7 +14,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class RepresentantService : IRepresentantService
+    public class RepresentantService : IRepresentantService
     {
 
         private readonly IRepresentantRepository representantRepository;
@@ -37,7 +37,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteRepresentant(RepresentantPivot Representant)
         {
-            representantRepository.Delete(Mapper.Map<RepresentantPivot, GES_Representant>(Representant));
+            representantRepository.Delete(Representant.RepresentantId,Mapper.Map<RepresentantPivot, GES_Representant>(Representant));
         }
 
         public IEnumerable<RepresentantPivot> GetALL()

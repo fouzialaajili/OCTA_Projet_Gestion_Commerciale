@@ -10,6 +10,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "OCTA_Projet_Gestion_Commerciale.Data.StoreEntities";
         }
 
         protected override void Seed(OCTA_Projet_Gestion_Commerciale.Data.StoreEntities context)

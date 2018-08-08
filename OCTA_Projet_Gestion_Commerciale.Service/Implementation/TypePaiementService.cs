@@ -13,7 +13,7 @@ using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class TypePaiementService : ITypePaiementService
+    public class TypePaiementService : ITypePaiementService
     {
         private readonly ITypePaiementRepositoy typePaiementRepository;
 
@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteTypePaiement(TypePaiementPivot TypePaiement)
         {
-            typePaiementRepository.Delete(Mapper.Map<TypePaiementPivot, GEN_TypePaiement>(TypePaiement));
+            typePaiementRepository.Delete(TypePaiement.TypePaiementId,Mapper.Map<TypePaiementPivot, GEN_TypePaiement>(TypePaiement));
         }
 
         public IEnumerable<TypePaiementPivot> GetALL()

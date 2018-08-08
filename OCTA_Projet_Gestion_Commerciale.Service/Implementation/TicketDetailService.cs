@@ -12,8 +12,8 @@ using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 using OCTA_Projet_Gestion_Commerciale.Model;
 using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
-namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation { 
-    class TicketDetailService : ITicketDetailService
+namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation {
+    public class TicketDetailService : ITicketDetailService
     {
 
 
@@ -40,7 +40,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation {
 
         public void DeleteTicketDetail(TicketDetailPivot TicketDetail)
         {
-            ticketDetailRepository.Delete(Mapper.Map<TicketDetailPivot, GES_TicketDetail>(TicketDetail));
+            ticketDetailRepository.Delete(TicketDetail.TicketDetailId,Mapper.Map<TicketDetailPivot, GES_TicketDetail>(TicketDetail));
         }
 
         public IEnumerable<TicketDetailPivot> GetALL()

@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    public interface ICodesTvaRepository : IRepository<CPT_CodesTVA>
+    public interface ICodesTVARepository : IRepository<CPT_CodesTVA>
     {
 
     }
 
 
-    public class CodesTvaRepository : RepositoryBase<CPT_CodesTVA>, ICodesTvaRepository
+    public class CodesTVARepository : RepositoryBase<CPT_CodesTVA>, ICodesTVARepository
     {
-        public CodesTvaRepository(IDbFactory dbFactory) : base(dbFactory) { }
+        public CodesTVARepository(IDbFactory dbFactory) : base(dbFactory) { }
 
 
     }

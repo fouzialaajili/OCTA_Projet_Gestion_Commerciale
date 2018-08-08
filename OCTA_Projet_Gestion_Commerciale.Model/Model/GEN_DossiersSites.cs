@@ -41,10 +41,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
         public DateTime? sys_dateCreation { get; set; }
 
-       
+
         public virtual ICollection<CPT_Ecritures> CPT_Ecritures { get; set; }
 
-    
+
         public virtual ICollection<CPT_Pieces> CPT_Pieces { get; set; }
 
         public virtual GEN_Dossiers GEN_Dossiers { get; set; }

@@ -7,27 +7,28 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
     public partial class RelevesBancairesPivot
     {
-     
+
 
         public long Id { get; set; }
-      
-        public DateTime? DateIntegration { get; set; }
-       
-        public long? IdCompteBancaire { get; set; }
-   
 
-        public string Description { get; set; }
-  
+        public DateTime? DateIntegration { get; set; }
+
+        public long? IdCompteBancaire { get; set; }
+
+
+
+
 
         public long? IdDevise { get; set; }
-       
+        public string Description { get; set; }
+
         public double? SoldeDebut { get; set; }
-     
+
         public double? SoldeFin { get; set; }
-   
+
         [DefaultValue(true)]
         public bool Valide { get; set; }
-      
+
         public long? IdDossier { get; set; }
 
         public string sys_user { get; set; }
@@ -42,7 +43,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public  DevisesPivot GEN_Devises { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public ICollection<RelevesBancairesDetailPivot> CPT_RelevesBancairesDetail { get; set; }
     }
 }

@@ -108,6 +108,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public virtual ICollection<GES_Ticket> GES_Ticket { get; set; }
         public virtual ICollection<GES_TicketDetail> GES_TicketDetail { get; set; }
             public long TvaSocieteId { get; set; }
-        public virtual CPT_CodesTVA TvaSociete { get; set; }
+        public virtual CPT_CodesTVA CPT_CodesTVA { get; set; }
     }
 }

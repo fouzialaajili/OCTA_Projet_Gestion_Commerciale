@@ -1,5 +1,5 @@
 ﻿@using Infragistics.Web.Mvc
-@model IQueryable<OCTA_Projet_Gestion_Commerciale.Model.GEN_Devises>
+@model IQueryable<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.DevisesViewModel>
 
 @{
     ViewBag.Title = "Liste des devises";
@@ -23,23 +23,21 @@
 <script src="~/Scripts/Infragistics/js/infragistics.core.js" type="text/javascript"></script>
 
 <script src="~/Scripts/Infragistics/js/infragistics.lob.js" type="text/javascript"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-
-@*@section buttons {
-    <h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>*@
-<div class="col-md-18">
-
+<h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
+<br /><br /><br />
+<div class="col-md-2 col-md-offset-10">
+    <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='@Url.Action("Create")'">Nouvelle devise</button>
 </div>
-
-<ul class="panel-controls">
-    <li><button class="btn btn-primary btn-block" type="button" onclick="window.location.href='@Url.Action("Create")'">Nouvelle devise</button></li>
-</ul>
-@*}*@
+<br /><br /><br />
 
 
-<div class="grilleIgnite">
+
+
+<div>
     @(Html.Infragistics()
-                                                                     .Grid<OCTA_Projet_Gestion_Commerciale.Model.GEN_Devises>(Model)
+                                                                     .Grid<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.DevisesViewModel>(Model)
                                                                      .ID("listGridDevises")
                                                                      .AutoGenerateColumns(false)
                                                                      .AutoGenerateLayouts(false)
@@ -48,11 +46,12 @@
                                                                      .Columns(column =>
                                                                      {
                                                                          column.For(x => x.DevisesId).Hidden(true);
-                                                                         column.For(x => x.DevisesCode).Width("20%").Template("<a href='" + @Url.Action("Create", "Devises") + "/${DevisesId}\' \">${DevisesCode}</a>");/*.FormatterFunction("lookupDevise")*/;
-                                                                         column.For(x => x.DevisesCodeIso).Width("20%");
-                                                                         column.For(x => x.DevisesDescription).Width("20%");
-                                                             //column.For(x => x.TenueDeCompte).Width("20%").FormatterFunction("lookupTenueDeCompte");
-                                                             column.For(x => x.DevisesActif).Width("20%").FormatterFunction("lookupActif");
+                                                                         column.For(x => x.DevisesCode).HeaderText("Code").Width("20%").Template("<a href='" + @Url.Action("Create", "Devises") + "/${DevisesId}\' \">${DevisesCode}</a>");/*.FormatterFunction("lookupDevise")*/;
+                                                                         column.For(x => x.DevisesCodeIso).HeaderText("Code ISo").Width("20%");
+                                                                         column.For(x => x.DevisesDescription).HeaderText("Description").Width("20%");
+                                                                         column.For(x => x.DevisesTenueDeCompte).Width("20%").HeaderText("Tenue De Compte").FormatterFunction("lookupTenueDeCompte");
+                                                                         column.For(x => x.DevisesActif).Width("20%").HeaderText("Actif").FormatterFunction("lookupActif");
+                                                                         column.Unbound("UnBound").Template("<a href='/Devises/Edit/${DevisesId}'>Edit</a>").Width("20%").HeaderText("Edit");
 
                                                                      })
                                                                      .Features(feature =>
@@ -73,60 +72,58 @@
     )
 
     <script type="text/javascript">
-            var  gridDevises=$('#listGridDevises'),
-                 listTenueDeCompte=@Html.Raw(Json.Encode(ViewBag.ListTenueDecompte));
+        var  gridDevises=$('#listGridDevises'),
+             listTenueDeCompte=@Html.Raw(Json.Encode(ViewBag.ListTenueDecompte));
+        var imglinkSrc='@Url.Content("~/Content/Images/linkIcon.png")';
 
 
-            function lookupActif(id, record) {
+        function lookupActif(id, record) {
 
-                if (record.Actif) {
+            if (record.Actif) {
 
-                    return '<div class="checkboxStyle"><input type="checkbox" value="1" id="checkboxInput_' + record.Id + '" name="" checked/><label ></label></div>';
+                return '<div class="checkboxStyle"><input type="checkbox" value="1" id="checkboxInput_' + record.Id + '" name="" checked/><label ></label></div>';
 
-                }
-                else {
-                    return '<div class="checkboxStyle"><input type="checkbox" value="0" id="checkboxInput_' + record.Id + '" name="" /><label ></label></div>';
+            }
+            else {
+                return '<div class="checkboxStyle"><input type="checkbox" value="0" id="checkboxInput_' + record.Id + '" name="" /><label ></label></div>';
 
-                }
-                return '';
+            }
+            return '';
+        }
+
+
+        function lookupTenueDeCompte(id,record) {
+            if(record.TenueDeCompte==1){
+                return '<div class="checkboxStyle"><input type="checkbox" value="1" id="checkboxInput_' + record.Id + '" name="" checked /><label ></label></div>';
+
+                //return '<span class="btn-sm btn-success statutRB">Oui</span>';
+            }
+            else if(record.TenueDeCompte==0){
+                //return '<span class="btn-sm btn-danger statutRB">Non</span>';
+                return '<div class="checkboxStyle"><input type="checkbox" value="0" id="checkboxInput_' + record.Id + '" name="" /><label ></label></div>';
+
             }
 
+            return '';
+        }
 
-            function lookupTenueDeCompte(id,record) {
-                if(record.TenueDeCompte==1){
-                    return '<div class="checkboxStyle"><input type="checkbox" value="1" id="checkboxInput_' + record.Id + '" name="" checked /><label ></label></div>';
 
-                    //return '<span class="btn-sm btn-success statutRB">Oui</span>';
-                }
-                else if(record.TenueDeCompte==0){
-                    //return '<span class="btn-sm btn-danger statutRB">Non</span>';
-                    return '<div class="checkboxStyle"><input type="checkbox" value="0" id="checkboxInput_' + record.Id + '" name="" /><label ></label></div>';
+        gridDevises.on("iggridrendered", function (e, ui) {
+            //replaceComboFilterEditor('listGridDevises', 'Code', listDevises);
+            replaceComboFilterEditor('listGridDevises', 'TenueDeCompte', listTenueDeCompte);
+        });
 
-                }
+        $(document).ready(function () {
+            var messageErreur = "@(new MvcHtmlString((string)ViewBag.Message))";
+            if (messageErreur != "") {
+                alert(messageErreur);
 
-                return '';
             }
-
-
-            gridDevises.on("iggridrendered", function (e, ui) {
-                //replaceComboFilterEditor('listGridDevises', 'Code', listDevises);
-                replaceComboFilterEditor('listGridDevises', 'TenueDeCompte', listTenueDeCompte);
-            });
-
-            $(document).ready(function () {
-                var messageErreur = "@(new MvcHtmlString((string)ViewBag.Message))";
-                if (messageErreur != "") {
-                    alert(messageErreur);
-
-                }
-            });
+        });
 
 
 
     </script>
 </div>
-
-
-
 
 

@@ -13,10 +13,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
         public string Model { get; set; }
 
-        public long? IdSociete { get; set; }
+        public long? IdDossier { get; set; }
 
         public virtual ICollection<GEN_Items> GEN_Items { get; set; }
+      //  public virtual ICollection<GEN_Items> GEN_Items { get; set; }
 
-      
+        public virtual GEN_Dossiers GEN_Dossiers { get; set; }
+
+
     }
 }

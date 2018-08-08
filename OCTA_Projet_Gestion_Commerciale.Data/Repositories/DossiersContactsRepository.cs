@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class DossiersContactsRepository : RepositoryBase<GEN_DossiersContacts>, IDossiersContactsRepository
+  public  class DossiersContactsRepository : RepositoryBase<GEN_DossiersContacts>, IDossiersContactsRepository
     {
         public DossiersContactsRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

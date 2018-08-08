@@ -13,9 +13,9 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 using OCTA_Projet_Gestion_Commerciale.Model;
 
-namespace SOCTA_Projet_Gestion_Commerciale.Service.Implementation
+namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class ToleranceService : IToleranceService
+    public class ToleranceService : IToleranceService
     {
         private readonly IToleranceRepositoy toleranceRepository;
 
@@ -37,7 +37,7 @@ namespace SOCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteTolerances(TolerancePivot Tolerances)
         {
-            toleranceRepository.Delete(Mapper.Map<TolerancePivot, GES_Tolerance>(Tolerances));
+            toleranceRepository.Delete(Tolerances.Id,Mapper.Map<TolerancePivot, GES_Tolerance>(Tolerances));
         }
 
         public IEnumerable<TolerancePivot> GetALL()

@@ -122,9 +122,49 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201807281459362_first.cs" />
-    <Compile Include="Migrations\201807281459362_first.Designer.cs">
-      <DependentUpon>201807281459362_first.cs</DependentUpon>
+    <Compile Include="Migrations\201808061015153_InitialCreate.cs" />
+    <Compile Include="Migrations\201808061015153_InitialCreate.Designer.cs">
+      <DependentUpon>201808061015153_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808061128254_hh.cs" />
+    <Compile Include="Migrations\201808061128254_hh.Designer.cs">
+      <DependentUpon>201808061128254_hh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808061135445_first.cs" />
+    <Compile Include="Migrations\201808061135445_first.Designer.cs">
+      <DependentUpon>201808061135445_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808061329514_hhhhh.cs" />
+    <Compile Include="Migrations\201808061329514_hhhhh.Designer.cs">
+      <DependentUpon>201808061329514_hhhhh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808061542509_kk.cs" />
+    <Compile Include="Migrations\201808061542509_kk.Designer.cs">
+      <DependentUpon>201808061542509_kk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808062025185_jhh.cs" />
+    <Compile Include="Migrations\201808062025185_jhh.Designer.cs">
+      <DependentUpon>201808062025185_jhh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808062320026_aa.cs" />
+    <Compile Include="Migrations\201808062320026_aa.Designer.cs">
+      <DependentUpon>201808062320026_aa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071004352_gsq.cs" />
+    <Compile Include="Migrations\201808071004352_gsq.Designer.cs">
+      <DependentUpon>201808071004352_gsq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071014479_gg.cs" />
+    <Compile Include="Migrations\201808071014479_gg.Designer.cs">
+      <DependentUpon>201808071014479_gg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071619414_gdg.cs" />
+    <Compile Include="Migrations\201808071619414_gdg.Designer.cs">
+      <DependentUpon>201808071619414_gdg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071947067_sff.cs" />
+    <Compile Include="Migrations\201808071947067_sff.Designer.cs">
+      <DependentUpon>201808071947067_sff.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,19 +178,22 @@
     <Compile Include="Repositories\CPT_ParametrageComptableRepository.cs" />
     <Compile Include="Repositories\DepotRepository.cs" />
     <Compile Include="Repositories\DevisesRepository.cs" />
-    <Compile Include="Repositories\DoclieartRepoitory.cs" />
+    <Compile Include="Repositories\DoclieartRepository.cs" />
     <Compile Include="Repositories\DoclieRepository.cs" />
     <Compile Include="Repositories\DocumentCommercialDetailRepository.cs" />
     <Compile Include="Repositories\DocumentCommercialDetailSerieRepository.cs" />
     <Compile Include="Repositories\DocumentCommercialRepository.cs" />
     <Compile Include="Repositories\DossiersContactsRepository.cs" />
     <Compile Include="Repositories\DossiersRepository.cs" />
+    <Compile Include="Repositories\DossiersSitesRepository.cs" />
     <Compile Include="Repositories\FamilleRepositoy.cs" />
     <Compile Include="Repositories\FournisseurArticleRepository.cs" />
     <Compile Include="Repositories\GedRepository.cs" />
     <Compile Include="Repositories\ImpressionRepository.cs" />
+    <Compile Include="Repositories\ItemsRepository.cs" />
     <Compile Include="Repositories\LicenceRepository.cs" />
     <Compile Include="Repositories\MarqueRepository.cs" />
+    <Compile Include="Repositories\ModelRepository.cs" />
     <Compile Include="Repositories\MotifRepository.cs" />
     <Compile Include="Repositories\MotifTicketRepository.cs" />
     <Compile Include="Repositories\MouvementStockRepository.cs" />
@@ -174,6 +217,7 @@
     <Compile Include="Repositories\UniteRepository.cs" />
     <Compile Include="StoreEntities.cs" />
     <Compile Include="StoreSeedData.cs" />
+    <Compile Include="Utils\Constantes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -186,8 +230,38 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807281459362_first.resx">
-      <DependentUpon>201807281459362_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808061015153_InitialCreate.resx">
+      <DependentUpon>201808061015153_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808061128254_hh.resx">
+      <DependentUpon>201808061128254_hh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808061135445_first.resx">
+      <DependentUpon>201808061135445_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808061329514_hhhhh.resx">
+      <DependentUpon>201808061329514_hhhhh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808061542509_kk.resx">
+      <DependentUpon>201808061542509_kk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808062025185_jhh.resx">
+      <DependentUpon>201808062025185_jhh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808062320026_aa.resx">
+      <DependentUpon>201808062320026_aa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071004352_gsq.resx">
+      <DependentUpon>201808071004352_gsq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071014479_gg.resx">
+      <DependentUpon>201808071014479_gg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071619414_gdg.resx">
+      <DependentUpon>201808071619414_gdg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071947067_sff.resx">
+      <DependentUpon>201808071947067_sff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

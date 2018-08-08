@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class DossiersContactsService : IDossiersContactsService
+  public  class DossiersContactsService : IDossiersContactsService
     {
         private readonly IDossiersContactsRepository dossiersContactsRepository;
         private readonly IUnitOfWork unitOfWork;
@@ -32,7 +32,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteDossiersContactsPivot(DossiersContactsPivot dossiersContacts)
         {
-            dossiersContactsRepository.Delete(Mapper.Map<DossiersContactsPivot, GEN_DossiersContacts>(dossiersContacts));
+            dossiersContactsRepository.Delete(dossiersContacts.DossiersContactsId,Mapper.Map<DossiersContactsPivot, GEN_DossiersContacts>(dossiersContacts));
 
         }
 

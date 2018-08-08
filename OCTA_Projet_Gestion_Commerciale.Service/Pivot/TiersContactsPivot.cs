@@ -15,13 +15,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public string Prenom { get; set; }
 
-  
+
         public string Tel { get; set; }
 
 
         public string Gsm { get; set; }
 
- 
+
         public string Email { get; set; }
 
         public bool Actif { get; set; }
@@ -35,6 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
         public DateTime? sys_dateUpdate { get; set; }
 
         public DateTime? sys_dateCreation { get; set; }
+
 
         public TiersPivot GEN_Tiers { get; set; }
         public ICollection<TicketPivot> GES_Ticket { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
 {
-    interface IToleranceService
+ public   interface IToleranceService
     {
         IEnumerable<TolerancePivot> GetALL();
         TolerancePivot GetTolerances(long id);

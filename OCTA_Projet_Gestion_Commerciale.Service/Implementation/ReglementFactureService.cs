@@ -14,7 +14,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class ReglementFactureService : IReglementFactureService
+    public class ReglementFactureService : IReglementFactureService
     {
         private readonly IReglementFactureRepository reglementFactureRepository;
 
@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteReglementFacture(ReglementFacturePivot ReglementFacture)
         {
-            reglementFactureRepository.Delete(Mapper.Map<ReglementFacturePivot, GES_ReglementFacture>(ReglementFacture));
+            reglementFactureRepository.Delete(ReglementFacture.ReglementFactureId,Mapper.Map<ReglementFacturePivot, GES_ReglementFacture>(ReglementFacture));
         }
 
         public IEnumerable<ReglementFacturePivot> GetALL()

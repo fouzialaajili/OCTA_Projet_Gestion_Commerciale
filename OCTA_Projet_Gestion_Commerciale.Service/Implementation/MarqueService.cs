@@ -13,7 +13,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class MarqueService : IMarqueService
+    public class MarqueService : IMarqueService
     {
 
         private readonly IMarqueRepository marqueRepository;
@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteMarque(MarquePivot Marque)
         {
-            marqueRepository.Delete(Mapper.Map<MarquePivot, GES_Marque>(Marque));
+            marqueRepository.Delete(Marque.Id,Mapper.Map<MarquePivot, GES_Marque>(Marque));
         }
 
         public IEnumerable<MarquePivot> GetALL()

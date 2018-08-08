@@ -62,12 +62,15 @@
     <Compile Include="Implementation\DocumentCommercialService.cs" />
     <Compile Include="Implementation\DossiersContactsService.cs" />
     <Compile Include="Implementation\DossiersService.cs" />
+    <Compile Include="Implementation\DossiersSitesService.cs" />
     <Compile Include="Implementation\FamilleService.cs" />
     <Compile Include="Implementation\FournisseurArticleService.cs" />
     <Compile Include="Implementation\GedService.cs" />
     <Compile Include="Implementation\ImpressionService.cs" />
+    <Compile Include="Implementation\ItemsService.cs" />
     <Compile Include="Implementation\LicenceService.cs" />
     <Compile Include="Implementation\MarqueService.cs" />
+    <Compile Include="Implementation\ModelService.cs" />
     <Compile Include="Implementation\MotifService.cs" />
     <Compile Include="Implementation\MotifTicketService.cs" />
     <Compile Include="Implementation\MouvementStockService.cs" />
@@ -88,6 +91,7 @@
     <Compile Include="Implementation\TypePaiementDetailService.cs" />
     <Compile Include="Implementation\TypePaiementService.cs" />
     <Compile Include="Implementation\UniteService.cs" />
+    <Compile Include="Interface\IDossiersSitesService.cs" />
     <Compile Include="Interface\IAdminService.cs" />
     <Compile Include="Interface\IAffaireService.cs" />
     <Compile Include="Interface\IArticlesKitService.cs" />
@@ -108,8 +112,10 @@
     <Compile Include="Interface\IFournisseurArticleService.cs" />
     <Compile Include="Interface\IGedService.cs" />
     <Compile Include="Interface\IImpressionService.cs" />
+    <Compile Include="Interface\IItemsService.cs" />
     <Compile Include="Interface\ILicenceService.cs" />
     <Compile Include="Interface\IMarqueService.cs" />
+    <Compile Include="Interface\IModelService.cs" />
     <Compile Include="Interface\IMotifService.cs" />
     <Compile Include="Interface\IMotifTicketService.cs" />
     <Compile Include="Interface\IMouvementStockService.cs" />
@@ -130,6 +136,7 @@
     <Compile Include="Interface\ITypePaiementDetailService.cs" />
     <Compile Include="Interface\ITypePaiementService.cs" />
     <Compile Include="Interface\IUniteService.cs" />
+    <Compile Include="Mappages\ModelToPivotMappingProfile.cs" />
     <Compile Include="Pivot\AdminPivot.cs" />
     <Compile Include="Pivot\AffairePivot.cs" />
     <Compile Include="Pivot\ArticlesKitPivot.cs" />
@@ -188,7 +195,6 @@
     <Compile Include="Pivot\RelevesBancairesDetailPivot.cs" />
     <Compile Include="Pivot\RelevesBancairesPivot.cs" />
     <Compile Include="Pivot\RepresentantPivot.cs" />
-    <Compile Include="Pivot\SocietesPivot.cs" />
     <Compile Include="Pivot\TicketDetailPivot.cs" />
     <Compile Include="Pivot\TicketPivot.cs" />
     <Compile Include="Pivot\TiersContactsPivot.cs" />

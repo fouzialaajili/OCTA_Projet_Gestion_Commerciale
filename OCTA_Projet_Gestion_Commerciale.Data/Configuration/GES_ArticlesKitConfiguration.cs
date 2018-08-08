@@ -19,7 +19,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
 .HasForeignKey<long?>(a => a.ArticlesKitArticlesId);
             HasOptional<GES_Article>(a => a.ArticlesKitArticle)
 .WithMany(d => d.ArticleArticlesKit1)
-.HasForeignKey<long?>(a => a.ArticlesKitArticleId1);
+.HasForeignKey<long?>(a => a.ArticlesKitArticleId);
         }
     }
 }

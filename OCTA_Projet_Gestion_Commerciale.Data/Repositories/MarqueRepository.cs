@@ -18,9 +18,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     }
 
 
-    public class MarqueRepositoy : RepositoryBase<GES_Marque>, IMarqueRepository
+    public class MarqueRepository : RepositoryBase<GES_Marque>, IMarqueRepository
     {
-        public MarqueRepositoy(IDbFactory dbFactory) : base(dbFactory) { }
+        public MarqueRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
       
 

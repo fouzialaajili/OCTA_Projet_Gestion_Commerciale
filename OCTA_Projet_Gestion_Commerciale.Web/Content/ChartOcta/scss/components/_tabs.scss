@@ -1,0 +1,80 @@
+#octa {
+  .tabs {
+    height: 68px;
+    overflow: initial !important;
+
+    &.tabs-transparent {
+      background-color: transparent;
+
+      .tab a,
+      .tab.disabled a,
+      .tab.disabled a:hover {
+        // color: rgba(255,255,255,0.7);
+        color: $text-color;
+      }
+
+      .tab a.active,
+      .tab a:hover {
+        color: $text-color;
+      }
+
+      .indicator {
+        background-color: $primary-color;
+      }
+    }
+
+    .tab {
+      line-height: 68px;
+      height: 68px;
+      text-transform: none;
+
+      &.show-sidenav {
+        a.active,
+        a:hover {
+          background-color: transparent;
+        }
+      }
+
+        a {
+          display: flex;
+          align-items: center;
+
+          &:focus,
+          &:focus.active {
+            outline: none;
+          }
+
+          &.active,
+          &:hover {
+            //background-color: transparent;
+          }
+
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .indicator {
+        position: absolute;
+        top: 0;
+        height: 3px;
+        background-color: $tabs-underline-color;
+        will-change: left, right;
+      }
+    }
+    // Fixed Sidenav hide on smaller
+    @media #{$medium-and-down} {
+      .tabs {
+        display: flex;
+
+        .tab {
+          flex-grow: 1;
+
+          a {
+            padding: 0 12px;
+          }
+        }
+      }
+    }
+  }

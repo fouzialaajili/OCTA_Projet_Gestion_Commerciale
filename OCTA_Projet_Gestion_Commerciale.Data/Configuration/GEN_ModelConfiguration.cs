@@ -17,6 +17,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
 
 
 
+            HasOptional<GEN_Dossiers>(a => a.GEN_Dossiers)
+                    .WithMany(d => d.GEN_Model
+                    
+                    )
+                    .HasForeignKey<long?>(a => a.IdDossier);
 
         }
     }

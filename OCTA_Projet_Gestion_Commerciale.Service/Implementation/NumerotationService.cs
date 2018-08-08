@@ -15,7 +15,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class NumerotationService : INumerotationService
+    public class NumerotationService : INumerotationService
     {
 
 
@@ -39,7 +39,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteNumerotation(NumerotationPivot numerotation)
         {
-            numerotationRepository.Delete(Mapper.Map<NumerotationPivot, GES_Numerotation>(numerotation));
+            numerotationRepository.Delete(numerotation.Id,Mapper.Map<NumerotationPivot, GES_Numerotation>(numerotation));
         }
 
         public IEnumerable<NumerotationPivot> GetALL()

@@ -31,7 +31,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteDoclieartPivot(DoclieartPivot doclieart)
         {
-            doclieRepository.Delete(Mapper.Map<DoclieartPivot,GES_Doclieart>(doclieart));
+            doclieRepository.Delete(doclieart.DoclieartId,Mapper.Map<DoclieartPivot,GES_Doclieart>(doclieart));
         }
 
         public IEnumerable<DoclieartPivot> GetALL()

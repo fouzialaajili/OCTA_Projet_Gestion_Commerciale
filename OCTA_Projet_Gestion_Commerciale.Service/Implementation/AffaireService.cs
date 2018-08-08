@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class AffaireService : IAffaireService
+  public  class AffaireService : IAffaireService
     {
         private readonly IAffaireRepository affaireRepository;
         private readonly IUnitOfWork unitOfWork;
@@ -32,7 +32,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteAffairePivot(AffairePivot affaire)
         {
-         affaireRepository.Delete(Mapper.Map<AffairePivot, GES_Affaire>(affaire));
+         affaireRepository.Delete(affaire.AffaireId,Mapper.Map<AffairePivot, GES_Affaire>(affaire));
         }
 
         public AffairePivot GetAffaire(long id)

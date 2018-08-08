@@ -15,7 +15,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
         { get; set; }
         public int LicenceNombreSociete { get; set; }
         public int LicenceNombreUser { get; set; }
-        public bool LicenceActif { get; set; }
+        public bool? LicenceActif { get; set; }
         public string LicenceCHash { get; set; }
         public DateTime LicenceDateFinContrat { get; set; }
         public string LicenceRenouvellable { get; set; }

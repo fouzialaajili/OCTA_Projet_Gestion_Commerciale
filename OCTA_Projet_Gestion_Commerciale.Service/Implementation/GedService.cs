@@ -14,7 +14,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class GedService : IGedService
+    public class GedService : IGedService
     {
    
 
@@ -38,7 +38,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
        public void DeleteGed(GedPivot ged)
        {
-           gedRepository.Delete(Mapper.Map<GedPivot, GES_Ged>(ged));
+           gedRepository.Delete(ged.GedId,Mapper.Map<GedPivot, GES_Ged>(ged));
        }
 
        public IEnumerable<GedPivot> GetALL()

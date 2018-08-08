@@ -15,7 +15,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class ImpressionService : IImpressionService
+    public class ImpressionService : IImpressionService
     {
 
         private readonly IImpressionRepositoy impressionRepository;
@@ -38,7 +38,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteImpression(ImpressionPivot impression)
         {
-            impressionRepository.Delete(Mapper.Map<ImpressionPivot, GES_Impression>(impression));
+            impressionRepository.Delete(impression.Id,Mapper.Map<ImpressionPivot, GES_Impression>(impression));
         }
 
         public IEnumerable<ImpressionPivot> GetALL()

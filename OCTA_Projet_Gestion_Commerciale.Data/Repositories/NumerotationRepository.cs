@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class NumerotationRepository : RepositoryBase<GES_Numerotation>, INumerotationRepository
+  public  class NumerotationRepository : RepositoryBase<GES_Numerotation>, INumerotationRepository
     {
         public NumerotationRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

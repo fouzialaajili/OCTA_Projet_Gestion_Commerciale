@@ -14,7 +14,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class TiersContactsService : ITiersContactService
+    public class TiersContactsService : ITiersContactService
     {
         private readonly ITiersContactRepository tiersContactsRepository;
 
@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         public void DeleteTiersContacts(TiersContactsPivot TiersContact)
         {
 
-            tiersContactsRepository.Delete(Mapper.Map<TiersContactsPivot, GEN_TiersContacts>(TiersContact));
+            tiersContactsRepository.Delete(TiersContact.GEN_TiersContactsId,Mapper.Map<TiersContactsPivot, GEN_TiersContacts>(TiersContact));
         }
 
         public IEnumerable<TiersContactsPivot> GetALL()

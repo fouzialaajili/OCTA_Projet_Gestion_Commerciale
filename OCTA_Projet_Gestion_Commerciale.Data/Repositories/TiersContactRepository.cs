@@ -10,7 +10,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Infrastructure;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class TiersContactRepository:RepositoryBase<GEN_TiersContacts>, ITiersContactRepository
+  public  class TiersContactRepository:RepositoryBase<GEN_TiersContacts>, ITiersContactRepository
     {
         public TiersContactRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

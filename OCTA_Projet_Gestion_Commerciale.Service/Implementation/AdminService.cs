@@ -32,7 +32,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteAdminPivot(AdminPivot admin)
         {
-            adminRepository.Delete(Mapper.Map<AdminPivot, GES_Admin>(admin));
+            adminRepository.Delete(admin.AdminId,Mapper.Map<AdminPivot, GES_Admin>(admin));
         }
 
         public AdminPivot GetAdmin(long id)

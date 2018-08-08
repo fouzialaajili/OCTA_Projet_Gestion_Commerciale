@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
                                 .WithMany(d => d.GES_Opportunite)
                                 .HasForeignKey<long?>(a => a.OpportuniteIdcommercial);
 
-            HasOptional<GEN_Devises>(a => a.OpportuniteDevise)
+            HasOptional<GEN_Devises>(a => a.GEN_Devises)
                                .WithMany(d => d.GES_Opportunite)
                                .HasForeignKey<long?>(a => a.OpportuniteIdDevise);
 

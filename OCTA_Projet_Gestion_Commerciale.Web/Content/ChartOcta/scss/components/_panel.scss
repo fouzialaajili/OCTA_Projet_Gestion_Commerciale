@@ -1,0 +1,107 @@
+#octa {
+  .octa-panel {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: $panel-bg;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.18);
+    border-radius: 3px;
+    color: $panel-title-color;
+
+    &.fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 99999;
+    }
+
+    .octa-panel_header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      font-family: $font-heading;
+
+      .btn-group.row {
+        margin: 0px;
+      }
+    }
+
+    h2 {
+      margin-bottom: 7px;
+      font-size: $panel-title-font-size;
+    }
+
+    .counter {
+      font-family: $font-body;
+      font-size: 14px;
+    }
+
+    .btn-group {
+      display: flex;
+      align-items: center;
+
+      .btn-flat {
+        min-width: inherit;
+        padding: 0 5px;
+      }
+
+      i {
+        font-size: 24px;
+        color: $text-color;
+      }
+    }
+
+    .octa-panel_body {
+      font-family: $font-body;
+      color: $text-color;
+    }
+  }
+  /* END .octa-panel */
+  // FIX SIDENAV SPACING
+  .side-nav li > a {
+    padding: 0 16px;
+  }
+  //FIX SIDEBAR DIVIDERS
+  .side-nav .divider {
+    margin: 0;
+    height: 8px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: transparent;
+  }
+  // SIDENAV HEADER
+  .sidenav-header {
+    background: url("../images/user-bg.jpg") no-repeat center center;
+    background-size: cover;
+    margin-bottom: 0;
+    padding: 15px 0 0 15px;
+
+    .row {
+      margin-bottom: 0;
+    }
+  }
+
+  .sidenav-footer {
+    margin-bottom: 0;
+    padding: 0;
+
+    .row {
+      margin-bottom: 0;
+
+      .social-icons {
+        a {
+          opacity: 0.5;
+          padding: 0;
+          text-align: center;
+
+          &:hover {
+            background-color: inherit;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+/* END #octa */

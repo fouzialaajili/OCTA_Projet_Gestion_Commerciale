@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public DateTime? DateLettrage { get; set; }
 
-     
+
 
         public string sys_user { get; set; }
 
@@ -24,9 +24,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public DateTime? sys_dateCreation { get; set; }
 
-        public EcheancesPivot CPT_Echeances { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        
+        public EcheancesPivot CPT_Echeances { get; set; }    
 
         public  ICollection<TVALettragePivot> CPT_TVALettrage { get; set; }
     }

@@ -12,9 +12,9 @@ using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 using OCTA_Projet_Gestion_Commerciale.Model;
 using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
-namespace Store.Service
+namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class ParametrageComptableService : IParametrageComptableService
+    public class ParametrageComptableService : IParametrageComptableService
     {
         private readonly ICPT_ParametrageComptableRepository parametrageComptableRepository;
 
@@ -37,7 +37,7 @@ namespace Store.Service
 
         public void DeleteParametrageComptable(ParametrageComptablePivot ParametrageComptable)
         {
-            parametrageComptableRepository.Delete(Mapper.Map<ParametrageComptablePivot, CPT_ParametrageComptable>(ParametrageComptable));
+            parametrageComptableRepository.Delete(ParametrageComptable.Id,Mapper.Map<ParametrageComptablePivot, CPT_ParametrageComptable>(ParametrageComptable));
         }
 
         public IEnumerable<ParametrageComptablePivot> GetALL()

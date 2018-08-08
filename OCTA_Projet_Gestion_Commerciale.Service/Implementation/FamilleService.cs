@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class FamilleService : IFamilleService
+  public  class FamilleService : IFamilleService
     {
         private readonly IFamilleRepositoy familleRepository;
         private readonly IUnitOfWork unitOfWork;
@@ -30,7 +30,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteFamillePivot(FamillePivot dossiers)
         {
-            familleRepository.Delete(Mapper.Map<FamillePivot, GES_Famille>(dossiers));
+            familleRepository.Delete(dossiers.FamilleId,Mapper.Map<FamillePivot, GES_Famille>(dossiers));
 
         }
 

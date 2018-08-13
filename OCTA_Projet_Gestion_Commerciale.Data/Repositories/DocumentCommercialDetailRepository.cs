@@ -20,6 +20,19 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public DocumentCommercialDetailRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
+        public void Delete(object idSource, GES_DocumentCommercialDetail entity)
+        {
+            throw new NotImplementedException();
+        }
 
+        public GES_DocumentCommercialDetail GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(object idSource, GES_DocumentCommercialDetail entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -12,7 +12,20 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public DossiersSitesRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
+        public void Delete(object idSource, GEN_DossiersSites entity)
+        {
+            throw new NotImplementedException();
+        }
 
+        public GEN_DossiersSites GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(object idSource, GEN_DossiersSites entity)
+        {
+            throw new NotImplementedException();
+        }
     }
     public interface IDossiersSitesRepository : IRepository<GEN_DossiersSites>
     {

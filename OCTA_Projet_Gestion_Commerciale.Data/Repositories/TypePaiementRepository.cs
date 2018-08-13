@@ -55,6 +55,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public void Update(object idSource, GEN_TypePaiement entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GEN_TypePaiement entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GEN_TypePaiement GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface ITypePaiementRepositoy : IRepository<GEN_TypePaiement>

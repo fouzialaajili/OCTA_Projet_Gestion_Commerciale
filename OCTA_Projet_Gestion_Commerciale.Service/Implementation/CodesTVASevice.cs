@@ -14,10 +14,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
     public class CodesTVAService : ICodesTVAService
 {
-        private readonly ICodesTvaRepository codesTvaRepository;
+        private readonly ICodesTVARepository codesTvaRepository;
 
         private readonly IUnitOfWork unitOfWork;
-        public CodesTVAService(ICodesTvaRepository codesTvaRepository,IUnitOfWork unitOfWork)
+        public CodesTVAService(ICodesTVARepository codesTvaRepository,IUnitOfWork unitOfWork)
         {
             this.codesTvaRepository = codesTvaRepository;
             this.unitOfWork = unitOfWork;

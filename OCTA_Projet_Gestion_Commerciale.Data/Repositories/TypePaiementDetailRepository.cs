@@ -22,6 +22,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public void Update(object idSource, GEN_TypePaiementDetail entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GEN_TypePaiementDetail entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GEN_TypePaiementDetail GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

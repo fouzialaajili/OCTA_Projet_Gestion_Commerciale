@@ -37,5 +37,20 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
             return marques;
         }
+
+        public void Update(object idSource, GES_Marque entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_Marque entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_Marque GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

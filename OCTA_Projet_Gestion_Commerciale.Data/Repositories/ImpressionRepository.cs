@@ -24,6 +24,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         public ImpressionRepository(IDbFactory dbFactory)
             : base(dbFactory) { }
 
+        public void Delete(object idSource, GES_Impression entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_Impression GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public GES_Impression GetImpressionById(long id)
         {
             var impressions = this.DbContext.Impressions.Where(c => c.Id == id).SingleOrDefault();
@@ -36,6 +46,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             var impressions = this.DbContext.Impressions.Where(c => c.ImpressionChemin == identifged);
 
             return impressions;
+        }
+
+        public void Update(object idSource, GES_Impression entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -14,7 +14,15 @@ public    class FournisseurArticleRepository : RepositoryBase<GES_FournisseurArt
         public FournisseurArticleRepository(IDbFactory dbFactory)
             : base(dbFactory) { }
 
-      
+        public void Delete(object idSource, GES_FournisseurArticle entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_FournisseurArticle GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
 
         public GES_FournisseurArticle GetFournisseurArticleById(long id)
         {
@@ -31,7 +39,10 @@ public    class FournisseurArticleRepository : RepositoryBase<GES_FournisseurArt
             return fournisseurArticles;
         }
 
-      
+        public void Update(object idSource, GES_FournisseurArticle entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IFournisseurArticleRepository : IRepository<GES_FournisseurArticle>

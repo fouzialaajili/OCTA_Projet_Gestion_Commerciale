@@ -1,20 +1,14 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using OCTA_Projet_Gestion_Commerciale.Data.Infrastructure;
 using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 using OCTA_Projet_Gestion_Commerciale.Model;
 using OCTA_Projet_Gestion_Commerciale.Service.Interface;
 using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class AffaireService : IAffaireService
+   public class AffaireService : IAffaireService
     {
         private readonly IAffaireRepository affaireRepository;
         private readonly IUnitOfWork unitOfWork;
@@ -65,6 +59,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         {
             affaireRepository.Update(Mapper.Map<AffairePivot, GES_Affaire>(affaire));
 
+        }
+
+        IEnumerable<AffairePivot> IAffaireService.GetALL()
+        {
+            throw new System.NotImplementedException();
         }
     }
 

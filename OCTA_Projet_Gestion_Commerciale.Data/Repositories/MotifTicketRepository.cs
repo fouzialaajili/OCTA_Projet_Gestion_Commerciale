@@ -29,6 +29,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
             return motifs;
         }
+
+        public void Update(object idSource, GES_MotifTicket entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_MotifTicket entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_MotifTicket GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IMotifTicketRepository : IRepository<GES_MotifTicket>

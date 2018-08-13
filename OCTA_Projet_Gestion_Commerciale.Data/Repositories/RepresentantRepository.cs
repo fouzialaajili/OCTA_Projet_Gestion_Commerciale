@@ -29,6 +29,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
             return numerotations;
         }
+
+        public void Update(object idSource, GES_Representant entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_Representant entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_Representant GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IRepresentantRepository : IRepository<GES_Representant>

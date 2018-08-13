@@ -30,6 +30,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
             return Periodes;
         }
+
+        public void Update(object idSource, GES_Reglement entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_Reglement entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_Reglement GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IReglementRepository : IRepository<GES_Reglement>

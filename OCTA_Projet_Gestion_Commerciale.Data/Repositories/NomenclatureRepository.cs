@@ -29,6 +29,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
             return nomenclatures;
         }
+
+        public void Update(object idSource, GES_Nomenclature entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_Nomenclature entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_Nomenclature GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface INomenclatureRepository : IRepository<GES_Nomenclature>

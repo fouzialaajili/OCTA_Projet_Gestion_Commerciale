@@ -29,6 +29,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
             return mouvementstocks;
         }
+
+        public void Update(object idSource, GES_MouvementStock entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_MouvementStock entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_MouvementStock GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IMouvementStockRepository : IRepository<GES_MouvementStock>

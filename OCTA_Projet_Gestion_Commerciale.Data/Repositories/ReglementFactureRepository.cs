@@ -27,6 +27,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public void Update(object idSource, GES_ReglementFacture entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_ReglementFacture entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_ReglementFacture GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IReglementFactureRepository : IRepository<GES_ReglementFacture>

@@ -64,7 +64,20 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             return devisesPivot;
         }
 
-       
+        public IEnumerable<DevisesPivot> GetDeviseByCond()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<DevisesPivot> GetDevisesByIDDossierAndActif()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<DevisesPivot> Getingdevises()
+        {
+            throw new NotImplementedException();
+        }
 
         public void SaveDevise()
         {
@@ -78,6 +91,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             //devises.DevisesId
         }
 
-
+        IQueryable<GEN_Devises> IDevisesService.GetAllDevises()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

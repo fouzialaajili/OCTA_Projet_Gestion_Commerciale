@@ -11,6 +11,17 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public class ModelRepository: RepositoryBase<GEN_Model>,IModelRepository
     {
         public ModelRepository(IDbFactory dbFactory) : base(dbFactory) { }
+
+        public void Delete(object idSource, GEN_Model entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GEN_Model GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public GEN_Model GetModelById(long id)
         {
             var model = this.DbContext.Models.Where(c => c.Id == id).SingleOrDefault();
@@ -24,11 +35,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
             return models;
         }
-       /* public override void Update(GEN_Model gEN_Model)
+
+        public void Update(object idSource, GEN_Model entity)
         {
-            //entity.DateUpdated = DateTime.Now;
-            base.Update(gEN_Model);
-        }*/
+            throw new NotImplementedException();
+        }
+        /* public override void Update(GEN_Model gEN_Model)
+{
+    //entity.DateUpdated = DateTime.Now;
+    base.Update(gEN_Model);
+}*/
     }
     public interface IModelRepository : IRepository<GEN_Model>
     {

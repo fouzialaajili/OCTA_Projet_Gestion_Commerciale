@@ -18,10 +18,19 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             var devises= this.DbContext.Devises.Where(e => e.DevisesIdDossier ==Constantes.IdentifiantDossier && e.DevisesActif).ToList();
             return devises;
         }
-
+        public IEnumerable<GEN_Devises> GetDevisesByIDDossierAndActif()
+        {
+            var dossier = this.DbContext.Devises.Where(e => e.DevisesIdDossier == Constantes.CurrentPreferenceIdDossier && e.DevisesActif);
+            return dossier;
+        }
         public void Disposing()
         {
             this.DbContext.Dispose();
+        }
+
+        public GEN_Devises GetById(long id)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<GEN_Devises> GetDevising()
@@ -38,14 +47,20 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             gEN_Devises.Devisessys_user = Constantes.IdentifiantUser;
             return gEN_Devises;
         }
-    }
 
-        public IEnumerable<GEN_Devises> GetDevisesByIDDossierAndActif()
+        public void Update(object idSource, GEN_Devises entity)
         {
-            var dossier = this.DbContext.Devises.Where(e => e.DevisesIdDossier == Constantes.CurrentPreferenceIdDossier && e.DevisesActif);
-            return dossier;
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GEN_Devises entity)
+        {
+            throw new NotImplementedException();
         }
     }
+
+        
+  
     public interface IDevisesRepository : IRepository<GEN_Devises>
     {
         void Disposing();

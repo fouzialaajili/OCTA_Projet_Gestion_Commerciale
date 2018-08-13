@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class TiersRepository:RepositoryBase<GEN_Tiers>, ITiersRepository
+   public class TiersRepository:RepositoryBase<GEN_Tiers>, ITiersRepository
     {
         public TiersRepository(IDbFactory dbFactory)
             : base(dbFactory) { }
@@ -41,6 +41,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         {
             var _Tiers = this.DbContext.Tiers.Where(e => e.IdDossier == Constantes.CurrentSocieteId && e.GEN_Items_TypeTiers.Valeur.Contains(Type) && e.Actif);
             return _Tiers;
+        }
+
+        public void Update(object idSource, GEN_Tiers entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GEN_Tiers entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GEN_Tiers GetById(long id)
+        {
+            throw new NotImplementedException();
         }
     }
     public interface ITiersRepository : IRepository<GEN_Tiers>

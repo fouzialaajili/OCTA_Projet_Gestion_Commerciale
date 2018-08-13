@@ -6,13 +6,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositoriess;
 using OCTA_Projet_Gestion_Commerciale.Service.Implementation;
 using OCTA_Projet_Gestion_Commerciale.Service.Mappages;
 using OCTA_Projet_Gestion_Commerciale.Web.Mappages;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Web;
-using System.Web.Mvc;
 
 namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
 {

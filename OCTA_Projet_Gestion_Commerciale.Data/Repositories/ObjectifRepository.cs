@@ -14,7 +14,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         public ObjectifRepository(IDbFactory dbFactory)
             : base(dbFactory) { }
 
-      
+        public void Delete(object idSource, GES_Objectif entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_Objectif GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public GES_Objectif GetObjectifById(long id)
         {
             var objetifs = this.DbContext.Objectifs.Where(c => c.ObjectifId== id).SingleOrDefault();
@@ -22,7 +31,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             return objetifs;
         }
 
-    
+        public void Update(object idSource, GES_Objectif entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IObjectifRepository : IRepository<GES_Objectif>

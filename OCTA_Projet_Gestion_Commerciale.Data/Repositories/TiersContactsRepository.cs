@@ -15,7 +15,15 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         public TiersContactsRepository(IDbFactory dbFactory)
             : base(dbFactory) { }
 
-      
+        public void Delete(object idSource, GEN_TiersContacts entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GEN_TiersContacts GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
 
         public GEN_TiersContacts GetTiersContactsById(long id)
         {
@@ -39,7 +47,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             return TiersContacts;
         }
 
-       
+        public void Update(object idSource, GEN_TiersContacts entity)
+        {
+            throw new NotImplementedException();
+        }
     }
  
     public interface ITiersContactsRepository : IRepository<GEN_TiersContacts>

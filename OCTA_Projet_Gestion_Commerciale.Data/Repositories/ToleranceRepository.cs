@@ -34,5 +34,20 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public void Update(object idSource, GES_Tolerance entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_Tolerance entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_Tolerance GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

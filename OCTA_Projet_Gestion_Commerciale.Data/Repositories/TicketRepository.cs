@@ -29,6 +29,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
             return objetifs;
         }
+
+        public void Update(object idSource, GES_Ticket entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_Ticket entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_Ticket GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface ITicketRepository : IRepository<GES_Ticket>

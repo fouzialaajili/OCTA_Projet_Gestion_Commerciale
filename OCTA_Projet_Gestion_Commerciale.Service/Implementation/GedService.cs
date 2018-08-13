@@ -1,9 +1,4 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using AutoMapper;
 using OCTA_Projet_Gestion_Commerciale.Service.Interface;
@@ -11,10 +6,11 @@ using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 using OCTA_Projet_Gestion_Commerciale.Model;
 using OCTA_Projet_Gestion_Commerciale.Data.Infrastructure;
 using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
+using System.Collections.Generic;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class GedService : IGedService
+    public class GedService : IGedService
     {
    
 
@@ -43,14 +39,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
        public IEnumerable<GedPivot> GetALL()
        {
-           IEnumerable<GES_Ged> ged = gedRepository.GetAll().ToList();
+           IEnumerable<GES_Ged> ged = gedRepository.GetAll();
            IEnumerable<GedPivot> geds = Mapper.Map<IEnumerable<GES_Ged>, IEnumerable<GedPivot>>(ged);
            return geds;
        }
 
        public IEnumerable<GedPivot> GetGed(string identifged)
        {
-           IEnumerable<GES_Ged> geds = gedRepository.GetItemsByModelLibelle(identifged).ToList();
+           IEnumerable<GES_Ged> geds = gedRepository.GetItemsByModelLibelle(identifged);
            IEnumerable<GedPivot> gedPivots = Mapper.Map<IEnumerable<GES_Ged>, IEnumerable<GedPivot>>(geds);
            return gedPivots;
        }
@@ -71,8 +67,17 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
        public void UpdateGed(GedPivot ged)
        {
            gedRepository.Update(Mapper.Map<GedPivot, GES_Ged>(ged));
-       }   
+       }
 
+        IEnumerable<GedPivot> IGedService.GetALL()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IEnumerable<GedPivot> IGedService.GetGed(string identifged)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
 }

@@ -24,6 +24,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             this.unitOfWork = unitOfWork;
         }
 
+        public void CreateItemsPivot(ItemsPivot items)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteItemsPivot(ItemsPivot items)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ItemsPivot> GetAllItems()
+        {
+            throw new NotImplementedException();
+        }
+
         public ItemsPivot GetItems(long? id)
         {
             id = 1;
@@ -44,6 +59,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             IEnumerable<GEN_Items> item = itemsRepository.GetItemsByModelAndType(type).ToList();
             IEnumerable<ItemsPivot> itemPivots = Mapper.Map<IEnumerable<GEN_Items>, IEnumerable<ItemsPivot>>(item);
             return itemPivots;
+        }
+
+        public void SaveItemsPivot()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateItemsPivot(ItemsPivot items)
+        {
+            throw new NotImplementedException();
         }
     }
 }

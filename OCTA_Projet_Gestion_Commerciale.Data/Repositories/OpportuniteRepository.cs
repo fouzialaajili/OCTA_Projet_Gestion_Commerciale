@@ -29,6 +29,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositoriess
 
             return numerotations;
         }
+
+        public void Update(object idSource, GES_Opportunite entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_Opportunite entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_Opportunite GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IOpportuniteRepository : IRepository<GES_Opportunite>

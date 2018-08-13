@@ -19,7 +19,20 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public ArticlesPrixRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
+        public void Delete(object idSource, GES_ArticlesPrix entity)
+        {
+            throw new NotImplementedException();
+        }
 
+        public GES_ArticlesPrix GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(object idSource, GES_ArticlesPrix entity)
+        {
+            throw new NotImplementedException();
+        }
     }
     
 }

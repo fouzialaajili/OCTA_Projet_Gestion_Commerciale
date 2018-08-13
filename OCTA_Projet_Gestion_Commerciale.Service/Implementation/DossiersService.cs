@@ -106,7 +106,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             return dossiersPivot;
         }
 
-        public DossiersPivot GetDossiersPivot(long id)
+        ///public DossiersPivot GetDossiersPivot(long id);
         public DossiersPivot GetDossiersAndInclude(long? id)
         {
             GEN_Dossiers dossiers = dossiersRepository.GetAdossierIncluding(id);

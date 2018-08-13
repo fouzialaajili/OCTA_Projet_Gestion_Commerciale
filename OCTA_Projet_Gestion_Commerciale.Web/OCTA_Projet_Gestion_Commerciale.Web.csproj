@@ -1150,7 +1150,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DevisesController.cs" />
-    <Compile Include="Controllers\GES_ArticlesKitController.cs" />
     <Compile Include="Controllers\ModelController.cs" />
     <Compile Include="Controllers\TiersController.cs" />
     <Compile Include="Controllers\TypePaiementController.cs" />

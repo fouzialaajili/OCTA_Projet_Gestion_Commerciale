@@ -20,6 +20,19 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public DoclieartRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
+        public void Delete(object idSource, GES_Doclieart entity)
+        {
+            throw new NotImplementedException();
+        }
 
+        public GES_Doclieart GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(object idSource, GES_Doclieart entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -29,6 +29,21 @@ public class GedRepository : RepositoryBase<GES_Ged>, IGedRepository
 
             return geds;
         }
+
+        public void Update(object idSource, GES_Ged entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(object idSource, GES_Ged entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GES_Ged GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IGedRepository : IRepository<GES_Ged>

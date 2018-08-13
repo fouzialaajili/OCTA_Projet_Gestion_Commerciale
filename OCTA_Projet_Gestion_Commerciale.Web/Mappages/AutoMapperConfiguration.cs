@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Gestion_Commerciale.Web.Mappages;
+using OCTA_Projet_Gestion_Commerciale.Service.Mappages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +13,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Mappages
         {
             Mapper.Initialize(x =>
             {
-                x.AddProfile<DomainToViewModelMappingProfile>();
-                x.AddProfile<ViewModelToDomainMappingProfile>();
+               x.AddProfile<PivotToViewModelMappingProfile>();
+                x.AddProfile<ModelToPivotMappingProfile>();
             });
         }
     }

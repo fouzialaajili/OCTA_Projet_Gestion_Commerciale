@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class ReglementRepository : RepositoryBase<GES_Reglement>, IReglementRepository
+ public   class ReglementRepository : RepositoryBase<GES_Reglement>, IReglementRepository
     {
         public ReglementRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

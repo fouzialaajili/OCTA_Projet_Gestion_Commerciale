@@ -8,7 +8,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 {
     public class ArticlesKitPivot
     {
-        public long Id { get; set;
+        public long ArticlesKitId
+        { get; set;
         }
         public int ArticlesKitQantite { get; set; }
         public string ArticlesKitDescription { get; set; }

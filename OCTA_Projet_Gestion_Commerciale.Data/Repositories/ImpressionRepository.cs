@@ -18,10 +18,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     }
 
 
-    public class ImpressionRepositoy : RepositoryBase<GES_Impression>, IImpressionRepositoy
+    public class ImpressionRepository : RepositoryBase<GES_Impression>, IImpressionRepositoy
     {
 
-        public ImpressionRepositoy(IDbFactory dbFactory)
+        public ImpressionRepository(IDbFactory dbFactory)
             : base(dbFactory) { }
 
         public GES_Impression GetImpressionById(long id)

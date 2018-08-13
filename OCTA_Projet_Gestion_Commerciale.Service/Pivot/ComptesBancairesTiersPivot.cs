@@ -33,6 +33,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public DateTime? sys_dateCreation { get; set; }
 
+
         public DevisesPivot GEN_Devises { get; set; }
 
         public TiersPivot GEN_Tiers { get; set; }

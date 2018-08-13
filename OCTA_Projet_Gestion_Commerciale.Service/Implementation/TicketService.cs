@@ -14,7 +14,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class TicketService : ITicketService
+    public class TicketService : ITicketService
     {
         private readonly ITicketRepository ticketRepository;
 
@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteTicket(TicketPivot Tickets)
         {
-            //ticketRepository.Delete(Mapper.Map<TicketPivot, GES_Ticket>(Tickets));
+            ticketRepository.Delete(Tickets.TicketId,Mapper.Map<TicketPivot, GES_Ticket>(Tickets));
         }
 
         public IEnumerable<TicketPivot> GetALL()

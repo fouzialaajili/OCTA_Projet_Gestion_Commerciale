@@ -12,9 +12,9 @@ using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 using OCTA_Projet_Gestion_Commerciale.Model;
 using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
-namespace Store.Service.Implementation
+namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class ObjectifService : IObjectifService
+    public class ObjectifService : IObjectifService
     {
         private readonly IObjectifRepository objectifSRepository;
 
@@ -35,7 +35,7 @@ namespace Store.Service.Implementation
 
         public void DeleteObjectif(ObjectifPivot objectif)
         {
-        //    objectifSRepository.Delete(Mapper.Map<ObjectifPivot, GES_Objectif>(objectif));
+            objectifSRepository.Delete(objectif.ObjectifDossierId,Mapper.Map<ObjectifPivot, GES_Objectif>(objectif));
         }
 
         public IEnumerable<ObjectifPivot> GetALL()

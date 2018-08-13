@@ -1,0 +1,762 @@
+﻿@model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.DossierFormViewModel
+@{
+    ViewBag.Title = "Nouveau dossier";
+}
+ @***
+ 
+ @section pageButtons {
+
+
+    <div class="btn-group">
+        <button class="btn waves-effect waves-light" type="button" name="action" id="saveAll">Enregistrer</button>
+        <button class="btn-flat with-border waves-effect waves-light" type="button" name="action" onclick="window.location.href='@Url.Action("Index")'">Fermer</button>
+        <button class="btn-flat waves-effect waves-light dropdown-button" type="submit" name="action" data-activates='more-actions'><i class="material-icons">more_vert</i></button>
+        <!-- Dropdown Structure -->
+        <ul id='more-actions' class='dropdown-content'>
+            <li>
+                <a href="@Url.Action("Create", new { id = ""})">
+                    <i class="material-icons">add</i>
+                    <span>Nouveau dossier</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Recommencer()">
+                    <i class="material-icons">check</i>
+                    <span>Recommencer à zéro</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"  onclick="Supprimer()">
+                    <i class="material-icons">delete_forever</i>
+                    <span>Supprimer</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+}
+
+
+
+
+    @using (Html.BeginForm("Delete", "Dossiers", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce dossier?');" }))
+
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.DossierId)
+        <button class="btn btn-danger btn-block" type="submit"  id="deleteButton" style="width:20%">Supprimer</button>
+
+    }
+<br /><br />
+    @using (Html.BeginForm())
+    {
+        
+
+        @Html.AntiForgeryToken()
+        <input type="submit" id="createButton" value="Create"  class="btn btn-default"  style="width:20%" />
+        <br /><br/>
+        <input type="reset" id="recommencer" value="Recommencer"  class="btn btn-default"  style="width:20%" />
+        <br /><br />
+**@
+
+@section pageButtons {
+
+
+    <div class="btn-group">
+        <button class="btn waves-effect waves-light" type="button" name="action" id="saveAll">Enregistrer</button>
+        <button class="btn-flat with-border waves-effect waves-light" type="button" name="action" onclick="window.location.href='@Url.Action("Index")'">Fermer</button>
+        <button class="btn-flat waves-effect waves-light dropdown-button" type="submit" name="action" data-activates='more-actions'><i class="material-icons">more_vert</i></button>
+        <!-- Dropdown Structure -->
+        <ul id='more-actions' class='dropdown-content'>
+            <li>
+                <a href="@Url.Action("Create", new { id = ""})">
+                    <i class="material-icons">add</i>
+                    <span>Nouveau devise</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Recommencer()">
+                    <i class="material-icons">check</i>
+                    <span>Recommencer à zéro</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Supprimer()">
+                    <i class="material-icons">delete_forever</i>
+                    <span>Supprimer</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+}
+
+
+@using (Html.BeginForm("Delete", "Dossiers", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce Dossier?');" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.DossierId)
+    <button class="btn btn-danger btn-block" type="submit" id="deleteButton" style="width:20%">Supprimer</button>
+    @*<button class="btn btn-danger btn-block" type="submit" id="deleteButton">Supprimer</button>*@
+
+}
+
+<div class="main-form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @*<input type="submit" id="createButton" value="Create" class="btn btn-default" />
+        <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" />*@
+        <input type="submit" id="createButton" value="Create" class="btn btn-default" style="width:20%" />
+        <br /><br />
+        <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" style="width:20%" />
+        <br /><br />
+
+
+
+        <div class="form-horizontal">
+            <div class="createButtons">
+                <h5 style="font-size:large;text-align:center">
+                    Informations générales
+                </h5>
+                <hr />
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.DossierId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CodeDossier, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.CodeDossier, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.CodeDossier, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-1 col-md-offset-1 label-right">
+                    @Html.CheckBoxFor(model => model.DossierActif)
+                    @Html.LabelFor(model => model.DossierActif, htmlAttributes: new { @class = "control-label" })
+                    @Html.ValidationMessageFor(model => model.DossierActif, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierRaisonSociale, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierRaisonSociale, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierRaisonSociale, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.IdTypeDossier, htmlAttributes: new { @class = "control-label  col-md-3 label-right" })
+                        <div class="col-md-2">
+                            @Html.DropDownList("IdTypeSociete", null,htmlAttributes: new { @onchange = "changementType();", @class = "form-control selectpicker" })
+                            @Html.ValidationMessageFor(model => model.IdTypeDossier, "", new { @class = "text-danger" })
+                        </div>*@
+
+
+
+                    @Html.LabelFor(model => model.IdTypeDossier, htmlAttributes: new { @class = "control-label col-md-3 label-right" })
+                    <div class="col-md-2">
+                        @Html.DropDownList("IdTypeDossier", null, htmlAttributes: new { @class = "form-control selectpicker" })
+                        @Html.ValidationMessageFor(model => model.IdTypeDossier, "", new { @class = "text-danger" })
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierAdresse, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="input-group">
+                        @Html.TextAreaFor(model => model.DossierAdresse, new { @class = "form-control col-md-12", @rows = "4", @cols = "142" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierAdresse, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierTel, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierTel, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierTel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierFax, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierFax, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierFax, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierEmail, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.DossierPays, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.DropDownList("Pays", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                        @Html.ValidationMessageFor(model => model.DossierPays, "", new { @class = "text-danger" })
+                    </div>*@
+
+                @Html.LabelFor(model => model.DossierPays, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.DropDownList("DossierPays", null, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.DossierPays, "", new { @class = "text-danger" })
+                </div>
+
+
+
+
+
+
+                @Html.LabelFor(model => model.DossierVille, htmlAttributes: new { @class = "control-label col-md-5 label-right" })
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierVille, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierVille, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierSiteWeb, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierSiteWeb, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierSiteWeb, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierCapitalSocial, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierCapitalSocial, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierCapitalSocial, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+
+                    @Html.LabelFor(model => model.IdDeviseTenueCompte, htmlAttributes: new { @class = "control-label col-md-3 label-right" })
+                    <div class="col-md-2">
+                        @Html.DropDownList("IdDeviseTenueCompte", null, htmlAttributes: new { @class = "form-control selectpicker" })
+                        @Html.ValidationMessageFor(model => model.IdDeviseTenueCompte, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="createButtons">
+                <h5>
+                    Informations légale
+                </h5>
+                <hr />
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierIdentifiantFiscale, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierIdentifiantFiscale, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierIdentifiantFiscale, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierIdentifiantTVA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierIdentifiantTVA, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierIdentifiantTVA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierPatente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierPatente, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierPatente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierRegistreCommerce, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierRegistreCommerce, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierRegistreCommerce, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierNumeroCNSS, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierNumeroCNSS, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierNumeroCNSS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DossierICE, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.DossierICE, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DossierICE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    }
+</div>
+
+    <div class="grilleIgnite">
+        <div class="titleText">
+            <span>
+                Liste des contacts dossier
+            </span>
+            <hr>
+        </div>
+
+
+
+        @Html.Action("listContacts", new { id = (Model != null ? Model.DossierId : 0) })
+        <br />
+
+        <div class="titleText">
+            <span>Les sites attachés</span>
+            <hr>
+        </div>
+        @Html.Action("listSites", new { id = (Model != null ? Model.DossierId : 0) })
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+    /*
+     * Paramétrage des grilles
+     */
+    var gridContacts = $("#listGridContacts"),
+        gridSites = $("#listGridSites"),
+        gridColumns = { "Site": "Nom#Adresse#ParDefault#actionsColumn", "SiteEdit": "Nom#Adresse#ParDefault#Tel#Fax#Email#Ville#Pays#Actif", "Contact": "Civilite#Nom#Prenom#Tel#Email#ParDefault#actionsColumn", "ContactEdit": "Civilite#Nom#Prenom#Tel#Email#ParDefault#Gsm#Actif" }
+    modelId=@(Model != null ? Model.DossierId : 0);
+    ;
+
+
+    var messageErreur = '@(new MvcHtmlString((string)ViewBag.Message))';
+    $(document).ready(function () {
+        if (messageErreur != "") {
+            alert(messageErreur);
+
+        }
+    });
+
+
+    /*
+     * Enregistrement des informations
+     */
+    gridContacts.on("iggridrendered", function (e, args) {
+        gridContacts.data("igGrid").dataSource._addChangesSuccessHandler(function (data, textStatus, jqXHR) {
+            gridSites.igGrid("saveChanges");
+        });
+    });
+    gridSites.on("iggridrendered", function (e, args) {
+        gridContacts.data("igGrid").dataSource._addChangesSuccessHandler(function (data, textStatus, jqXHR) {
+            $('#createButton').click();
+        });
+    });
+    $("#saveAll").bind({
+        click: function (e) {
+            if ($('form').valid()) {
+                gridContacts.igGrid("saveChanges");
+            }
+        }
+    });
+
+    /*
+     * Affichage et masque des columns
+     */
+    gridSites.on("iggridupdatingeditrowended", function (e, args) {
+
+        showcolumn(gridSites, gridColumns["Site"]);
+        gridSites.igGridUpdating('option', 'editMode', 'row');
+    });
+    gridContacts.on("iggridupdatingeditrowended", function (e, args) {
+
+        showcolumn(gridContacts, gridColumns["Contact"]);
+        gridContacts.igGridUpdating('option', 'editMode', 'row');
+    });
+
+    /*
+     * Mettre adresse dans le site principale lors de la création du dossier
+     */
+    if (modelId == 0) {
+        $("#Adresse").change(function () {
+
+            gridSites.igGridUpdating('updateRow', 0, { 'Adresse': $("#Adresse").val() });
+        });
+    }
+
+    /*
+     * Fonctions divers
+     */
+    function Recommencer() {
+        $('#recommencer').click();
+
+    }
+    function Supprimer() {
+        $('#deleteButton').click();
+    }
+
+
+    function openEdit(gridId, idRow,model) {
+        var grid = $("#" + gridId);
+
+        showcolumn(grid, gridColumns[model+"Edit"]);
+        grid.igGridUpdating('option', 'editMode', 'dialog');
+        grid.igGridUpdating('startEdit', idRow);
+    }
+
+    function showcolumn(grid, columnToShow) {
+        var cols = grid.igGrid("option", "columns");
+        for (c in cols) {
+            if (('#' + columnToShow + '#').indexOf('#' + cols[c].key + '#') >= 0) {
+                cols[c].hidden = false;
+            }
+            else {
+                cols[c].hidden = true;
+            }
+        }
+    }
+
+
+
+    </script>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*@using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>DossierFormViewModel</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CodeDossier, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CodeDossier, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CodeDossier, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierRaisonSociale, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierRaisonSociale, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierRaisonSociale, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdTypeDossier, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.IdTypeDossier, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.IdTypeDossier, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierAdresse, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierAdresse, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierAdresse, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierTel, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierTel, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierTel, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierFax, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierFax, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierFax, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierEmail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierVille, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierVille, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierVille, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierPays, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierPays, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierPays, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierSiteWeb, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierSiteWeb, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierSiteWeb, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierCapitalSocial, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierCapitalSocial, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierCapitalSocial, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdDeviseTenueCompte, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.IdDeviseTenueCompte, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.IdDeviseTenueCompte, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierIdentifiantFiscale, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierIdentifiantFiscale, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierIdentifiantFiscale, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierIdentifiantTVA, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierIdentifiantTVA, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierIdentifiantTVA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierPatente, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierPatente, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierPatente, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierRegistreCommerce, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierRegistreCommerce, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierRegistreCommerce, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierNumeroCNSS, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierNumeroCNSS, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierNumeroCNSS, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierICE, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierICE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierICE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierComptaActif, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierComptaActif, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierComptaActif, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierGescomAtif, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierGescomAtif, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierGescomAtif, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierPaieActif, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierPaieActif, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierPaieActif, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierActif, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.DossierActif)
+                            @Html.ValidationMessageFor(model => model.DossierActif, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierCleSecuriteCompta, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierCleSecuriteCompta, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierCleSecuriteCompta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierCleSecuritePaie, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierCleSecuritePaie, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierCleSecuritePaie, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierCleSecuriteGescom, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierCleSecuriteGescom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierCleSecuriteGescom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DossierCleSecurite, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DossierCleSecurite, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DossierCleSecurite, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dossiersys_user, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Dossiersys_user, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Dossiersys_user, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dossiersys_dateUpdate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Dossiersys_dateUpdate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Dossiersys_dateUpdate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dossiersys_dateCreation, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Dossiersys_dateCreation, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Dossiersys_dateCreation, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    *@
+
+

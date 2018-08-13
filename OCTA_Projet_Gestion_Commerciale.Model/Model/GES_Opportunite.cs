@@ -24,9 +24,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
    
        /****/ public long? OpportuniteDossierd { get; set; }
-        virtual public GEN_Dossiers OpportuniteDossier { get; set; }
-        virtual public GEN_Tiers OpportuniteFichetier { get; set; }
-        virtual public GEN_Devises OpportuniteDevise { get; set; }
+        public virtual GEN_Dossiers OpportuniteDossier { get; set; }
+        public virtual  GEN_Tiers OpportuniteFichetier { get; set; }
+       public virtual  GEN_Devises GEN_Devises { get; set; }
         public virtual ICollection<GES_Motif> OpportuniteMotif { get; set; }
       //  public virtual ICollection<CrmContact> OpportuniteCrmContact { get; set; }
         public virtual ICollection<GES_OpportuniteDetail> OpportuniteOpportuniteDetail{ get; set; }

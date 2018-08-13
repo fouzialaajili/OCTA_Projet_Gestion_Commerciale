@@ -11,12 +11,25 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
 {
     public interface IDossiersService
     {
-        IEnumerable<DossiersPivot> GetALL();
-        DossiersPivot GetDossiersPivot(long id);
-        IEnumerable<DossiersPivot> GetDossiersPivotByNom(string Nom);
+        IEnumerable<DossiersPivot> GetAllDossier();
+        DossiersPivot GetDossiersPivot(long? id);
+        IEnumerable<DossiersPivot> GetDossierByCond();
+        // IEnumerable<DossiersPivot> GetDossiersPivotByNom(string Nom);
+        IEnumerable<DossiersSitesPivot> GetingDossierSites();
+        IEnumerable<DossiersContactsPivot> GetingDossierContact();
         void DeleteDossiersPivot(DossiersPivot dossiers);
-        void UpdateDossiersContactsPivot(DossiersPivot dossiers);
-        void CreateDossiersContactsPivot(DossiersPivot dossiers);
+        void UpdateDossierPivot(DossiersPivot dossiers);
+        void CreateDossiersPivot(DossiersPivot dossiers);
+        IEnumerable<DossiersPivot> GetActifDossier();
+        IEnumerable<DossiersSitesPivot> GentingSite(long id);
+        IEnumerable<DossiersContactsPivot> GentingContact(long id);
+        DossiersPivot  GetDossiersAndInclude(long? id);
+       IEnumerable<ItemsPivot> GetingModelItem(string valeur);
+        IEnumerable<PiecesPivot> GetCPT_Piece(long? id);
+       // DossiersPivot getSingleActif();
+        DossiersPivot getingDossierActif();
+        void Validation_Db(DossiersPivot objet);
+        IEnumerable<DossiersPivot> GetDossier();
         void SaveDossiers();
         IEnumerable<DossiersPivot> GetDossiersByActif(bool actif);
         IEnumerable<DossiersPivot> GetDossiersByDossiersId();

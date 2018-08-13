@@ -19,12 +19,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
         public string TicketDegre { get; set; }
 
         /***/
-        public long TicketIdClient { get; set; }
+        public long? TicketIdClient { get; set; }
         /***/
-        public long TicketIdRepresentant { get; set; }
+        public long? TicketIdRepresentant { get; set; }
 
         /***/
-        public long TicketIdcontact { get; set; }
+        public long? TicketIdcontact { get; set; }
         public long? TicketTypeaction { get; set; }
         public long TicketSysuser { get; set; }
         public DateTime? TicketSysDateCreation { get; set; }

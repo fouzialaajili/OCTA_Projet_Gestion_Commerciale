@@ -15,7 +15,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositoriess;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class OpportuniteService : IOpportuniteService
+    public class OpportuniteService : IOpportuniteService
     {
         private readonly IOpportuniteRepository opportuniteRepository;
 
@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         }
         public void DeleteOpportunite(OpportunitePivot opportunite)
         {
-            //opportuniteRepository.Delete(Mapper.Map<OpportunitePivot, GES_Opportunite>(opportunite));
+            opportuniteRepository.Delete(opportunite.OpportuniteId,Mapper.Map<OpportunitePivot, GES_Opportunite>(opportunite));
         }
 
         public IEnumerable<OpportunitePivot> GetALL()

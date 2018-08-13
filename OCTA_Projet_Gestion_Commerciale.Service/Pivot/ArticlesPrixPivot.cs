@@ -8,13 +8,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 {
     public class ArticlesPrixPivot
     {
-       public long  Id  { get; set; }
+        public long ArticlesPrixId { get; set; }
         public double ArticlesPrixprixAchatTC { get; set; }
         public double ArticlesPrixprixVenteTC
         { get; set; }
         public string ArticlesPrixDeviseVente { get; set; }
         public string ArticlesPrixDeviseAchat { get; set; }
-       public double ArticlesPrixPrixVenteDevise { get; set; }
+        public double ArticlesPrixPrixVenteDevise { get; set; }
         public DateTime ArticlesPrixDateApplication { get; set; }
         public bool ArticlesPrixActif { get; set; }
         public int ArticlesPrixSysuser { get; set; }

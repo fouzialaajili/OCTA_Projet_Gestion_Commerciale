@@ -30,8 +30,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public DateTime? Devisessys_dateCreation { get; set; }
 
 
-        
-        public virtual GEN_Dossiers DeviseSociete { get; set; }
+       // public long DeviseSocieteId { get; set; }
+        public virtual GEN_Dossiers GEN_Dossiers { get; set; }
 
         public virtual ICollection<CPT_ComptesBancaires> CPT_ComptesBancaires { get; set; }
 
@@ -48,10 +48,19 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public virtual ICollection<CPT_Pieces> CPT_Pieces_TR { get; set; }
         public virtual ICollection<CPT_RelevesBancaires> CPT_RelevesBancaires { get; set; }
 
-     
 
-   
+
+
         public virtual ICollection<GEN_Tiers> GEN_Tiers { get; set; }
         public virtual ICollection<GES_Opportunite> GES_Opportunite { get; set; }
+
+
+
+
+        /************/
+
+
+
+
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class MouvementStockRepository : RepositoryBase<GES_MouvementStock>, IMouvementStockRepository
+  public  class MouvementStockRepository : RepositoryBase<GES_MouvementStock>, IMouvementStockRepository
     {
         public MouvementStockRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

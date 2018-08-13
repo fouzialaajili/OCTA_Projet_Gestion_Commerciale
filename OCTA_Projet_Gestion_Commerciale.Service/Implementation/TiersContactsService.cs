@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         public void DeleteTiersContacts(TiersContactsPivot TiersContact)
         {
 
-           // tiersContactsRepository.Delete(Mapper.Map<TiersContactsPivot, GEN_TiersContacts>(TiersContact));
+            tiersContactsRepository.Delete(TiersContact.GEN_TiersContactsId,Mapper.Map<TiersContactsPivot, GEN_TiersContacts>(TiersContact));
         }
 
         public IEnumerable<TiersContactsPivot> GetALL()

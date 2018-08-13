@@ -15,7 +15,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class MotifTicketService : IMotifTicketService
+    public class MotifTicketService : IMotifTicketService
     {
         private readonly IMotifTicketRepository motifTicketRepository;
 
@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteMotifTicket(MotifTicketPivot Motif)
         {
-            //motifTicketRepository.Delete(Mapper.Map<MotifTicketPivot, GES_MotifTicket>(Motif));
+            motifTicketRepository.Delete(Motif.MotifIdticket,Mapper.Map<MotifTicketPivot, GES_MotifTicket>(Motif));
         }
 
         public IEnumerable<MotifTicketPivot> GetALL()

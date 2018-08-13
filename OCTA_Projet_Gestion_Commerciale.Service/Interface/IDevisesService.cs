@@ -12,13 +12,17 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
    public interface IDevisesService
     {
        //IEnumerable<DevisesPivot> GetDevises();
-        DevisesPivot GetDevise(long id);
-     
+        DevisesPivot GetDevise(long? id);
+        IEnumerable<DevisesPivot> Getingdevises();
         void DeleteDevise(DevisesPivot devises);
         void UpdateDevise(DevisesPivot devises);
         void CreateDevise(DevisesPivot devises);
         IQueryable<GEN_Devises> GetAllDevises();
         IEnumerable<DevisesPivot> GetDevisesByIDDossierAndActif();
+        IEnumerable<DevisesPivot> GetDeviseByCond();
+        void DisposeDevise();
+        IEnumerable<DevisesPivot> GetAllDevises();
+        DevisesPivot GetAttributes(DevisesPivot devisepivot);
         void SaveDevise();
     }
 }

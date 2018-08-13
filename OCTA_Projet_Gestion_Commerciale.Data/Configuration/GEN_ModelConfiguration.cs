@@ -19,6 +19,11 @@ HasOptional<GEN_Dossiers>(a => a.GEN_Dossiers).WithMany(d => d.GEN_Model)
             
 
 
+            HasOptional<GEN_Dossiers>(a => a.GEN_Dossiers)
+                    .WithMany(d => d.GEN_Model
+                    
+                    )
+                    .HasForeignKey<long?>(a => a.IdDossier);
 
     }
     }

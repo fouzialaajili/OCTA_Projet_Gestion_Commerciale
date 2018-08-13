@@ -33,13 +33,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public long? IdDossier { get; set; }
 
-        public string Sys_user { get; set; }
 
-        public DateTime? Sys_dateUpdate { get; set; }
+        public string sys_user { get; set; }
 
-        public DateTime? Sys_dateCreation { get; set; }
+        public DateTime? sys_dateUpdate { get; set; }
 
-        
+        public DateTime? sys_dateCreation { get; set; }
+
+
 
         public  CompteGPivot CPT_CompteG { get; set; }
 
@@ -55,8 +56,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
         
         public  ICollection<CompteGDetailTVAPivot> CPT_CompteGDetailTVA { get; set; }
 
-        public long TvaSocieteId { get; set; }
-        public DossiersPivot TvaSociete { get; set; }
+        ////public long TvaSocieteId { get; set; }
+        ////public DossiersPivot TvaSociete { get; set; }
         public  ICollection<TiersPivot> TvaFichetier { get; set; }
     }
 }

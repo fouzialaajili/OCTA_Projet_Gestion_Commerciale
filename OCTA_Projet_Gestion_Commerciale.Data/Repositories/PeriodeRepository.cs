@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositoriess
 {
-    class PeriodeRepository : RepositoryBase<GES_Periode>, IPeriodeRepository
+  public  class PeriodeRepository : RepositoryBase<GES_Periode>, IPeriodeRepository
     {
         public PeriodeRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

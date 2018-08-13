@@ -59,10 +59,12 @@
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Infragistics.Olap.DataProvider.Adomd.Mvc, Version=5.16.2.2141, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\IgniteUI.MVC.16.2.20162.2141\lib\net451\Infragistics.Olap.DataProvider.Adomd.Mvc.dll</HintPath>
@@ -74,6 +76,10 @@
     </Reference>
     <Reference Include="Infragistics.Web.Mvc.Mobile, Version=5.16.2.2141, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\IgniteUI.MVC.16.2.20162.2141\lib\net451\Infragistics.Web.Mvc.Mobile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -129,13 +135,20 @@
     <Reference Include="System.Web.Mvc">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ChartOcta\css\bootstrap.min.css" />
+    <Content Include="Content\ChartOcta\css\materialize.min.css" />
+    <Content Include="Content\ChartOcta\css\styles.css" />
+    <Content Include="Content\ChartOcta\favicon\favicon.ico" />
+    <Content Include="Content\ChartOcta\favicon\icon.png" />
+    <Content Include="Content\ChartOcta\favicon\tile-wide.png" />
+    <Content Include="Content\ChartOcta\favicon\tile.png" />
+    <Content Include="Content\ChartOcta\fonts\MaterialIcons-Regular.svg" />
+    <Content Include="Content\ChartOcta\img\logo-octa.svg" />
+    <Content Include="Content\ChartOcta\img\move-columns.svg" />
     <Content Include="Content\Infragistics\css\structure\fonts\icomoon.svg" />
     <Content Include="Content\Infragistics\css\structure\fonts\jquery-ui.svg" />
     <Content Include="Content\Infragistics\css\structure\images\icon_sprite.png" />
@@ -577,8 +590,43 @@
     <Content Include="Content\Infragistics\css\structure\fonts\icomoon.woff" />
     <Content Include="Content\Infragistics\css\structure\fonts\icomoon.ttf" />
     <Content Include="Content\Infragistics\css\structure\fonts\icomoon.eot" />
+    <Content Include="Content\ChartOcta\css\.DS_Store" />
+    <Content Include="Content\ChartOcta\css\styles.css.map" />
+    <Content Include="Content\ChartOcta\fonts\MaterialIcons-Regular.eot" />
+    <Content Include="Content\ChartOcta\fonts\MaterialIcons-Regular.ijmap" />
+    <Content Include="Content\ChartOcta\fonts\MaterialIcons-Regular.ttf" />
+    <Content Include="Content\ChartOcta\fonts\MaterialIcons-Regular.woff" />
+    <Content Include="Content\ChartOcta\fonts\MaterialIcons-Regular.woff2" />
+    <Content Include="Content\ChartOcta\img\.DS_Store" />
+    <Content Include="Content\ChartOcta\scss\.DS_Store" />
+    <Content Include="Content\ChartOcta\scss\components\_buttons.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_collapsible.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_color-variables.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_dropdown.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_forms.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_global.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_icons.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_layout.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_modal.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_navbar.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_normalize.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_panel.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_sidenav.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_table_of_contents.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_tabs.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_typography.scss" />
+    <Content Include="Content\ChartOcta\scss\components\_variables.scss" />
+    <Content Include="Content\ChartOcta\scss\styles.scss" />
+    <Content Include="Content\LESS\Site.less" />
+    <Content Include="Content\LESS\SiteNew.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Scripts\ChartOcta\animatedModal.min.js" />
+    <Content Include="Scripts\ChartOcta\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\ChartOcta\materialize.js" />
+    <Content Include="Scripts\ChartOcta\materialize.min.js" />
+    <Content Include="Scripts\ChartOcta\modernizr-3.6.0.min.js" />
+    <Content Include="Scripts\ChartOcta\octa.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
@@ -1106,12 +1154,13 @@
     <Compile Include="Controllers\ModelController.cs" />
     <Compile Include="Controllers\TiersController.cs" />
     <Compile Include="Controllers\TypePaiementController.cs" />
+    <Compile Include="Controllers\DossiersController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mappages\AutoMapperConfiguration.cs" />
-    <Compile Include="Mappages\DomainToViewModelMappingProfile.cs" />
-    <Compile Include="Mappages\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Mappages\PivotToViewModelMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AdminFormViewModel.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
@@ -1131,8 +1180,138 @@
     <Compile Include="ViewModels\GEN_TypePaiementDetail_ViewModel.cs" />
     <Compile Include="ViewModels\GEN_TypePaiement_Form_ViewModel.cs" />
     <Compile Include="ViewModels\GEN_TypePaiement_ViewModel.cs" />
+    <Compile Include="ViewModels\AffaireFormViewModel.cs" />
+    <Compile Include="ViewModels\AffaireViewModel.cs" />
+    <Compile Include="ViewModels\ArticePrixViewModel.cs" />
+    <Compile Include="ViewModels\ArticlePrixFormViewModel.cs" />
+    <Compile Include="ViewModels\ArticlesFormViewModel.cs" />
+    <Compile Include="ViewModels\ArticlesKitsFormViewModel.cs" />
+    <Compile Include="ViewModels\ArticlesKitsViewModel.cs" />
+    <Compile Include="ViewModels\ArticlesViewModel.cs" />
+    <Compile Include="ViewModels\CategorieFormViewModel.cs" />
+    <Compile Include="ViewModels\CategorieViewModel.cs" />
+    <Compile Include="ViewModels\CPT_ClasseFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_ClasseViewModel.cs" />
+    <Compile Include="ViewModels\CPT_CodesTVAFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_CodesTVAViewModel.cs" />
+    <Compile Include="ViewModels\CPT_CompteGDetailTVAFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_CompteGDetailTVAViewModel.cs" />
+    <Compile Include="ViewModels\CPT_CompteGFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_CompteGViewModel.cs" />
+    <Compile Include="ViewModels\CPT_ComptesBancairesFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_ComptesBancairesTiersFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_ComptesBancairesTiersViewModel.cs" />
+    <Compile Include="ViewModels\CPT_ComptesBancairesViewModel.cs" />
+    <Compile Include="ViewModels\CPT_EcheancesFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_EcheancesViewModel.cs" />
+    <Compile Include="ViewModels\CPT_EcrituresFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_EcrituresViewModel.cs" />
+    <Compile Include="ViewModels\CPT_JournauxFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_JournauxViewModel.cs" />
+    <Compile Include="ViewModels\CPT_LettrageFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_LettrageViewModel.cs" />
+    <Compile Include="ViewModels\CPT_NatureOperationFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_NatureOperationViewModel.cs" />
+    <Compile Include="ViewModels\CPT_ParametrageComptableFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_ParametrageComptableViewModel.cs" />
+    <Compile Include="ViewModels\CPT_PiecesFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_PiecesViewModel.cs" />
+    <Compile Include="ViewModels\CPT_PlanAnalytiqueFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_PlanAnalytiqueViewModel.cs" />
+    <Compile Include="ViewModels\CPT_RelevesBancairesDetailFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_RelevesBancairesDetailViewModel.cs" />
+    <Compile Include="ViewModels\CPT_RelevesBancairesFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_RelevesBancairesViewModel.cs" />
+    <Compile Include="ViewModels\CPT_TVALettrageFormViewModel.cs" />
+    <Compile Include="ViewModels\CPT_TVALettrageViewModel.cs" />
+    <Compile Include="ViewModels\DepotFormViewModel.cs" />
+    <Compile Include="ViewModels\DepotViewModel.cs" />
+    <Compile Include="ViewModels\DevisesFormViewModel.cs" />
+    <Compile Include="ViewModels\DevisesViewModel.cs" />
+    <Compile Include="ViewModels\DoclieartFormViewModel.cs" />
+    <Compile Include="ViewModels\DoclieartViewModel.cs" />
+    <Compile Include="ViewModels\DoclieFormViewModel.cs" />
+    <Compile Include="ViewModels\DoclieViewModel.cs" />
+    <Compile Include="ViewModels\DocumentCommercialDetailSerieFormViewModel.cs" />
+    <Compile Include="ViewModels\DocumentCommercialDetailSerieViewModel.cs" />
+    <Compile Include="ViewModels\DocumentCommercialViewModel.cs" />
+    <Compile Include="ViewModels\DocumentsFormViewModel.cs" />
+    <Compile Include="ViewModels\DocumentsViewModel.cs" />
+    <Compile Include="ViewModels\DocummentCommercialDetailFormViewModel.cs" />
+    <Compile Include="ViewModels\DocummentCommercialDetailViewModel.cs" />
+    <Compile Include="ViewModels\DocummentCommercialFormViewModel.cs" />
+    <Compile Include="ViewModels\DossierContactsFromViewModel.cs" />
+    <Compile Include="ViewModels\DossierContactsViewModel.cs" />
+    <Compile Include="ViewModels\DossierFormViewModel.cs" />
+    <Compile Include="ViewModels\DossiersSitesFromViewModel.cs" />
+    <Compile Include="ViewModels\DossiersSitesViewModel.cs" />
+    <Compile Include="ViewModels\DossierViewModel.cs" />
+    <Compile Include="ViewModels\ExercicesFromViewModel.cs" />
+    <Compile Include="ViewModels\ExercicesViewModel.cs" />
+    <Compile Include="ViewModels\FamilleFormViewModel.cs" />
+    <Compile Include="ViewModels\FamilleViewModel.cs" />
+    <Compile Include="ViewModels\FournisseurArticleFormViewModel.cs" />
+    <Compile Include="ViewModels\FournisseurArticleViewModel.cs" />
+    <Compile Include="ViewModels\GedFormViewModel.cs" />
+    <Compile Include="ViewModels\GedViewModel.cs" />
+    <Compile Include="ViewModels\GES_PeriodeFormViewModel.cs" />
+    <Compile Include="ViewModels\GES_PeriodeViewModel.cs" />
+    <Compile Include="ViewModels\GES_ReglementFormViewModel.cs" />
+    <Compile Include="ViewModels\GES_ReglementViewModel.cs" />
+    <Compile Include="ViewModels\ImpressionFromViewModel.cs" />
+    <Compile Include="ViewModels\ImpressionViewModel.cs" />
+    <Compile Include="ViewModels\ItemsFormViewModel.cs" />
+    <Compile Include="ViewModels\ItemsViewModel.cs" />
     <Compile Include="ViewModels\LicenceFromViewModel.cs" />
     <Compile Include="ViewModels\LicenceViewModel.cs" />
+    <Compile Include="ViewModels\MarqueFormViewModel.cs" />
+    <Compile Include="ViewModels\MarqueViewModel.cs" />
+    <Compile Include="ViewModels\ModelFormViewModel.cs" />
+    <Compile Include="ViewModels\ModelViewModel.cs" />
+    <Compile Include="ViewModels\MotifFormViewModel.cs" />
+    <Compile Include="ViewModels\MotifTicketsFormViewModel.cs" />
+    <Compile Include="ViewModels\MotifTicketsViewModel.cs" />
+    <Compile Include="ViewModels\MotifViewModel.cs" />
+    <Compile Include="ViewModels\MouvementStockFormViewModel.cs" />
+    <Compile Include="ViewModels\MouvementStockViewModel.cs" />
+    <Compile Include="ViewModels\NomenclatureFormViewModel.cs" />
+    <Compile Include="ViewModels\NomenclatureViewModel.cs" />
+    <Compile Include="ViewModels\NumerationsFormViewModel.cs" />
+    <Compile Include="ViewModels\NumerationsViewModel.cs" />
+    <Compile Include="ViewModels\NumerotationFormViewModel.cs" />
+    <Compile Include="ViewModels\NumerotationViewModel.cs" />
+    <Compile Include="ViewModels\ObjectifFormViewModel.cs" />
+    <Compile Include="ViewModels\ObjectifViewModel.cs" />
+    <Compile Include="ViewModels\OpportuniteDetailFormViewModel.cs" />
+    <Compile Include="ViewModels\OpportuniteDetailViewModel.cs" />
+    <Compile Include="ViewModels\OpportuniteFormViewModel.cs" />
+    <Compile Include="ViewModels\OpportuniteViewModel.cs" />
+    <Compile Include="ViewModels\PeriodesFormViewModel.cs" />
+    <Compile Include="ViewModels\PeriodesViewModel.cs" />
+    <Compile Include="ViewModels\PreferencesFormViewModel.cs" />
+    <Compile Include="ViewModels\PreferencesViewModel.cs" />
+    <Compile Include="ViewModels\ReglementFactureFormViewModel.cs" />
+    <Compile Include="ViewModels\ReglementFactureViewModel.cs" />
+    <Compile Include="ViewModels\ReglementFormViewModel.cs" />
+    <Compile Include="ViewModels\ReglementViewModel.cs" />
+    <Compile Include="ViewModels\RepresentantFormViewModel.cs" />
+    <Compile Include="ViewModels\RepresentantViewModel.cs" />
+    <Compile Include="ViewModels\TicketDetailFormViewModel.cs" />
+    <Compile Include="ViewModels\TicketDetailViewModel.cs" />
+    <Compile Include="ViewModels\TicketFormViewModel.cs" />
+    <Compile Include="ViewModels\TicketViewModel.cs" />
+    <Compile Include="ViewModels\TiersContactsFormViewModel.cs" />
+    <Compile Include="ViewModels\TiersContactsViewModel.cs" />
+    <Compile Include="ViewModels\TiersFormViewModel.cs" />
+    <Compile Include="ViewModels\TiersViewModel.cs" />
+    <Compile Include="ViewModels\ToleranceFormViewModel.cs" />
+    <Compile Include="ViewModels\ToleranceViewModel.cs" />
+    <Compile Include="ViewModels\TypePaiementDetailFormViewModel.cs" />
+    <Compile Include="ViewModels\TypePaiementDetailViewModel.cs" />
+    <Compile Include="ViewModels\TypePaiementFormViewModel.cs" />
+    <Compile Include="ViewModels\TypePaiementViewModel.cs" />
+    <Compile Include="ViewModels\UniteFormViewModel.cs" />
+    <Compile Include="ViewModels\UniteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -1161,6 +1340,15 @@
     <Content Include="Views\TypePaiement\Create.cshtml" />
     <Content Include="Views\Tiers\listContacts.cshtml" />
     <Content Include="Views\Tiers\Index.cshtml" />
+    <Content Include="Views\Dossiers\Index.cshtml" />
+    <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\Devises\Create.cshtml" />
+    <Content Include="Views\Items\Create.cshtml" />
+    <Content Include="Views\Dossiers\DossierSites.cshtml" />
+    <Content Include="Views\Dossiers\DossierContacts.cshtml" />
+    <Content Include="Views\Dossiers\listContacts.cshtml" />
+    <Content Include="Views\Dossiers\listSites.cshtml" />
+    <Content Include="Views\Dossiers\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

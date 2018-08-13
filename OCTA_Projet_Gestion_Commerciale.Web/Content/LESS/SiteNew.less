@@ -1,0 +1,347 @@
+﻿
+/*Partie Checkbox*/
+.material-switch {
+    & > input[type="checkbox"] {
+        display: none;
+
+        &:checked + label {
+            &::before {
+                background: inherit;
+                opacity: 0.5;
+            }
+
+            &::after {
+                background: inherit;
+                left: 20px;
+            }
+        }
+    }
+
+    & > label {
+        cursor: pointer;
+        height: 0px;
+        position: relative;
+        width: 40px;
+        margin-top: 17px;
+
+        &::before {
+            background: rgb(0, 0, 0);
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            content: '';
+            height: 16px;
+            margin-top: -8px;
+            position: absolute;
+            opacity: 0.3;
+            transition: all 0.4s ease-in-out;
+            width: 40px;
+        }
+
+        &::after {
+            background: rgb(255, 255, 255);
+            border-radius: 16px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+            content: '';
+            height: 24px;
+            left: -4px;
+            margin-top: -8px;
+            position: absolute;
+            top: -4px;
+            transition: all 0.3s ease-in-out;
+            width: 24px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*New Layout*/
+
+/* Mixin */
+.vertical-align() {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+html {
+    height: 100%;
+    min-height: 100%;
+
+    body {
+        height: 100%;
+    }
+}
+
+
+@HeaderHeight: 70px;
+@BreadCrumpHeight: 35px;
+@Border: 1px solid #EAEAEA;
+@ContainerMargin: 15px;
+
+.OctaBody {
+
+    .OctaTop {
+        border: none;
+
+        .headerTop {
+            background-color: white;
+            height: @HeaderHeight;
+            border-bottom: @Border;
+
+            .MenuBoutton {
+                height: @HeaderHeight;
+                width: @HeaderHeight;
+                margin-top: 0px;
+                text-align: center;
+                border-right: @Border;
+
+                .MenuLink {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+
+                    img {
+                        .vertical-align();
+                        width: 30px;
+                        height: 18px;
+                    }
+                }
+            }
+
+            .logoDiv {
+                padding-left: 15px;
+                height: 100%;
+                display: flex;
+
+                .logoOctaCompta {
+                    width: 80px;
+                    margin: auto; //margin: 6px 0 0 6px;
+                }
+            }
+
+            .loginDiv, .alertDiv, .optionsDiv, .searchDiv {
+                float: right;
+                height: @HeaderHeight;
+                width: @HeaderHeight;
+                display: flex;
+                border-left: @Border;
+
+                .profileLink {
+                    width: 60%;
+                    height: 60%;
+                    display: block;
+                    margin: auto;
+
+                    .userImg {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 22px;
+                    }
+                }
+
+                .searchLink, .alertLink, .optionsLink {
+                    width: 30%;
+                    height: 30%;
+                    display: block;
+                    margin: auto;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+        .OctaBreadcrumb {
+            height: @BreadCrumpHeight;
+            background-color: white;
+            border-bottom: @Border;
+            display: flex;
+
+            .breadcrumbLinks {
+                margin: auto 0 auto @ContainerMargin;
+                font-size: 12px;
+            }
+        }
+    }
+
+
+
+    .OctaContainer {
+        padding-top: @HeaderHeight+@BreadCrumpHeight;
+        font-size: 12px !important;
+
+
+        .OctaButtons {
+            height: 45px;
+            display: flex;
+            border-bottom: @Border;
+
+            .pageTitleDiv {
+                margin: auto 0;
+
+                .page-title {
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+            }
+
+            .ButtonsDiv {
+                margin: auto 0 auto auto;
+            }
+        }
+
+        .OctaContent {
+            #grille, #grille-up, #grille-down {
+
+                .ui-widget-header, .ui-widget-header.ui-state-default {
+                    background: #3276b1;
+                    border-right-color: transparent;
+                }
+
+
+                .ui-iggrid-footer, .ui-widget-header.ui-iggrid-pagesizedropdowncontainerabove {
+                    background-color: transparent;
+                }
+
+                .ui-state-hover input {
+                    color: black;
+                }
+
+                .permutIcon {
+                    width: 15px;
+                    height: 15px;
+                }
+
+                .linkIcon {
+                    width: 13px;
+                    margin-top: -3px;
+                }
+
+                .ui-icon-circle-plus {
+                    background-image: url(../Images/addRow.png) !important;
+                    background-position-x: 0px;
+                    background-position-y: 0px;
+                    background-size: contain;
+
+                    &:before {
+                        content: '';
+                        display: none;
+                    }
+                }
+
+                .ui-icon-circle-close {
+                    background-image: url(../Images/delete.png) !important;
+                    background-position-x: 0px;
+                    background-position-y: 0px;
+                    background-size: contain;
+
+                    &:before {
+                        content: '';
+                        display: none;
+                    }
+                }
+
+                .ui-widget-content a {
+                    color: #337ab7;
+                    text-decoration: underline;
+                }
+
+                .statutRB {
+                    /*min-width: 70px;
+                    display: inline-block;
+                    text-align: center;
+                    padding: 1px 0px;*/
+                    padding: 0px;
+                }
+
+                .ui-iggrid-summaries-footer-text-container {
+                    margin-left: 0;
+                    text-align: right;
+                    padding-right: 4px;
+                }
+
+                input[type=checkbox] {
+                    visibility: hidden;
+                }
+
+                .checkboxStyle {
+                    width: 60px;
+                    height: 20px;
+                    /*background: #333;*/
+                    margin: 0;
+                    border-radius: 25px;
+                    /*position: relative;*/
+                }
+
+                .checkboxStyle:before {
+                    top: 2px;
+                    left: 6px;
+                    height: 1px;
+                    font-size: 10px;
+                    font-weight: bold;
+                }
+
+                .checkboxStyle:after {
+                    top: 2px;
+                    left: 35px;
+                    height: 1px;
+                    font-size: 10px;
+                    font-weight: bold;
+                    text-decoration: underline;
+                }
+
+                .checkboxStyle label {
+                    display: block;
+                    width: 26px;
+                    height: 11px;
+                    border-radius: 25px;
+                    /*transition: all .5s ease;*/
+                    cursor: inherit;
+                    /*position: absolute;*/
+                    top: 4px;
+                    z-index: 1;
+                    left: 6px;
+                    /*background: red;*/
+                }
+
+
+                .checkboxStyle input[type=checkbox]:checked + label {
+                    left: 30px;
+                    background: #26ca28;
+                }
+            }
+        }
+    }
+}
+
+
+/*Test Menu*/
+.MenuTest{
+    background-color:aqua;
+    li{
+        margin-left: 20px;
+    }
+}

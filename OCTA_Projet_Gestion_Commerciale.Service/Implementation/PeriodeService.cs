@@ -14,7 +14,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositoriess;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class PeriodeService : IPeriodeService
+    public class PeriodeService : IPeriodeService
     {
         private readonly IPeriodeRepository periodeRepository;
 
@@ -37,7 +37,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeletePeriode(PeriodePivot Periodes)
         {
-           //periodeRepository.Delete(Mapper.Map<PeriodePivot, GES_Periode>(Periodes));
+           periodeRepository.Delete(Periodes.PeriodeId,Mapper.Map<PeriodePivot, GES_Periode>(Periodes));
         }
 
         public IEnumerable<PeriodePivot> GetALL()

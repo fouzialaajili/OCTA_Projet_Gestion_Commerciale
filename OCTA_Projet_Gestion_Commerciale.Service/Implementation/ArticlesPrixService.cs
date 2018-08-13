@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class ArticlesPrixService : IArticlesPrixService
+    public class ArticlesPrixService : IArticlesPrixService
     {
         private readonly IArticlesPrixRepository articlesRepository;
         private readonly IUnitOfWork unitOfWork;
@@ -31,7 +31,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteArticlesPrixPivot(ArticlesPrixPivot articlesPrix)
         {
-            //articlesRepository.Delete(Mapper.Map<ArticlesPrixPivot, GES_ArticlesPrix>(articlesPrix));
+            articlesRepository.Delete(articlesPrix.ArticlesPrixId, Mapper.Map<ArticlesPrixPivot, GES_ArticlesPrix>(articlesPrix));
         }
 
         public IEnumerable<ArticlesPrixPivot> GetALL()

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class ObjectifRepository : RepositoryBase<GES_Objectif>, IObjectifRepository
+ public   class ObjectifRepository : RepositoryBase<GES_Objectif>, IObjectifRepository
     {
         public ObjectifRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

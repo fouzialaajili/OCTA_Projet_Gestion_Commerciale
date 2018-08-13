@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="11px" viewBox="0 0 8 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Picto / Déplacement colonnes</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UI-/-Vues-/-Entete-colonnes" transform="translate(-68.000000, -4.000000)" fill="#545454">
+            <g transform="translate(0.000000, 1.000000)" id="Picto-/-Déplacement-colonnes">
+                <g transform="translate(68.000000, 3.000000)">
+                    <path d="M6,2 L8,2 L8,9 L6,9 L6,2 Z M3,0 L5,0 L5,11 L3,11 L3,0 Z M0,2 L2,2 L2,9 L0,9 L0,2 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

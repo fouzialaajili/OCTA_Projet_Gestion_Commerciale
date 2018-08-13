@@ -1,0 +1,236 @@
+label {
+  font-size: $label-font-size;
+  color: $input-border-color !important;
+}
+
+.octa-top-section {
+  .main-form {
+    input,
+    label,
+    select,
+    textarea {
+      border-color: white !important;
+      color: white !important;
+    }
+  }
+
+  .input-field {
+    & > label {
+      color: rgba(255,255,255, .8) !important;
+    }
+
+    // Gutter spacing
+    // &.col {
+    //   label {
+    //     left: 15px;
+    //   }
+    // }
+  }
+  // Checkbox Styles
+  [type="checkbox"] {
+
+    + span:not(.lever) {
+      color: white !important;
+    }
+    /* checkbox aspect */
+    + span:not(.lever):before,
+    &:not(.filled-in) + span:not(.lever):after {
+      border: 1px solid white;
+    }
+  }
+
+  [type="checkbox"]:checked {
+    + span:not(.lever):before {
+      top: -2px !important;
+      left: -3px !important;
+      width: 10px;
+      height: 18px;
+      border-right: 2px solid white !important;
+      border-bottom: 2px solid white !important;
+    }
+  }
+
+  .select-wrapper {
+    & + label {
+      color: rgba(255,255,255, .8) !important;
+    }
+  }
+
+  .btn-group {
+
+    .btn-flat {
+      &.with-border {
+        border: 1px solid white !important;
+        color: white !important;
+
+        i {
+          margin-right: 0px !important;
+        }
+      }
+    }
+    i {
+      font-size: 24px;
+      color: white !important;
+    }
+  }
+
+}
+
+.main-form {
+  margin: 20px 0px 0px;
+  font-family: $font-body;
+  // color: white !important;
+  .row {
+    margin-bottom: 0px;
+  }
+
+  &.wizard {
+    .btn-group {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 15px;
+
+  // .row {
+  //   margin-left: -15px !important;
+  //   margin-right: -.15px !important;
+  // }
+  // .input-field {
+  //   padding: 0px 15px !important;
+  // }
+
+  // Styling for select field wrapper
+  .select-wrapper {
+    position: relative;
+
+    .caret {
+      content: "arrow_drop_down";
+      top: 13px;
+      fill: $text-color;
+    }
+
+    & + label {
+      position: absolute;
+      top: -31px;
+      font-size: $label-font-size;
+    }
+  }
+}
+
+#octa-wrapper {
+  .octa-kpi {
+    margin: 25px 0px;
+    font-family: $font-body;
+    font-weight: 100;
+    text-align: center;
+
+    h4 {
+      margin: 0px 0px 20px;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+    .kpi-value {
+      margin-bottom: 10px;
+      font-size: 30px;
+      line-height: 1;
+    }
+    .kpi-desc {
+      font-size: 14px;
+    }
+  }
+
+  .input-field {
+    & > label {
+      color: $input-border-color;
+      opacity: .5;
+    }
+  }
+  .input-multiple {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .input-field {
+      & > label {
+        left: 0px;
+      }
+    }
+  }
+  .input-multiple-label {
+    margin-bottom: 35px;
+    padding: 0px 18px;
+  }
+
+  // Checkbox Styles
+  [type="checkbox"] {
+
+    + span:not(.lever) {
+      padding-left: 28px;
+      color: $text-color;
+    }
+
+    /* checkbox aspect */
+    // + span:not(.lever):before,
+    // &:not(.filled-in) + span:not(.lever):after {
+    //   border: 1px solid $input-border-color;
+    // }
+
+    &:not(:checked):disabled + span:not(.lever):before {
+      border: none;
+      background-color: $text-color;
+    }
+  }
+  [type="checkbox"]:checked {
+    + span:not(.lever):before {
+      top: 0px;
+      left: -3px;
+      width: 10px;
+      height: 18px;
+      border-right: 2px solid $text-color;
+      border-bottom: 2px solid $text-color;
+    }
+  }
+
+  .select-wrapper {
+    input.select-dropdown {
+      color: $text-color;
+    }
+  }
+
+  .select-dropdown.dropdown-content {
+    li {
+      &:hover {
+        background-color: transparent;
+        span {
+          color: $primary-color;
+        }
+      }
+      &.selected {
+        background-color: transparent;
+        span {
+          color: $primary-color;
+        }
+      }
+      &:focus {
+        background-color: transparent;
+        span {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  table {
+    // Checkbox Styles
+    [type="checkbox"] {
+
+      + span:not(.lever) {
+        padding-left: 15px;
+      }
+    }
+  }
+
+}

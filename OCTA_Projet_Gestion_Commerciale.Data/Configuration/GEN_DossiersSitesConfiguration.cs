@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
 {
-    class GEN_DossiersSitesConfiguration:EntityTypeConfiguration<GEN_DossiersSites>
+ public  class GEN_DossiersSitesConfiguration:EntityTypeConfiguration<GEN_DossiersSites>
     {
 
 

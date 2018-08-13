@@ -38,6 +38,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public string Dossiersys_user { get; set; }
         public DateTime? Dossiersys_dateUpdate { get; set; }
         public DateTime? Dossiersys_dateCreation { get; set; }
+
+        // public virtual GEN_Societes GEN_Societes { get; set; }
+
+
+
+
         public virtual ICollection<CPT_Classe> CPT_Classe { get; set; }
         public virtual ICollection<GEN_Model> GEN_Model { get; set; }
         public virtual ICollection<CPT_CodesTVA> CPT_CodesTVA { get; set; }
@@ -64,7 +70,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public virtual ICollection<GES_Affaire> SocieteAffaire { get; set; }
         public virtual ICollection<GES_Categorie> SocieteCategorie { get; set; }
         public virtual ICollection<GES_Depot> SocieteDepot { get; set; }
-        public virtual ICollection<GEN_Devises> SocieteDevise { get; set; }
+    //    public virtual ICollection<GEN_Devises> SocieteDevise { get; set; }
         public virtual ICollection<GES_Doclie> SocieteDoclie { get; set; }
         public virtual ICollection<GES_Doclieart> SocieteDoclieart { get; set; }
         public virtual ICollection<GES_DocumentCommercial> SocieteDocumentCommercial { get; set; }
@@ -78,6 +84,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public virtual ICollection<GES_Reglement> GES_Reglement { get; set; }
         public virtual ICollection<GES_Representant> GES_Representant { get; set; }
         public virtual ICollection<GES_Ticket> GES_Ticket { get; set; }
-        public virtual ICollection<CPT_CodesTVA> SocieteTVA { get; set; }
+        public virtual ICollection<CPT_CodesTVA> SocieteTVA { get; set; }   
+        public virtual ICollection<GEN_Devises> GEN_Devises { get; set; }
+        
     }
 }

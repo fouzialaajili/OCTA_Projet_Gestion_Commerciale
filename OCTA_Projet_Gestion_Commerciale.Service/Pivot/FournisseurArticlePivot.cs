@@ -9,12 +9,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 {
   public  class FournisseurArticlePivot
     {
-
         public long FournisseurArticleId { get; set; }
         /**/
-        public long FournisseurArticleIdArticle { get; set; }
+        public long? FournisseurArticleIdArticle { get; set; }
         /**/
-        public long FournisseurArticleIdfournisseur { get; set; }
+        public long? FournisseurArticleIdfournisseur { get; set; }
         public string FournisseurArticleReference { get; set; }
         public decimal FournisseurArticlePrixAchatTC { get; set; }
         public string FournisseurArticleDeviseAchat { get; set; }
@@ -23,7 +22,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
         public string FournisseurArticleDeviseVente { get; set; }
         public string FournisseurArticlePrixVenteDevise { get; set; }
 
-        public long FournisseurArticleSysuser { get; set; }
+        public long? FournisseurArticleSysuser { get; set; }
         public DateTime? FournisseurArticleSysDateCreation { get; set; }
         public DateTime? FournisseurArticleSysDateUpdate { get; set; }
 

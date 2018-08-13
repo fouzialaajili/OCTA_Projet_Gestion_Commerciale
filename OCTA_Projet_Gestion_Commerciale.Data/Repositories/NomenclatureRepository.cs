@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class NomenclatureRepository : RepositoryBase<GES_Nomenclature>, INomenclatureRepository
+  public  class NomenclatureRepository : RepositoryBase<GES_Nomenclature>, INomenclatureRepository
     {
         public NomenclatureRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

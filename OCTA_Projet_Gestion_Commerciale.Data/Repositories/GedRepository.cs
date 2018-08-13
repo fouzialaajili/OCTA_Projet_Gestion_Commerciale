@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
- class GedRepository : RepositoryBase<GES_Ged>, IGedRepository
+public class GedRepository : RepositoryBase<GES_Ged>, IGedRepository
     {
         public GedRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

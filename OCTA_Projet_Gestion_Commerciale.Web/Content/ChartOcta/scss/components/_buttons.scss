@@ -1,0 +1,101 @@
+#octa {
+  // shared styles
+  .btn,
+  .btn-flat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: $button-border;
+    border-radius: $button-radius;
+    // display: inline-block;
+    //min-width: 120px;
+    height: $button-height;
+    line-height: $button-height;
+    padding: $button-padding;
+    text-transform: none;
+  }
+
+  // Shared icon styles
+  .btn,
+  .btn-floating,
+  .btn-large,
+  .btn-small,
+  .btn-flat {
+    font-size: $button-font-size;
+    outline: 0;
+    i {
+      font-size: $button-icon-font-size;
+      line-height: inherit;
+    }
+  }
+
+  .btn-group {
+    display: flex;
+    align-items: center;
+
+    .btn {
+      i {
+        margin-left: 10px;
+        font-size: 24px;
+        color: white !important;
+      }
+    }
+
+    .btn-flat {
+      &.with-border {
+        border: 1px solid $button-secondary-color;
+        color: $button-secondary-color;
+
+        i {
+          margin-right: 10px;
+          font-size: 24px;
+          color: $button-secondary-color;
+        }
+      }
+      &.small-padding {
+        min-width: inherit;
+        padding: 0px 8px;
+      }
+    }
+    > * {
+      margin-left: 10px;
+
+      &:first-child {
+        margin-left: 0px;
+      }
+    }
+    .dropdown-button {
+      margin-left: 0px;
+    }
+
+  }
+
+  // Shared focus button style
+  .btn,
+  .btn-floating {
+    &:focus {
+      background-color: darken($button-raised-background, 10%);
+    }
+  }
+
+  // Raised Button
+  .btn {
+    text-decoration: none;
+    color: $button-raised-color;
+    background-color: $button-raised-background;
+    text-align: center;
+    letter-spacing: 0;
+    @extend .z-depth-0;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+    &:hover {
+      background-color: $button-raised-background-hover;
+      @extend .z-depth-0;
+    }
+  }
+
+  // Block button
+  .btn-block {
+    display: block;
+  }
+}

@@ -21,9 +21,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public DateTime DepotSysDateCreation { get; set; }
         public DateTime DepotSysDateUpdate { get; set; }
         public bool DepotActif { get; set; }
-
-      
-
         public long? DepotSocieteId { get; set; }
         public virtual GEN_Dossiers DepotSociete { get; set; }
         public virtual ICollection<GES_MouvementStock> DepotMouvementStock { get; set; }

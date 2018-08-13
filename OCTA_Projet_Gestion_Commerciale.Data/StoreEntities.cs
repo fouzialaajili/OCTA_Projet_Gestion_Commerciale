@@ -17,15 +17,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         public StoreEntities() : base("StoreEntities") { }
 
         public DbSet<GES_Admin> Admins { get; set; }
-
         public DbSet<GES_Affaire> Affaires { get; set; }
         public DbSet<GES_Article> Articless { get; set; }
         public DbSet<GES_ArticlesKit> ArticlesKitss { get; set; }
         public DbSet<GES_ArticlesPrix> ArticlesPrixs { get; set; }
         public DbSet<GES_Categorie> Categories { get; set; }
-
         public DbSet<GES_Depot> Depots { get; set; }
-
         public DbSet<GEN_Devises> Devises { get; set; }
         public DbSet<GES_Doclie> Doclies { get; set; }
         public DbSet<GES_Doclieart> Docliearts { get; set; }
@@ -50,11 +47,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         public DbSet<CPT_ParametrageComptable> ParametrageComptables { get; set; }
         public DbSet<GES_Objectif> Objectifs { get; set; }
         public DbSet<GES_Opportunite> Opportunites { get; set; }
-        public DbSet<GES_OpportuniteDetail> OpportuniteDetails { get; set; }
-      
+        public DbSet<GES_OpportuniteDetail> OpportuniteDetails { get; set; }   
         public DbSet<GES_Periode> Periodes { get; set; }
-
-
         public DbSet<GES_Reglement> Reglements { get; set; }
         public DbSet<GES_ReglementFacture> ReglementFactures { get; set; }
         public DbSet<GEN_Tiers> Tiers { get; set; }
@@ -83,6 +77,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         public DbSet<CPT_TVALettrage> TVALettrage { get; set; }
         public DbSet<GEN_TypePaiement> TypePaiement { get; set; }
         public DbSet<GEN_Dossiers> Dossier { get; set; }
+        public DbSet<GEN_DossiersContacts> DossierContacts { get; set; }
+        public DbSet<GEN_DossiersSites> GEN_DossiersSites { get; set; }
 
         public virtual void Commit()
         {
@@ -113,8 +109,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
             modelBuilder.Configurations.Add(new GES_FamilleConfiguration());
             /****************************/
             modelBuilder.Configurations.Add(new GEN_TiersConfiguration());
-            modelBuilder.Configurations.Add(new GEN_TiersContactsConfiguration());
             modelBuilder.Configurations.Add(new GEN_DossiersContactsConfiguration());
+
+            modelBuilder.Configurations.Add(new GEN_TiersContactsConfiguration());
+      
             modelBuilder.Configurations.Add(new GES_FournisseurArticleConfiguration());
             modelBuilder.Configurations.Add(new GES_GedConfiguration());
             modelBuilder.Configurations.Add(new GES_MotifConfiguration());
@@ -128,19 +126,22 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
             modelBuilder.Configurations.Add(new GEN_TypePaiementConfiguration());
             modelBuilder.Configurations.Add(new GEN_TypePaiementDetailConfiguration());
             modelBuilder.Configurations.Add(new CPT_ParametrageComptableConfiguration());
+            modelBuilder.Configurations.Add(new GEN_ItemsConfiguration());
+            //modelBuilder.Configurations.Add(new GEN_PeriodeConfiguration());
       modelBuilder.Configurations.Add(new GEN_ModelConfiguration());
             //   modelBuilder.Configurations.Add(new ProfilConfiguration());
             //   modelBuilder.Configurations.Add(new Profi()lDetailConfiguration());
             modelBuilder.Configurations.Add(new GES_PeriodeConfiguration());
+            modelBuilder.Configurations.Add(new GEN_DossiersSitesConfiguration());
             modelBuilder.Configurations.Add(new GES_ReglementConfiguration());
             modelBuilder.Configurations.Add(new GES_ReglementFactureConfiguration());
             modelBuilder.Configurations.Add(new GES_RepresentantConfiguration());
-            modelBuilder.Configurations.Add(new GEN_DossiersConfiguration());
+           modelBuilder.Configurations.Add(new GEN_DossiersConfiguration());
             modelBuilder.Configurations.Add(new GES_TicketConfiguration());
             modelBuilder.Configurations.Add(new GES_TicketDetailConfiguration());
             //modelBuilder.Configurations.Add(new CPT_CodesTVAConfiguration());
 
-            //   modelBuilder.Configurations.Add(new GES_());
+             modelBuilder.Configurations.Add(new GEN_ModelConfiguration());
             modelBuilder.Configurations.Add(new CPT_ClasseConfiguration());
             modelBuilder.Configurations.Add(new CPT_ComptesBancairesTiersConfiguration());
             modelBuilder.Configurations.Add(new CPT_EcrituresConfiguration());

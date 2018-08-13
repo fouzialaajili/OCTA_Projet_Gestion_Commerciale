@@ -10,25 +10,27 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
     public class OpportunitePivot
     {
 
-        public long Id { get; set; }
+        public long OpportuniteId { get; set; }
         public int OpportuniteNumero { get; set; }
         /**/
-        public long OpportuniteIdtiers { get; set; }
+        public long? OpportuniteIdtiers { get; set; }
         public DateTime? OpportuniteDateopportunite { get; set; }
         /***/
-        public long OpportuniteIdcommercial { get; set; }
+        public long? OpportuniteIdcommercial { get; set; }
         public string OpportuniteStatut { get; set; }
         /****/
-        public long OpportuniteIdDevise { get; set; }
+        public long? OpportuniteIdDevise { get; set; }
         public int OpportuniteBudgetClient { get; set; }
         public int OpportuniteBudgetEstime { get; set; }
         public string OpportuniteLibelle { get; set; }
-        public long OpportuniteSysuser { get; set; }
+        public long? OpportuniteSysuser { get; set; }
         public DateTime? OpportuniteSysDateCreation { get; set; }
         public DateTime? OpportuniteSysDateUpdate { get; set; }
+
+
         /****/
-        public long OpportuniteDossierd { get; set; }
-       public DossiersPivot OpportuniteDossier { get; set; }
+        public long? OpportuniteDossierd { get; set; }
+        public DossiersPivot OpportuniteDossier { get; set; }
          public TiersPivot OpportuniteFichetier { get; set; }
       public DevisesPivot OpportuniteDevise { get; set; }
         public  ICollection<MotifPivot> OpportuniteMotif { get; set; }

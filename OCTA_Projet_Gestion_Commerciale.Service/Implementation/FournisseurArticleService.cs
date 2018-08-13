@@ -10,7 +10,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class FournisseurArticleService : IFournisseurArticleService
+  public class FournisseurArticleService : IFournisseurArticleService
     {
        
 
@@ -59,7 +59,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteFournisseurArticle(FournisseurArticlePivot fournisseurArticle)
         {
-            //fournisseurArticleRepository.Delete(Mapper.Map<FournisseurArticlePivot, GES_FournisseurArticle>(fournisseurArticle));
+            fournisseurArticleRepository.Delete(fournisseurArticle.FournisseurArticleId,Mapper.Map<FournisseurArticlePivot, GES_FournisseurArticle>(fournisseurArticle));
         }
 
         public void UpdateFournisseurArticle(FournisseurArticlePivot fournisseurArticle)

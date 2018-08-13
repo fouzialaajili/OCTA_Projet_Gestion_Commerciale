@@ -15,7 +15,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class UniteService : IUniteService
+    public class UniteService : IUniteService
     {
 
 
@@ -39,7 +39,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteUnitePivot(UnitePivot doclieart)
         {
-           // uniteRepository.Delete(Mapper.Map<UnitePivot, GES_Unite>(doclieart));
+            uniteRepository.Delete(doclieart.Id,Mapper.Map<UnitePivot, GES_Unite>(doclieart));
         }
 
         public IEnumerable<UnitePivot> GetALL()

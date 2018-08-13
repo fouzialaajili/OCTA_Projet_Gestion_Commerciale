@@ -6,9 +6,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
     public partial class DossiersContactsPivot
     {
-        public long Id { get; set; }
+        public long DossiersContactsId { get; set; }
 
-      
+
         public string Civilite { get; set; }
 
         public string Nom { get; set; }
@@ -18,7 +18,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public string Tel { get; set; }
 
- 
+
         public string Gsm { get; set; }
 
         public string Email { get; set; }
@@ -35,6 +35,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public DateTime? sys_dateCreation { get; set; }
 
+
         public DossiersPivot GEN_Dossiers { get; set; }
+
+        /*****/
+    
+
+
+       
     }
 }

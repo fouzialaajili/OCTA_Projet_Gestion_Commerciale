@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class OpportuniteDetailRepository : RepositoryBase<GES_OpportuniteDetail>, IOpportuniteDetailRepository
+  public  class OpportuniteDetailRepository : RepositoryBase<GES_OpportuniteDetail>, IOpportuniteDetailRepository
     {
         public OpportuniteDetailRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

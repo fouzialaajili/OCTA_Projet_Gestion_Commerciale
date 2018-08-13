@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class CPT_ParametrageComptableRepository : RepositoryBase<CPT_ParametrageComptable>, ICPT_ParametrageComptableRepository
+  public  class CPT_ParametrageComptableRepository : RepositoryBase<CPT_ParametrageComptable>, ICPT_ParametrageComptableRepository
     {
         public CPT_ParametrageComptableRepository(IDbFactory dbFactory)
             : base(dbFactory) { }
@@ -20,6 +20,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         }
 
         public CPT_ParametrageComptable GetParametrageComptablById(long id)
+     
+        public CPT_ParametrageComptable GetById(long id)
         {
             var _ParametrageComptable = this.DbContext.ParametrageComptables.Where(c => c.Id == id).SingleOrDefault();
 
@@ -41,6 +43,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         IEnumerable<CPT_ParametrageComptable> GetALL();
         CPT_ParametrageComptable GetParametrageComptablById(long id);
+       
+        CPT_ParametrageComptable GetById(long id);
         IEnumerable<CPT_ParametrageComptable> GetItemsByModelLibelle(string identifged);
     }
 }

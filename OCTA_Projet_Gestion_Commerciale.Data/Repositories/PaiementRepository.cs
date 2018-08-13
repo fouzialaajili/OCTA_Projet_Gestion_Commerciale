@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    class PaiementRepository : RepositoryBase<GEN_TypePaiement>, IPaiementRepository
+  public  class PaiementRepository : RepositoryBase<GEN_TypePaiement>, IPaiementRepository
     {
         public PaiementRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

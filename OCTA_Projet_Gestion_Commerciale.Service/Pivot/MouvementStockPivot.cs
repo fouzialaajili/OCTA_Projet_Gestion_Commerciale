@@ -15,12 +15,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
         public long? MouvementStockTypearticle { get; set; }
         public string MouvementStockCodebundle { get; set; }
         /***/
-        public long MouvementStockIdarticle { get; set; }
+        public long? MouvementStockIdarticle { get; set; }
         public int MouvementStockNiveau { get; set; }
         public DateTime? MouvementStockDatemouvement { get; set; }
         public string MouvementStockOrigine { get; set; }
         /***/
-        public long MouvementStockIddocument { get; set; }
+        public long? MouvementStockIddocument { get; set; }
         public string MouvementStockStatut { get; set; }
         public string MouvementStockSerialise { get; set; }
         public int MouvementStockNumeroserie { get; set; }
@@ -29,7 +29,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
         public int MouvementStockQuantite { get; set; }
         public int MouvementStockCodeliaison { get; set; }
         /***/
-        public long MouvementStockIddepot { get; set; }
+        public long? MouvementStockIddepot { get; set; }
         public string MouvementStockDepot { get; set; }
         public string MouvementStockMotif { get; set; }
         public string MouvementStockDescmotif { get; set; }
@@ -37,7 +37,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
         public DateTime? MouvementStockSysDateCreation { get; set; }
         public DateTime? MouvementStockSysDateUpdate { get; set; }
 
-        public long MouvementStockDossierId { get; set; }
+        public long? MouvementStockDossierId { get; set; }
         public DossiersPivot MouvementStockSociete { get; set; }
          public DepotPivot MouvementStocksDepot { get; set; }
         public ArticlePivot MouvementStockArticles { get; set; }

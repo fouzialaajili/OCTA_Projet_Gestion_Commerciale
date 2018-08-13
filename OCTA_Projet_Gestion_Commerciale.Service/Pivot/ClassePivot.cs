@@ -4,11 +4,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
     using System.Collections.Generic;
     public partial class ClassePivot
     {
-       
+
 
         public long Id { get; set; }
 
-        
+
         public string CodeClasse { get; set; }
 
         public string Libelle { get; set; }
@@ -17,14 +17,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public long? IdDossier { get; set; }
 
-        public string Sys_user { get; set; }
+        public string sys_user { get; set; }
 
         public DateTime? Sys_dateUpdate { get; set; }
 
         public DateTime? Sys_dateCreation { get; set; }
 
-       
-        public  ICollection<ClassePivot> CPT_Classe_Childs { get; set; }
+
+
+
+        public ICollection<ClassePivot> CPT_Classe_Childs { get; set; }
 
         public ClassePivot CPT_Classe_Parent { get; set; }
 

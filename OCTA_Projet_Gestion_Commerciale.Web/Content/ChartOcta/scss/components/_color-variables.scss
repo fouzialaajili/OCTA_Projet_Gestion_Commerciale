@@ -1,0 +1,42 @@
+// Google Color Palette defined: http://www.google.com/design/spec/style/color.html
+$octa-colors: (
+  "text-color":         #545454,
+  "primary-color":      #f97d7c,
+  "primary-bg-color":   linear-gradient(90deg, #303840 0%, #5086bb 93%),
+  "white":              #ffffff,
+  "dark-blue":          #34495e,
+  "light-blue":         #4b79a7,
+  "light-green":        #7ed321
+);
+
+$grey: (
+  "base":       #545454,
+  "lighten-5":  #fafafa,
+  "lighten-4":  #f5f5f5,
+  "lighten-3":  #eeeeee,
+  "lighten-2":  #e0e0e0,
+  "lighten-1":  #bdbdbd,
+  "darken-1":   #757575,
+  "darken-2":   #616161,
+  "darken-3":   #424242,
+  "darken-4":   #212121
+);
+
+$colors: (
+  "octa-colors": $octa-colors,
+  "grey": $grey
+) !default;
+
+// usage: color("name_of_color", "type_of_color")
+// to avoid to repeating map-get($colors, ...)
+
+@function color($color, $type) {
+  @if map-has-key($colors, $color) {
+    $curr_color: map-get($colors, $color);
+    @if map-has-key($curr_color, $type) {
+      @return map-get($curr_color, $type);
+    }
+  }
+  @warn "Unknown `#{$color}` - `#{$type}` in $colors.";
+  @return null;
+}

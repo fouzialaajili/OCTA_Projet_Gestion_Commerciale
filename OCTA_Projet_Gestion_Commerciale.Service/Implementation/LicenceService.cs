@@ -33,7 +33,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteLicence(LicencePivot licence)
         {
-            //licenceRepository.Delete(Mapper.Map<LicencePivot, GES_Licence>(licence));
+            licenceRepository.Delete(licence.Id,Mapper.Map<LicencePivot, GES_Licence>(licence));
         }
 
         public IEnumerable<LicencePivot> GetALL()

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class CategorieService : ICategorieService
+    public class CategorieService : ICategorieService
     {
         private readonly ICategorieRepository categorieRepository;
 
@@ -33,7 +33,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteCategoriePivot(CategoriePivot categorie)
         {
-            //categorieRepository.Delete(Mapper.Map<CategoriePivot, GES_Categorie>(categorie));
+            categorieRepository.Delete(categorie.CategorieId,Mapper.Map<CategoriePivot, GES_Categorie>(categorie));
         }
 
         public IEnumerable<CategoriePivot> GetALL()

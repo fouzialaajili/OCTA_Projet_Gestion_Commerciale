@@ -17,8 +17,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
             HasKey(a => a.DevisesId);
 
 
-            HasOptional<GEN_Dossiers>(a => a.DeviseSociete)
-         .WithMany(d => d.SocieteDevise)
+            HasOptional<GEN_Dossiers>(a => a.GEN_Dossiers)
+         .WithMany(d => d.GEN_Devises)
        .HasForeignKey<long?>(a => a.DevisesIdDossier);
         }
     }

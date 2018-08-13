@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
 {
-    interface IObjectifService
+ public   interface IObjectifService
     {
         IEnumerable<ObjectifPivot> GetALL();
         ObjectifPivot GetObjectif(long id);

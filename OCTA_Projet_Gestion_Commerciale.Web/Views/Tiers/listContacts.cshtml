@@ -2,45 +2,90 @@
 @model IQueryable<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_TiersContacts_ViewModel>
 
 @{
-                /**/
+    /**/
 
-                Layout = "";
+
 }
+@Styles.Render("~/infragistics/css")
+@Scripts.Render("~/infragistics/js")
+<div class="grilleIgnite">
+
+    @(Html.Infragistics()
+                                                            .Grid<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_TiersContacts_ViewModel>(Model)
+                                                            .ID("listGridTiers")
+                                                            .AutoGenerateColumns(false)
+                                                            .AutoGenerateLayouts(false)
+                                                            .RenderCheckboxes(true)
+                                                            .AutoCommit(true)
+                                                            .Columns(column =>
+                                                            {
+                                                                column.For(x => x.GEN_TiersContactsId).Hidden(true);
+                                                                column.For(x => x.Civilite).Width("10%");
+                                                                column.For(x => x.Nom).Width("25%");
+                                                                column.For(x => x.Prenom).Width("25%");
+                                                                column.For(x => x.Tel).Width("20%");
+                                                                column.For(x => x.Email).Width("20%");
+                                                                column.For(x => x.ParDefault).Hidden(true);
+                                                                column.For(x => x.Gsm).Hidden(true);
+                                                                column.For(x => x.Actif).Hidden(true);
+                                                            })
+                                                            .Features(feature =>
+                                                            {
+                                                                feature.Updating().EnableAddRow(false).EnableDeleteRow(true).EditMode(GridEditMode.None);
+
+                                                                feature.Filtering().Mode(FilterMode.Simple).Type(OpType.Local);
+                                                                feature.Sorting();
+                                                                feature.Resizing();
+                                                                feature.ColumnMoving();
+                                                                feature.Paging().PageSize(10);
+
+                                                            })
+                                                            .PrimaryKey("Id")
+                                                            .DataBind()
+                                                            .Width("100%")
+                                                            .Render()
+    )
+</div>
 
 
-@*@(Html.Infragistics()
-        .Grid<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_TiersContacts_ViewModel>
 
-    .ID("listGridContacts")
-    .AutoGenerateColumns(false)
-    .AutoGenerateLayouts(false)
-    .RenderCheckboxes(true)
-    .AutoCommit(true)
-    .Columns(column =>
-    {
-    column.For(x => x.Id).Hidden(true);
-    column.For(x => x.Civilite).Width("10%");
-    column.For(x => x.Nom).Width("25%");
-    column.For(x => x.Prenom).Width("25%");
-    column.For(x => x.Tel).Width("20%");
-    column.For(x => x.Email).Width("20%");
-    column.For(x => x.ParDefault).Hidden(true);
-    column.For(x => x.Gsm).Hidden(true);
-    column.For(x => x.Actif).Hidden(true);
-    column.For(x => x.IdTiers).Hidden(true);
-    //column.For(x => x.Id).Template((bool)ViewBag.isDelete ? "" : "<a onclick=\"openEdit('listGridContacts',${Id},'Contact')\">Modifier</a>").HeaderText("Actions").Column.Key = "actionsColumn";
-
-    })
-    .Features(feature =>
-    {
+@*
 
 
-    if (!(bool)ViewBag.isDelete)
-    {
-    feature.Updating()
-    .ExcelNavigationMode(true).ShowDoneCancelButtons(false)
-    .RowEditDialogOptions(red =>
-    {
-    red.Containment}}
+
+    @(Html.Infragistics()
+                                         .Grid<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_TiersContacts_ViewModel>
+        (Model)
+        .ID("listGridContacts")
+        .AutoGenerateColumns(false)
+        .AutoGenerateLayouts(false)
+        .RenderCheckboxes(true)
+        .AutoCommit(true)
+        .Columns(column =>
+        {
+        column.For(x => x.Id).Hidden(true);
+        column.For(x => x.Civilite).Width("10%");
+        column.For(x => x.Nom).Width("25%");
+        column.For(x => x.Prenom).Width("25%");
+        column.For(x => x.Tel).Width("20%");
+        column.For(x => x.Email).Width("20%");
+        column.For(x => x.ParDefault).Hidden(true);
+        column.For(x => x.Gsm).Hidden(true);
+        column.For(x => x.Actif).Hidden(true);
+        column.For(x => x.IdTiers).Hidden(true);
+        //column.For(x => x.Id).Template((bool)ViewBag.isDelete ? "" : "<a onclick=\"openEdit('listGridContacts',${Id},'Contact')\">Modifier</a>").HeaderText("Actions").Column.Key = "actionsColumn";
+
+        })
+        .Features(feature =>
+        {
+
+
+        if (!(bool)ViewBag.isDelete)
+        {
+        feature.Updating()
+        .ExcelNavigationMode(true).ShowDoneCancelButtons(false)
+        .RowEditDialogOptions(red =>
+        {
+        red.Containment}}
 
 *@

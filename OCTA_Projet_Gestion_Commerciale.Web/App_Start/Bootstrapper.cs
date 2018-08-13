@@ -197,10 +197,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
             builder.RegisterAssemblyTypes(typeof(TicketRepository).Assembly)
      .Where(t => t.Name.EndsWith("Repository"))
      .AsImplementedInterfaces().InstancePerRequest();
-       /*  builder.RegisterAssemblyTypes(typeof(TiersContactRepository).Assembly)
+      builder.RegisterAssemblyTypes(typeof(TiersContactsRepository).Assembly)
      .Where(t => t.Name.EndsWith("Repository"))
      .AsImplementedInterfaces().InstancePerRequest();
- */
+
             builder.RegisterAssemblyTypes(typeof(TiersRepository).Assembly)
      .Where(t => t.Name.EndsWith("Repository"))
      .AsImplementedInterfaces().InstancePerRequest();

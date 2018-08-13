@@ -32,7 +32,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteDevise(DevisesPivot devises)
         {
-            devisesRepository.Delete(Mapper.Map<DevisesPivot, GEN_Devises>(devises));
+            //devisesRepository.Delete(Mapper.Map<DevisesPivot, GEN_Devises>(devises));
         }
 
         public IQueryable<GEN_Devises> GetAllDevises()
@@ -49,7 +49,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             return devisesPivot;
         }
 
-       
+        public IEnumerable<DevisesPivot> GetDevisesByIDDossierAndActif()
+        {
+            IEnumerable<GEN_Devises> devises = devisesRepository.GetDevisesByIDDossierAndActif().ToList();
+            IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devises);
+            return devisesPivot;
+        }
 
         public void SaveDevise()
         {

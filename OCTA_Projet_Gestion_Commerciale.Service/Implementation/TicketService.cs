@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteTicket(TicketPivot Tickets)
         {
-            ticketRepository.Delete(Mapper.Map<TicketPivot, GES_Ticket>(Tickets));
+            //ticketRepository.Delete(Mapper.Map<TicketPivot, GES_Ticket>(Tickets));
         }
 
         public IEnumerable<TicketPivot> GetALL()

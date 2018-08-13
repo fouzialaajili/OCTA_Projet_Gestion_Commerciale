@@ -37,7 +37,7 @@ namespace Store.Service
 
         public void DeleteParametrageComptable(ParametrageComptablePivot ParametrageComptable)
         {
-            parametrageComptableRepository.Delete(Mapper.Map<ParametrageComptablePivot, CPT_ParametrageComptable>(ParametrageComptable));
+         //   parametrageComptableRepository.Delete(Mapper.Map<ParametrageComptablePivot, CPT_ParametrageComptable>(ParametrageComptable));
         }
 
         public IEnumerable<ParametrageComptablePivot> GetALL()

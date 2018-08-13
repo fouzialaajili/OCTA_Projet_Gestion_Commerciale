@@ -29,6 +29,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
             HasOptional<GEN_Tiers>(a => a.GEN_Tiers)
                                                 .WithMany(d => d.CPT_RelevesBancairesDetail)
                                                 .HasForeignKey<long?>(a => a.IdTier);
+
+            HasOptional<GEN_Items>(a => a.GEN_Items)
+                                                .WithMany(d => d.CPT_RelevesBancairesDetail)
+                                                .HasForeignKey<long?>(a => a.IdTier);
+
+            
 }
     }
 }

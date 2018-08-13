@@ -22,7 +22,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public AdminRepository(IDbFactory dbFactory):base(dbFactory) { }
 
-        
+       
     }
 
   

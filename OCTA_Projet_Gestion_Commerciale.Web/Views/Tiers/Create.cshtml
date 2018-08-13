@@ -1,0 +1,535 @@
+﻿@using Infragistics.Web.Mvc
+@model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_Tiers_Form_ViewModel
+@{
+    if ((string)ViewBag.type == "client")
+    {
+        ViewBag.Title = "Création d'un client";
+    }
+    else if ((string)ViewBag.type == "fournisseur")
+    {
+        ViewBag.Title = "Création d'un fournisseur";
+    }
+    else if ((string)ViewBag.type == "salarie")
+    {
+        ViewBag.Title = "Création d'un salarié";
+    }
+
+}
+
+@section buttons {
+
+    <ul class="panel-controls">
+        @*
+            <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action(" Create")' ">Nouveau Exercice</button></li>
+        *@
+        <li><button id="saveAll" class="btn btn-primary btn-block">Enregistrer</button></li>
+
+
+        <li>&nbsp;</li>
+        <li><button onclick="Recommencer();" class="btn btn-primary btn-info" type="reset">Recommencer à zéro</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create", "Tiers", new { id = "",type=@ViewBag.type})' ">Nouveau</button></li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+
+
+        <li><button class="btn btn-default btn-danger" onclick="Supprimer();">Supprimer</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Index", "Tiers", new { Area = "Commun", type =@ViewBag.type})' ">Fermer</button></li>
+
+
+
+    </ul>
+}
+@using (Html.BeginForm("Delete", "Tiers", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce tier?');" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    @Html.Hidden("type", (string)ViewBag.type)
+    <button class="btn btn-danger btn-block" type="submit" id="deleteButton">Supprimer</button>
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" id="createButton" value="Create" class="btn btn-default"  />
+    <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" style="display:none;" />
+    <div class="form-horizontal ">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.Hidden("type", (string)ViewBag.type)
+        <input id="message" name="message" type="hidden" value="@((string)ViewBag.Message)">
+
+
+
+        <div class="createButtons">
+            <h5>
+                Informations générales
+
+            </h5>
+            <hr />
+        </div>
+
+        <div class="form-group">
+
+
+            @{
+                if ((string)ViewBag.type == "client")
+                {
+                    @Html.LabelFor(model => model.code, "Code client", htmlAttributes: new { @class = "control-label col-md-2" })
+                }
+                else if ((string)ViewBag.type == "fournisseur")
+                {
+                    @Html.LabelFor(model => model.code, "Code fournisseur", htmlAttributes: new { @class = "control-label col-md-2" })
+                }
+                else if ((string)ViewBag.type == "salarie")
+                {
+                    @Html.LabelFor(model => model.code, "Code salarié", htmlAttributes: new { @class = "control-label col-md-2" })
+                }
+                else
+                {
+                    @Html.LabelFor(model => model.code, "Code tier", htmlAttributes: new { @class = "control-label col-md-2" })
+                }
+            }
+
+
+
+
+            <div class="col-md-2">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                    @Html.EditorFor(model => model.code, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.code, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Actif, htmlAttributes: new { @class = "control-label col-md-6 label-right" })
+                <div class="col-md-1">
+                    @Html.CheckBoxFor(model => model.Actif)
+                    @Html.ValidationMessageFor(model => model.Actif, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RaisonSociale, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                    @Html.EditorFor(model => model.RaisonSociale, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.RaisonSociale, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TypeTiers, htmlAttributes: new { @class = "control-label  col-md-3 label-right" })
+                <div class="col-md-2">
+                    @Html.DropDownList("TypeTiers", null, htmlAttributes: new { @onchange = "changementType();", @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.TypeTiers, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    @Html.TextAreaFor(model => model.Adresse, new { @class = "form-control col-md-12", @rows = "4", @cols = "142" })
+                </div>
+                @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                    @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FormeJuridique, htmlAttributes: new { @class = "control-label col-md-3 label-right" })
+                <div class="col-md-2">
+                    @Html.DropDownList("FormeJuridique", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.FormeJuridique, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fax, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                    @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pays, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("Pays", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                @Html.ValidationMessageFor(model => model.Pays, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.Ville, htmlAttributes: new { @class = "control-label col-md-3 label-right" })
+                <div class="col-md-2">
+                    @Html.DropDownList("Ville", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.Ville, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*@Html.LabelFor(model => model.Ville, htmlAttributes: new { @class = "control-label col-md-3 label-right" })
+                <div class="col-md-4">
+                    @Html.DropDownList("Pays", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.Pays, "", new { @class = "text-danger" })
+                </div>*@
+            @*<div class="col-md-2">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                        @Html.EditorFor(model => model.Ville, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Ville, "", new { @class = "text-danger" })
+                </div>*@
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SiteWeb, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                    @Html.EditorFor(model => model.SiteWeb, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.SiteWeb, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CapitalSocial, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                    @Html.EditorFor(model => model.CapitalSocial, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.CapitalSocial, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.IdDeviseDefault, htmlAttributes: new { @class = "control-label col-md-3 label-right" })
+                <div class="col-md-2">
+                    @Html.DropDownList("IdDeviseDefault", null, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.IdDeviseDefault, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.activite, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("activite", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                @Html.ValidationMessageFor(model => model.activite, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdGroupeStatistiques, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("IdGroupeStatistiques", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                @Html.ValidationMessageFor(model => model.IdGroupeStatistiques, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdGroupeRemise, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.DropDownList("IdGroupeRemise", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                @Html.ValidationMessageFor(model => model.IdGroupeRemise, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="createButtons">
+            <h5>
+                Paramétrage comptable et légales
+
+            </h5>
+            <hr />
+        </div>
+
+
+        @*
+            <div class="form-group">
+                @{
+                if ((string)ViewBag.Collectif == "client")
+                {
+                @Html.LabelFor(model => model.IdCompteCollectifClient, "Compte collectif client", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.DropDownList("IdCompteCollectifClient", null, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.IdCompteCollectifClient, "", new { @class = "text-danger" })
+                </div>
+                }
+                else if ((string)ViewBag.Collectif == "fournisseur")
+                {
+                @Html.LabelFor(model => model.IdCompteCollectifFournisseur, "Compte collectif fournisseur", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.DropDownList("IdCompteCollectifFournisseur", null, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.IdCompteCollectifFournisseur, "", new { @class = "text-danger" })
+                </div>
+                }
+                else if ((string)ViewBag.Collectif == "Client et Fournisseur")
+                {
+                @Html.LabelFor(model => model.IdCompteCollectifClient, "Compte collectif client", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.DropDownList("IdCompteCollectifClient", null, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.IdCompteCollectifClient, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdCompteCollectifFournisseur, "Compte collectif fournisseur", htmlAttributes: new { @class = "control-label col-md-5 label-right" })
+                    <div class="col-md-2">
+                        @Html.DropDownList("IdCompteCollectifFournisseur", null, htmlAttributes: new { @class = "form-control selectpicker" })
+                        @Html.ValidationMessageFor(model => model.IdCompteCollectifFournisseur, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                }
+                }
+
+            </div>
+        *@
+
+
+        @*  <div class="form-group" id="Client" style="display:@((Model != null && Model.TypeTiers != null && Model.code.Contains("client") || ViewBag.type.Contains("client") )? "block" : "none")">
+                >
+                @Html.LabelFor(model => model.IdCompteCollectifClient, "Compte collectif client", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.DropDownList("IdCompteCollectifClient", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.IdCompteCollectifClient, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group" id="Fournisseur" style="display:@((Model != null && Model.TypeTiers != null && Model.code.Contains("fournisseur")||ViewBag.type.Contains("fournisseur"))? "block" : "none")">
+                >
+                @Html.LabelFor(model => model.IdCompteCollectifFournisseur, "Compte collectif fournisseur", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.DropDownList("IdCompteCollectifFournisseur", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.IdCompteCollectifFournisseur, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @if (Model != null && Model.code.Contains("salarie") || ViewBag.type.Contains("salarie"))
+            {
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdCompteCollectifClient, "Compte collectif client", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("IdCompteCollectifClient", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                        @Html.ValidationMessageFor(model => model.IdCompteCollectifClient, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(model => model.IdCompteCollectifFournisseur, "Compte collectif fournisseur", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("IdCompteCollectifFournisseur", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                        @Html.ValidationMessageFor(model => model.IdCompteCollectifFournisseur, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            }
+
+            @*<div class="form-group" id="Client et Fournisseur" style="display:@(Model != null && Model.TypeTiers != null && Model.typeTierCode.Contains("client_fournisseur") ? "block" : "none")" >
+                    @Html.LabelFor(model => model.IdCompteCollectifClient, "Compte collectif client", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.DropDownList("IdCompteCollectifClient", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                        @Html.ValidationMessageFor(model => model.IdCompteCollectifClient, "", new { @class = "text-danger" })
+
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IdCompteCollectifFournisseur, "Compte collectif fournisseur", htmlAttributes: new { @class = "control-label col-md-5 label-right" })
+                        <div class="col-md-2">
+                            @Html.DropDownList("IdCompteCollectifFournisseur", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                            @Html.ValidationMessageFor(model => model.IdCompteCollectifFournisseur, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>*@
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdentifiantFiscale, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                    @Html.EditorFor(model => model.IdentifiantFiscale, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.IdentifiantFiscale, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                    @Html.EditorFor(model => model.ice, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.ice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.IdCategorieFiscale, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("IdCategorieFiscale", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                @Html.ValidationMessageFor(model => model.IdCategorieFiscale, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.IdEcheancement, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("IdEcheancement", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                @Html.ValidationMessageFor(model => model.IdEcheancement, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+}
+<br />
+<div class="createButtons">
+    <h5>
+        Liste des contacts
+
+    </h5>
+    <hr />
+</div>
+@*Html.Action("listContacts", new { id = (Model != null ? Model.Id : 0) })Html.Action("listContacts", new { id = (Model != null ? Model.Id : 0) })*@
+
+<script>
+        var messageErreur = '@(new MvcHtmlString((string)ViewBag.Message))';
+        $(document).ready(function () {
+            if (messageErreur != "") {
+                alert(messageErreur);
+
+            }
+        });
+
+        function changementType() {
+            var type = document.getElementById("TypeTiers");
+            var divClient = document.getElementById("Client");
+            var valeur_cherchee = type.options[type.selectedIndex].text;
+
+            if (valeur_cherchee == "Client") {
+                divClient.style = "display:block";
+            } else {
+                divClient.style = "display:none";
+            }
+            var divFournisseur = document.getElementById("Fournisseur");
+            if (valeur_cherchee == "Fournisseur") {
+                divFournisseur.style = "display:block";
+            } else {
+                divFournisseur.style = "display:none";
+            }
+            //var divClientFournisseur = document.getElementById("Client et Fournisseur");
+            //if (valeur_cherchee == "Client et Fournisseur") {
+            //    divClientFournisseur.style = "display:block";
+            //} else {
+            //    divClientFournisseur.style = "display:none";
+            //}
+
+            if (valeur_cherchee == "Client et Fournisseur") {
+                divFournisseur.style = "display:block";
+                divClient.style = "display:block";
+            }
+        }
+
+
+
+
+        var gridContacts = $("#listGridContacts"),
+
+            gridColumns = { "Contact": "Civilite#Nom#Prenom#Tel#Email#actionsColumn", "ContactEdit": "Civilite#Nom#Prenom#Tel#Email#ParDefault#Gsm#Actif" }
+
+        ;
+
+
+
+        /*
+         * Enregistrement des informations
+         */
+        gridContacts.on("iggridrendered", function (e, args) {
+            gridContacts.data("igGrid").dataSource._addChangesSuccessHandler(function (data, textStatus, jqXHR) {
+                $('#createButton').click();
+            });
+        });
+
+        $("#saveAll").bind({
+            click: function (e) {
+                if ($('form').valid()) {
+                    gridContacts.igGrid("saveChanges");
+                }
+            }
+        });
+
+        /*
+         * Affichage et masque des columns
+         */
+
+        gridContacts.on("iggridupdatingeditrowended", function (e, args) {
+
+            showcolumn(gridContacts, gridColumns["Contact"]);
+            gridContacts.igGridUpdating('option', 'editMode', 'row');
+        });
+
+
+
+        /*
+         * Fonctions divers
+         */
+        function openEdit(gridId, idRow, model) {
+            var grid = $("#" + gridId);
+
+            showcolumn(grid, gridColumns[model + "Edit"]);
+            grid.igGridUpdating('option', 'editMode', 'dialog');
+            grid.igGridUpdating('startEdit', idRow);
+        }
+
+        function showcolumn(grid, columnToShow) {
+            var cols = grid.igGrid("option", "columns");
+            for (c in cols) {
+                if (('#' + columnToShow + '#').indexOf('#' + cols[c].key + '#') >= 0) {
+                    cols[c].hidden = false;
+                }
+                else {
+                    cols[c].hidden = true;
+                }
+            }
+        }
+        function Recommencer() {
+
+            $('#recommencer').click();
+
+        }
+        function Supprimer() {
+            $('#deleteButton').click();
+        }
+
+
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface IToleranceRepositoy : IRepository<GES_Tolerance>
     {
      
-        GES_Tolerance GetById(long id);
+        GES_Tolerance GetToleranceById(long id);
         IEnumerable<GES_Tolerance> GetItemsByModelLibelle(string identifged);
 
     }
@@ -25,7 +25,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
      
 
-        public GES_Tolerance GetById(long id)
+        public GES_Tolerance GetToleranceById(long id)
         {
             throw new NotImplementedException();
         }

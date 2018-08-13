@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteReglementFacture(ReglementFacturePivot ReglementFacture)
         {
-            reglementFactureRepository.Delete(Mapper.Map<ReglementFacturePivot, GES_ReglementFacture>(ReglementFacture));
+            //reglementFactureRepository.Delete(Mapper.Map<ReglementFacturePivot, GES_ReglementFacture>(ReglementFacture));
         }
 
         public IEnumerable<ReglementFacturePivot> GetALL()

@@ -1,49 +1,262 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
 
-    @Styles.Render("~/bootstrap/css")
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    @Scripts.Render("~/bootstrap/js");
+@*<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+    </head>
+    <body>
+        <div>
+            @RenderBody()
+        </div>
+    </body>
+    </html>
+    <!doctype html>*@
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <!-- <link rel="apple-touch-icon" href="icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="~/Content/ChartOcta/css/styles.css" media="screen,projection">
+    <link rel="stylesheet" href="~/Content/ChartOcta/css/materialize.min.css" media="screen,projection">
+    @*<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">*@
+    
+    <link rel="stylesheet" href="~/Content/LESS/SiteNew.less" media="screen,projection">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="~/Scripts/ChartOcta/modernizr-3.6.0.min.js"></script>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="js/jquery-2.2.2.min.js"></script> -->
+    <script src="~/Scripts/ChartOcta/jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> -->
+
+    <script src="~/Scripts/ChartOcta/materialize.min.js"></script>
+    <script src="~/Scripts/ChartOcta/animatedModal.min.js"></script>
+    <script src="~/Scripts/ChartOcta/octa.js"></script>
+
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"></ul>
-            </div>
+<body id="octa">
+    <header id="octa-header" class="page-header">
+        <div class="navbar-fixed">
+            <nav class="nav-extended">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo 3rem"><img src="~/Content/ChartOcta/img/logo-octa.svg" alt=""></a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right">
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates='dropdown1'>Dossier en cours<i class="material-icons right">keyboard_arrow_down</i></a>
+                            <!-- Dropdown Structure -->
+                            <ul id="dropdown1" class="dropdown-content">
+                                <li><a href="#!">Dossier en cours 1</a></li>
+                                <li><a href="#!">Dossier en cours 2</a></li>
+                                <li><a href="#!">Dossier en cours 3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates='dropdown2'>Dossier en cours<i class="material-icons right">keyboard_arrow_down</i></a>
+                            <!-- Dropdown Structure -->
+                            <ul id="dropdown2" class="dropdown-content">
+                                <li><a href="#!">Dossier en cours 4</a></li>
+                                <li><a href="#!">Dossier en cours 5</a></li>
+                                <li><a href="#!">Dossier en cours 6</a></li>
+                            </ul>
+                        </li>
+                        <li><a href=""><i class="material-icons">search</i></a></li>
+                        <li><a href="" class="with-counter"><i class="material-icons">notifications<span class="notification-counter">9</span></i></a></li>
+                        <li><a href="" class="avatar"><i class="large material-icons">account_circle</i></a></li>
+                    </ul>
+                </div>
+                <div class="nav-content">
+                    <ul id="tabs-swipe-demo" class="tabs">
+                        <li class="tab"><a target="_self" href="#"><i class="material-icons">menu</i></a></li>
+                        <li class="tab"><a target="_self" href="index.html"><i class="material-icons">home</i>Accueil</a></li>
+                        <li class="tab"><a target="_self" href="dashboards.html"><i class="material-icons">dashboard</i>Mes tableaux de bords</a></li>
+                        <li class="tab">
+                            <a target="_self" href="accounting.html" class="active dropdown-mega-menu" data-activates='accounting_mega-menu'><i class="material-icons">pie_chart</i>Ma comptabilité</a>
+                            <!-- Mega menu -->
+                            <ul id="accounting_mega-menu" class="dropdown-content octa_mega-menu">
+                                <div class="row">
+                                    <div class="col m4">
+                                        <h4>Saisie Comptable</h4>
+                                        <div class="divider"></div>
+                                        <ul>
+                                            <li><a href="#!">Saisie par pièce</a></li>
+                                            <li><a href="#!">Saisie libre</a></li>
+                                            <li><a href="#!">Saisie OD analytique</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col m4">
+                                        <h4>Traitement</h4>
+                                        <div class="divider"></div>
+                                        <ul>
+                                            <li><a href="#!">Consultation</a></li>
+                                            <li><a href="#!">Lettrage</a></li>
+                                            <li><a href="#!">Qualification des opérations bancaires</a></li>
+                                            <li><a href="#!">Pointage</a></li>
+                                            <li><a href="#!">Rapprochement</a></li>
+                                            <li><a href="#!">Clôture Periode</a></li>
+                                            <li><a href="#!">Clôture Excercice</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col m4">
+                                        <h4>Editions</h4>
+                                        <div class="divider"></div>
+                                        <ul>
+                                            <li><a href="#!">Journaux</a></li>
+                                            <li><a href="#!">Grand livre général</a></li>
+                                            <li><a href="#!">Grand livre tiers</a></li>
+                                            <li><a href="#!">Balance générales</a></li>
+                                            <li><a href="#!">Balance tiers</a></li>
+                                            <li><a href="#!">Balance agée</a></li>
+                                            <li><a href="#!">Etats de synthèse</a></li>s
+                                        </ul>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="tab"><a target="_self" href="settings.html"><i class="material-icons">settings</i>Mes paramétrages</a></li>
+                    </ul>
+
+                    <!-- <a materialize="dropdown" class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
+                    <ul id='dropdown1' class='dropdown-content'>
+                      <li><a>one</a></li>
+                      <li><a>two</a></li>
+                      <li class="divider"></li>
+                      <li><a>three</a></li>
+                    </ul> -->
+                </div>
+            </nav>
+
+
         </div>
-    </div>
+    </header>
+    <main id="octa-wrapper" class="octa-wrapper">
+        <aside id="main-aside" class="main-aside">
+            <ul class="vertical-nav">
+                <li class=""><a href="#"><i class="material-icons">home</i></a></li>
+                <li class=""><a href="#"><i class="material-icons">dashboard<span class="notification-counter">3</span></i></a></li>
+                <li class=""><a href="#"><i class="material-icons">pie_chart<span class="notification-counter">6</span></i></a></li>
+                <li class=""><a href="#"><i class="material-icons">settings</i></a></li>
+            </ul>
+        </aside>
+        <section class="main-content">
+            <!-- START accounting view
+            // ========================================================================== -->
+            <div id="accounting" class="col s12">
+                <div class="octa-top-section">
+                    <div class="octa-wrapper-header">
+                        <div class="title">
+                            <h1 class="truncate">@ViewBag.Title</h1>
+                            <div class="breadcrumb-container" class="col s12">
+                                <a href="#!" class="breadcrumb">Accueil</a>
+                                <a href="#!" class="breadcrumb">Ma comptabilité</a>
+                                <a href="#!" class="breadcrumb">Saisie Comptable</a>
+                                <a href="#!" class="breadcrumb">Saisie par pièce</a>
+                                @*@Html.MvcSiteMap().SiteMapPath()*@
+                            </div>
+
+                        </div>
+                        @RenderSection("pageButtons", required: false)
+                    </div>
+                    <!-- END .octa-wrapper-header -->
+                    <div class="divider"></div>
+
+                    <div class="main-form">
+                        @RenderSection("searchForm", required: false)
+                    </div>
+                    <!-- END .main-form -->
+                </div>
+                <!-- END .octa-top-section -->
+
+                <div class="octa-wrapper-body">
+                    <div class="octa-panel">
+
+
+                        <div class="octa-panel_header">
+                            @RenderSection("gridButtons1", required: false)
+                        </div>
+                        <div class="octa-panel_body">
+                            @RenderBody()
+                        </div>
+                    </div>
+                    <div class="octa-panel">
+                        <div class="octa-panel_header">
+                            @RenderSection("gridButtons2", required: false)
+                        </div>
+                        <div class="octa-panel_body">
+                            @*<div class="MenuTest">
+                                @Html.MvcSiteMap().Menu()
+                            </div>*@
+
+                            @RenderSection("grid2", required: false)
+                        </div>
+                        <!-- Modal Trigger -->
+                        @*<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>*@
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal bottom-sheet">
+                            <div class="modal-content">
+                                <h4>Modal Header</h4>
+                                <p>A bunch of text</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Accounting view
+            // ========================================================================== -->
+        </section>
+    </main>
+
     
-    <div class="container body-content">
-       
 
-        @RenderBody()
-        <hr />
-
-
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
+    <footer id="main-footer" class="page-footer">
+        @RenderSection("footer", required: false)
+    </footer>
     
+    <script type="text/javascript">
+        $(document).ready(function () {
 
+            // SELECT
+            $('select').material_select();
+
+            // DATEPICKER
+            //$('.datepicker').datepicker({
+            //  selectMonths: true,
+            //  selectYears: 15
+            //});
+
+            // $(".dropdown-button").dropdown();
+
+            $('.modal').modal();
+
+        });
+
+        (function ($) {
+            $(function () {
+
+                $('.dropdown-mega-menu').dropdown({
+                    inDuration: 100,
+                    outDuration: 150,
+                    hover: true, // Activate on hover
+                    belowOrigin: true, // Displays dropdown below the button
+                    alignment: 'center' // Displays dropdown with edge aligned to the left of button
+                });
+
+            }); // End Document Ready
+        })(jQuery); // End of jQuery name space
+    </script>
+    @RenderSection("scripts", required: false)
 </body>
-attendre ou arrêter l'outil maintenant.
-
-Terminate
-
 </html>

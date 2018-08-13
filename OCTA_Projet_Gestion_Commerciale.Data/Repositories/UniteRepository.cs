@@ -12,7 +12,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
    
     public interface IUniteRepository : IRepository<GES_Unite>
     {
-        GES_Unite GetById(long id);
+        GES_Unite GetUniteById(long id);
         IEnumerable<GES_Unite> GetItemsByModelLibelle(string identifged);
 
     }
@@ -22,7 +22,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public UniteRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
-        public GES_Unite GetById(long id)
+        public GES_Unite GetUniteById(long id)
         {
             throw new NotImplementedException();
         }

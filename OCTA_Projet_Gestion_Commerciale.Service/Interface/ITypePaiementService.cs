@@ -8,14 +8,17 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
 {
-    interface ITypePaiementService
+    public interface ITypePaiementService
     {
         IEnumerable<TypePaiementPivot> GetALL();
         TypePaiementPivot GetTypePaiement(long id);
+        IEnumerable<TypePaiementPivot> GetTypePaiementByIDDossier(long id);
         IEnumerable<TypePaiementPivot> GetTypePaiementsByName(string identifged);
         void DeleteTypePaiement(TypePaiementPivot TypePaiement);
         void UpdateTypePaiement(TypePaiementPivot TypePaiement);
         void CreateTypePaiement(TypePaiementPivot TypePaiement);
+        TypePaiementPivot GetTypePaiement();
         void SaveTypePaiement();
+        IEnumerable<TypePaiementPivot> GetTypePaiemenByIDDossierAndActif();
     }
 }

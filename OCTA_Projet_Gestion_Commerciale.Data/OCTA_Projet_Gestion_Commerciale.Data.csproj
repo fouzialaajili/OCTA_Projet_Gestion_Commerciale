@@ -122,9 +122,17 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201807281459362_first.cs" />
-    <Compile Include="Migrations\201807281459362_first.Designer.cs">
-      <DependentUpon>201807281459362_first.cs</DependentUpon>
+    <Compile Include="Migrations\201808130034534_un.cs" />
+    <Compile Include="Migrations\201808130034534_un.Designer.cs">
+      <DependentUpon>201808130034534_un.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808130037490_un1.cs" />
+    <Compile Include="Migrations\201808130037490_un1.Designer.cs">
+      <DependentUpon>201808130037490_un1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808130041171_troix.cs" />
+    <Compile Include="Migrations\201808130041171_troix.Designer.cs">
+      <DependentUpon>201808130041171_troix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,12 +153,15 @@
     <Compile Include="Repositories\DocumentCommercialRepository.cs" />
     <Compile Include="Repositories\DossiersContactsRepository.cs" />
     <Compile Include="Repositories\DossiersRepository.cs" />
+    <Compile Include="Repositories\EcritureRepository.cs" />
     <Compile Include="Repositories\FamilleRepositoy.cs" />
     <Compile Include="Repositories\FournisseurArticleRepository.cs" />
     <Compile Include="Repositories\GedRepository.cs" />
     <Compile Include="Repositories\ImpressionRepository.cs" />
+    <Compile Include="Repositories\ItemsRepository.cs" />
     <Compile Include="Repositories\LicenceRepository.cs" />
     <Compile Include="Repositories\MarqueRepository.cs" />
+    <Compile Include="Repositories\ModelRepository.cs" />
     <Compile Include="Repositories\MotifRepository.cs" />
     <Compile Include="Repositories\MotifTicketRepository.cs" />
     <Compile Include="Repositories\MouvementStockRepository.cs" />
@@ -166,7 +177,7 @@
     <Compile Include="Repositories\RepresentantRepository.cs" />
     <Compile Include="Repositories\TicketDetailRepository.cs" />
     <Compile Include="Repositories\TicketRepository.cs" />
-    <Compile Include="Repositories\TiersContactRepository.cs" />
+    <Compile Include="Repositories\TiersContactsRepository.cs" />
     <Compile Include="Repositories\TiersRepository.cs" />
     <Compile Include="Repositories\ToleranceRepository.cs" />
     <Compile Include="Repositories\TypePaiementDetailRepository.cs" />
@@ -174,6 +185,7 @@
     <Compile Include="Repositories\UniteRepository.cs" />
     <Compile Include="StoreEntities.cs" />
     <Compile Include="StoreSeedData.cs" />
+    <Compile Include="Utils\Constantes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -186,8 +198,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807281459362_first.resx">
-      <DependentUpon>201807281459362_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808130034534_un.resx">
+      <DependentUpon>201808130034534_un.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808130037490_un1.resx">
+      <DependentUpon>201808130037490_un1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808130041171_troix.resx">
+      <DependentUpon>201808130041171_troix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

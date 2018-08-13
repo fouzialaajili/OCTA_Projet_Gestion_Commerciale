@@ -1,4 +1,5 @@
 ﻿
+using OCTA_Projet_Gestion_Commerciale.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public string Model { get; set; }
 
-        public long? IdSociete { get; set; }
+       public long? IdDossier { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<ItemsPivot> GEN_Items { get; set; }
+    public ICollection<ItemsPivot> GEN_Items { get; set; }
 
+ public DossiersPivot GEN_Dossiers { get; set; }
 
     }
 }

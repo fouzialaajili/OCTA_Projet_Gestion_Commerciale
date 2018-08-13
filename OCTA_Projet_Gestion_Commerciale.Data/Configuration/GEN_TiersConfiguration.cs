@@ -14,30 +14,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public GEN_TiersConfiguration()
         {
-            ToTable("GEN_Tier");
+            ToTable("GEN_Tiers");
             HasKey(x => x.Id);
-
-
-        /*public virtual CPT_CompteG CPT_CompteG_CompteCollectifClient { get; set; }
-
-        public virtual CPT_CompteG CPT_CompteG_CompteCollectifFournisseur { get; set; }
-        public virtual GEN_Devises GEN_Devises { get; set; }
-
-        public virtual GEN_Dossiers GEN_Dossiers { get; set; }
-
-        public virtual GEN_Items GEN_Items_CategorieFiscale { get; set; }
-
-        public virtual GEN_Items GEN_Items_FormeJuridique { get; set; }
-
-        public virtual GEN_Items GEN_Items_TypeTiers { get; set; }
-
-        public virtual GEN_TypePaiement GEN_TypePaiement { get; set; }
-        */
-           
-
             HasOptional<GEN_TypePaiement>(a => a.GEN_TypePaiement)
                 .WithMany(d => d.GEN_Tiers)
-                .HasForeignKey<long?>(a => a.TypeTiers);
+                .HasForeignKey<long?>(a => a.IdEcheancement);
 
             HasOptional<GEN_Dossiers>(a => a.GEN_Dossiers)
                         .WithMany(d => d.GEN_Tiers)
@@ -58,9 +39,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
                         .WithMany(d => d.GEN_Tiers_CompteCollectifFournisseur)
                         .HasForeignKey<long?>(a => a.IdCompteCollectifFournisseur);
 
-           /* HasOptional<GEN_Items>(a => a.GEN_Items_CategorieFiscale)
-                    .WithMany(d => d.GEN_Tiers_CompteCollectifFournisseur)
-                    .HasForeignKey<long?>(a => a.IdCategorieFiscale);*/
+
 
         }
     }

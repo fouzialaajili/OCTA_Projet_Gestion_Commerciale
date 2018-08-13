@@ -8,7 +8,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 {
     public class GEN_Devises
     {
-        public GEN_Devises() { }
+        
         public long DevisesId { get; set; }
         public string DevisesCode { get; set; }
         public string DevisesCodeIso { get; set; }

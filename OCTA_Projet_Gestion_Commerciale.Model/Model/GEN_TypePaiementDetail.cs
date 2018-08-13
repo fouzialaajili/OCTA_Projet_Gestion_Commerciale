@@ -11,7 +11,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
     
         public long? IdModePaiement { get; set; }
     
-        public long? DateCalcul { get; set; }
+     public long? DateCalcul { get; set; }
       
         public double? Pourcentage { get; set; }
     

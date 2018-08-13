@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         public void DeleteTypePaiementDetail(TypePaiementDetailPivot TypePaiementDetail)
         {
 
-            typePaiementDetailRepository.Delete(Mapper.Map<TypePaiementDetailPivot, GEN_TypePaiementDetail>(TypePaiementDetail));
+           // typePaiementDetailRepository.Delete(Mapper.Map<TypePaiementDetailPivot, GEN_TypePaiementDetail>(TypePaiementDetail));
         }
 
         public IEnumerable<TypePaiementDetailPivot> GetALL()

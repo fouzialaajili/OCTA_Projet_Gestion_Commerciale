@@ -38,7 +38,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteImpression(ImpressionPivot impression)
         {
-            impressionRepository.Delete(Mapper.Map<ImpressionPivot, GES_Impression>(impression));
+            //impressionRepository.Delete(Mapper.Map<ImpressionPivot, GES_Impression>(impression));
         }
 
         public IEnumerable<ImpressionPivot> GetALL()

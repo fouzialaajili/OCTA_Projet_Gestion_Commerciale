@@ -35,7 +35,7 @@ namespace Store.Service.Implementation
 
         public void DeleteObjectif(ObjectifPivot objectif)
         {
-            objectifSRepository.Delete(Mapper.Map<ObjectifPivot, GES_Objectif>(objectif));
+        //    objectifSRepository.Delete(Mapper.Map<ObjectifPivot, GES_Objectif>(objectif));
         }
 
         public IEnumerable<ObjectifPivot> GetALL()

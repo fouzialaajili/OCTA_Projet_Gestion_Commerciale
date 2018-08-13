@@ -17,7 +17,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
             HasOptional<CPT_Ecritures>(a => a.CPT_Ecritures)
         .WithMany(d => d.CPT_Echeances)
          .HasForeignKey<long?>(a => a.IdEcriture);
-           
+
+            HasOptional<GEN_Items>(a => a.GEN_Items_ModePaiement)
+      .WithMany(d => d.CPT_Echeances)
+       .HasForeignKey<long?>(a => a.IdModePaiement);
+
+
     }
     }
 }

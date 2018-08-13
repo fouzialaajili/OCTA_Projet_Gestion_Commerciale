@@ -7,13 +7,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class first : IMigrationMetadata
+    public sealed partial class un : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(un));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807281459362_first"; }
+            get { return "201808130034534_un"; }
         }
         
         string IMigrationMetadata.Source

@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface IMarqueRepository : IRepository<GES_Marque>
     {
        
-        GES_Marque  GetById(long id);
+        GES_Marque GetMarqueById(long id);
         IEnumerable<GES_Marque> GetItemsByModelLibelle(string identifged);
     }
 
@@ -24,7 +24,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
       
 
-        public GES_Marque GetById(long id)
+        public GES_Marque GetMarqueById(long id)
         {
             var marques = this.DbContext.Marques.Where(c => c.Id == id).SingleOrDefault();
 

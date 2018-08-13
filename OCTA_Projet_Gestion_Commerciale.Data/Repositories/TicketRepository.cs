@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
       
 
-        public GES_Ticket GetById(long id)
+        public GES_Ticket GetTicketById(long id)
         {
             var objetifs = this.DbContext.Tickets.Where(c => c.TicketId== id).SingleOrDefault();
 
@@ -34,7 +34,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface ITicketRepository : IRepository<GES_Ticket>
     {
 
-        GES_Ticket GetById(long id);
+        GES_Ticket GetTicketById(long id);
         IEnumerable<GES_Ticket> GetItemsByModelLibelle(string identifged);
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
 {
-    interface ITiersContactService
+    public interface ITiersContactsService
     {
         IEnumerable<TiersContactsPivot> GetALL();
         TiersContactsPivot GetTiersContacts(long id);
@@ -16,6 +16,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
         void DeleteTiersContacts(TiersContactsPivot TiersContact);
         void UpdateTiersContacts(TiersContactsPivot TiersContact);
         void CreateTiersContacts(TiersContactsPivot TiersContact);
-        void SaveTiersContacts();
+        IEnumerable<TiersContactsPivot> GetTiersContactsByIdTiersAndActif(long id);
+    
+            void SaveTiersContacts();
     }
 }

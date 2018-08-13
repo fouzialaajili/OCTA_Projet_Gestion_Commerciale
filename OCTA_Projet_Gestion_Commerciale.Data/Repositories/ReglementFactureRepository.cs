@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
    
 
-        public GES_ReglementFacture GetById(long id)
+        public GES_ReglementFacture GetReglementFactureById(long id)
         {
             var impressions = this.DbContext.ReglementFactures.Where(c => c.ReglementFactureId == id).SingleOrDefault();
 
@@ -32,7 +32,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface IReglementFactureRepository : IRepository<GES_ReglementFacture>
     {
        
-        GES_ReglementFacture GetById(long id);
+        GES_ReglementFacture GetReglementFactureById(long id);
         IEnumerable<GES_ReglementFacture> GetItemsByModelLibelle(string identifged);
     }
 }

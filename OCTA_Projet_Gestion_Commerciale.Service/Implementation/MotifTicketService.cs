@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteMotifTicket(MotifTicketPivot Motif)
         {
-            motifTicketRepository.Delete(Mapper.Map<MotifTicketPivot, GES_MotifTicket>(Motif));
+            //motifTicketRepository.Delete(Mapper.Map<MotifTicketPivot, GES_MotifTicket>(Motif));
         }
 
         public IEnumerable<MotifTicketPivot> GetALL()

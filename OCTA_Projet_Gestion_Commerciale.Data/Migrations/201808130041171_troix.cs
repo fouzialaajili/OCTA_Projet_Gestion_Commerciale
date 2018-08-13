@@ -3,7 +3,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class first : DbMigration
+    public partial class troix : DbMigration
     {
         public override void Up()
         {

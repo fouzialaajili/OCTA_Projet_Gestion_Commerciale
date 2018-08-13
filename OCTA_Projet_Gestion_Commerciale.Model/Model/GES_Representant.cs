@@ -37,7 +37,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
        /***/ public long? RepresentantDossierId { get; set; }
         virtual public GEN_Dossiers RepresentantDossier { get; set; }
         public virtual ICollection<GES_Objectif> RepresentantObject { get; set; }
-        public virtual ICollection<GEN_Tiers> RepresentantFichetier { get; set; }
+       // public virtual ICollection<GEN_Tiers> RepresentantFichetier { get; set; }
         public virtual ICollection<GES_Ticket> RepresentantTicket { get; set; }
 
 

@@ -37,8 +37,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
       
         public DbSet<GES_FournisseurArticle> FournisseurArticles { get; set; }
         public DbSet<GES_Ged> Geds { get; set; }
-        public DbSet<GEN_Items> GEN_Itemss { get; set; }
-        public DbSet<GEN_Model> GEN_Models { get; set; }
+        public DbSet<GEN_Items> Items { get; set; }
+        public DbSet<GEN_Model> Models { get; set; }
         public DbSet<GES_Impression> Impressions { get; set; }
         public DbSet<GES_Licence> Licences { get; set; }
         public DbSet<GES_Marque> Marques { get; set; }
@@ -60,7 +60,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         public DbSet<GEN_Tiers> Tiers { get; set; }
         public DbSet<GEN_TiersContacts> TiersContacts { get; set; }
         public DbSet<GES_Representant> Representants { get; set; }
-        public DbSet<GEN_Dossiers> Societes { get; set; }
+        
 
         public DbSet<GES_Ticket> Tickets { get; set; }
         public DbSet<GES_TicketDetail> TicketDetails { get; set; }
@@ -72,6 +72,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
 
 
         public DbSet<CPT_Classe> Classes { get; set; }
+        public DbSet<CPT_CompteG> CPT_CompteGs { get; set; }
         public DbSet<CPT_ComptesBancairesTiers> ComptesBancairesTiers { get; set; }
         public DbSet<CPT_Ecritures> Ecritures { get; set; }
         public DbSet<CPT_Lettrage> Lettrages { get; set; }
@@ -80,7 +81,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         public DbSet<CPT_PlanAnalytique> PlanAnalytiques { get; set; }
         public DbSet<CPT_RelevesBancaires> RelevesBancaires { get; set; }
         public DbSet<CPT_TVALettrage> TVALettrage { get; set; }
-
+        public DbSet<GEN_TypePaiement> TypePaiement { get; set; }
+        public DbSet<GEN_Dossiers> Dossier { get; set; }
 
         public virtual void Commit()
         {
@@ -97,6 +99,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
             modelBuilder.Configurations.Add(new GES_ArticlesPrixConfiguration());
             modelBuilder.Configurations.Add(new GES_CategorieConfiguration());
             modelBuilder.Configurations.Add(new GES_DepotConfiguration());
+            modelBuilder.Configurations.Add(new GEN_ItemsConfiguration());
+            
 
 
             modelBuilder.Configurations.Add(new GEN_DevisesConfiguration());
@@ -124,9 +128,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
             modelBuilder.Configurations.Add(new GEN_TypePaiementConfiguration());
             modelBuilder.Configurations.Add(new GEN_TypePaiementDetailConfiguration());
             modelBuilder.Configurations.Add(new CPT_ParametrageComptableConfiguration());
-            //modelBuilder.Configurations.Add(new GEN_PeriodeConfiguration());
+      modelBuilder.Configurations.Add(new GEN_ModelConfiguration());
             //   modelBuilder.Configurations.Add(new ProfilConfiguration());
-            //   modelBuilder.Configurations.Add(new ProfilDetailConfiguration());
+            //   modelBuilder.Configurations.Add(new Profi()lDetailConfiguration());
             modelBuilder.Configurations.Add(new GES_PeriodeConfiguration());
             modelBuilder.Configurations.Add(new GES_ReglementConfiguration());
             modelBuilder.Configurations.Add(new GES_ReglementFactureConfiguration());
@@ -144,9 +148,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
             modelBuilder.Configurations.Add(new CPT_NatureOperationConfiguration());
             modelBuilder.Configurations.Add(new CPT_PiecesConfiguration());
             modelBuilder.Configurations.Add(new CPT_PlanAnalytiqueConfiguration());
-
             modelBuilder.Configurations.Add(new CPT_RelevesBancairesConfiguration());
             modelBuilder.Configurations.Add(new CPT_TVALettrageConfiguration());
-}
+            modelBuilder.Configurations.Add(new CPT_CompteGConfiguration());
+            
+
+
+
+    }
     }
 }

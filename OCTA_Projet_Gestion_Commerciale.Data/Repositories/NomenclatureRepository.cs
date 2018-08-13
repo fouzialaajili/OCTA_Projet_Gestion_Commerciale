@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
        
 
-        public GES_Nomenclature GetById(long id)
+        public GES_Nomenclature GetNomenclatureById(long id)
         {
             var nomenclatures = this.DbContext.Nomenclatures.Where(c => c.NomenclatureId== id).SingleOrDefault();
 
@@ -34,7 +34,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface INomenclatureRepository : IRepository<GES_Nomenclature>
     {
      
-        GES_Nomenclature GetById(long id);
+        GES_Nomenclature GetNomenclatureById(long id);
         IEnumerable<GES_Nomenclature> GetItemsByModelLibelle(string identifged);
 
     }

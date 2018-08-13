@@ -13,7 +13,7 @@ using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class TypePaiementService : ITypePaiementService
+    public class TypePaiementService : ITypePaiementService
     {
         private readonly ITypePaiementRepositoy typePaiementRepository;
 
@@ -31,11 +31,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         {
             GEN_TypePaiement  item = Mapper.Map<TypePaiementPivot, GEN_TypePaiement>(TypePaiement);
             typePaiementRepository.Add(item);
+            SaveTypePaiement();
         }
 
         public void DeleteTypePaiement(TypePaiementPivot TypePaiement)
         {
-            typePaiementRepository.Delete(Mapper.Map<TypePaiementPivot, GEN_TypePaiement>(TypePaiement));
+         typePaiementRepository.Delete(TypePaiement.TypePaiementId,Mapper.Map<TypePaiementPivot, GEN_TypePaiement>(TypePaiement));
+
+            SaveTypePaiement();
         }
 
         public IEnumerable<TypePaiementPivot> GetALL()
@@ -67,6 +70,32 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         public void UpdateTypePaiement(TypePaiementPivot TypePaiement)
         {
             typePaiementRepository.Update(Mapper.Map<TypePaiementPivot, GEN_TypePaiement>(TypePaiement));
+            SaveTypePaiement();
+
+        }
+
+        public IEnumerable<TypePaiementPivot> GetTypePaiementByIDDossier(long id)
+        {
+            //etTypePaiementByIDDossier(id)
+            IEnumerable<GEN_TypePaiement> typePaiement = typePaiementRepository.GetAll().ToList();
+                IEnumerable<TypePaiementPivot> typePaiementPivots = Mapper.Map<IEnumerable<GEN_TypePaiement>, IEnumerable<TypePaiementPivot>>(typePaiement);
+                return typePaiementPivots;
+           
+        }
+       public TypePaiementPivot  GetTypePaiement()
+        {
+            var item = typePaiementRepository.GetTypePaiements();
+            TypePaiementPivot typePaimentPivot = Mapper.Map<GEN_TypePaiement, TypePaiementPivot>(item);
+            return typePaimentPivot;
+        }
+
+        public IEnumerable<TypePaiementPivot> GetTypePaiemenByIDDossierAndActif()
+        {
+            
+                IEnumerable<GEN_TypePaiement> typePaiement = typePaiementRepository.GetTypePaiemenByIDDossierAndActif().ToList();
+                IEnumerable<TypePaiementPivot> typePaiementPivots = Mapper.Map<IEnumerable<GEN_TypePaiement>, IEnumerable<TypePaiementPivot>>(typePaiement);
+                return typePaiementPivots;
+          
         }
     }
 }

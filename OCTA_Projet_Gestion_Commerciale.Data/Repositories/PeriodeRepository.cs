@@ -15,7 +15,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositoriess
             : base(dbFactory) { }
 
       
-        public GES_Periode GetById(long id)
+        public GES_Periode GetPeriodeById(long id)
         {
             var peroides = this.DbContext.Periodes.Where(c => c.PeriodeId == id).SingleOrDefault();
 
@@ -34,7 +34,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositoriess
     {
     
 
-        GES_Periode GetById(long id);
+        GES_Periode GetPeriodeById(long id);
       IEnumerable<GES_Periode> GetItemsByModelLibelle(string identifged);
     }
 }

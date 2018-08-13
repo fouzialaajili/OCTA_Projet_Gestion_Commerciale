@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteMarque(MarquePivot Marque)
         {
-            marqueRepository.Delete(Mapper.Map<MarquePivot, GES_Marque>(Marque));
+           // marqueRepository.Delete(Mapper.Map<MarquePivot, GES_Marque>(Marque));
         }
 
         public IEnumerable<MarquePivot> GetALL()

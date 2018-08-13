@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class DossiersService : IDossiersService
+  public  class DossiersService : IDossiersService
     {
         private readonly IDossiersRepository dossiersRepository;
         private readonly IUnitOfWork unitOfWork;
@@ -29,13 +29,27 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteDossiersPivot(DossiersPivot dossiersPivot)
         {
-            dossiersRepository.Delete(Mapper.Map<DossiersPivot, GEN_Dossiers>(dossiersPivot));
+            //dossiersRepository.Delete(Mapper.Map<DossiersPivot, GEN_Dossiers>(dossiersPivot));
 
         }
 
         public IEnumerable<DossiersPivot> GetALL()
         {
             IEnumerable<GEN_Dossiers> dossiers = dossiersRepository.GetAll().ToList();
+            IEnumerable<DossiersPivot> dossiersPivot = Mapper.Map<IEnumerable<GEN_Dossiers>, IEnumerable<DossiersPivot>>(dossiers);
+            return dossiersPivot;
+        }
+
+        public IEnumerable<DossiersPivot> GetDossiersByActif(bool actif)
+        {
+            IEnumerable<GEN_Dossiers> dossiers = dossiersRepository.DossiersByActif(actif).ToList();
+         IEnumerable<DossiersPivot> dossiersPivot = Mapper.Map<IEnumerable<GEN_Dossiers>, IEnumerable<DossiersPivot>>(dossiers);
+            return dossiersPivot;
+        }
+
+        public IEnumerable<DossiersPivot> GetDossiersByDossiersId()
+        {
+            IEnumerable<GEN_Dossiers> dossiers = dossiersRepository.GetDossiersByDossiersId().ToList();
             IEnumerable<DossiersPivot> dossiersPivot = Mapper.Map<IEnumerable<GEN_Dossiers>, IEnumerable<DossiersPivot>>(dossiers);
             return dossiersPivot;
         }
@@ -48,10 +62,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         }
 
         public IEnumerable<DossiersPivot> GetDossiersPivotByNom(string Nom)
-        {
-        
-            throw new NotImplementedException();
-    }
+        { throw new NotImplementedException();
+        }
         public void SaveDossiers()
         {
             unitOfWork.Commit();

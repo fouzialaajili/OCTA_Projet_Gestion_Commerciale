@@ -1,0 +1,187 @@
+﻿@using Infragistics.Web.Mvc
+@model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_TypePaiement_Form_ViewModel
+
+
+@{
+    ViewBag.Title = "Nouveau mode d'échéance";
+}
+
+
+
+@section buttons {
+    @*<h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>*@
+    <div class="col-md-18">
+
+    </div>
+
+    <ul class="panel-controls">
+
+        @*<li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create")' ">Nouveau Exercice</button></li>*@
+        <li><button id="saveAll" class="btn btn-primary btn-block">Enregistrer</button></li>
+        <li>&nbsp;</li>
+        <li><button onclick="Recommencer();" class="btn btn-primary btn-info" type="reset">Recommencer à zéro</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create", "TypePaiement", new { id = ""})' ">Nouveau</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-default btn-danger" onclick="Supprimer();">supprimer</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-success btn-block" type="button" onclick="window.location.href='@Url.Action("Index")'">Fermer</button></li>
+
+
+    </ul>
+}
+@using (Html.BeginForm("Delete", "TypePaiement", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce type de paiement?');" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.TypePaiementId)
+    <button class="btn btn-danger btn-block" type="submit"  id="deleteButton">Supprimer</button>
+
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal ">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.TypePaiementId)
+        <input id="message" name="message" type="hidden" value="@((string)ViewBag.Message)">
+        <div class="createButtons">
+            <h5>
+                Informations générales
+            </h5>
+            <hr />
+        </div>
+
+        <input type="submit" id="createButton" class="btn btn-default" value="Creer"  />
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Libelle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                    @Html.EditorFor(model => model.Libelle, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.Libelle, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="col-md-1 label-right">
+                @Html.CheckBoxFor(model => model.Actif, htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => model.Actif, htmlAttributes: new { @class = "control-label" })
+                @Html.ValidationMessageFor(model => model.Actif, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+<div class="createButtons">
+    <h5>
+        Répartition de l'échéance
+    </h5>
+    <hr />
+</div>
+<div id="grille" style="display:block">
+    @*@Html.Action("listTypePaiementDetait", new { id = (Model != null ? Model.TypePaiementId : 0) })
+    *@
+</div>
+
+
+
+<script>
+    var messageErreur = '@(new MvcHtmlString((string)ViewBag.Message))';
+    $(document).ready(function () {
+        if (messageErreur != "") {
+            alert(messageErreur);
+
+        }
+    });
+    var gridTypesPaiementsDetail = $("#listGridTypePaiementDetail"),
+
+        gridColumns = { "TypePaiementDetails": "IdModePaiement#DateCalcul#Pourcentage#NombreJour#Delai#actionsColumn", "TypePaiementDetailsEdit": "IdModePaiement#DateCalcul#Pourcentage#NombreJour#Delai" }
+
+    ;
+
+
+
+    /*
+     * Enregistrement des informations
+     */
+    gridTypesPaiementsDetail.on("iggridrendered", function (e, args) {
+        gridTypesPaiementsDetail.data("igGrid").dataSource._addChangesSuccessHandler(function (data, textStatus, jqXHR) {
+            $('#createButton').click();
+        });
+    });
+
+    $("#saveAll").bind({
+        click: function (e) {
+            if (IsValid()) {
+                gridTypesPaiementsDetail.igGrid("saveChanges");
+            }
+        }
+    });
+
+    /*
+     * Affichage et masque des columns
+     */
+
+    gridTypesPaiementsDetail.on("iggridupdatingeditrowended", function (e, args) {
+
+        showcolumn(gridTypesPaiementsDetail, gridColumns["TypePaiementDetails"]);
+        gridTypesPaiementsDetail.igGridUpdating('option', 'editMode', 'row');
+    });
+
+
+
+    /*
+     * Fonctions divers
+     */
+
+    function IsValid()
+    {
+        if (($('form').valid() && (getSommeSummury(gridEcheancement, "Pourcentage", "sum") == 100))) {
+            return true;
+        } else if (!(getSommeSummury(gridEcheancement, "Pourcentage", "sum") == 100)) {
+            alert("La somme des pourcentage n'égale pas 100 ");
+        }
+    }
+
+    function openEdit(gridId, idRow, model) {
+        var grid = $("#" + gridId);
+
+        showcolumn(grid, gridColumns[model + "Edit"]);
+        grid.igGridUpdating('option', 'editMode', 'dialog');
+        grid.igGridUpdating('startEdit', idRow);
+    }
+
+    function showcolumn(grid, columnToShow) {
+        var cols = grid.igGrid("option", "columns");
+        for (c in cols) {
+            if (('#' + columnToShow + '#').indexOf('#' + cols[c].key + '#') >= 0) {
+                cols[c].hidden = false;
+            }
+            else {
+                cols[c].hidden = true;
+            }
+        }
+    }
+
+    function Recommencer() {
+        $('#recommencer').click();
+
+    }
+    function Supprimer() {
+        $('#deleteButton').click();
+    }
+
+</script>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -31,7 +31,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteArticlesPrixPivot(ArticlesPrixPivot articlesPrix)
         {
-            articlesRepository.Delete(Mapper.Map<ArticlesPrixPivot, GES_ArticlesPrix>(articlesPrix));
+            //articlesRepository.Delete(Mapper.Map<ArticlesPrixPivot, GES_ArticlesPrix>(articlesPrix));
         }
 
         public IEnumerable<ArticlesPrixPivot> GetALL()

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Gestion_Commerciale.Web.Controllers
+namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 {
     public class AdminController : Controller
     {

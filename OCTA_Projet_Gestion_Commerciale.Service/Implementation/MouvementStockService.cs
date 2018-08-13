@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteMouvementStock(MouvementStockPivot mouvementStock)
         {
-            mouvementStockRepository.Delete(Mapper.Map<MouvementStockPivot, GES_MouvementStock>(mouvementStock));
+            //mouvementStockRepository.Delete(Mapper.Map<MouvementStockPivot, GES_MouvementStock>(mouvementStock));
         }
 
         public IEnumerable<MouvementStockPivot> GetALL()

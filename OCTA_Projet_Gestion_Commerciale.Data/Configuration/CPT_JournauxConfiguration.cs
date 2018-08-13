@@ -22,8 +22,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
             HasOptional<GEN_Dossiers>(a => a.GEN_Dossiers)
    .WithMany(d => d.CPT_Journaux)
     .HasForeignKey<long?>(a => a.IdDossier);
-        
-
+          //  HasOptional<CPT_Journaux>(a => a.)
+ ///.WithMany(d => d.CPT_Journaux)
+  ///.HasForeignKey<long?>(a => a.IdDossier);
+//+
 
     }
     }

@@ -37,7 +37,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteReglement(ReglementPivot Reglement)
         {
-            reglementRepository.Delete(Mapper.Map<ReglementPivot, GES_Reglement>(Reglement));
+            //reglementRepository.Delete(Mapper.Map<ReglementPivot, GES_Reglement>(Reglement));
         }
 
         public IEnumerable<ReglementPivot> GetALL()

@@ -37,7 +37,7 @@ private readonly IUnitOfWork unitOfWork;
         void IDepotService.DeleteDepotPivot(DepotPivot depot)
         {
 
-            depotRepository.Delete(Mapper.Map<DepotPivot, GES_Depot>(depot));
+           // depotRepository.Delete(Mapper.Map<DepotPivot, GES_Depot>(depot));
         }
 
         IEnumerable<DepotPivot> IDepotService.GetALL()

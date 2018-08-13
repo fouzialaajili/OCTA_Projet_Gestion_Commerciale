@@ -15,7 +15,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             : base(dbFactory) { }
 
       
-        public GES_Objectif GetById(long id)
+        public GES_Objectif GetObjectifById(long id)
         {
             var objetifs = this.DbContext.Objectifs.Where(c => c.ObjectifId== id).SingleOrDefault();
 
@@ -28,7 +28,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface IObjectifRepository : IRepository<GES_Objectif>
     {
     
-        GES_Objectif GetById(long id);
+        GES_Objectif GetObjectifById(long id);
  
 
     }

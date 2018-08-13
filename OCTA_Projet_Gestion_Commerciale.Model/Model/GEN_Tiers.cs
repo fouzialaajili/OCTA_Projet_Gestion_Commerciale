@@ -29,16 +29,19 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public string Fax { get; set; }
      
         public string Email { get; set; }
-       
-        public long? Ville { get; set; }
+
+        public string Ville { get; set; }
       
         public string SiteWeb { get; set; }
    
         public string CapitalSocial { get; set; }
     
-        public long? Pays { get; set; }
+        public string Pays { get; set; }
 
-    
+        public string TypeTierCode
+        {
+            get;set;
+        }
         public string IdentifiantFiscale { get; set; }
       
         public string IdentifiantTVA { get; set; }
@@ -56,7 +59,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public long? IdCompteCollectifFournisseur { get; set; }
       
         public long? IdEcheancement { get; set; }
-     
+
+
         public long? IdGroupeRemise { get; set; }
        
         public long? IdGroupeStatistiques { get; set; }
@@ -78,11 +82,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
         public virtual GEN_Dossiers GEN_Dossiers { get; set; }
 
-        public virtual GEN_Items GEN_Items_CategorieFiscale { get; set; }
+     public virtual GEN_Items GEN_Items_CategorieFiscale { get; set; }
 
-        public virtual GEN_Items GEN_Items_FormeJuridique { get; set; }
+     public virtual GEN_Items GEN_Items_FormeJuridique { get; set; }
 
-        public virtual GEN_Items GEN_Items_TypeTiers { get; set; }
+     public virtual GEN_Items GEN_Items_TypeTiers { get; set; }
 
         public virtual GEN_TypePaiement GEN_TypePaiement { get; set; }
 
@@ -107,7 +111,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public virtual ICollection<GES_Reglement> GES_Reglement { get; set; }
         public virtual ICollection<GES_Ticket> GES_Ticket { get; set; }
         public virtual ICollection<GES_TicketDetail> GES_TicketDetail { get; set; }
-            public long TvaSocieteId { get; set; }
-        public virtual CPT_CodesTVA TvaSociete { get; set; }
+          
     }
 }

@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteNomenclature(NomenclaturePivot nomenclature)
         {
-            nomenclatureRepository.Delete(Mapper.Map<NomenclaturePivot, GES_Nomenclature>(nomenclature));
+          //  nomenclatureRepository.Delete(Mapper.Map<NomenclaturePivot, GES_Nomenclature>(nomenclature));
         }
 
         public IEnumerable<NomenclaturePivot> GetALL()

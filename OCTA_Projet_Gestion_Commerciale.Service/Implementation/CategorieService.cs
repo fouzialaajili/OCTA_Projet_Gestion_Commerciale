@@ -33,7 +33,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteCategoriePivot(CategoriePivot categorie)
         {
-            categorieRepository.Delete(Mapper.Map<CategoriePivot, GES_Categorie>(categorie));
+            //categorieRepository.Delete(Mapper.Map<CategoriePivot, GES_Categorie>(categorie));
         }
 
         public IEnumerable<CategoriePivot> GetALL()

@@ -15,6 +15,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
                 ));
          bundles.Add(new StyleBundle("~/bootstrap/css").Include("~/css/bootstrap.css", "~/css/site.css"
             ));
+
+             bundles.Add(new StyleBundle("~/infragistics/css").Include(
+          "~/Content/Infragistics/css/themes/infragistics/infragistics.theme.css",
+          "~/Content/Infragistics/css/structure/infragistics.css"
+                ));
+            bundles.Add(new ScriptBundle("~/infragistics/js").Include(
+               "/Scripts/jquery-3.0.0.js", "/Scripts/jquery-3.0.0.min.js", "/Scripts/jquery-ui-1.12.0.js", "~/Scripts/Infragistics/js/infragistics.core.js", "~/Scripts/Infragistics/js/infragistics.lob.js"
+               ));
             /*bundles.Add(new ScriptBundle("~/bundles/infragisticsLoader").Include(
                 "~/Script/Infragistics/js/Infragistics.loader.js"
                 ));

@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
      
 
-        public GES_Reglement GetById(long id)
+        public GES_Reglement GetReglementById(long id)
         {
 
             var peroides = this.DbContext.Reglements.Where(c => c.ReglementId == id).SingleOrDefault();
@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface IReglementRepository : IRepository<GES_Reglement>
     {
        
-        GES_Reglement GetById(long id);
+        GES_Reglement GetReglementById(long id);
         IEnumerable<GES_Reglement> GetItemsByModelLibelle(string identifged);
 
     }

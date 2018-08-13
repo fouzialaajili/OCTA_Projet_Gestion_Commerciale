@@ -30,7 +30,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteFamillePivot(FamillePivot dossiers)
         {
-            familleRepository.Delete(Mapper.Map<FamillePivot, GES_Famille>(dossiers));
+            //familleRepository.Delete(Mapper.Map<FamillePivot, GES_Famille>(dossiers));
 
         }
 

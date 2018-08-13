@@ -12,7 +12,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface ILicenceRepository : IRepository<GES_Licence>
     {
        
-        GES_Licence GetById(long id);
+        GES_Licence GetLicenceById(long id);
         IEnumerable<GES_Licence> GetItemsByModelLibelle(string identifged);
     }
 
@@ -23,7 +23,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
       
 
-        public GES_Licence GetById(long id)
+        public GES_Licence GetLicenceById(long id)
         {
 
             var licences = this.DbContext.Licences.Where(c => c.Id == id).SingleOrDefault();

@@ -34,7 +34,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteDocumentCommercialPivot(DocumentCommercialPivot documentCommercial)
         {
-            documentCommercialRepository.Delete(Mapper.Map<DocumentCommercialPivot, GES_DocumentCommercial>(documentCommercial));
+           // documentCommercialRepository.Delete(Mapper.Map<DocumentCommercialPivot, GES_DocumentCommercial>(documentCommercial));
         }
 
         public IEnumerable<DocumentCommercialPivot> GetALL()

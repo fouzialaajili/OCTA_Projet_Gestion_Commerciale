@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public TypePaiementDetailRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
-        public GEN_TypePaiementDetail GetById(long id)
+        public GEN_TypePaiementDetail GetTypePaiementDetailById(long id)
         {
             throw new NotImplementedException();
         }
@@ -28,7 +28,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
     public interface ITypePaiementDetailRepositoy : IRepository<GEN_TypePaiementDetail>
     {
-        GEN_TypePaiementDetail GetById(long id);
+        GEN_TypePaiementDetail GetTypePaiementDetailById(long id);
         IEnumerable<GEN_TypePaiementDetail> GetItemsByModelLibelle(string identifged);
 
        

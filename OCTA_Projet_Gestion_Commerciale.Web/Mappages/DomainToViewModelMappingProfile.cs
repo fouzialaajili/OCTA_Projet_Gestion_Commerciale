@@ -21,7 +21,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Mappages
             CreateMap<AdminPivot, AdminViewModel>()
                .ReverseMap()
                .IgnoreAllPropertiesWithAnInaccessibleSetter();
-       
+            CreateMap<TiersPivot, GEN_Tiers_ViewModel>()
+               .ReverseMap()
+               .IgnoreAllPropertiesWithAnInaccessibleSetter();
+
         }
     }
 }

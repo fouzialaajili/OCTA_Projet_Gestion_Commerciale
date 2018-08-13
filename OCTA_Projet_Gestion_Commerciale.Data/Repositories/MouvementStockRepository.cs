@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
     
 
-        public GES_MouvementStock GetById(long id)
+        public GES_MouvementStock GetMouvementStockById(long id)
         {
             var mouvementstocks = this.DbContext.MouvementStocks.Where(c => c.MouvementStockId== id).SingleOrDefault();
 
@@ -34,7 +34,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface IMouvementStockRepository : IRepository<GES_MouvementStock>
     {
      
-        GES_MouvementStock GetById(long id);
+        GES_MouvementStock GetMouvementStockById(long id);
         IEnumerable<GES_MouvementStock> GetItemsByModelLibelle(string identifged);
 
     }

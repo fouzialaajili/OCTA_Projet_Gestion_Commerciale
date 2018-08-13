@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
      
 
-        public GES_Representant GetById(long id)
+        public GES_Representant GetRepresentantById(long id)
         {
             var objetifs = this.DbContext.Representants.Where(c => c.RepresentantId== id).SingleOrDefault();
 
@@ -34,7 +34,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface IRepresentantRepository : IRepository<GES_Representant>
     {
     
-        GES_Representant GetById(long id);
+        GES_Representant GetRepresentantById(long id);
       IEnumerable<GES_Representant> GetItemsByModelLibelle(string identifged);
     }
 }

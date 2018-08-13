@@ -14,7 +14,7 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class TiersService : ITiersService
+   public class TiersService : ITiersService
     { 
         private readonly ITiersRepository iTiersRepository;
 
@@ -31,12 +31,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         {
             GEN_Tiers item = Mapper.Map<TiersPivot, GEN_Tiers>(Tiers);
             iTiersRepository.Add(item);
+            SaveTiers();
         }
 
         public void DeleteTiers(TiersPivot Tiers)
         {
 
-            iTiersRepository.Delete(Mapper.Map<TiersPivot, GEN_Tiers>(Tiers));
+      iTiersRepository.Delete(Tiers.Id,Mapper.Map<TiersPivot, GEN_Tiers>(Tiers));
+            SaveTiers();
         }
 
         public IEnumerable<TiersPivot> GetALL()
@@ -44,9 +46,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             IEnumerable<GEN_Tiers> tiers = iTiersRepository.GetAll().ToList();
             IEnumerable<TiersPivot> tiersPivots = Mapper.Map<IEnumerable<GEN_Tiers>, IEnumerable<TiersPivot>>(tiers);
             return tiersPivots;
+           // return tiers;
         }
 
-        public TiersPivot GetTiers(long id)
+        public TiersPivot  GetTier (long? id)
         {
             var item = iTiersRepository.GetById((int)id);
             TiersPivot tiersPivot = Mapper.Map<GEN_Tiers, TiersPivot>(item);
@@ -68,6 +71,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         public void UpdateTiers(TiersPivot Tiers)
         {
             iTiersRepository.Update(Mapper.Map<TiersPivot, GEN_Tiers>(Tiers));
+            SaveTiers();
+        }
+
+        public TiersPivot GetTiers()
+        {
+            var item = iTiersRepository.GetTiers();
+            TiersPivot tiersPivot = Mapper.Map<GEN_Tiers, TiersPivot>(item);
+            return tiersPivot;
+        }
+
+        public IEnumerable<TiersPivot> GetTiersByItems_TypeTiers(string Type)
+        {
+            IEnumerable<GEN_Tiers> tiers = iTiersRepository.GetTiersByItems_TypeTiers(Type).ToList();
+            IEnumerable<TiersPivot> tiersPivots = Mapper.Map<IEnumerable<GEN_Tiers>, IEnumerable<TiersPivot>>(tiers);
+            return tiersPivots;
         }
     }
 }

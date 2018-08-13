@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteArticlesKitPivot(ArticlesKitPivot articlesKit)
         {
-            articlesKitRepository.Delete(Mapper.Map<ArticlesKitPivot, GES_ArticlesKit>(articlesKit));
+            ///articlesKitRepository.Delete(Mapper.Map<ArticlesKitPivot, GES_ArticlesKit>(articlesKit));
         }
 
         public IEnumerable<ArticlesKitPivot> GetALL()

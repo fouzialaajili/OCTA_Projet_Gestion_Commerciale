@@ -19,7 +19,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             return DbContext.ParametrageComptables.ToList();
         }
 
-        public CPT_ParametrageComptable GetById(long id)
+        public CPT_ParametrageComptable GetParametrageComptablById(long id)
         {
             var _ParametrageComptable = this.DbContext.ParametrageComptables.Where(c => c.Id == id).SingleOrDefault();
 
@@ -40,7 +40,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface ICPT_ParametrageComptableRepository : IRepository<CPT_ParametrageComptable>
     {
         IEnumerable<CPT_ParametrageComptable> GetALL();
-        CPT_ParametrageComptable GetById(long id);
+        CPT_ParametrageComptable GetParametrageComptablById(long id);
         IEnumerable<CPT_ParametrageComptable> GetItemsByModelLibelle(string identifged);
     }
 }

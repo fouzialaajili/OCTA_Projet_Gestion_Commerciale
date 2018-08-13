@@ -1,4 +1,5 @@
 ﻿
+using OCTA_Projet_Gestion_Commerciale.Model;
 using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 using System;
 using System.Collections.Generic;
@@ -17,5 +18,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
         void UpdateDossiersContactsPivot(DossiersPivot dossiers);
         void CreateDossiersContactsPivot(DossiersPivot dossiers);
         void SaveDossiers();
+        IEnumerable<DossiersPivot> GetDossiersByActif(bool actif);
+        IEnumerable<DossiersPivot> GetDossiersByDossiersId();
     }
 }

@@ -31,7 +31,7 @@ public void CreateDocliePivot(DocliePivot doclie)
 
         public void DeleteDocliePivot(DocliePivot doclie)
         {
-            doclieRepository.Delete(Mapper.Map<DocliePivot, GES_Doclie>(doclie));
+          //  doclieRepository.Delete(Mapper.Map<DocliePivot, GES_Doclie>(doclie));
         }
 
         public IEnumerable<DocliePivot> GetALL()

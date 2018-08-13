@@ -14,14 +14,14 @@ using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-    class TiersContactsService : ITiersContactService
+    public class TiersContactsService : ITiersContactsService
     {
-        private readonly ITiersContactRepository tiersContactsRepository;
+        private readonly ITiersContactsRepository tiersContactsRepository;
 
 
         private readonly IUnitOfWork unitOfWork;
 
-        public TiersContactsService(ITiersContactRepository tiersContactsRepository, IUnitOfWork unitOfWork)
+        public TiersContactsService(ITiersContactsRepository tiersContactsRepository, IUnitOfWork unitOfWork)
          {
              this.tiersContactsRepository = tiersContactsRepository;
              this.unitOfWork = unitOfWork;
@@ -36,7 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         public void DeleteTiersContacts(TiersContactsPivot TiersContact)
         {
 
-            tiersContactsRepository.Delete(Mapper.Map<TiersContactsPivot, GEN_TiersContacts>(TiersContact));
+           // tiersContactsRepository.Delete(Mapper.Map<TiersContactsPivot, GEN_TiersContacts>(TiersContact));
         }
 
         public IEnumerable<TiersContactsPivot> GetALL()
@@ -60,7 +60,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public IEnumerable<TiersContactsPivot> GetTiersContactByName(string identifged)
         {
-            IEnumerable<GEN_TiersContacts> tiersContacts = tiersContactsRepository.GetItemsByModelLibelle(identifged).ToList();
+            IEnumerable<GEN_TiersContacts> tiersContacts = tiersContactsRepository.GetTiersContactsByModelLibelle(identifged).ToList();
             IEnumerable<TiersContactsPivot> tiersContactsPivots = Mapper.Map<IEnumerable<GEN_TiersContacts>, IEnumerable<TiersContactsPivot>>(tiersContacts);
             return tiersContactsPivots;
         }
@@ -69,6 +69,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         {
             tiersContactsRepository.Update(Mapper.Map<TiersContactsPivot, GEN_TiersContacts>(TiersContact));
         }
-  
+
+        public IEnumerable<TiersContactsPivot> GetTiersContactsByIdTiersAndActif(long id)
+        {
+            IEnumerable<GEN_TiersContacts> tiersContacts = tiersContactsRepository.GetTiersContactsByIdTiersAndActif(id).ToList();
+            IEnumerable<TiersContactsPivot> tiersContactsPivots = Mapper.Map<IEnumerable<GEN_TiersContacts>, IEnumerable<TiersContactsPivot>>(tiersContacts);
+            return tiersContactsPivots;
+        }
     }
 }

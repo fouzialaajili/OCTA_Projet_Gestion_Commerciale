@@ -32,7 +32,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteAffairePivot(AffairePivot affaire)
         {
-         affaireRepository.Delete(Mapper.Map<AffairePivot, GES_Affaire>(affaire));
+        // affaireRepository.Delete(Mapper.Map<AffairePivot, GES_Affaire>(affaire));
         }
 
         public AffairePivot GetAffaire(long id)

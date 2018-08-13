@@ -18,6 +18,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
         void UpdateDevise(DevisesPivot devises);
         void CreateDevise(DevisesPivot devises);
         IQueryable<GEN_Devises> GetAllDevises();
+        IEnumerable<DevisesPivot> GetDevisesByIDDossierAndActif();
         void SaveDevise();
     }
 }

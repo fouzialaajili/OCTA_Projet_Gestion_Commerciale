@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
         
 
-        public GES_Numerotation GetById(long id)
+        public GES_Numerotation GetNumerotationById(long id)
         {
             var numerotations = this.DbContext.Numeratations.Where(c => c.NumerotationId == id).SingleOrDefault();
 
@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
 
    
-        GES_Numerotation GetById(long id);
+        GES_Numerotation GetNumerotationById(long id);
         IEnumerable<GES_Numerotation> GetItemsByModelLibelle(string identifged);
     }
 }

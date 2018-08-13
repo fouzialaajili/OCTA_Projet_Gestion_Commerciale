@@ -23,7 +23,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             return geds;
         }
 
-        public GES_Ged GetById(long id)
+        public GES_Ged GeGedtById(long id)
         {
             var geds = this.DbContext.Geds.Where(c => c.GedId== id).SingleOrDefault();
 
@@ -34,7 +34,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface IGedRepository : IRepository<GES_Ged>
     {
         
-         GES_Ged GetById(long id);
+         GES_Ged GeGedtById(long id);
         IEnumerable<GES_Ged> GetItemsByModelLibelle(string identifged);
 
 

@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
       
 
-        public GES_FournisseurArticle GetById(long id)
+        public GES_FournisseurArticle GetFournisseurArticleById(long id)
         {
             var fournisseurArticles = this.DbContext.FournisseurArticles.Where(c => c.FournisseurArticleId == id).SingleOrDefault();
 
@@ -38,7 +38,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         IEnumerable<GES_FournisseurArticle> GetItemsByModelLibelle(string categoryName);
        
-        GES_FournisseurArticle GetById(long id);
+        GES_FournisseurArticle GetFournisseurArticleById(long id);
 
     }
 }

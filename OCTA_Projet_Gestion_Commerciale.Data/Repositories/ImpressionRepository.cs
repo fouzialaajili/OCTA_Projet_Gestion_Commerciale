@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
    public interface IImpressionRepositoy : IRepository<GES_Impression>
     {
       
-        GES_Impression GetById(long id);
+        GES_Impression GetImpressionById(long id);
         IEnumerable<GES_Impression> GetItemsByModelLibelle(string identifged);
     }
 
@@ -24,7 +24,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         public ImpressionRepositoy(IDbFactory dbFactory)
             : base(dbFactory) { }
 
-        public GES_Impression GetById(long id)
+        public GES_Impression GetImpressionById(long id)
         {
             var impressions = this.DbContext.Impressions.Where(c => c.Id == id).SingleOrDefault();
 

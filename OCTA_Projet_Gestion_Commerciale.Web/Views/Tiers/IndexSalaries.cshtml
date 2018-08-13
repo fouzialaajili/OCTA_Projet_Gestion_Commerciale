@@ -1,0 +1,291 @@
+﻿@model IEnumerable<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_Tiers_ViewModel>
+
+@{
+    ViewBag.Title = "Liste des salariés";
+}
+
+
+
+
+@section buttons {
+    <h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
+
+    <ul class="panel-controls">
+
+        <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create",new { type="salarie"})' ">Nouveau</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-success btn-block" type="button" onclick="window.location.href='@Url.Action("Index")'">Exporter</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-info btn-block" type="button" onclick="window.location.href='@Url.Action("Index")'">Importer</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-default btn-block" type="button" onclick="window.location.href='@Url.Action("index")'">Imprimer</button></li>
+        <li>&nbsp;</li>
+
+    </ul>
+}
+
+
+<table class="table datatable_simple ">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayName("Code salarié")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RaisonSociale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ville)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tel)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(" ", "Create", new { id = item.Id, type = "salarie" }, new { @class = "fa fa-pencil " })
+                    @Html.ActionLink(" ", "Delete", new { id = item.Id, type = "salarie" }, new { @class = "fa fa-times " })
+                    @Html.ActionLink(" ", "Details", new { id = item.Id, type = "salarie" }, new { @class = "fa fa-align-justify " })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RaisonSociale)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ville)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pays)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tel)
+                </td>
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+
+
+
+@*@model IEnumerable<OCTA.Models.GEN_Tiers>
+
+    @{
+        ViewBag.Title = "IndexSalaries";
+    }
+
+    <h2>IndexSalaries</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RaisonSociale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.activite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adresse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adresseLivraison)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ville)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteWeb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapitalSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdentifiantFiscale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdentifiantTVA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Actif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdGroupeRemise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdGroupeStatistiques)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sys_user)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sys_dateUpdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sys_dateCreation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPT_CompteG.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPT_CompteG1.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GEN_Devises.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GEN_Dossiers.CodeDossier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GEN_Items_CategorieFiscale.Libelle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GEN_Items_FormeJuridique.Libelle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GEN_Items_TypeTiers.Libelle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GEN_TypePaiement.Libelle)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RaisonSociale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.activite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresseLivraison)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ville)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteWeb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapitalSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentifiantFiscale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentifiantTVA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Actif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGroupeRemise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGroupeStatistiques)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sys_user)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sys_dateUpdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sys_dateCreation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPT_CompteG.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPT_CompteG1.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GEN_Devises.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GEN_Dossiers.CodeDossier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GEN_Items_CategorieFiscale.Libelle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GEN_Items_FormeJuridique.Libelle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GEN_Items_TypeTiers.Libelle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GEN_TypePaiement.Libelle)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

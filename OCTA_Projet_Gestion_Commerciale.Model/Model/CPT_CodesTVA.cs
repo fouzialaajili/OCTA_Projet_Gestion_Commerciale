@@ -58,6 +58,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
         //public long TvaSocieteId { get; set; }
         //public virtual GEN_Dossiers TvaSociete { get; set; }
-        public virtual ICollection<GEN_Tiers> TvaFichetier { get; set; }
+       // public virtual ICollection<GEN_Tiers> TvaFichetier { get; set; }
     }
 }

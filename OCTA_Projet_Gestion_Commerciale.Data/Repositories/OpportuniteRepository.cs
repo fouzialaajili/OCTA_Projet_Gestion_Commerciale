@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositoriess
 
     
 
-        public GES_Opportunite GetById(long id)
+        public GES_Opportunite GetOpportuniteById(long id)
         {
             var opportunites = this.DbContext.Opportunites.Where(c => c.OpportuniteId == id).SingleOrDefault();
 
@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositoriess
     {
 
    
-        GES_Opportunite GetById(long id);
+        GES_Opportunite GetOpportuniteById(long id);
        IEnumerable<GES_Opportunite> GetItemsByModelLibelle(string identifged);
     }
 }

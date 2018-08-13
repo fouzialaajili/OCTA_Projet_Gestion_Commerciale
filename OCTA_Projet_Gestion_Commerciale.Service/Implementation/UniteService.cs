@@ -39,7 +39,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteUnitePivot(UnitePivot doclieart)
         {
-            uniteRepository.Delete(Mapper.Map<UnitePivot, GES_Unite>(doclieart));
+           // uniteRepository.Delete(Mapper.Map<UnitePivot, GES_Unite>(doclieart));
         }
 
         public IEnumerable<UnitePivot> GetALL()

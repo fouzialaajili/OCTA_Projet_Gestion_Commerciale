@@ -35,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         }
         public void DeleteOpportunite(OpportunitePivot opportunite)
         {
-            opportuniteRepository.Delete(Mapper.Map<OpportunitePivot, GES_Opportunite>(opportunite));
+            //opportuniteRepository.Delete(Mapper.Map<OpportunitePivot, GES_Opportunite>(opportunite));
         }
 
         public IEnumerable<OpportunitePivot> GetALL()

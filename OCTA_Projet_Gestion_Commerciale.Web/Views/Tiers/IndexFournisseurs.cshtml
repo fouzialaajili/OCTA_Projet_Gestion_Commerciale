@@ -1,0 +1,83 @@
+﻿@model IEnumerable<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_Tiers_ViewModel>
+@{
+    ViewBag.Title = "Liste des fournisseurs";
+}
+
+
+
+
+@section buttons {
+    <h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
+
+    <ul class="panel-controls">
+
+        <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create",new { type="fournisseur"})' ">Nouveau</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-success btn-block" type="button" onclick="window.location.href='@Url.Action("Index")'">Exporter</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-info btn-block" type="button" onclick="window.location.href='@Url.Action("Index")'">Importer</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-default btn-block" type="button" onclick="window.location.href='@Url.Action("index")'">Imprimer</button></li>
+        <li>&nbsp;</li>
+
+    </ul>
+}
+
+
+<table class="table datatable_simple ">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayName("Code fournisseur")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RaisonSociale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ville)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tel)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @Html.ActionLink(" ", "Create", new { id = item.Id, type = "fournisseur" }, new { @class = "fa fa-pencil " })
+                    @Html.ActionLink(" ", "Delete", new { id = item.Id, type = "fournisseur" }, new { @class = "fa fa-times " })
+                    @Html.ActionLink(" ", "Details", new { id = item.Id, type = "fournisseur" }, new { @class = "fa fa-align-justify " })
+
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RaisonSociale)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ville)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pays)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tel)
+                </td>
+
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+

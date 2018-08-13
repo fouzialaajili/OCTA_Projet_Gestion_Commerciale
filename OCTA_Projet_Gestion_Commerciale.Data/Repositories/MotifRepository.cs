@@ -16,7 +16,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
       
 
-        public GES_Motif GetById(long id)
+        public GES_Motif GetMotifById(long id)
         {
             var motifs = this.DbContext.Motifs.Where(c => c.MotifId == id).SingleOrDefault();
 
@@ -34,7 +34,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     public interface IMotifRepository : IRepository<GES_Motif>
     {
    
-        GES_Motif GetById(long id);
+        GES_Motif GetMotifById(long id);
         IEnumerable<GES_Motif> GetItemsByModelLibelle(string identifged);
 
     }

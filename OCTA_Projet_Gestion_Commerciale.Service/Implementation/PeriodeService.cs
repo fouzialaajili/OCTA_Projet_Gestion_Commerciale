@@ -37,7 +37,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeletePeriode(PeriodePivot Periodes)
         {
-           periodeRepository.Delete(Mapper.Map<PeriodePivot, GES_Periode>(Periodes));
+           //periodeRepository.Delete(Mapper.Map<PeriodePivot, GES_Periode>(Periodes));
         }
 
         public IEnumerable<PeriodePivot> GetALL()

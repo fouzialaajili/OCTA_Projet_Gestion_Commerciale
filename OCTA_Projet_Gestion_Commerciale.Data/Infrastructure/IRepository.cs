@@ -12,9 +12,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Infrastructure
         // Marks an entity as new
         void Add(T entity);
         // Marks an entity as modified
-        void Update(T entity);
+         void Update(T entity);
+        void Update(object idSource, T entity);
         // Marks an entity to be removed
         void Delete(object idSource, T entity);
+
         //void Delete(T entity);
         void Delete(Expression<Func<T, bool>> where);
         // Get an entity by int id

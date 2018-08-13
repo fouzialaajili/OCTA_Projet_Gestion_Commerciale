@@ -90,8 +90,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         public void UpdateDevise(DevisesPivot devises)
         {
             devisesRepository.Update(Mapper.Map<DevisesPivot, GEN_Devises>(devises));
+            //devises.DevisesId
         }
 
-       
+
     }
 }

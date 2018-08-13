@@ -44,10 +44,24 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
 
             bundles.Add(new StyleBundle("~/Content/bootstrapcss").Include(
                                                 "~/Content/bootstrap.min.css"));
-                                                */
+   //                                             */
+   //         bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+   //"~/Scripts/jquery.validate*"));
+           
+            //bundles.Add(new ScriptBundle("~/bundles/infragisticsLoader").Include(
+            //    "~/Script/Infragistics/js/Infragistics.loader.js"
+            //    ));
+
+            //bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+            //            "~/Scripts/jquery-3.0.0.min.js",
+            //            "~/Scripts/jquery-ui-{version}.js",
+            //            "~/Scripts/jquery-ui-i18n.js",
+            //            "~/Scripts/jquery.unobtrusive-ajax.min.js",
+            //            "~/Scripts/jquery.blockUI.js"
+            //            ));
+
+
             BundleTable.EnableOptimizations = true;
-
-
         }
     }
 }

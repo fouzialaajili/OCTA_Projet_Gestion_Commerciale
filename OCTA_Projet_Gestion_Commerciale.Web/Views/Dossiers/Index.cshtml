@@ -18,12 +18,12 @@
 <script src="~/Scripts/Infragistics/js/infragistics.lob.js" type="text/javascript"></script>
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-<h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
+@*<h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
 <br /><br /><br />
 <div class="col-md-2 col-md-offset-10">
     <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='@Url.Action("Create")'">Nouvelle dossiers</button>
 </div>
-<br /><br /><br />
+<br /><br /><br />*@
 
 
 
@@ -38,7 +38,7 @@
                                                                      .AutoCommit(true)
                                                                      .Columns(column =>
                                                                      {
-                                                                        
+
 
                                                                          column.For(x => x.DossierId).Hidden(true);
                                                                          column.For(x => x.CodeDossier).HeaderText("Code").Width("20%").Template("<a href='" + @Url.Action("Create", "Dossiers") + "/${DossierId}\' \">${CodeDossier}</a>");
@@ -47,7 +47,7 @@
                                                                          column.For(x => x.DossierIdentifiantFiscale).HeaderText("Identifiant fiscal").Width("20%");
                                                                          column.For(x => x.DossierIdentifiantTVA).HeaderText("Identifiant Tva").Width("20%");
                                                                          column.For(x => x.DossierActif).HeaderText("Actif").FormatterFunction("lookupActif").Width("10%");
-                                                                         column.Unbound("UnBound").Template("<a href='/Dossiers/Edit/${DossierId}'>Edit</a>").Width("20%").HeaderText("Edit");
+                                                                         //column.Unbound("UnBound").Template("<a href='/Dossiers/Edit/${DossierId}'>Edit</a>").Width("20%").HeaderText("Edit");
 
 
                                                                      })
@@ -70,8 +70,7 @@
 
 
  
-
-
+    
     <script type="text/javascript">
         var gridDossiers = $('#listGridDossier');
         
@@ -79,7 +78,7 @@
 
         function lookupActif(id, record) {
 
-            if (record.Actif) {
+            if (record.DossierActif) {
 
                 return '<div class="checkboxStyle"><input type="checkbox" value="1" id="checkboxInput_' + record.Id + '" name="" checked/><label ></label></div>';
 

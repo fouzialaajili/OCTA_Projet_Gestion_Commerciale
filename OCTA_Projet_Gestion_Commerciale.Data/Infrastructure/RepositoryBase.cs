@@ -43,6 +43,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Infrastructure
             dbSet.Attach(entity);
             dataContext.Entry(entity).State = EntityState.Modified;
         }
+        public virtual void Update(object idSource, T entity)
+        {
+            T entityToUpdate = dbSet.Find(idSource);
+            dataContext.Entry(entityToUpdate).CurrentValues.SetValues(entity);
+        }
         public virtual void Delete(object idSource, T entity)
         {
             //dbSet.Attach(entity);

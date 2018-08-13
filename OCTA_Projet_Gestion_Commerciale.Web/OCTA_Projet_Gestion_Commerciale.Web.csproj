@@ -622,6 +622,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\ChartOcta\animatedModal.min.js" />
+    <Content Include="Scripts\ChartOcta\jquery-3.3.1.min.js" />
     <Content Include="Scripts\ChartOcta\materialize.js" />
     <Content Include="Scripts\ChartOcta\materialize.min.js" />
     <Content Include="Scripts\ChartOcta\modernizr-3.6.0.min.js" />

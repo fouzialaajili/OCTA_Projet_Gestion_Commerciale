@@ -46,7 +46,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 
 
 
-        public ActionResult Create(int? id)
+        public ActionResult Create(long? id)
         {
             if (id == null)
             {
@@ -82,12 +82,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DevisesId,DevisesCode,DevisesCodeIso,DevisesDescription,DevisesCoursDevise,DevisesTenueDeCompte,DevisesActif,DevisesIdDossier,DevisesSymbole")] DevisesFormViewModel  gEN_DevisesFormModel)
+        public ActionResult Create([Bind(Include = "DevisesId,DevisesCode,DevisesCodeIso,DevisesDescription,DevisesCoursDevise,DevisesTenueDeCompte,DevisesActif,DevisesIdDossier,DevisesSymbole")] DevisesPivot  gEN_Devises)
         {
             
-            DevisesPivot gEN_Devises = Mapper.Map<DevisesFormViewModel, DevisesPivot>(gEN_DevisesFormModel);
+         
 
-            if (ModelState.IsValid)
+           // if (ModelState.IsValid)
+           if(gEN_Devises!=null)
             {
                 if (gEN_Devises.DevisesId > 0)
                 {
@@ -99,6 +100,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                  // db.Entry(gEN_Devises).State = EntityState.Modified;
                    // deviseServise.GetAttributes(gEN_Devises);
                     deviseServise.UpdateDevise(gEN_Devises);
+                    deviseServise.SaveDevise();
                 }
                 else
                 {
@@ -120,12 +122,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                 }
 
                 // db.SaveChanges();
-               
-                return RedirectToAction("Create", new { id = gEN_Devises.DevisesId });
+
+                //  return RedirectToAction("Create", new { id = gEN_Devises.DevisesId });
+                return RedirectToAction("Index");
             }
 
             // ViewBag.IdDossier = new SelectList(db.GEN_Dossiers.Where(e => e.Actif), "Id", "CodeDossier", gEN_Devises.IdDossier);
             ViewBag.IdDossier = new SelectList(dossiersService.GetActifDossier(), "DossierId", "CodeDossier", gEN_Devises.DevisesIdDossier);
+
+            DevisesFormViewModel gEN_DevisesFormModel = Mapper.Map<DevisesPivot,DevisesFormViewModel>(gEN_Devises);
+
             return View(gEN_DevisesFormModel);
         }
 
@@ -158,7 +164,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Code,CodeIso,Description,CoursDevise,TenueDeCompte,Actif,IdDossier,Symbole")] DevisesPivot gEN_Devises)
+        public ActionResult Edit([Bind(Include = "DevisesId,DevisesCode,DevisesCodeIso,DevisesDescription,DevisesCoursDevise,DevisesTenueDeCompte,DevisesActif,DevisesIdDossier,DevisesSymbole")] DevisesPivot gEN_Devises)
         {
             var gEN_DeviseTest = deviseServise.Getingdevises();
                 //from b in db.GEN_Devises where b.IdDossier == CurrentPreference.IdDossier && b.TenueDeCompte == 1 select b;

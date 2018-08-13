@@ -18,13 +18,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
         public IEnumerable<GEN_Dossiers> GetAdossierByCond()
         {
-            var samesdossiers= this.DbContext.Dossiers.Where(e => e.DossierId == Constantes.IdentifiantDossier && e.CodeDossier != "" && e.DossierActif);
+            //  var samesdossiers= this.DbContext.Dossiers.Where(e => e.DossierId == Constantes.IdentifiantDossier && e.CodeDossier != "" && e.DossierActif);
+            var samesdossiers = this.DbContext.Dossiers.Where(e => e.CodeDossier != "" && e.DossierActif);
             return samesdossiers;
         }
 
         public IEnumerable<GEN_DossiersContacts> GetAdossierContact()
         {
-          return this.DbContext.DossierContacts.Where(e => e.IdDossier == Constantes.IdentifiantDossier && e.Actif);
+          return this.DbContext.DossierContacts.Where(e => e.IdDossier == Constantes.IdentifiantDossier && e.Actif).ToList();
         }
 
         public GEN_Dossiers GetAdossierIncluding(long? id)
@@ -34,7 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
         public IEnumerable<GEN_DossiersSites> GetAdossierSite()
         {
-           return this.DbContext.GEN_DossiersSites.Where(e => e.IdDossier == Constantes.IdentifiantDossier && e.Actif);
+           return this.DbContext.GEN_DossiersSites.Where(e => e.IdDossier == Constantes.IdentifiantDossier && e.Actif).ToList();
         }
 
         public IEnumerable<GEN_Items> GetAModelItem(string varr)
@@ -45,7 +46,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
         public GEN_Dossiers GetDossierActif()
         {
-           var expression= this.DbContext.Dossiers.Where(x => x.DossierActif == false && x.CodeDossier == "").FirstOrDefault();
+           var expression= this.DbContext.Dossiers.Where(x => x.DossierActif == false && x.CodeDossier =="").FirstOrDefault();
             return expression;
         }
 
@@ -62,7 +63,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
         public IEnumerable<GEN_DossiersSites> GetingASite(long id)
         {
-           return this.DbContext.GEN_DossiersSites.Where(x => x.IdDossier==id && x.Actif);
+           return this.DbContext.GEN_DossiersSites.Where(x => x.IdDossier==id && x.Actif).ToList();
         }
 
         public IEnumerable<GEN_Dossiers> GetOnlyDossier()

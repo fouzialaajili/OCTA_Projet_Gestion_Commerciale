@@ -10,6 +10,150 @@
 <link href="~/Content/Infragistics/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" type="text/css" />
 <link href="~/Content/Infragistics/css/structure/infragistics.css" rel="stylesheet" type="text/css" />
 <script src="/Scripts/jquery-3.0.0.js" type="text/javascript"></script>
+
+<script src="/Scripts/jquery-3.0.0.min.js" type="text/javascript"></script>
+
+@*<script src="~/Scripts/ChartOcta/jquery-3.3.1.min.js"></script>*@
+<script src="/Scripts/jquery-ui-1.12.0.js" type="text/javascript"></script>
+<script src="~/Scripts/Infragistics/js/infragistics.core.js" type="text/javascript"></script>
+
+<script src="~/Scripts/Infragistics/js/infragistics.lob.js" type="text/javascript"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+
+
+
+
+<div class="grilleIgnite">
+    @(Html.Infragistics()
+     .Grid<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.DossiersSitesViewModel>(Model)
+     .ID("listGridSites")
+     .AutoGenerateColumns(false)
+     .AutoGenerateLayouts(false)
+     .RenderCheckboxes(true)
+     .AutoCommit(true)
+     .Columns(column =>
+     {
+         column.For(x => x.Id).Hidden(true);
+         column.For(x => x.Nom).Width("10%");
+         column.For(x => x.Adresse).Width("20%");
+         column.For(x => x.ParDefault).Width("10%").FormatterFunction("lookupParDefaut");
+         column.For(x => x.Tel).Hidden(true);
+         column.For(x => x.Fax).Hidden(true);
+         column.For(x => x.Email).Hidden(true);
+         column.For(x => x.Ville).Hidden(true);
+         column.For(x => x.Pays).Hidden(true);
+         column.For(x => x.Actif).Hidden(true);
+         column.For(x => x.IdDossier).Hidden(true);
+
+
+
+         //column.For(x => x.Id).Template((bool)ViewBag.isDelete ? "" : "<a onclick=\"openEdit('listGridContacts',${Id},'Contact')\">Modifier</a>").HeaderText("Actions").Column.Key="actionsColumn";
+
+     })
+     .Features(feature =>
+     {
+         if (!(bool)ViewBag.isDelete)
+         {
+             feature.Updating()
+             .ExcelNavigationMode(true).ShowDoneCancelButtons(false)
+             .EnableAddRow(true).AddRowLabel("Ajouter un site")
+
+
+
+
+
+
+             .ColumnSettings(cs =>
+             {
+                 cs.ColumnSetting().ColumnKey("Id").ReadOnly(true);
+                 cs.ColumnSetting().ColumnKey("IdDossier").DefaultValue((int?)ViewBag.IdDossier);
+                 cs.ColumnSetting().ColumnKey("Nom").Required(true);
+                 cs.ColumnSetting().ColumnKey("ParDefault").EditorType(ColumnEditorType.Combo)
+                       .ComboEditorOptions(co =>
+                        co.DataSource(ViewBag.ListParDefaut).
+                        ValueKey("ID").
+                        TextKey("VALUE").
+                        Mode(ComboMode.DropDown)
+                     );
+                 //cs.ColumnSetting().ColumnKey("Email").Validation(true).Edito;
+                 //cs.ColumnSetting().ColumnKey("actionsColumn").ReadOnly(true);
+             });
+         }
+
+
+
+
+
+         feature.Sorting();
+         feature.Resizing();
+         feature.ColumnMoving();
+
+         //feature.Paging().PageSize(5);
+
+     })
+     .UpdateUrl(Url.Action("SaveDataSites"))
+     .PrimaryKey("Id")
+     .DataBind()
+     .Width("100%")
+     .Render()
+    )
+    <script>
+        var grid = $("#listGridSites");
+    var ParDefautlookup = [];
+    function lookupParDefaut(id) {
+        if (ParDefautlookup.length == 0) {
+            loadListCombo(grid, ParDefautlookup, "ParDefault")
+        }
+        return typeof (ParDefautlookup[id]) != "undefined" ? (ParDefautlookup[id].VALUE) : "";
+        //return Exonerelookup[id].VALUE;
+    }
+    </script>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@{
+    ViewBag.Title = "Liste des Contacts";
+    //Layout = "";
+}
+
+
+<link href="~/Content/Infragistics/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Infragistics/css/structure/infragistics.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/jquery-3.0.0.js" type="text/javascript"></script>
 <script src="/Scripts/jquery-3.0.0.min.js" type="text/javascript"></script>
 
 <script src="/Scripts/jquery-ui-1.12.0.js" type="text/javascript"></script>
@@ -17,18 +161,19 @@
 
 <script src="~/Scripts/Infragistics/js/infragistics.lob.js" type="text/javascript"></script>
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@*<script src="~/Scripts/ChartOcta/jquery-3.3.1.min.js" type="text/javascript"></script>*@
 
-<h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
+@*<h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
 <br /><br /><br />
 <div class="col-md-2 col-md-offset-10">
     <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='@Url.Action("Create")'">Nouvelle DOssier de site</button>
 </div>
-<br /><br /><br />
+<br /><br /><br />*@
 
 
 
 
-<div class="grilleIgnite">
+@*<div class="grilleIgnite">
 @(Html.Infragistics()
      .Grid<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.DossiersSitesViewModel>(Model)
      .ID("listGridSites")
@@ -114,7 +259,104 @@
 
 
 
-</div>
+</div>*******************************************************************************************************************
+
+
+
+
+<div class="grilleIgnite">
+    @(Html.Infragistics()
+     .Grid<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.DossiersSitesViewModel>(Model)
+     .ID("listGridSites")
+     .AutoGenerateColumns(false)
+     .AutoGenerateLayouts(false)
+     .RenderCheckboxes(true)
+     .Columns(column =>
+     {
+         //column.For(x => x.Id).Hidden(true);
+         //column.For(x => x.Civilite).Width("10%");
+         //column.For(x => x.Nom).Width("20%");
+         //column.For(x => x.Prenom).Width("20%");
+         //column.For(x => x.Tel).Width("20%");
+         //column.For(x => x.Email).Width("20%");
+         //column.For(x => x.ParDefault).Width("10%").FormatterFunction("lookupParDefaut");
+         //column.For(x => x.Gsm).Hidden(true);
+         //column.For(x => x.Actif).Hidden(true);
+         //column.For(x => x.IdDossier).Hidden(true);
+
+         column.For(x => x.Id).Hidden(true);
+         column.For(x => x.Nom).Width("20%");
+         column.For(x => x.Adresse).Width("20%");
+
+         column.For(x => x.Tel).Width("20%");      //Hidden(true);
+         column.For(x => x.Fax).Width("20%");     //Hidden(true);
+         column.For(x => x.Email).Width("20%");   //Hidden(true);
+         column.For(x => x.Ville).Width("20%");   //Hidden(true);
+         column.For(x => x.ParDefault).Width("10%").FormatterFunction("lookupParDefaut");
+         column.For(x => x.Pays).Hidden(true);
+         column.For(x => x.Actif).Hidden(true);
+         column.For(x => x.IdDossier).Hidden(true);
+
+
+         //column.For(x => x.Id).Template((bool)ViewBag.isDelete ? "" : "<a onclick=\"openEdit('listGridContacts',${Id},'Contact')\">Modifier</a>").HeaderText("Actions").Column.Key="actionsColumn";
+
+     })
+     .Features(feature =>
+     {
+         if (!(bool)ViewBag.isDelete)
+         {
+             feature.Updating()
+             .ExcelNavigationMode(true).ShowDoneCancelButtons(false)
+             .EnableAddRow(true).AddRowLabel("Ajouter un Site")
+             .ColumnSettings(cs =>
+             {
+                 cs.ColumnSetting().ColumnKey("Id").ReadOnly(true);
+                 cs.ColumnSetting().ColumnKey("IdDossier").DefaultValue((int?)ViewBag.IdDossier);
+                 cs.ColumnSetting().ColumnKey("Nom").Required(true);
+                 cs.ColumnSetting().ColumnKey("ParDefault").EditorType(ColumnEditorType.Combo)
+                       .ComboEditorOptions(co =>
+                        co.DataSource(ViewBag.ListParDefaut).
+                        ValueKey("ID").
+                        TextKey("VALUE").
+                        Mode(ComboMode.DropDown)
+                     );
+                 //cs.ColumnSetting().ColumnKey("Email").Validation(true).Edito;
+                 //cs.ColumnSetting().ColumnKey("actionsColumn").ReadOnly(true);
+             });
+         }
+
+
+
+
+
+         feature.Sorting();
+         feature.Resizing();
+         feature.ColumnMoving();
+         //feature.Paging().PageSize(5);
+
+     })
+     .UpdateUrl(Url.Action("SaveDataSites"))
+     .PrimaryKey("Id")
+     .DataBind()
+     .Width("100%")
+     .Render()
+    )
+    <script>
+        var grid = $("#listGridSites");
+    var ParDefautlookup = [];
+    function lookupParDefaut(id) {
+        if (ParDefautlookup.length == 0) {
+            loadListCombo(grid, ParDefautlookup, "ParDefault")
+        }
+        return typeof (ParDefautlookup[id]) != "undefined" ? (ParDefautlookup[id].VALUE) : "";
+        //return Exonerelookup[id].VALUE;
+    }
+    </script>
+
+
+
+
+</div>*@
 
 
 

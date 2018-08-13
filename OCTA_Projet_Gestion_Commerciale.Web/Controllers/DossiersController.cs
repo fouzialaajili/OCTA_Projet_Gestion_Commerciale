@@ -153,17 +153,18 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                     // db.SaveChanges();
                 }
 
-                ViewBag.IdTypeSociete = new SelectList(dossiersServise.GetingModelItem(Model1), "Id", "Libelle");
+                ViewBag.IdTypeDossier = new SelectList(dossiersServise.GetingModelItem(Model1), "Id", "Libelle");
                 //new SelectList(db.GEN_Items.Where(e => e.GEN_Model.Model == "FormeJuridique" && e.GEN_Model.IdSociete == CurrentSocieteId), "Id", "Libelle");
 
                 // ViewBag.Pays = new SelectList(db.GEN_Items.Where(e => e.GEN_Model.Model == "Pays" && e.GEN_Model.IdSociete == CurrentSocieteId), "Id", "Libelle");
-                ViewBag.Pays = new SelectList(dossiersServise.GetingModelItem(Model2), "Id", "Libelle");
+                ViewBag.DossierPays = new SelectList(dossiersServise.GetingModelItem(Model2), "Id", "Libelle");
 
 
                 //ViewBag.IdDeviseTenueCompte = new SelectList(db.GEN_Devises.Where(e => e.IdDossier == CurrentPreference.IdDossier && e.Actif), "Id", "Code");
 
                 ViewBag.IdDeviseTenueCompte = new SelectList(devisesService.GetDeviseByCond(), "DevisesId", "DevisesCode");
 
+              
                 return View();
             }
             else
@@ -181,10 +182,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.IdTypeSociete = new SelectList(dossiersServise.GetingModelItem(Model1), "Id", "Libelle"); 
+                ViewBag.IdTypeDossier = new SelectList(dossiersServise.GetingModelItem(Model1), "Id", "Libelle"); 
                 //new SelectList(db.GEN_Items.Where(e => e.GEN_Model.Model == "FormeJuridique" && e.GEN_Model.IdSociete == CurrentSocieteId), "Id", "Libelle");
                 // ViewBag.Pays = new SelectList(db.GEN_Items.Where(e => e.GEN_Model.Model == "Pays" && e.GEN_Model.IdSociete == CurrentSocieteId), "Id", "Libelle");
-                ViewBag.Pays = new SelectList(dossiersServise.GetingModelItem(Model2), "Id", "Libelle");
+                ViewBag.DossierPays = new SelectList(dossiersServise.GetingModelItem(Model2), "Id", "Libelle");
 
                 // ViewBag.IdDeviseTenueCompte = new SelectList(db.GEN_Devises.Where(e => e.IdDossier == CurrentPreference.IdDossier && e.Actif), "Id", "Code");
 
@@ -195,9 +196,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 
             }
 
-
-
-            //return View(gEN_Dossiers);
         }
 
         // POST: GEN/GEN_Dossiers/Create
@@ -205,23 +203,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DossierId,CodeDossier,RaisonSociale,IdTypeSociete,Adresse,Tel,Fax,Email,Ville,Pays,SiteWeb,CapitalSocial,IdDeviseTenueCompte,IdentifiantFiscale,IdentifiantTVA,Patente,RegistreCommerce,NumeroCNSS,ICE,ComptaActif,GescomAtif,PaieActif,Actif,CleSecuriteCompta,CleSecuritePaie,CleSecuriteGescom,CleSecurite")] DossiersPivot gEN_Dossiers)
+        public ActionResult Create([Bind(Include = "DossierId,CodeDossier,DossierRaisonSociale,IdTypeDossier,DossierAdresse,DossierTel,DossierFax,DossierEmail,DossierVille,DossierPays,DossierSiteWeb,DossierCapitalSocial,IdDeviseTenueCompte,DossierIdentifiantFiscale,DossierIdentifiantTVA,DossierPatente,DossierRegistreCommerce,DossierNumeroCNSS,DossierICE,DossierComptaActif,DossierGescomAtif,DossierPaieActif,DossierActif,DossierCleSecuriteCompta,DossierCleSecuritePaie,DossierCleSecuriteGescom,DossierCleSecurite")] DossiersPivot gEN_Dossiers)
         {
             
-            ViewBag.IdTypeSociete = new SelectList(dossiersServise.GetingModelItem(Model1), "Id", "Libelle", gEN_Dossiers.IdTypeDossier);
+            ViewBag.IdTypeDossier = new SelectList(dossiersServise.GetingModelItem(Model1), "Id", "Libelle", gEN_Dossiers.IdTypeDossier);
             //new SelectList(db.GEN_Items.Where(e => e.GEN_Model.Model == "FormeJuridique" && e.GEN_Model.IdSociete == CurrentSocieteId), "Id", "Libelle", gEN_Dossiers.IdTypeSociete);
             // ViewBag.Pays = new SelectList(db.GEN_Items.Where(e => e.GEN_Model.Model == "Pays" && e.GEN_Model.IdSociete == CurrentSocieteId), "Id", "Libelle", gEN_Dossiers.Pays);
-            ViewBag.Pays = new SelectList(dossiersServise.GetingModelItem(Model2), "Id", "Libelle", gEN_Dossiers.DossierPays);
+            ViewBag.DossierPays = new SelectList(dossiersServise.GetingModelItem(Model2), "Id", "Libelle", gEN_Dossiers.DossierPays);
 
 
 
             // ViewBag.IdDeviseTenueCompte = new SelectList(db.GEN_Devises.Where(e => e.IdDossier == CurrentPreference.IdDossier && e.Actif), "Id", "Code", gEN_Dossiers.IdDeviseTenueCompte);
             ViewBag.IdDeviseTenueCompte = new SelectList(devisesService.GetDeviseByCond(),  "DevisesId", "DevisesCode", gEN_Dossiers.IdDeviseTenueCompte);
 
-            var errors = ModelState.Where(x => x.Key != "Id").Select(x => x.Value.Errors)
-                           .Where(y => y.Count > 0)
-                           .ToList();
-            if (errors.Count == 0)
+            var errors = ModelState.Where(x => x.Key != "DossierId").Select(x => x.Value.Errors) .Where(y => y.Count > 0).ToList();
+            if (errors.Count == 0) 
             {
                DossiersPivot gen_dossierCreer = gEN_Dossiers;
                 if (gEN_Dossiers.DossierId > 0)
@@ -233,6 +229,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                     gen_dossierCreer.Dossiersys_dateUpdate = DateTime.Now;
                     //db.Entry(gEN_Dossiers).State = EntityState.Modified;
                     dossiersServise.UpdateDossierPivot(gen_dossierCreer);
+                    dossiersServise.SaveDossiers();
                 }
                 else
                 {
@@ -290,12 +287,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 
                         // db.Entry(gen_dossierCreer).State = EntityState.Modified;
                         dossiersServise.UpdateDossierPivot(gen_dossierCreer);
+                        dossiersServise.SaveDossiers();
                     }
                 }
 
                 //db.SaveChanges();
                 dossiersServise.SaveDossiers();
-                return RedirectToAction("Create", new { id = gen_dossierCreer.DossierId });
+                  return RedirectToAction("Index");
+               // return RedirectToAction("Create", new { id = gen_dossierCreer.DossierId });
             }
 
            
@@ -481,6 +480,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                     //t.row.Actif = true;
                     //db.GEN_DossiersSites.Add(t.row);
                     dossiersSitesService.CreateDossiersSitePivot(t.row);
+                 /***/   dossiersSitesService.SaveDossiersSite();
                 }
                 else if (t.type == "deleterow")
                 {
@@ -489,6 +489,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                     {
                         // db.GEN_DossiersSites.Remove(row);
                         dossiersSitesService.DeleteDossiersSitePivot(row);
+                    /***/    dossiersSitesService.SaveDossiersSite();
                     }
                 }
                 else if (t.type == "row")
@@ -513,6 +514,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 
                     // db.Entry(row).State = EntityState.Modified;
                     dossiersSitesService.UpdateDossierSitePivot(row);
+                    /****/
+                    dossiersSitesService.SaveDossiersSite();
                 }
             }
 
@@ -537,9 +540,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
             DossiersPivot gEN_Dossiers = dossiersServise.GetDossiersPivot(id);
                 //db.GEN_Dossiers.Find(id);
 
-            ViewBag.IdTypeSociete = new SelectList(dossiersServise.GetingModelItem(Model1), "Id", "Libelle", gEN_Dossiers.IdTypeDossier);
+            ViewBag.IdTypeDossier = new SelectList(dossiersServise.GetingModelItem(Model1), "Id", "Libelle", gEN_Dossiers.IdTypeDossier);
             //db.GEN_Items.Where(e => e.GEN_Model.Model == "FormeJuridique" && e.GEN_Model.IdSociete == CurrentSocieteId), "Id", "Libelle", gEN_Dossiers.IdTypeSociete);
-            ViewBag.Pays = new SelectList(dossiersServise.GetingModelItem(Model2), "Id", "Libelle", gEN_Dossiers.DossierPays);
+            ViewBag.DossierPays = new SelectList(dossiersServise.GetingModelItem(Model2), "Id", "Libelle", gEN_Dossiers.DossierPays);
             //db.GEN_Items.Where(e => e.GEN_Model.Model == "Pays" && e.GEN_Model.IdSociete == CurrentSocieteId), "Id", "Libelle", gEN_Dossiers.Pays);
             ViewBag.IdDeviseTenueCompte = new SelectList(devisesService.GetDeviseByCond(), "DevisesId", "DevisesCode", gEN_Dossiers.IdDeviseTenueCompte);
             //db.GEN_Devises.Where(e => e.IdDossier == CurrentPreference.IdDossier && e.Actif), "Id", "Code", gEN_Dossiers.IdDeviseTenueCompte);
@@ -563,7 +566,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdSociete = new SelectList(dossiersServise.GetDossier(), "DossierId", "RaisonSociale", gEN_Dossiers.DossierId);
+            ViewBag.IdSociete = new SelectList(dossiersServise.GetDossier(), "DossierId", "DossierRaisonSociale", gEN_Dossiers.DossierId);
+
             return View(gEN_Dossiers);
         }
 
@@ -572,7 +576,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DossierId,CodeDossier,RaisonSociale,IdTypeSociete,Adresse,Tel,Fax,Email,Ville,Pays,SiteWeb,CapitalSocial,IdDeviseTenueCompte,IdentifiantFiscale,IdentifiantTVA,Patente,RegistreCommerce,NumeroCNSS,ICE,ComptaActif,GescomAtif,PaieActif,Actif,IdSociete,CleSecuriteCompta,CleSecuritePaie,CleSecuriteGescom,CleSecurite,sys_user,sys_dateUpdate,sys_dateCreation")] DossiersPivot gEN_Dossiers)
+        public ActionResult Edit([Bind(Include = "DossierId,CodeDossier,DossierRaisonSociale,IdTypeDossier,DossierAdresse,DossierTel,DossierFax,DossierEmail,DossierVille,DossierPays,DossierSiteWeb,DossierCapitalSocial,IdDeviseTenueCompte,DossierIdentifiantFiscale,DossierIdentifiantTVA,DossierPatente,DossierRegistreCommerce,DossierNumeroCNSS,DossierICE,DossierComptaActif,DossierGescomAtif,DossierPaieActif,DossierActif,DossierCleSecuriteCompta,DossierCleSecuritePaie,DossierCleSecuriteGescom,DossierCleSecurite")] DossiersPivot gEN_Dossiers)
         {
             if (ModelState.IsValid)
             {
@@ -582,7 +586,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                 dossiersServise.SaveDossiers();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdSociete = new SelectList(dossiersServise.GetDossier(), "DossierId", "RaisonSociale", gEN_Dossiers.DossierId);
+            ViewBag.IdSociete = new SelectList(dossiersServise.GetDossier(), "DossierId", "DossierRaisonSociale", gEN_Dossiers.DossierId);
             //db.GEN_Societes, "Id", "RaisonSociale", gEN_Dossiers.IdSociete);
             return View(gEN_Dossiers);
         }
@@ -596,9 +600,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
             }
             DossiersPivot gEN_Dossiers = dossiersServise.GetDossiersPivot(id);
                 //db.GEN_Dossiers.Find(id);
-            ViewBag.IdTypeSociete = new SelectList(dossiersServise.GetingModelItem(Model1), "Id", "Libelle", gEN_Dossiers.IdTypeDossier);
+            ViewBag.IdTypeDossier = new SelectList(dossiersServise.GetingModelItem(Model1), "Id", "Libelle", gEN_Dossiers.IdTypeDossier);
             //db.GEN_Items.Where(e => e.GEN_Model.Model == "FormeJuridique" && e.GEN_Model.IdSociete == CurrentSocieteId), "Id", "Libelle", gEN_Dossiers.IdTypeSociete);
-            ViewBag.Pays = new SelectList(dossiersServise.GetingModelItem(Model2), "Id", "Libelle", gEN_Dossiers.IdTypeDossier);
+            ViewBag.DossierPays = new SelectList(dossiersServise.GetingModelItem(Model2), "Id", "Libelle", gEN_Dossiers.IdTypeDossier);
             //db.GEN_Items.Where(e => e.GEN_Model.Model == "Pays" && e.GEN_Model.IdSociete == CurrentSocieteId), "Id", "Libelle", gEN_Dossiers.Pays);
             ViewBag.IdDeviseTenueCompte = new SelectList(devisesService.GetDeviseByCond(), "DevisesId", "DevisesCode", gEN_Dossiers.IdDeviseTenueCompte);
             //db.GEN_Devises.Where(e => e.IdDossier == CurrentPreference.IdDossier), "Id", "Code", gEN_Dossiers.IdDeviseTenueCompte);
@@ -612,9 +616,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         // POST: Commun/Dossiers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed([Bind(Include = "DossierId")] DossierFormViewModel gEN_dossiers)
         {
-            DossiersPivot gEN_Dossiers = dossiersServise.GetDossiersPivot(id);
+            DossiersPivot gEN_Dossiers = dossiersServise.GetDossiersPivot(gEN_dossiers.DossierId);
 
             //db.GEN_Dossiers.Find(id);
             //var test = from b in db.CPT_Pieces where b.IdDossier == gEN_Dossiers.Id select b;

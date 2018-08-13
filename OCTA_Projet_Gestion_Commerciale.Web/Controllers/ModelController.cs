@@ -32,7 +32,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
             IEnumerable<DossiersPivot> dossiersPivot;
             dossiersPivot = dossiersService.GetDossiersByActif(true);
 
-            modelPivot = modelService.GetModelByIdDossier(1);
+           modelPivot = modelService.GetModelByIdDossier(Constantes.CurrentPreferenceIdDossier);
             gEN_Model_ViewModel = Mapper.Map<IEnumerable<ModelPivot>, IEnumerable<GEN_Model_ViewModel>>(modelPivot);
             gEN_Dossiers_ViewModel = Mapper.Map<IEnumerable<DossiersPivot>, IEnumerable<GEN_Dossiers_ViewModel>>(dossiersPivot);
 
@@ -43,7 +43,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         {
             if (id == null)
             {
-                ViewBag.IdSociete = new SelectList(dossiersService.GetDossiersByDossiersId(), "DossierId", "DossierRaisonSociale");
+                ViewBag.IdSociete = new SelectList(dossiersService.GetAllDossier(), "DossierId", "DossierRaisonSociale");
                 return View();
             }
             else

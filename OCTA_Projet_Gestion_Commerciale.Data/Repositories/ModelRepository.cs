@@ -12,15 +12,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public ModelRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
-        public void Delete(object idSource, GEN_Model entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GEN_Model GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
 
         public GEN_Model GetModelById(long id)
         {
@@ -35,16 +26,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
             return models;
         }
-        
-        public void Update(object idSource, GEN_Model entity)
-        {
-            throw new NotImplementedException();
-        }
-
+      
         public IEnumerable<GEN_Model> GetModelByIDDossiers()
         {
             var models = this.DbContext.Models.Where(e => e.IdDossier == Utils.Constantes.CurrentPreferenceIdDossier);
             return models;
+        }
+
+        public void Update(object idSource, GEN_Model entity)
+        {
+            throw new NotImplementedException();
         }
         /* public override void Update(GEN_Model gEN_Model)
 {

@@ -1,32 +1,43 @@
 ﻿@model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_Model_Form_ViewModel
 
 @{
+    /**/
+
     ViewBag.Title = "Nouveau Model";
-   
+ 
 }
 
-@section buttons {
-    <h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
-    <div class="col-md-18">
+@*@section buttons {
+        <h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
+        <div class="col-md-18">
 
-    </div>
+        </div>
 
-    <ul class="panel-controls">
+        <ul class="panel-controls">
 
-        <li><button id="saveAll" class="btn btn-primary btn-block">Enregistrer</button></li>
-        <li>&nbsp;</li>
-        <li><button onclick="Recommencer();" class="btn btn-primary btn-info" type="reset">Recommencer à zéro</button></li>
-        <li>&nbsp;</li>
-        <li><button class="btn btn-success btn-block" type="button" onclick="window.location.href='@Url.Action("Create",new { id=""})'">Nouveau model</button></li>
-        <li>&nbsp;</li>
-        <li><button class="btn btn-success btn-danger" type="button" onclick="window.location.href='@Url.Action("Index")'">Fermer</button></li>
-    </ul>
+            <li><button id="saveAll" class="btn btn-primary btn-block">Enregistrer</button></li>
+            <li>&nbsp;</li>
+            <li><button onclick="Recommencer();" class="btn btn-primary btn-info" type="reset">Recommencer à zéro</button></li>
+            <li>&nbsp;</li>
+            <li><button class="btn btn-success btn-block" type="button" onclick="window.location.href='@Url.Action("Create",new { id=""})'">Nouveau model</button></li>
+            <li>&nbsp;</li>
+            <li><button class="btn btn-success btn-danger" type="button" onclick="window.location.href='@Url.Action("Index")'">Fermer</button></li>
+        </ul>
+    }
+*@
+
+@using (Html.BeginForm("Delete", "Model", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce Model?');" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <button class="btn btn-danger btn-block" type="submit" id="deleteButton">Supprimer</button>
+
 }
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <input type="submit" id="createButton" value="Create" class="btn btn-default"  />
+    <input type="submit" id="createButton" value="Create" class="btn btn-default" />
     <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" style="display:none;" />
     <div class="form-horizontal ">
 
@@ -47,13 +58,13 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdDossier, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4">
-                @Html.DropDownList("IdSociete", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
-                @Html.ValidationMessageFor(model => model.IdDossier, "", new { @class = "text-danger" })
-            </div>
+         <div class="col-md-4">
+         @Html.DropDownList("IdSociete", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+         @Html.ValidationMessageFor(model => model.IdDossier, "", new { @class = "text-danger" })
+       </div>
         </div>
 
-    
+
 
 
     </div>
@@ -64,17 +75,14 @@
 
 <script>
     $("#saveAll").bind({
-        click: function (e)
-        {
-            if ($('form').valid())
-            {
+        click: function (e) {
+            if ($('form').valid()) {
                 $('#createButton').click();
             }
 
         }
     });
-    function Recommencer()
-    {
+    function Recommencer() {
         $('#recommencer').click();
 
     }

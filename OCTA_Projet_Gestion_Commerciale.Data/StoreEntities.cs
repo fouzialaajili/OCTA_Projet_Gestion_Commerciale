@@ -141,7 +141,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
             modelBuilder.Configurations.Add(new GES_TicketDetailConfiguration());
             //modelBuilder.Configurations.Add(new CPT_CodesTVAConfiguration());
 
-             modelBuilder.Configurations.Add(new GEN_ModelConfiguration());
+             //modelBuilder.Configurations.Add(new GEN_ModelConfiguration());
             modelBuilder.Configurations.Add(new CPT_ClasseConfiguration());
             modelBuilder.Configurations.Add(new CPT_ComptesBancairesTiersConfiguration());
             modelBuilder.Configurations.Add(new CPT_EcrituresConfiguration());

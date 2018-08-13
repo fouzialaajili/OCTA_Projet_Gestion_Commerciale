@@ -1,46 +1,46 @@
 ﻿@using Infragistics.Web.Mvc
 @model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_Tiers_Form_ViewModel
 @{
-    if ((string)ViewBag.type == "client")
-    {
-        ViewBag.Title = "Création d'un client";
-    }
-    else if ((string)ViewBag.type == "fournisseur")
-    {
-        ViewBag.Title = "Création d'un fournisseur";
-    }
-    else if ((string)ViewBag.type == "salarie")
-    {
-        ViewBag.Title = "Création d'un salarié";
-    }
+                /**/
+
+                if ((string)ViewBag.type == "client")
+                {
+                    ViewBag.Title = "Création d'un client";
+                }
+                else if ((string)ViewBag.type == "fournisseur")
+                {
+                    ViewBag.Title = "Création d'un fournisseur";
+                }
+                else if ((string)ViewBag.type == "salarie")
+                {
+                    ViewBag.Title = "Création d'un salarié";
+                }
 
 }
 
-@section buttons {
+@*@section buttons {
 
     <ul class="panel-controls">
-        @*
-            <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action(" Create")' ">Nouveau Exercice</button></li>
-        *@
-        <li><button id="saveAll" class="btn btn-primary btn-block">Enregistrer</button></li>
+        @*<li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action(" Create")' ">Nouveau Exercice</button></li>
+<li><button id="saveAll" class="btn btn-primary btn-block">Enregistrer</button></li>
 
 
-        <li>&nbsp;</li>
-        <li><button onclick="Recommencer();" class="btn btn-primary btn-info" type="reset">Recommencer à zéro</button></li>
-        <li>&nbsp;</li>
-        <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create", "Tiers", new { id = "",type=@ViewBag.type})' ">Nouveau</button></li>
-        <li>&nbsp;</li>
-        <li>&nbsp;</li>
+<li>&nbsp;</li>
+<li><button onclick="Recommencer();" class="btn btn-primary btn-info" type="reset">Recommencer à zéro</button></li>
+<li>&nbsp;</li>
+<li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create", "Tiers", new { id = "",type=@ViewBag.type})' ">Nouveau</button></li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
 
 
-        <li><button class="btn btn-default btn-danger" onclick="Supprimer();">Supprimer</button></li>
-        <li>&nbsp;</li>
-        <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Index", "Tiers", new { Area = "Commun", type =@ViewBag.type})' ">Fermer</button></li>
+<li><button class="btn btn-default btn-danger" onclick="Supprimer();">Supprimer</button></li>
+<li>&nbsp;</li>
+<li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Index", "Tiers", new { Area = "Commun", type =@ViewBag.type})' ">Fermer</button></li>
 
 
 
     </ul>
-}
+*@
 @using (Html.BeginForm("Delete", "Tiers", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce tier?');" }))
 {
     @Html.AntiForgeryToken()
@@ -53,7 +53,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <input type="submit" id="createButton" value="Create" class="btn btn-default"  />
+    <input type="submit" id="createButton" value="Create" class="btn btn-default" />
     <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" style="display:none;" />
     <div class="form-horizontal ">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })

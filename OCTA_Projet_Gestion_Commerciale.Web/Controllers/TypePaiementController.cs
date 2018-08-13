@@ -65,7 +65,7 @@ return View(gEN_TypePaiement.AsQueryable());
         } // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TypePaiementId,Libelle,Actif,IdDossier")] GEN_TypePaiement_Form_ViewModel gEN_TypePaiement)
+        public ActionResult Create([Bind(Include = "TypePaiementId,Libelle,Actif")] GEN_TypePaiement_Form_ViewModel gEN_TypePaiement)
         {
             TypePaiementPivot typePaiementPivot;
                var errors = ModelState.Where(x => x.Key != "Id").Select(x => x.Value.Errors)

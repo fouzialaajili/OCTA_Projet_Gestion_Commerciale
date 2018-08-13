@@ -59,16 +59,20 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Infrastructure
             dataContext.Entry(entity).State = EntityState.Modified;
         }
 
-        public virtual void Delete(T entity)
+        public virtual void Delete(object idSource, T entity)
         {
             //dbSet.Attach(entity);
             //dbSet.Remove(entity);
-            if (dataContext.Entry(entity).State == EntityState.Detached)
+            T entityToDelete = dbSet.Find(idSource);
+            if (dataContext.Entry(entityToDelete).State == EntityState.Detached)
             {
-                dbSet.Attach(entity);
-            }
+                dbSet.Attach(entityToDelete);
 
-            dbSet.Remove(entity);
+            }
+            dataContext.Entry(entityToDelete).State = EntityState.Deleted;
+
+
+            //  dbSet.Remove(entityToDelete);
 
         }
 
@@ -86,7 +90,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Infrastructure
                 dbSet.Remove(obj);
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(long id)
         {
             return dbSet.Find(id);
         }

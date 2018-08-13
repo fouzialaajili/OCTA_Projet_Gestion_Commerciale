@@ -18,10 +18,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
        private readonly IUnitOfWork unitOfWork;
 
     public ModelService(IModelRepository iModelRepository, IUnitOfWork unitOfWork)
-    {
+  {
      this.iModelRepository = iModelRepository;
       this.unitOfWork = unitOfWork;
-    }
+}
         public IEnumerable<ModelPivot> GetModels()
         {
             var modelss = iModelRepository.GetModelByIDDossiers().ToList();

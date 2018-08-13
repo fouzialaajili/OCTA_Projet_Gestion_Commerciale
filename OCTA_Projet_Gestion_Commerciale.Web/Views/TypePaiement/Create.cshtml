@@ -4,19 +4,20 @@
 
 @{
     ViewBag.Title = "Nouveau mode d'échéance";
-}
+    Layout = "";
+    }
 
 
 
-@section buttons {
-    @*<h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>*@
+@*@section buttons {
+    @*<h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
     <div class="col-md-18">
 
     </div>
 
     <ul class="panel-controls">
 
-        @*<li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create")' ">Nouveau Exercice</button></li>*@
+      <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create")' ">Nouveau Exercice</button></li>
         <li><button id="saveAll" class="btn btn-primary btn-block">Enregistrer</button></li>
         <li>&nbsp;</li>
         <li><button onclick="Recommencer();" class="btn btn-primary btn-info" type="reset">Recommencer à zéro</button></li>
@@ -30,6 +31,7 @@
 
     </ul>
 }
+*@
 @using (Html.BeginForm("Delete", "TypePaiement", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce type de paiement?');" }))
 
 {
@@ -69,12 +71,13 @@
             </div>
 
 
-            <div class="col-md-1 label-right">
+            <div class="col-md-1">
                 @Html.CheckBoxFor(model => model.Actif, htmlAttributes: new { @class = "control-label" })
                 @Html.LabelFor(model => model.Actif, htmlAttributes: new { @class = "control-label" })
                 @Html.ValidationMessageFor(model => model.Actif, "", new { @class = "text-danger" })
 
             </div>
+            
         </div>
     </div>
 }

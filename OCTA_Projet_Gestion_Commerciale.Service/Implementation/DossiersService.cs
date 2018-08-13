@@ -168,7 +168,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         public void UpdateDossierPivot(DossiersPivot dossiers)
         {
             var vrr = Mapper.Map<DossiersPivot, GEN_Dossiers>(dossiers);
-            dossiersRepository.Update(dossiers.DossierId, vrr);
+            dossiersRepository.UpdateValues(dossiers.DossierId, vrr);
                 //Update(dossiers.DossierId,vrr);
           
         }

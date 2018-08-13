@@ -106,20 +106,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             return dossier;
         }
 
-        public void Update(object idSource, GEN_Dossiers entity)
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        public void Delete(object idSource, GEN_Dossiers entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GEN_Dossiers GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 
        

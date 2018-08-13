@@ -13,7 +13,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Infrastructure
         void Add(T entity);
         // Marks an entity as modified
          void Update(T entity);
-        void Update(object idSource, T entity);
+       void UpdateValues(object idSource, T entity);
         // Marks an entity to be removed
         void Delete(object idSource, T entity);
 

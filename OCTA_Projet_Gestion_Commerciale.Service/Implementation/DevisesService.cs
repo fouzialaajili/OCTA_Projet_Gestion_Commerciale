@@ -64,28 +64,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             return devisesPivot;
         }
 
-        public IEnumerable<DevisesPivot> GetDevisesByIDDossierAndActif()
-        {
-            IEnumerable<GEN_Devises> devises = devisesRepository.GetDevisesByIDDossierAndActif().ToList();
-            IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devises);
-            return devisesPivot;
-        }
-        public IEnumerable<DevisesPivot>  GetDeviseByCond()
-        {
-           var devisess = devisesRepository.AdeviseByCond();
-           IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devisess);
-            //  IQueryable<DevisesPivot> devisePivot = devisesPivot.AsQueryable();
-            return devisesPivot;
-        }
-
-        public IEnumerable<DevisesPivot> Getingdevises()
-        {
-            var devisess = devisesRepository.GetDevising();
-            IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devisess);
-            //  IQueryable<DevisesPivot> devisePivot = devisesPivot.AsQueryable();
-            return devisesPivot;
-
-        }
+       
 
         public void SaveDevise()
         {

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
-    public class TiersRepository:RepositoryBase<GEN_Tiers>, ITiersRepository
+    class TiersRepository:RepositoryBase<GEN_Tiers>, ITiersRepository
     {
         public TiersRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

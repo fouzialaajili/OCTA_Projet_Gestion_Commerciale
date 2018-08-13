@@ -165,6 +165,7 @@
     <Compile Include="Migrations\201808071947067_sff.cs" />
     <Compile Include="Migrations\201808071947067_sff.Designer.cs">
       <DependentUpon>201808071947067_sff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201808130034534_un.cs" />
     <Compile Include="Migrations\201808130034534_un.Designer.cs">
       <DependentUpon>201808130034534_un.cs</DependentUpon>
@@ -250,6 +251,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808130041171_troix.resx">
       <DependentUpon>201808130041171_troix.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808061015153_InitialCreate.resx">
       <DependentUpon>201808061015153_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>

@@ -126,7 +126,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
             modelBuilder.Configurations.Add(new GEN_TypePaiementConfiguration());
             modelBuilder.Configurations.Add(new GEN_TypePaiementDetailConfiguration());
             modelBuilder.Configurations.Add(new CPT_ParametrageComptableConfiguration());
-            modelBuilder.Configurations.Add(new GEN_ItemsConfiguration());
+           // modelBuilder.Configurations.Add(new GEN_ItemsConfiguration());
             //modelBuilder.Configurations.Add(new GEN_PeriodeConfiguration());
       modelBuilder.Configurations.Add(new GEN_ModelConfiguration());
             //   modelBuilder.Configurations.Add(new ProfilConfiguration());

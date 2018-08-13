@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using OCTA_Projet_Gestion_Commerciale.Data.Infrastructure;
 using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
@@ -45,7 +46,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public IEnumerable<AffairePivot> GetALL()
         {
-            IEnumerable<GES_Affaire> affaires = affaireRepository.GetAll().ToList();
+            IEnumerable<GES_Affaire> affaires = affaireRepository.GetAll();
             IEnumerable<AffairePivot> affairePivot = Mapper.Map<IEnumerable<GES_Affaire>, IEnumerable<AffairePivot>>(affaires);
             return affairePivot;
         }

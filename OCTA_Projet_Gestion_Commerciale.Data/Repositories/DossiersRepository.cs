@@ -102,7 +102,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
         public IEnumerable<GEN_Dossiers> DossiersByActif(bool actif)
         {
-            throw new NotImplementedException();
+            var dossier = this.DbContext.Dossier.Where(e => e.DossierActif == actif);
+            return dossier;
         }
 
         public void Update(object idSource, GEN_Dossiers entity)

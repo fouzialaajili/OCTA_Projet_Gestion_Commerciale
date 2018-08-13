@@ -42,7 +42,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
             {
 
                 // ViewBag.IdModel = new SelectList(db.GEN_Model.Where(e => e.IdSociete == CurrentSocieteId), "Id", "Model");
-                ViewBag.IdModel = new SelectList(modelsService.GetModelIdDossier(),"Id","Model");
+                ViewBag.IdModel = new SelectList(modelsService.GetModels(),"Id","Model");
                 return View();
             }
             else
@@ -56,7 +56,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                     return RedirectToAction("Index");
                 }
                 // ViewBag.IdModel = new SelectList(db.GEN_Model.Where(e => e.IdSociete == CurrentSocieteId), "Id", "Model", gEN_Items.IdModel);
-                ViewBag.IdModel = new SelectList(modelsService.GetModelIdDossier(),"Id", "Model", gEN_Devises.IdModel);
+                ViewBag.IdModel = new SelectList(modelsService.GetModels(),"Id", "Model", gEN_Devises.IdModel);
              
                 return View(gEN_Devises);
 
@@ -94,7 +94,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                 }
 
             }
-            ViewBag.IdModel = new SelectList(modelsService.GetModelIdDossier(), "Id", "Model", gEN_Devises.IdModel);
+            ViewBag.IdModel = new SelectList(modelsService.GetModels(), "Id", "Model", gEN_Devises.IdModel);
             return View(gEN_ItemsView);
         }
 
@@ -119,7 +119,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
             }
           //  ViewBag.IdModel = new SelectList(itemsServise.GetModel(), "Id", "Model", gEN_Items.IdModel);
            
-            ViewBag.IdModel = new SelectList(modelsService.GetModelIdDossier(), "Id", "Model", gEN_Items.IdModel);
+            ViewBag.IdModel = new SelectList(modelsService.GetModels(), "Id", "Model", gEN_Items.IdModel);
             return View(gEN_Item);
         }
 
@@ -139,7 +139,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                 return RedirectToAction("Index");
             }
            // ViewBag.IdModel = new SelectList(db.GEN_Model.Where(e => e.IdSociete == CurrentSocieteId), "Id", "Model", gEN_Items.IdModel);
-            ViewBag.IdModel = new SelectList(modelsService.GetModelIdDossier(), "Id", "Model", gEN_Items.IdModel);
+            ViewBag.IdModel = new SelectList(modelsService.GetModels(), "Id", "Model", gEN_Items.IdModel);
             ItemsFormViewModel gEN_Item = Mapper.Map<ItemsPivot, ItemsFormViewModel>(gEN_Items);
             return View(gEN_Item);
         }
@@ -157,7 +157,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
             ItemsFormViewModel gEN_Item = Mapper.Map<ItemsPivot, ItemsFormViewModel>(gEN_Items);
 
             // ViewBag.IdModel = new SelectList(db.GEN_Model.Where(e => e.IdSociete == CurrentSocieteId), "Id", "Model", gEN_Items.IdModel);
-            ViewBag.IdModel = new SelectList(modelsService.GetModelIdDossier(), "Id", "Model", gEN_Items.IdModel);
+            ViewBag.IdModel = new SelectList(modelsService.GetModels(), "Id", "Model", gEN_Items.IdModel);
             if (gEN_Items == null)
             {
                 return HttpNotFound();
@@ -171,7 +171,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         public ActionResult DeleteConfirmed([Bind(Include = "Id")] ItemsFormViewModel gEN_Items)
         {
             //ViewBag.IdModel = new SelectList(db.GEN_Model.Where(e => e.IdSociete == CurrentSocieteId), "Id", "Model");
-            ViewBag.IdModel = new SelectList(modelsService.GetModelIdDossier(), "Id", "Model", gEN_Items.IdModel);
+            ViewBag.IdModel = new SelectList(modelsService.GetModels(), "Id", "Model", gEN_Items.IdModel);
             //GEN_Items gEN_Items = db.GEN_Items.Find(id);
             var gEN_Itemss = itemsServise.GetItems(gEN_Items.Id);
             //db.GEN_Items.Remove(gEN_Items);

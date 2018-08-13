@@ -22,7 +22,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
      this.iModelRepository = iModelRepository;
       this.unitOfWork = unitOfWork;
     }
+        public IEnumerable<ModelPivot> GetModels()
+        {
+            var modelss = iModelRepository.GetModelByIDDossiers().ToList();
+            IEnumerable<ModelPivot> dossierpivot = Mapper.Map<IEnumerable<GEN_Model>, IEnumerable<ModelPivot>>(modelss);
 
+            return dossierpivot;
+
+        }
         public void CreateModel(ModelPivot Model)
         {
             GEN_Model model = Mapper.Map<ModelPivot, GEN_Model>(Model);

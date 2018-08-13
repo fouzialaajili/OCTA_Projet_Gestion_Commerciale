@@ -35,15 +35,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
             return models;
         }
-
+        
         public void Update(object idSource, GEN_Model entity)
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<GEN_Model> GetModelByIDDossiers()
+        {
+            var models = this.DbContext.Models.Where(e => e.IdDossier == Utils.Constantes.CurrentPreferenceIdDossier);
+            return models;
+        }
         /* public override void Update(GEN_Model gEN_Model)
 {
-    //entity.DateUpdated = DateTime.Now;
-    base.Update(gEN_Model);
+//entity.DateUpdated = DateTime.Now;
+base.Update(gEN_Model);
 }*/
     }
     public interface IModelRepository : IRepository<GEN_Model>
@@ -51,6 +57,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
         GEN_Model GetModelById(long id);
         IEnumerable<GEN_Model> GetModelByIDDossier(long id);
+        IEnumerable<GEN_Model> GetModelByIDDossiers();
     }
 
 }

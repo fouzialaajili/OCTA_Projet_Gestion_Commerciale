@@ -1,0 +1,197 @@
+﻿@using Infragistics.Web.Mvc
+@model IQueryable<OCTA_Projet_Gestion_Commerciale.Service.Pivot.TypePaiementDetailPivot>
+@{
+                /**/
+
+                Layout = "";
+}
+
+
+<link href="~/Content/Infragistics/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Infragistics/css/structure/infragistics.css" rel="stylesheet" type="text/css" />
+
+<script src="~/Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+
+<script src="/Scripts/jquery-ui-1.12.0.js" type="text/javascript"></script>
+<script src="~/Scripts/Infragistics/js/infragistics.core.js" type="text/javascript"></script>
+
+<script src="~/Scripts/Infragistics/js/infragistics.lob.js" type="text/javascript"></script>
+
+
+@(Html.Infragistics()
+             .Grid<OCTA_Projet_Gestion_Commerciale.Service.Pivot.TypePaiementDetailPivot>(Model)
+             .ID("listGridTypePaiementDetail")
+             .AutoGenerateColumns(false)
+             .AutoGenerateLayouts(false)
+             .RenderCheckboxes(true)
+             .AutoCommit(true)
+             .Columns(column =>
+             {
+                 column.For(x => x.TypePaiementDetailId).Hidden(true);
+                 column.For(x => x.IdModePaiement).Width("20%").FormatterFunction("lookupModePaiement");
+                 column.For(x => x.DateCalcul).Width("20%").FormatterFunction("lookupDateCalcul");
+                 column.For(x => x.Pourcentage).Width("20%").FormatterFunction("lookupPourcentage");
+                 column.For(x => x.NombreJour).Width("20%");
+                 column.For(x => x.Delai).Width("20%").FormatterFunction("lookupDelai");
+                 column.For(x => x.IdTypePaiement).Hidden(true);
+
+
+
+     //column.For(x => x.Id).Template((bool)ViewBag.isDelete ? "" : "<a onclick=\"openEdit('listGridTypePaiementDetail',${Id},'TypePaiementDetails')\">Modifier</a>").HeaderText("Actions").Column.Key = "actionsColumn";
+
+
+ })
+             .Features(feature =>
+             {
+
+     //feature.Hiding().ColumnSettings(settings =>
+     //        {
+     //            settings.ColumnSetting().ColumnKey("Id").AllowHiding(false).Hidden(true);
+     //            settings.ColumnSetting().ColumnKey("IdTypePaiement").AllowHiding(false).Hidden(true);
+
+     //        }
+     //   );
+
+
+
+
+
+     feature.Updating()
+                     //.RowEditDialogOptions(red =>
+                     //{
+                     //    red.Containment("window");
+                     //    red.CaptionLabel("Modifier le type paiement détail");
+                     //})
+                     // .EnableAddRow(true).AddRowLabel("Ajouter un type de paiement détail")
+                     .ExcelNavigationMode(true).ShowDoneCancelButtons(false)
+                     .EnableAddRow(!(bool)ViewBag.isDelete).AddRowLabel("Ajouter un type de paiement détail").EnableDeleteRow(!(bool)ViewBag.isDelete).EditMode((bool)ViewBag.isDelete ? GridEditMode.None : GridEditMode.Row)
+
+                     .ColumnSettings(cs =>
+                     {
+                         cs.ColumnSetting().ColumnKey("Id").ReadOnly(true);
+                         cs.ColumnSetting().ColumnKey("IdModePaiement")
+                         .EditorType(ColumnEditorType.Combo)
+                         .ComboEditorOptions(co =>
+                          co.DataSource(ViewBag.IdModePaiement).
+                          ValueKey("ID").
+                          TextKey("VALUE").
+                          Mode(ComboMode.DropDown)
+                       );
+
+                         cs.ColumnSetting().ColumnKey("DateCalcul")
+                         .EditorType(ColumnEditorType.Combo)
+                         .ComboEditorOptions(co =>
+                          co.DataSource(ViewBag.DateCalcul).
+                          ValueKey("ID").
+                          TextKey("VALUE").
+                          Mode(ComboMode.DropDown)
+                       );
+                         cs.ColumnSetting().ColumnKey("Pourcentage").Required(true);
+                         cs.ColumnSetting().ColumnKey("NombreJour");
+                         cs.ColumnSetting().ColumnKey("Delai")
+                         .EditorType(ColumnEditorType.Combo)
+                         .ComboEditorOptions(co =>
+                          co.DataSource(ViewBag.Delai).
+                          ValueKey("ID").
+                          TextKey("VALUE").
+                          Mode(ComboMode.DropDown)
+                       );
+                         cs.ColumnSetting().ColumnKey("IdTypePaiement").DefaultValue((int?)ViewBag.IdTypePaiement);
+                         cs.ColumnSetting().ColumnKey("actionsColumn").ReadOnly(true);
+
+                     });
+
+
+                 feature.Sorting();
+                 feature.Resizing();
+                 feature.ColumnMoving();
+     //feature.Paging().PageSize(5);
+     feature.Summaries()/*.ResultTemplate("{0} = {1}%")*/.ColumnSettings(cs =>
+                 {
+
+
+                     cs.ColumnSetting().ColumnKey("IdModePaiement").AllowSummaries(false);
+                     cs.ColumnSetting().ColumnKey("DateCalcul").AllowSummaries(false);
+         //cs.ColumnSetting().ColumnKey("NombreJour").AllowSummaries(false);
+         cs.ColumnSetting().ColumnKey("Delai").AllowSummaries(false);
+                     cs.ColumnSetting().ColumnKey("Pourcentage").AllowSummaries(true).SummaryOperands(x =>
+                     {
+                         x.SummaryOperand().Type(SummaryFunction.Sum).Active(true).DecimalDisplay(0);
+                     });
+                     cs.ColumnSetting().ColumnKey("NombreJour").AllowSummaries(true).SummaryOperands(x =>
+                     {
+                         x.SummaryOperand().Type(SummaryFunction.Sum).Active(true).DecimalDisplay(0).IsGridFormatter(true).RowDisplayLabel("Total nombre du jours");
+                     });
+                 }).Type(OpType.Local);
+
+             })
+
+
+
+
+             .UpdateUrl(Url.Action("SaveDataTypePaiement"))
+             .PrimaryKey("Id")
+             .DataBind()
+             .Width("100%")
+             .Render()
+)
+
+
+<script>
+
+    var gridEcheancement = $("#listGridTypePaiementDetail");
+    //function loadListCombo(gridEcheancement, listLookup, ColumnKey) {
+    //    var comboDataSource = {};
+    //    var colSettings = gridEcheancement.data("igGridUpdating").options.columnSettings;
+    //    for (var colNumber = 0; colNumber < colSettings.length; colNumber++) {
+    //        if (colSettings[colNumber].columnKey === ColumnKey) {
+    //            if (colSettings[colNumber].editorType && colSettings[colNumber].editorType === "combo") {
+    //                comboDataSource = colSettings[colNumber].editorOptions.dataSource;
+    //                for (var i = 0; i < comboDataSource.length; i++) {
+    //                    listLookup[comboDataSource[i].ID] = comboDataSource[i];
+    //                }
+    //            }
+    //            break;
+    //        }
+
+    //    }
+    //}
+
+    var ModePaiementlookup = [];
+    function lookupModePaiement(id) {
+        if (ModePaiementlookup.length == 0) {
+            loadListCombo(gridEcheancement, ModePaiementlookup, "IdModePaiement")
+        }
+        //return ModePaiementlookup[id].VALUE;
+        return typeof (ModePaiementlookup[id]) != "undefined" ? (ModePaiementlookup[id].VALUE) : "";
+    }
+
+
+    var DateCalcullookup = [];
+    function lookupDateCalcul(id) {
+        if (DateCalcullookup.length == 0) {
+            loadListCombo(gridEcheancement, DateCalcullookup, "DateCalcul")
+        }
+        //  return DateCalcullookup[id].VALUE;
+        return typeof (DateCalcullookup[id]) != "undefined" ? (DateCalcullookup[id].VALUE) : "";
+    }
+
+
+    function lookupPourcentage(value) {
+        return value + ' %';
+    }
+    var Delailookup = [];
+    function lookupDelai(id) {
+        if (Delailookup.length == 0) {
+            loadListCombo(gridEcheancement, Delailookup, "Delai")
+        }
+        //return Delailookup[id].VALUE;
+        return typeof (Delailookup[id]) != "undefined" ? (Delailookup[id].VALUE) : "";
+    }
+
+
+</script>
+
+
+

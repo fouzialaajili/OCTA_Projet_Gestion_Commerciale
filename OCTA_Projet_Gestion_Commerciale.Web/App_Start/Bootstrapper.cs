@@ -217,13 +217,19 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
      .Where(t => t.Name.EndsWith("Repository"))
      .AsImplementedInterfaces().InstancePerRequest();
 
-
+            builder.RegisterAssemblyTypes(typeof(Compte_GRepository).Assembly)
+     .Where(t => t.Name.EndsWith("Repository"))
+     .AsImplementedInterfaces().InstancePerRequest();
 
             builder.RegisterAssemblyTypes(typeof(ItemsRepository).Assembly)
   .Where(t => t.Name.EndsWith("Repository"))
   .AsImplementedInterfaces().InstancePerRequest();
 
             builder.RegisterAssemblyTypes(typeof(ModelRepository).Assembly)
+.Where(t => t.Name.EndsWith("Repository"))
+.AsImplementedInterfaces().InstancePerRequest();
+
+            builder.RegisterAssemblyTypes(typeof(TypePaiementDetailRepository).Assembly)
 .Where(t => t.Name.EndsWith("Repository"))
 .AsImplementedInterfaces().InstancePerRequest();
 
@@ -238,9 +244,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
 
 
 
-
-
             // Services
+
+            builder.RegisterAssemblyTypes(typeof(TypePaiementDetailService).Assembly)
+.Where(t => t.Name.EndsWith("Repository"))
+.AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterAssemblyTypes(typeof(AdminService).Assembly)
                           .Where(t => t.Name.EndsWith("Service"))
                           .AsImplementedInterfaces().InstancePerRequest();
@@ -299,7 +307,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
             builder.RegisterAssemblyTypes(typeof(CategorieService).Assembly)
           .Where(t => t.Name.EndsWith("Service"))
           .AsImplementedInterfaces().InstancePerRequest();
-
+            builder.RegisterAssemblyTypes(typeof(Compte_GService).Assembly)
+   .Where(t => t.Name.EndsWith("Service"))
+   .AsImplementedInterfaces().InstancePerRequest();
+           
 
             builder.RegisterAssemblyTypes(typeof(CodesTVAService).Assembly)
           .Where(t => t.Name.EndsWith("Service"))

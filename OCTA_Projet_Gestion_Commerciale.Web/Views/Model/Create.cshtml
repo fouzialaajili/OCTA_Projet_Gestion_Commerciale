@@ -4,8 +4,10 @@
     /**/
 
     ViewBag.Title = "Nouveau Model";
- 
+
 }
+
+
 
 @*@section buttons {
         <h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
@@ -58,10 +60,10 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdDossier, htmlAttributes: new { @class = "control-label col-md-2" })
-         <div class="col-md-4">
-         @Html.DropDownList("IdSociete", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
-         @Html.ValidationMessageFor(model => model.IdDossier, "", new { @class = "text-danger" })
-       </div>
+            <div class="col-md-4">
+                @Html.DropDownList("IdSociete", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                @Html.ValidationMessageFor(model => model.IdDossier, "", new { @class = "text-danger" })
+            </div>
         </div>
 
 
@@ -90,6 +92,8 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/ChartOcta/js")
 }
 
 

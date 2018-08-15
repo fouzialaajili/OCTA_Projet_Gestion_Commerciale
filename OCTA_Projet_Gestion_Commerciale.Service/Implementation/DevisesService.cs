@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using OCTA_Projet_Gestion_Commerciale.Data.Infrastructure;
 using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
+using OCTA_Projet_Gestion_Commerciale.Data;
 using OCTA_Projet_Gestion_Commerciale.Model;
 using OCTA_Projet_Gestion_Commerciale.Service.Interface;
 using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
@@ -69,10 +70,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             throw new NotImplementedException();
         }
 
-        public IEnumerable<DevisesPivot> GetDevisesByIDDossierAndActif()
-        {
-            throw new NotImplementedException();
-        }
+       
+            public IEnumerable<DevisesPivot> GetDevisesByIDDossierAndActif()
+            {
+                IEnumerable<GEN_Devises> devises = devisesRepository.GetDevisesByIDDossierAndActif().ToList();
+                IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devises);
+                return devisesPivot;
+            }
+      
 
         public IEnumerable<DevisesPivot> Getingdevises()
         {

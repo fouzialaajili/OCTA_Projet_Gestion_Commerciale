@@ -28,10 +28,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             this.DbContext.Dispose();
         }
 
-        public GEN_Devises GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public IEnumerable<GEN_Devises> GetDevising()
         {
@@ -53,10 +50,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(object idSource, GEN_Devises entity)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 
         
@@ -67,6 +61,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         GEN_Devises GetingAttribute(GEN_Devises devise);
         IEnumerable<GEN_Devises> GetDevising();
         IEnumerable<GEN_Devises> AdeviseByCond();
+        IEnumerable<GEN_Devises> GetDevisesByIDDossierAndActif();
     }
 
 

@@ -23,19 +23,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public void Update(object idSource, GEN_TypePaiementDetail entity)
+        public IEnumerable<GEN_TypePaiementDetail> GetTypePaiementDetailByTypePaiementId(long id)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(object idSource, GEN_TypePaiementDetail entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GEN_TypePaiementDetail GetById(long id)
-        {
-            throw new NotImplementedException();
+            IEnumerable<GEN_TypePaiementDetail> typepaiments = this.DbContext.TypePaiementDetail.Where(x => x.IdTypePaiement == id);
+                return typepaiments;
         }
     }
 
@@ -45,8 +36,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         GEN_TypePaiementDetail GetTypePaiementDetailById(long id);
         IEnumerable<GEN_TypePaiementDetail> GetItemsByModelLibelle(string identifged);
+        IEnumerable<GEN_TypePaiementDetail> GetTypePaiementDetailByTypePaiementId(long id);
 
-       
 
     }
 

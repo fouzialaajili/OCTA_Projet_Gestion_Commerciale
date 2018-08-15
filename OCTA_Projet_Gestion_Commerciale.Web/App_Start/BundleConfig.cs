@@ -20,9 +20,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
           "~/Content/Infragistics/css/themes/infragistics/infragistics.theme.css",
           "~/Content/Infragistics/css/structure/infragistics.css"
                 ));
-            bundles.Add(new ScriptBundle("~/infragistics/js").Include(
-               "~/Scripts/jquery-3.0.0.js", "~/Scripts/jquery-3.0.0.min.js", "~/Scripts/jquery-ui-1.12.0.js", "~/Scripts/Infragistics/js/infragistics.core.js", "~/Scripts/Infragistics/js/infragistics.lob.js"
-               ));
+       /*  bundles.Add(new ScriptBundle("~/ChartOcta/js").Include("~/Scripts/ChartOcta/animatedModel.min.js", "~/Scripts/ChartOcta/jquery-3.3.1.min.js", "~/Scripts/ChartOcta/materialize.js", "~/Scripts/ChartOcta/materialize.min.js", "~/Scripts/ChartOcta/modernizr-3.6.0.min.js"));
+           */
             /*bundles.Add(new ScriptBundle("~/bundles/infragisticsLoader").Include(
                 "~/Script/Infragistics/js/Infragistics.loader.js"
                 ));
@@ -34,11 +33,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
                         "~/Scripts/jquery.unobtrusive-ajax.min.js",
                         "~/Scripts/jquery.blockUI.js"
                         ));
-
+                        */
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                                     "~/Scripts/jquery.validate*"));
-
+            /*
             bundles.Add(new ScriptBundle("~/bundles/jquerybootstrap").Include(
                                    "~/Scripts/jquery.bootstrap.js"
                                    ));
@@ -53,9 +52,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
             bundles.Add(new StyleBundle("~/Content/bootstrapcss").Include(
                                                 "~/Content/bootstrap.min.css"));
    //                                             */
-   //         bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-   //"~/Scripts/jquery.validate*"));
-           
+            //         bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            //"~/Scripts/jquery.validate*"));
+
             //bundles.Add(new ScriptBundle("~/bundles/infragisticsLoader").Include(
             //    "~/Script/Infragistics/js/Infragistics.loader.js"
             //    ));
@@ -69,6 +68,23 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
             //            ));
 
 
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/jquery-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.validate*"));
+
+            // Utilisez la version de développement de Modernizr pour le développement et l'apprentissage. Puis, une fois
+            // prêt pour la production, utilisez l'outil de génération à l'adresse https://modernizr.com pour sélectionner uniquement les tests dont vous avez besoin.
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                        "~/Scripts/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/bootstrap.js"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/bootstrap.css",
+                      "~/Content/site.css"));
             BundleTable.EnableOptimizations = true;
         }
     }

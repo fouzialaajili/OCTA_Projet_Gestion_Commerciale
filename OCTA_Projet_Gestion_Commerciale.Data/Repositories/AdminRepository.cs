@@ -22,20 +22,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public AdminRepository(IDbFactory dbFactory):base(dbFactory) { }
 
-        public void Delete(object idSource, GES_Admin entity)
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        public GES_Admin GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(object idSource, GES_Admin entity)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 
   

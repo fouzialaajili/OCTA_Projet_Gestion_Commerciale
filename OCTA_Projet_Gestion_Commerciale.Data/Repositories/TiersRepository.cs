@@ -43,20 +43,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             return _Tiers;
         }
 
-        public void Update(object idSource, GEN_Tiers entity)
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        public void Delete(object idSource, GEN_Tiers entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GEN_Tiers GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
     }
     public interface ITiersRepository : IRepository<GEN_Tiers>
     {

@@ -1,46 +1,64 @@
 ﻿@using Infragistics.Web.Mvc
 @model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.GEN_Tiers_Form_ViewModel
-@{
-                /**/
 
-                if ((string)ViewBag.type == "client")
-                {
-                    ViewBag.Title = "Création d'un client";
-                }
-                else if ((string)ViewBag.type == "fournisseur")
-                {
-                    ViewBag.Title = "Création d'un fournisseur";
-                }
-                else if ((string)ViewBag.type == "salarie")
-                {
-                    ViewBag.Title = "Création d'un salarié";
-                }
+
+@{
+    /*
+    Layout = null;
+    */
+
+    if ((string)ViewBag.type == "client")
+    {
+        ViewBag.Title = "Création d'un client";
+    }
+    else if ((string)ViewBag.type == "fournisseur")
+    {
+        ViewBag.Title = "Création d'un fournisseur";
+    }
+    else if ((string)ViewBag.type == "salarie")
+    {
+        ViewBag.Title = "Création d'un salarié";
+    }
 
 }
 
-@*@section buttons {
 
+@(Html.Infragistics()
+                .Loader()
+                        .ScriptPath(Url.Content("~/Scripts/Infragistics/js/"))
+                        .CssPath(Url.Content("~/Content/Infragistics/css"))
+                        .AutoDetectLocale(true)
+                //.Resources("igGrid.*,igCombo")
+                .Render())
+
+@*<h3>@ViewBag.Title</h3>*@
+@*
+
+        @section buttons {
+            @*<h3 class="panel-title"><strong>@ViewBag.Title</strong></h3>
     <ul class="panel-controls">
-        @*<li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action(" Create")' ">Nouveau Exercice</button></li>
-<li><button id="saveAll" class="btn btn-primary btn-block">Enregistrer</button></li>
+        @*
+            <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action(" Create")' ">Nouveau Exercice</button></li>
+
+        <li><button id="saveAll" class="btn btn-primary btn-block">Enregistrer</button></li>
 
 
-<li>&nbsp;</li>
-<li><button onclick="Recommencer();" class="btn btn-primary btn-info" type="reset">Recommencer à zéro</button></li>
-<li>&nbsp;</li>
-<li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create", "Tiers", new { id = "",type=@ViewBag.type})' ">Nouveau</button></li>
-<li>&nbsp;</li>
-<li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li><button onclick="Recommencer();" class="btn btn-primary btn-info" type="reset">Recommencer à zéro</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Create", "Tiers", new { id = "",type=@ViewBag.type})' ">Nouveau</button></li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
 
 
-<li><button class="btn btn-default btn-danger" onclick="Supprimer();">Supprimer</button></li>
-<li>&nbsp;</li>
-<li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Index", "Tiers", new { Area = "Commun", type =@ViewBag.type})' ">Fermer</button></li>
+        <li><button class="btn btn-default btn-danger" onclick="Supprimer();">Supprimer</button></li>
+        <li>&nbsp;</li>
+        <li><button class="btn btn-primary btn-block" onclick="window.location.href = '@Url.Action("Index", "Tiers", new { Area = "Commun", type =@ViewBag.type})' ">Fermer</button></li>
 
 
 
     </ul>
-*@
+    }*@
 @using (Html.BeginForm("Delete", "Tiers", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce tier?');" }))
 {
     @Html.AntiForgeryToken()
@@ -309,57 +327,57 @@
         *@
 
 
-        @*  <div class="form-group" id="Client" style="display:@((Model != null && Model.TypeTiers != null && Model.code.Contains("client") || ViewBag.type.Contains("client") )? "block" : "none")">
-                >
+        <div class="form-group" id="Client" style="display:@((Model != null && Model.TypeTiers != null && Model.TypeTierCode.Contains("client") || ViewBag.type.Contains("client") )? "block" : "none")">
+            >
+            @Html.LabelFor(model => model.IdCompteCollectifClient, "Compte collectif client", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("IdCompteCollectifClient", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                @Html.ValidationMessageFor(model => model.IdCompteCollectifClient, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group" id="Fournisseur" style="display:@((Model != null && Model.TypeTiers != null && Model.TypeTierCode.Contains("fournisseur")||ViewBag.type.Contains("fournisseur"))? "block" : "none")">
+            >
+            @Html.LabelFor(model => model.IdCompteCollectifFournisseur, "Compte collectif fournisseur", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("IdCompteCollectifFournisseur", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                @Html.ValidationMessageFor(model => model.IdCompteCollectifFournisseur, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @if (Model != null && Model.TypeTierCode.Contains("salarie") || ViewBag.type.Contains("salarie"))
+        {
+
+            <div class="form-group">
                 @Html.LabelFor(model => model.IdCompteCollectifClient, "Compte collectif client", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     @Html.DropDownList("IdCompteCollectifClient", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
                     @Html.ValidationMessageFor(model => model.IdCompteCollectifClient, "", new { @class = "text-danger" })
                 </div>
-            </div>
-            <div class="form-group" id="Fournisseur" style="display:@((Model != null && Model.TypeTiers != null && Model.code.Contains("fournisseur")||ViewBag.type.Contains("fournisseur"))? "block" : "none")">
-                >
+
                 @Html.LabelFor(model => model.IdCompteCollectifFournisseur, "Compte collectif fournisseur", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     @Html.DropDownList("IdCompteCollectifFournisseur", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
                     @Html.ValidationMessageFor(model => model.IdCompteCollectifFournisseur, "", new { @class = "text-danger" })
                 </div>
             </div>
-            @if (Model != null && Model.code.Contains("salarie") || ViewBag.type.Contains("salarie"))
-            {
 
+        }
+
+        @*<div class="form-group" id="Client et Fournisseur" style="display:@(Model != null && Model.TypeTiers != null && Model.typeTierCode.Contains("client_fournisseur") ? "block" : "none")" >
+                @Html.LabelFor(model => model.IdCompteCollectifClient, "Compte collectif client", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.DropDownList("IdCompteCollectifClient", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.ValidationMessageFor(model => model.IdCompteCollectifClient, "", new { @class = "text-danger" })
+
+
+                </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.IdCompteCollectifClient, "Compte collectif client", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-4">
-                        @Html.DropDownList("IdCompteCollectifClient", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
-                        @Html.ValidationMessageFor(model => model.IdCompteCollectifClient, "", new { @class = "text-danger" })
-                    </div>
-
-                    @Html.LabelFor(model => model.IdCompteCollectifFournisseur, "Compte collectif fournisseur", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-4">
+                    @Html.LabelFor(model => model.IdCompteCollectifFournisseur, "Compte collectif fournisseur", htmlAttributes: new { @class = "control-label col-md-5 label-right" })
+                    <div class="col-md-2">
                         @Html.DropDownList("IdCompteCollectifFournisseur", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
                         @Html.ValidationMessageFor(model => model.IdCompteCollectifFournisseur, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-            }
-
-            @*<div class="form-group" id="Client et Fournisseur" style="display:@(Model != null && Model.TypeTiers != null && Model.typeTierCode.Contains("client_fournisseur") ? "block" : "none")" >
-                    @Html.LabelFor(model => model.IdCompteCollectifClient, "Compte collectif client", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-2">
-                        @Html.DropDownList("IdCompteCollectifClient", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
-                        @Html.ValidationMessageFor(model => model.IdCompteCollectifClient, "", new { @class = "text-danger" })
-
-
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.IdCompteCollectifFournisseur, "Compte collectif fournisseur", htmlAttributes: new { @class = "control-label col-md-5 label-right" })
-                        <div class="col-md-2">
-                            @Html.DropDownList("IdCompteCollectifFournisseur", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
-                            @Html.ValidationMessageFor(model => model.IdCompteCollectifFournisseur, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>*@
+            </div>*@
 
 
 
@@ -416,7 +434,7 @@
     </h5>
     <hr />
 </div>
-@*Html.Action("listContacts", new { id = (Model != null ? Model.Id : 0) })Html.Action("listContacts", new { id = (Model != null ? Model.Id : 0) })*@
+@Html.Action("listContacts", new { id = (Model != null ? Model.Id : 0) })
 
 <script>
         var messageErreur = '@(new MvcHtmlString((string)ViewBag.Message))';
@@ -532,4 +550,6 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/ChartOcta/js")
 }

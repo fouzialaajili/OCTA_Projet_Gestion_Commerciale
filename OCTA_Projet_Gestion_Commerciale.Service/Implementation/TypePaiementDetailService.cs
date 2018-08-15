@@ -71,5 +71,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
         {
             typePaiementDetailRepository.Update(Mapper.Map<TypePaiementDetailPivot, GEN_TypePaiementDetail>(TypePaiementDetail));
         }
+
+        public IEnumerable<TypePaiementDetailPivot> GetTypePaiementDetailByTypePaiementId(long id)
+        {
+            IEnumerable<GEN_TypePaiementDetail> typePaiementDetail = typePaiementDetailRepository.GetTypePaiementDetailByTypePaiementId(id).ToList();
+            IEnumerable<TypePaiementDetailPivot> typePaiementDetailPivots = Mapper.Map<IEnumerable<GEN_TypePaiementDetail>, IEnumerable<TypePaiementDetailPivot>>(typePaiementDetail);
+            return typePaiementDetailPivots;
+        }
     }
 }

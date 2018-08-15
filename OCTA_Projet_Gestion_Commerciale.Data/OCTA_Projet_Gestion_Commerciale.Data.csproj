@@ -130,6 +130,7 @@
     <Compile Include="Repositories\ArticlesPrixRepository.cs" />
     <Compile Include="Repositories\CategorieRepository.cs" />
     <Compile Include="Repositories\CodesTVARepository.cs" />
+    <Compile Include="Repositories\Compte_GRepository.cs" />
     <Compile Include="Repositories\CPT_ParametrageComptableRepository.cs" />
     <Compile Include="Repositories\DepotRepository.cs" />
     <Compile Include="Repositories\DevisesRepository.cs" />

@@ -137,6 +137,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ChartOcta\css\bootstrap.min.css" />
@@ -619,6 +621,10 @@
     <Content Include="Content\ChartOcta\scss\styles.scss" />
     <Content Include="Content\LESS\Site.less" />
     <Content Include="Content\LESS\SiteNew.less" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\ChartOcta\animatedModal.min.js" />
@@ -1126,6 +1132,11 @@
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.0.js" />
     <Content Include="Scripts\jquery-ui-1.12.0.min.js" />
     <Content Include="Scripts\jquery-ui-i18n.js" />
@@ -1133,6 +1144,8 @@
     <Content Include="Scripts\jquery.blockUI.js" />
     <Content Include="Scripts\jquery.hotkeys.js" />
     <Content Include="Scripts\jquery.hotkeys.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -1142,6 +1155,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.7.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1348,6 +1362,8 @@
     <Content Include="Views\Dossiers\listContacts.cshtml" />
     <Content Include="Views\Dossiers\listSites.cshtml" />
     <Content Include="Views\Dossiers\Create.cshtml" />
+    <Content Include="Views\TypePaiement\listTypePaiementDetait.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copie.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

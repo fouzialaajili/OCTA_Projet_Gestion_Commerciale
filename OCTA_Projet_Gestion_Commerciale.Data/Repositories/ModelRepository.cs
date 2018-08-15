@@ -33,10 +33,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             return models;
         }
 
-        public void Update(object idSource, GEN_Model entity)
-        {
-            throw new NotImplementedException();
-        }
+      
         /* public override void Update(GEN_Model gEN_Model)
 {
 //entity.DateUpdated = DateTime.Now;

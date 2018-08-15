@@ -30,8 +30,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         public DbSet<GES_DocumentCommercialDetail> DocumentCommercialDetails { get; set; }
         public DbSet<GES_DocumentCommercialDetailSerie> DocumentCommercialDetailSeries { get; set; }
         public DbSet<GES_Famille> Familles { get; set; }
-     
-      
+
+        public DbSet<GEN_TypePaiementDetail> TypePaiementDetail { get; set; }
         public DbSet<GES_FournisseurArticle> FournisseurArticles { get; set; }
         public DbSet<GES_Ged> Geds { get; set; }
         public DbSet<GEN_Items> Items { get; set; }

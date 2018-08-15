@@ -26,8 +26,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         private readonly IDevisesService devisesService;
         private readonly IEcritureService ecritureService;
         private readonly ITiersContactsService tiersContactService;
-        public TiersController(ITiersContactsService tiersContactService, ITiersService tiersService, IDossiersService dossiersService, ITypePaiementService typePaiementService, IItemsService itemsService, IDevisesService devisesService, IEcritureService ecritureService)
+        private readonly ICompte_GService compte_GService;
+        public TiersController(ICompte_GService compte_GService,ITiersContactsService tiersContactService, ITiersService tiersService, IDossiersService dossiersService, ITypePaiementService typePaiementService, IItemsService itemsService, IDevisesService devisesService, IEcritureService ecritureService)
         {
+            this.compte_GService = compte_GService;
             this.tiersService = tiersService;
             this.dossiersService = dossiersService;
             this.typePaiementService = typePaiementService;
@@ -146,8 +148,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                 ViewBag.IdGroupeStatistiques = new SelectList(itemsService.GetItemsByModel("GroupeStatistiques"), "Id", "Libelle");
 
                 ViewBag.IdGroupeRemise = new SelectList(itemsService.GetItemsByModel("GroupeRemise"), "Id", "Libelle");
-            //   ViewBag.IdCompteCollectifClient = new SelectList(db.CPT_CompteG.Where(e => e.IdDossier == CurrentPreference.IdDossier && e.GEN_Items_TypeCompte.Valeur == "Clients" && e.GEN_Items_TypeCompte.GEN_Model.Model == "TypeCompte" && e.Actif).Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
-             ///  ViewBag.IdCompteCollectifFournisseur = new SelectList(db.CPT_CompteG.Where(e => e.IdDossier == CurrentPreference.IdDossier && e.GEN_Items_TypeCompte.Valeur == "Fournisseurs" && e.GEN_Items_TypeCompte.GEN_Model.Model == "TypeCompte" && e.Actif).Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
+          ViewBag.IdCompteCollectifClient = new SelectList(compte_GService.GetCPT_CompteGsByActifandIDDossierandValeur("Clients").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
+          ViewBag.IdCompteCollectifFournisseur = new SelectList(compte_GService.GetCPT_CompteGsByActifandIDDossierandValeur("Fournisseurs").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
 
                 return View();
             }
@@ -194,8 +196,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                 ViewBag.IdGroupeStatistiques = new SelectList(itemsService.GetItemsByModel("GroupeStatistiques"), "Id", "Libelle");
                 ViewBag.IdGroupeRemise = new SelectList(itemsService.GetItemsByModel("GroupeRemise"), "Id", "Libelle");
 
-                //  ViewBag.IdCompteCollectifClient = new SelectList(db.CPT_CompteG.Where(e => e.IdDossier == CurrentPreference.IdDossier && e.Actif && e.GEN_Items_TypeCompte.Valeur == "Clients" && e.GEN_Items_TypeCompte.GEN_Model.Model == "TypeCompte").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value", CurrentObj.IdCompteCollectifClient);
-                // ViewBag.IdCompteCollectifFournisseur = new SelectList(db.CPT_CompteG.Where(e => e.IdDossier == CurrentPreference.IdDossier && e.Actif && e.GEN_Items_TypeCompte.Valeur == "Fournisseurs" && e.GEN_Items_TypeCompte.GEN_Model.Model == "TypeCompte").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value", CurrentObj.IdCompteCollectifFournisseur);
+                ViewBag.IdCompteCollectifClient = new SelectList(compte_GService.GetCPT_CompteGsByActifandIDDossierandValeur("Clients").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
+                ViewBag.IdCompteCollectifFournisseur = new SelectList(compte_GService.GetCPT_CompteGsByActifandIDDossierandValeur("Fournisseurs").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
 
                 var tierForm = Mapper.Map<GEN_Tiers_Form_ViewModel>(CurrentObj);
                 var typeTier = itemsService.GetItems(CurrentObj.TypeTiers).Valeur;
@@ -311,9 +313,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
             ViewBag.IdGroupeRemise = new SelectList(itemsService.GetItemsByModel("GroupeRemise"), "Id", "Libelle");
 
 
+            ViewBag.IdCompteCollectifClient = new SelectList(compte_GService.GetCPT_CompteGsByActifandIDDossierandValeur("Clients").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
+            ViewBag.IdCompteCollectifFournisseur = new SelectList(compte_GService.GetCPT_CompteGsByActifandIDDossierandValeur("Fournisseurs").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
 
-            //  ViewBag.IdCompteCollectifClient = new SelectList(db.CPT_CompteG.Where(e => e.IdDossier == CurrentPreference.IdDossier && e.Actif && e.GEN_Items_TypeCompte.Valeur == "Clients" && e.GEN_Items_TypeCompte.GEN_Model.Model == "TypeCompte").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
-            // ViewBag.IdCompteCollectifFournisseur = new SelectList(db.CPT_CompteG.Where(e => e.IdDossier == CurrentPreference.IdDossier && e.Actif && e.GEN_Items_TypeCompte.Valeur == "Fournisseurs" && e.GEN_Items_TypeCompte.GEN_Model.Model == "TypeCompte").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
 
             return View(gEN_Tiers);
 

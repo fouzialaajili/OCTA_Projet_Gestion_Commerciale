@@ -55,6 +55,7 @@
     <Compile Include="Implementation\ArticlesService.cs" />
     <Compile Include="Implementation\CategorieService.cs" />
     <Compile Include="Implementation\CodesTVASevice.cs" />
+    <Compile Include="Implementation\Compte_GService.cs" />
     <Compile Include="Implementation\DepotService.cs" />
     <Compile Include="Implementation\DevisesService.cs" />
     <Compile Include="Implementation\DoclieartService.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Implementation\TypePaiementDetailService.cs" />
     <Compile Include="Implementation\TypePaiementService.cs" />
     <Compile Include="Implementation\UniteService.cs" />
+    <Compile Include="Interface\ICompte_GService.cs" />
     <Compile Include="Interface\IDossiersSitesService.cs" />
     <Compile Include="Interface\IAdminService.cs" />
     <Compile Include="Interface\IAffaireService.cs" />
@@ -209,6 +211,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\OCTA_Projet_Gestion_Commerciale.Data\OCTA_Projet_Gestion_Commerciale.Data.csproj">
       <Project>{2ad11fcb-e04d-43ba-9fe6-15eec7b22ca2}</Project>
       <Name>OCTA_Projet_Gestion_Commerciale.Data</Name>
@@ -217,9 +222,6 @@
       <Project>{569d8d64-8cd8-41fb-b24b-29df9eb51e0a}</Project>
       <Name>OCTA_Projet_Gestion_Commerciale.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

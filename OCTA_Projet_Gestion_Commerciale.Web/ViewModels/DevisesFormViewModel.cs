@@ -49,7 +49,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
 
 
 
-        public ICollection<TiersFormViewModel> GEN_Tiers { get; set; }
+        //public ICollection<TiersFormViewModel> GEN_Tiers { get; set; }
         public ICollection<OpportuniteFormViewModel> GES_Opportunite { get; set; }
 
     }

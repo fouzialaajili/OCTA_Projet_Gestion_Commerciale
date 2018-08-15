@@ -26,13 +26,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
 
 
-        public ICollection<ClassePivot> CPT_Classe_Childs { get; set; }
+        //public ICollection<ClassePivot> CPT_Classe_Childs { get; set; }
 
-        public ClassePivot CPT_Classe_Parent { get; set; }
+        //public ClassePivot CPT_Classe_Parent { get; set; }
 
-        public DossiersPivot GEN_Dossiers { get; set; }
+        //public DossiersPivot GEN_Dossiers { get; set; }
 
    
-        public  ICollection<CompteGPivot> CPT_CompteG { get; set; }
+        //public  ICollection<CompteGPivot> CPT_CompteG { get; set; }
     }
 }

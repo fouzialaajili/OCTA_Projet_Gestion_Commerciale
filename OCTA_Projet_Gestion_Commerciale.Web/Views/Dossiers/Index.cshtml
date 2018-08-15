@@ -79,12 +79,11 @@
         function lookupActif(id, record) {
 
             if (record.DossierActif) {
-
-                return '<div class="checkboxStyle"><input type="checkbox" value="1" id="checkboxInput_' + record.Id + '" name="" checked/><label ></label></div>';
+                return 'Oui';
 
             }
             else {
-                return '<div class="checkboxStyle"><input type="checkbox" value="0" id="checkboxInput_' + record.Id + '" name="" checked/><label ></label></div>';
+                return 'Non';
 
             }
             return '';

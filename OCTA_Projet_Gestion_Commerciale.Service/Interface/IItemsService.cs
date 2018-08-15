@@ -12,9 +12,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
         IEnumerable<ItemsPivot> GetItemsByModel(String model);
         IEnumerable<ItemsPivot> GetItemsByModelAndActif(String type);
 
-     ItemsPivot GetItems(long? id);
+        
+
         IEnumerable<ItemsPivot> GetAllItems();
-       
+        ItemsPivot GetItems(long? id);
         void DeleteItemsPivot(ItemsPivot items);
         void UpdateItemsPivot(ItemsPivot items);
         void CreateItemsPivot(ItemsPivot items);

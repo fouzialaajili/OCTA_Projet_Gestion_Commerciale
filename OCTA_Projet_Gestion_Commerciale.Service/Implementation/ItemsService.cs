@@ -12,10 +12,9 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {
-   public  class ItemsService : IItemsService
+    public class ItemsService : IItemsService
     {
         private readonly IItemsRepository itemsRepository;
-         
         private readonly IUnitOfWork unitOfWork;
 
         public ItemsService(IItemsRepository itemsRepository, IUnitOfWork unitOfWork)
@@ -26,27 +25,33 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void CreateItemsPivot(ItemsPivot items)
         {
-            throw new NotImplementedException();
+            GEN_Items item = Mapper.Map<ItemsPivot, GEN_Items>(items);
+            itemsRepository.Add(item);
         }
 
         public void DeleteItemsPivot(ItemsPivot items)
         {
-            throw new NotImplementedException();
+            itemsRepository.Delete(items.Id, Mapper.Map<ItemsPivot, GEN_Items>(items));
         }
 
         public IEnumerable<ItemsPivot> GetAllItems()
         {
-            throw new NotImplementedException();
+            IEnumerable<GEN_Items> items = itemsRepository.GetAll().ToList();
+            IEnumerable<ItemsPivot> itemsPivots = Mapper.Map<IEnumerable<GEN_Items>, IEnumerable<ItemsPivot>>(items);
+            return itemsPivots;
         }
 
         public ItemsPivot GetItems(long? id)
         {
-            id = 1;
             var item = itemsRepository.GetById((int)id);
             ItemsPivot itemPivot = Mapper.Map<GEN_Items, ItemsPivot>(item);
             return itemPivot;
         }
 
+        //public IEnumerable<ItemsPivot> GetItemsByModel(string model)
+        //{
+        //    throw new NotImplementedException();
+        //}
         public IEnumerable<ItemsPivot> GetItemsByModel(string model)
         {
             IEnumerable<GEN_Items> item = itemsRepository.GetItemsByModel(model).ToList();
@@ -54,21 +59,86 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             return itemPivots;
         }
 
+        //public IEnumerable<ItemsPivot> GetItemsByModelAndActif(string type)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
         public IEnumerable<ItemsPivot> GetItemsByModelAndActif(string type)
         {
             IEnumerable<GEN_Items> item = itemsRepository.GetItemsByModelAndType(type).ToList();
             IEnumerable<ItemsPivot> itemPivots = Mapper.Map<IEnumerable<GEN_Items>, IEnumerable<ItemsPivot>>(item);
             return itemPivots;
         }
-
         public void SaveItemsPivot()
         {
-            throw new NotImplementedException();
+            unitOfWork.Commit();
         }
 
         public void UpdateItemsPivot(ItemsPivot items)
         {
-            throw new NotImplementedException();
+            itemsRepository.Update(Mapper.Map<ItemsPivot, GEN_Items>(items));
         }
     }
 }
+
+//   public  class ItemsService : IItemsService
+//    {
+//        private readonly IItemsRepository itemsRepository;
+
+//        private readonly IUnitOfWork unitOfWork;
+
+//        public ItemsService(IItemsRepository itemsRepository, IUnitOfWork unitOfWork)
+//        {
+//            this.itemsRepository = itemsRepository;
+//            this.unitOfWork = unitOfWork;
+//        }
+
+//        public void CreateItemsPivot(ItemsPivot items)
+//        {
+//            throw new NotImplementedException();
+//        }
+
+//        public void DeleteItemsPivot(ItemsPivot items)
+//        {
+//            throw new NotImplementedException();
+//        }
+
+//        public IEnumerable<ItemsPivot> GetAllItems()
+//        {
+//            throw new NotImplementedException();
+//        }
+
+//        public ItemsPivot GetItems(long? id)
+//        {
+//            id = 1;
+//            var item = itemsRepository.GetById((int)id);
+//            ItemsPivot itemPivot = Mapper.Map<GEN_Items, ItemsPivot>(item);
+//            return itemPivot;
+//        }
+
+//        public IEnumerable<ItemsPivot> GetItemsByModel(string model)
+//        {
+//            IEnumerable<GEN_Items> item = itemsRepository.GetItemsByModel(model).ToList();
+//            IEnumerable<ItemsPivot> itemPivots = Mapper.Map<IEnumerable<GEN_Items>, IEnumerable<ItemsPivot>>(item);
+//            return itemPivots;
+//        }
+
+//        public IEnumerable<ItemsPivot> GetItemsByModelAndActif(string type)
+//        {
+//            IEnumerable<GEN_Items> item = itemsRepository.GetItemsByModelAndType(type).ToList();
+//            IEnumerable<ItemsPivot> itemPivots = Mapper.Map<IEnumerable<GEN_Items>, IEnumerable<ItemsPivot>>(item);
+//            return itemPivots;
+//        }
+
+//        public void SaveItemsPivot()
+//        {
+//            throw new NotImplementedException();
+//        }
+
+//        public void UpdateItemsPivot(ItemsPivot items)
+//        {
+//            throw new NotImplementedException();
+//        }
+//    }
+//}

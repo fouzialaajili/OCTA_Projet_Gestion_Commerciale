@@ -10,6 +10,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
 {
     class GEN_ItemsConfiguration : EntityTypeConfiguration<GEN_Items>
     {
+       
+     //       ToTable("GEN_Items");
+     //       HasKey(x => x.Id);
+
+            //       HasOptional<GEN_Model>(a => a.GEN_Model)
+            //  .WithMany(d => d.GEN_Items)
+            //.HasForeignKey<long?>(a => a.IdModel);
+
         public GEN_ItemsConfiguration()
         {
             ToTable("GEN_Items");
@@ -18,10 +26,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
             HasOptional<GEN_Model>(a => a.GEN_Model)
        .WithMany(d => d.GEN_Items)
      .HasForeignKey<long?>(a => a.IdModel);
-          
 
 
 
-    }
+        }
     }
 }

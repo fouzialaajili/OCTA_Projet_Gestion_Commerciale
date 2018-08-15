@@ -44,7 +44,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
 
         public ICollection<CPT_PiecesViewModel> CPT_Pieces_TR { get; set; }
         public ICollection<CPT_RelevesBancairesViewModel> CPT_RelevesBancaires { get; set; }
-        public ICollection<TiersViewModel> GEN_Tiers { get; set; }
+        //public ICollection<TiersViewModel> GEN_Tiers { get; set; }
         public ICollection<OpportuniteViewModel> GES_Opportunite { get; set; }
     }
 }

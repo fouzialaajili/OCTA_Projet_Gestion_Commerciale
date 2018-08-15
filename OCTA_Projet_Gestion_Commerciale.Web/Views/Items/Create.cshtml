@@ -1,9 +1,9 @@
 ﻿@model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.ItemsFormViewModel
 
 @{
+   // Layout = "";
     ViewBag.Title = "Nouveau Item";
 }
-
 @section pageButtons {
 
 
@@ -43,18 +43,18 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Id)
-    <button class="btn btn-danger btn-block" type="submit"  id="deleteButton" style="width:20%">Supprimer</button>
+    <button class="btn btn-danger btn-block" type="submit" id="deleteButton" style="width:20%">Supprimer</button>
 
 }
 <br /><br />
 
 
-@using (Html.BeginForm()) 
-    {
-      @Html.AntiForgeryToken()
-      <input type="submit" id="createButton" value="Create" class="btn btn-default" style="width:20%"/>
-      <br /><br />
-        <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" style="width:20%" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" id="createButton" value="Create" class="btn btn-default" style="width:20%" />
+    <br /><br />
+    <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" style="width:20%;display:none" />
         <br /><br />
         <div class="form-horizontal">
             <h4>ItemsFormViewModel</h4>
@@ -62,28 +62,38 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-
-
-
-
             <div class="form-group">
                 @Html.LabelFor(model => model.IdModel, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    @Html.DropDownList("IdModel", null, string.Empty, htmlAttributes: new { @class = "form-control selectpicker" })
+                    @Html.DropDownList("IdModel", null, string.Empty, htmlAttributes: new { @style = "display: block;" })
                     @Html.ValidationMessageFor(model => model.IdModel, "", new { @class = "text-danger" })
                 </div>
             </div>
 
+
+
+
+
             @*<div class="form-group">
                 @Html.LabelFor(model => model.IdModel, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    <div class="input-group">
-                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                        @Html.EditorFor(model => model.IdModel, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
+                    @Html.DropDownList("IdModel", null, htmlAttributes: new { @class = "form-control selectpicker" })
                     @Html.ValidationMessageFor(model => model.IdModel, "", new { @class = "text-danger" })
                 </div>
-            </div>*************************************************************************@
+
+
+            </div>*@
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.IdModel, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                            @Html.EditorFor(model => model.IdModel, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.IdModel, "", new { @class = "text-danger" })
+                    </div>
+                </div>*************************************************************************@
 
 
 
@@ -121,13 +131,12 @@
 
 
 
-            
-        </div>
-    }
-    
-   
 
-<script>
+        </div>
+}
+
+
+<script type="text/javascript">
     $("#saveAll").bind({
         click: function (e) {
             if ($('form').valid()) {
@@ -145,3 +154,19 @@
 
     }
 </script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+
+
+
+
+
+

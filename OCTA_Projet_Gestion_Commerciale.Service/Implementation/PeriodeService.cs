@@ -10,7 +10,8 @@ using OCTA_Projet_Gestion_Commerciale.Service.Interface;
 using OCTA_Projet_Gestion_Commerciale.Service.Pivot;
 using OCTA_Projet_Gestion_Commerciale.Model;
 using OCTA_Projet_Gestion_Commerciale.Data.Infrastructure;
-using OCTA_Projet_Gestion_Commerciale.Data.Repositoriess;
+
+using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 {

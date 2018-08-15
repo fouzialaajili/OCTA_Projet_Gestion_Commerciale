@@ -32,13 +32,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteDevise(DevisesPivot devises)
         {
-            devisesRepository.Delete(devises.DevisesId,Mapper.Map<DevisesPivot, GEN_Devises>(devises));
+            devisesRepository.Delete(devises.DevisesId, Mapper.Map<DevisesPivot, GEN_Devises>(devises));
         }
 
-        public void DisposeDevise()
-        {
-            devisesRepository.Disposing();
-        }
+        //public void DisposeDevise()
+        //{
+        //    devisesRepository.Disposing();
+        //}
 
         public IEnumerable<DevisesPivot> GetAllDevises()
         {
@@ -49,9 +49,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public DevisesPivot GetAttributes(DevisesPivot devisepivot)
         {
-            GEN_Devises devisesmap = Mapper.Map<DevisesPivot,GEN_Devises>(devisepivot);
+            GEN_Devises devisesmap = Mapper.Map<DevisesPivot, GEN_Devises>(devisepivot);
 
-            var devises =devisesRepository.GetingAttribute(devisesmap);
+            var devises = devisesRepository.GetingAttribute(devisesmap);
 
             DevisesPivot devisesPivot = Mapper.Map<GEN_Devises, DevisesPivot>(devises);
             return devisesPivot;
@@ -66,17 +66,27 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public IEnumerable<DevisesPivot> GetDeviseByCond()
         {
-            throw new NotImplementedException();
+            var devisess = devisesRepository.AdeviseByCond();
+            IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devisess);
+            //  IQueryable<DevisesPivot> devisePivot = devisesPivot.AsQueryable();
+            return devisesPivot;
         }
 
         public IEnumerable<DevisesPivot> GetDevisesByIDDossierAndActif()
         {
-            throw new NotImplementedException();
+            var devisess = devisesRepository.GetDevisesByIDDossierAndActif();
+            IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devisess);
+            //  IQueryable<DevisesPivot> devisePivot = devisesPivot.AsQueryable();
+            return devisesPivot;
         }
 
         public IEnumerable<DevisesPivot> Getingdevises()
         {
-            throw new NotImplementedException();
+            var devisess = devisesRepository.GetDevising();
+            IEnumerable<DevisesPivot> devisesPivot = Mapper.Map<IEnumerable<GEN_Devises>, IEnumerable<DevisesPivot>>(devisess);
+            //  IQueryable<DevisesPivot> devisePivot = devisesPivot.AsQueryable();
+            return devisesPivot;
+
         }
 
         public void SaveDevise()
@@ -91,9 +101,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             //devises.DevisesId
         }
 
-        IQueryable<GEN_Devises> IDevisesService.GetAllDevises()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

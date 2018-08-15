@@ -13,12 +13,15 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
         IEnumerable<ModelPivot> GetModelByIdDossier(long id);
         IEnumerable<ModelPivot> GetALL();
         ModelPivot GetModel(long? id);
-       //ajouter aujourd'hui
+        //ajouter aujourd'hui
         IEnumerable<ModelPivot> GetModels();
         IEnumerable<ModelPivot> GetMotifsByName(string identifged);
         void DeleteModel(ModelPivot Model);
         void UpdateModel(ModelPivot Model);
         void CreateModel(ModelPivot Model);
         void SaveModel();
+        //IEnumerable<ModelPivot> GetModelByIdDossier(long id);
+        //IEnumerable<ModelPivot> GetModels();
+        IEnumerable<ModelPivot> GetModelIdDossier();
     }
 }

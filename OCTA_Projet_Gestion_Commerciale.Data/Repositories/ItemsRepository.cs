@@ -18,32 +18,20 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public ItemsRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
-        public void Delete(object idSource, GEN_Items entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GEN_Items GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
-
+     
         public IEnumerable<GEN_Items> GetItemsByModel(String model)
         {
-            var items = this.DbContext.Items.Where(e => e.GEN_Model.Model == model && e.GEN_Model.IdDossier == Constantes.CurrentPreferenceIdDossier);
+            var items = this.DbContext.GEN_Items.Where(e => e.GEN_Model.Model == model && e.GEN_Model.IdDossier == Constantes.CurrentPreferenceIdDossier);
 
             return items;
         }
        public  IEnumerable<GEN_Items> GetItemsByModelAndType( String type)
         {
-            var items = this.DbContext.Items.Where(e => e.GEN_Model.Model == "NatureTiers" && (e.Valeur== type || type == "") && e.GEN_Model.IdDossier == Constantes.CurrentPreferenceIdDossier);
+            var items = this.DbContext.GEN_Items.Where(e => e.GEN_Model.Model == "NatureTiers" && (e.Valeur== type || type == "") && e.GEN_Model.IdDossier == Constantes.CurrentPreferenceIdDossier);
 
             return items;
            
         }
 
-        public void Update(object idSource, GEN_Items entity)
-        {
-            throw new NotImplementedException();
-        }
+     
     } }

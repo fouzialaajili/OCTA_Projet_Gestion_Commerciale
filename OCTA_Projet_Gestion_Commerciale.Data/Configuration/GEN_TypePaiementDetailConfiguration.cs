@@ -21,16 +21,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
      HasOptional<GEN_TypePaiement>(a => a.GEN_TypePaiement)
                                           .WithMany(d => d.GEN_TypePaiementDetail)
                                           .HasForeignKey<long?>(a => a.IdTypePaiement);
-     HasOptional<GEN_Items>(a => a.GEN_Items_ModePaiement)
-                                          .WithMany(d => d.GEN_TypePaiementDetail)
-                                          .HasForeignKey<long?>(a => a.IdModePaiement);
-     HasOptional<GEN_Items>(a => a.GEN_Items_DateCalcul)
-                                          .WithMany(d => d.GEN_TypePaiementDetail1)
-                                          .HasForeignKey<long?>(a => a.DateCalcul);
+     //HasOptional<GEN_Items>(a => a.GEN_Items_ModePaiement)
+     //                                     .WithMany(d => d.GEN_TypePaiementDetail)
+     //                                     .HasForeignKey<long?>(a => a.IdModePaiement);
+     //HasOptional<GEN_Items>(a => a.GEN_Items_DateCalcul)
+     //                                     .WithMany(d => d.GEN_TypePaiementDetail1)
+     //                                     .HasForeignKey<long?>(a => a.DateCalcul);
                                         
-            HasOptional<GEN_Items>(a => a.GEN_Items_Delai)
-                                          .WithMany(d => d.GEN_TypePaiementDetail2)
-                                          .HasForeignKey<long?>(a => a.Delai);
+     //       HasOptional<GEN_Items>(a => a.GEN_Items_Delai)
+     //                                     .WithMany(d => d.GEN_TypePaiementDetail2)
+     //                                     .HasForeignKey<long?>(a => a.Delai);
         
 
 

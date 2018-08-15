@@ -33,6 +33,7 @@
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -54,6 +55,7 @@
     <Compile Include="Implementation\ArticlesPrixService.cs" />
     <Compile Include="Implementation\ArticlesService.cs" />
     <Compile Include="Implementation\CategorieService.cs" />
+    <Compile Include="Implementation\ClasseService.cs" />
     <Compile Include="Implementation\CodesTVASevice.cs" />
     <Compile Include="Implementation\DepotService.cs" />
     <Compile Include="Implementation\DevisesService.cs" />
@@ -92,6 +94,7 @@
     <Compile Include="Implementation\TypePaiementDetailService.cs" />
     <Compile Include="Implementation\TypePaiementService.cs" />
     <Compile Include="Implementation\UniteService.cs" />
+    <Compile Include="Interface\IClasseService.cs" />
     <Compile Include="Interface\IDossiersSitesService.cs" />
     <Compile Include="Interface\IAdminService.cs" />
     <Compile Include="Interface\IAffaireService.cs" />

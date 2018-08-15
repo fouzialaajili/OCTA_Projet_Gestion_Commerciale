@@ -61,7 +61,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 
         }
 
-       
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Model,IdDossier")] GEN_Model_Form_ViewModel gEN_Model)
@@ -71,7 +71,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                 if (gEN_Model.Id > 0)
                 {
                     gEN_Model.IdDossier = Constantes.CurrentPreferenceIdDossier;
-                    ModelPivot modelPivot = Mapper.Map<GEN_Model_Form_ViewModel,ModelPivot>(gEN_Model);
+                    ModelPivot modelPivot = Mapper.Map<GEN_Model_Form_ViewModel, ModelPivot>(gEN_Model);
 
                     modelService.UpdateModel(modelPivot);
                     modelService.SaveModel();
@@ -83,9 +83,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 
                     modelService.CreateModel(modelPivot);
 
-                          
+
                 }
-             
+
                 return RedirectToAction("Index");
 
             }
@@ -109,7 +109,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 
             gEN_Model_ViewModel = Mapper.Map<ModelPivot, GEN_Model_ViewModel>(modelPivot);
 
- 
+
             ViewBag.IdSociete = new SelectList(dossiersService.GetDossiersByDossiersId(), "DossierId", "DossierRaisonSociale", modelPivot.IdDossier);
             if (modelPivot == null)
             {
@@ -139,7 +139,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Model,IdDossier")] GEN_Model_Form_ViewModel  gEN_Model)
+        public ActionResult Edit([Bind(Include = "Id,Model,IdDossier")] GEN_Model_Form_ViewModel gEN_Model)
         {
             if (ModelState.IsValid)
             {
@@ -155,7 +155,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         }
         public ActionResult Delete(long? id)
         {
-            
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -180,14 +180,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         public ActionResult DeleteConfirmed(long id)
         {
             ModelPivot modelPivot = modelService.GetModel(id);
-           // modelPivot.IdDossier = Constantes.CurrentPreferenceIdDossier;
-                
-                modelService.DeleteModel(modelPivot);
+            // modelPivot.IdDossier = Constantes.CurrentPreferenceIdDossier;
+
+            modelService.DeleteModel(modelPivot);
 
             return RedirectToAction("Index");
         }
 
-       
+
 
     }
 }

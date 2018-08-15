@@ -19,7 +19,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         public IEnumerable<GEN_Dossiers> GetAdossierByCond()
         {
             //  var samesdossiers= this.DbContext.Dossiers.Where(e => e.DossierId == Constantes.IdentifiantDossier && e.CodeDossier != "" && e.DossierActif);
-            var samesdossiers = this.DbContext.Dossier.Where(e => e.CodeDossier != "" && e.DossierActif);
+            var samesdossiers = this.DbContext.Dossiers.Where(e => e.CodeDossier != "" && e.DossierActif);
             return samesdossiers;
         }
         public IEnumerable<GEN_DossiersContacts> GetingAContact(long id)
@@ -30,7 +30,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
         public IEnumerable<GEN_Dossiers> GetingActif()
         {
-            return this.DbContext.Dossier.Where(e => e.DossierActif);
+            return this.DbContext.Dossiers.Where(e => e.DossierActif);
         }
 
         public IEnumerable<GEN_DossiersSites> GetingASite(long id)
@@ -40,7 +40,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
         public IEnumerable<GEN_Dossiers> GetOnlyDossier()
         {
-            return this.DbContext.Dossier;
+            return this.DbContext.Dossiers;
         }
 
         public IEnumerable<CPT_Pieces> GetPiece(long? id)
@@ -53,7 +53,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             using (var dbIgnoreValidation = new StoreEntities())
             {
                 dbIgnoreValidation.Configuration.ValidateOnSaveEnabled = false;
-                dbIgnoreValidation.Dossier.Add(doss);
+                dbIgnoreValidation.Dossiers.Add(doss);
                 //Add(gEN_Dossiers);
                 dbIgnoreValidation.SaveChanges();
             }
@@ -65,7 +65,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 
         public GEN_Dossiers GetAdossierIncluding(long? id)
         {
-           return this.DbContext.Dossier.Where(x => x.DossierId== id).Include(x => x.GEN_DossiersContacts).FirstOrDefault();
+           return this.DbContext.Dossiers.Where(x => x.DossierId== id).Include(x => x.GEN_DossiersContacts).FirstOrDefault();
         }
 
         public IEnumerable<GEN_DossiersSites> GetAdossierSite()
@@ -76,18 +76,18 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         public IEnumerable<GEN_Items> GetAModelItem(string varr)
         {
 
-            return this.DbContext.Items.Where(e => e.GEN_Model.Model == varr && e.GEN_Model.IdDossier == Constantes.IdentifiantDossier);
+            return this.DbContext.GEN_Items.Where(e => e.GEN_Model.Model == varr && e.GEN_Model.IdDossier == Constantes.IdentifiantDossier);
         }
 
         public GEN_Dossiers GetDossierActif()
         {
-           var expression= this.DbContext.Dossier.Where(x => x.DossierActif == false && x.CodeDossier =="").FirstOrDefault();
+            var expression= this.DbContext.Dossiers.Where(x => x.DossierActif == false && x.CodeDossier =="").FirstOrDefault();
             return expression;
         }
 
         public IEnumerable<GEN_Dossiers> GetDossiersByDossiersId()
         {
-            var dossier = this.DbContext.Dossier.Where(e => e.DossierId==Constantes.CurrentSocieteId);
+            var dossier = this.DbContext.Dossiers.Where(e => e.DossierId==Constantes.CurrentSocieteId);
             return dossier;
         }
 
@@ -95,31 +95,18 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         {
 
 
-            var dossier = this.DbContext.Dossier.Where(e => e.DossierId == Constantes.CurrentPreferenceIdDossier && e.DossierActif);
+            var dossier = this.DbContext.Dossiers.Where(e => e.DossierId == Constantes.CurrentPreferenceIdDossier && e.DossierActif);
              return dossier;
 
         }
 
         public IEnumerable<GEN_Dossiers> DossiersByActif(bool actif)
         {
-            var dossier = this.DbContext.Dossier.Where(e => e.DossierActif == actif);
+            var dossier = this.DbContext.Dossiers.Where(e => e.DossierActif == actif);
             return dossier;
         }
 
-        public void Update(object idSource, GEN_Dossiers entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(object idSource, GEN_Dossiers entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GEN_Dossiers GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 
        

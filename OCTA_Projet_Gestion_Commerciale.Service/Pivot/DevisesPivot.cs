@@ -45,7 +45,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public ICollection<PiecesPivot> CPT_Pieces_TR { get; set; }
         public ICollection<RelevesBancairesPivot> CPT_RelevesBancaires { get; set; }
-        public ICollection<TiersPivot> GEN_Tiers { get; set; }
+      //  public ICollection<TiersPivot> GEN_Tiers { get; set; }
         public ICollection<OpportunitePivot> GES_Opportunite { get; set; }
 
 

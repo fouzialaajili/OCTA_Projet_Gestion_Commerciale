@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OCTA_Projet_Gestion_Commerciale.Data.Repositoriess
+namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
 {
   public  class OpportuniteRepository : RepositoryBase<GES_Opportunite>, IOpportuniteRepository
     {

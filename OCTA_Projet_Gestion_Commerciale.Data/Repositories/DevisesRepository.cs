@@ -23,15 +23,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             var dossier = this.DbContext.Devises.Where(e => e.DevisesIdDossier == Constantes.CurrentPreferenceIdDossier && e.DevisesActif);
             return dossier;
         }
-        public void Disposing()
-        {
-            this.DbContext.Dispose();
-        }
+        //public void Disposing()
+        //{
+        //    this.DbContext.Dispose();
+        //}
 
-        public GEN_Devises GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public IEnumerable<GEN_Devises> GetDevising()
         {
@@ -48,22 +45,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             return gEN_Devises;
         }
 
-        public void Update(object idSource, GEN_Devises entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(object idSource, GEN_Devises entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 
         
   
     public interface IDevisesRepository : IRepository<GEN_Devises>
     {
-        void Disposing();
+       IEnumerable<GEN_Devises> GetDevisesByIDDossierAndActif();
         GEN_Devises GetingAttribute(GEN_Devises devise);
         IEnumerable<GEN_Devises> GetDevising();
         IEnumerable<GEN_Devises> AdeviseByCond();

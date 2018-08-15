@@ -23,14 +23,17 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
         IEnumerable<DossiersPivot> GetActifDossier();
         IEnumerable<DossiersSitesPivot> GentingSite(long id);
         IEnumerable<DossiersContactsPivot> GentingContact(long id);
-        DossiersPivot  GetDossiersAndInclude(long? id);
-       IEnumerable<ItemsPivot> GetingModelItem(string valeur);
+        DossiersPivot GetDossiersAndInclude(long? id);
+        IEnumerable<ItemsPivot> GetingModelItem(string valeur);
         IEnumerable<PiecesPivot> GetCPT_Piece(long? id);
-       // DossiersPivot getSingleActif();
+        // DossiersPivot getSingleActif();
         DossiersPivot getingDossierActif();
         void Validation_Db(DossiersPivot objet);
         IEnumerable<DossiersPivot> GetDossier();
         void SaveDossiers();
+
+        /****/
+        IEnumerable<DossiersPivot> GetDossiersByDossiersIdAndActif();
         IEnumerable<DossiersPivot> GetDossiersByActif(bool actif);
         IEnumerable<DossiersPivot> GetDossiersByDossiersId();
     }

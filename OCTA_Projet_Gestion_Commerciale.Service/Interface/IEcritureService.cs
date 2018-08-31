@@ -10,5 +10,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
   public interface IEcritureService
     {
         IEnumerable<EcrituresPivot> GetEcrituresByIdDossiersAndByIdTiers(TiersPivot gEN_Tiers);
+        IEnumerable<EcrituresPivot> GetALL();
+        EcrituresPivot GetEcritures(long? id);
+        void DeletEcrituresPivot(EcrituresPivot Ecritures);
+        void UpdatEcrituresPivot(EcrituresPivot Ecritures);
+        void CreateEcrituresPivot(EcrituresPivot Ecritures);
+        void SaveEcrituresPivot();
     }
 }

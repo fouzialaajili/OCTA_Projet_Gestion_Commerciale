@@ -23,5 +23,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
         //IEnumerable<ModelPivot> GetModelByIdDossier(long id);
         //IEnumerable<ModelPivot> GetModels();
         IEnumerable<ModelPivot> GetModelIdDossier();
+
+
+    
+       
     }
 }

@@ -170,6 +170,15 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Mappages
             CreateMap<GES_Licence, LicencePivot>()
                           .ReverseMap()
                           .IgnoreAllPropertiesWithAnInaccessibleSetter();
+
+
+            CreateMap<GEN_Preferences, PreferencesPivot>()
+                    .ReverseMap()
+                    .IgnoreAllPropertiesWithAnInaccessibleSetter();
+
+
+
+
             CreateMap<GES_Marque, MarquePivot>()
                           .ReverseMap()
                           .IgnoreAllPropertiesWithAnInaccessibleSetter();

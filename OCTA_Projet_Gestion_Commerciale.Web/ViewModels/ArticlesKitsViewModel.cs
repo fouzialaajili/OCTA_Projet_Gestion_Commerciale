@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OCTA_Projet_Gestion_Commerciale.Web.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,9 +16,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public string ArticlesKitDescription { get; set; }
         public int ArticlesKitSysuser { get; set; }
         public DateTime ArticlesKitSysDateCreation { get; set; }
-        public DateTime ArticlesKitSysDateUpdate { get; set; }
         public long? ArticlesKitArticlesId { get; set; }
-    
+       // public  ArticlesViewModel ArticlesKitArticle { get; set; }
         public long? ArticlesKitArticleId { get; set; }
+      //  public  ArticlesViewModel ArticlesKitArticle1 { get; set; }
     }
 }

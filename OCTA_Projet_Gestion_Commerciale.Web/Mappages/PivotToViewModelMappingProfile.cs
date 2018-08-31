@@ -208,6 +208,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Mappages
             CreateMap<ReglementFacturePivot, ReglementFactureViewModel>()
                    .ReverseMap()
                    .IgnoreAllPropertiesWithAnInaccessibleSetter();
+
+
+            CreateMap<PreferencesPivot, PreferencesViewModel>()
+              .ReverseMap()
+              .IgnoreAllPropertiesWithAnInaccessibleSetter();
+
+
+
             CreateMap< RepresentantPivot, RepresentantViewModel>()
                    .ReverseMap()
                    .IgnoreAllPropertiesWithAnInaccessibleSetter();

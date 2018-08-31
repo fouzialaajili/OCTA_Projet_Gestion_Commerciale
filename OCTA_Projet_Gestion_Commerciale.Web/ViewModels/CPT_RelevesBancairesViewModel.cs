@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -19,6 +20,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public double? SoldeDebut { get; set; }
 
         public double? SoldeFin { get; set; }
+
+
+        [DefaultValue(true)]
         public bool Valide { get; set; }
 
         public long? IdDossier { get; set; }
@@ -30,5 +34,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public DateTime? sys_dateCreation { get; set; }
 
         public byte[] Fichier { get; set; }
+
+
+        //public CPT_ComptesBancairesViewModel CPT_ComptesBancaires { get; set; }
+
+        //public DevisesViewModel GEN_Devises { get; set; }
+
+
+        //public ICollection<CPT_RelevesBancairesDetailViewModel> CPT_RelevesBancairesDetail { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
 {
-    interface IParametrageComptableService
+  public  interface IParametrageComptableService
     {
         IEnumerable<ParametrageComptablePivot> GetALL();
         ParametrageComptablePivot GetParametrageComptable (long id);

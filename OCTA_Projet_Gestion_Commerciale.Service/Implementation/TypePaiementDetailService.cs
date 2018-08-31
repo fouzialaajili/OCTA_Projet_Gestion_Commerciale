@@ -69,7 +69,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void UpdateTypePaiementDetail(TypePaiementDetailPivot TypePaiementDetail)
         {
-            typePaiementDetailRepository.Update(Mapper.Map<TypePaiementDetailPivot, GEN_TypePaiementDetail>(TypePaiementDetail));
+            typePaiementDetailRepository.Update(TypePaiementDetail.TypePaiementDetailId,Mapper.Map<TypePaiementDetailPivot, GEN_TypePaiementDetail>(TypePaiementDetail));
         }
 
         public IEnumerable<TypePaiementDetailPivot> GetTypePaiementDetailByTypePaiementId(long id)

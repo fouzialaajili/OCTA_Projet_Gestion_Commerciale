@@ -11,9 +11,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
        
         public string IdUsers { get; set; }
 
-        public long IdDossier { get; set; }
+        public long? IdDossier { get; set; }
 
-        public long IdExercices { get; set; }
+        public long? IdExercices { get; set; }
 
         public virtual GEN_Dossiers GEN_Dossiers { get; set; }
 

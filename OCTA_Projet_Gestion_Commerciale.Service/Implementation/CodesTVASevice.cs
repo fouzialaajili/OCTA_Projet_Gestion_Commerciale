@@ -31,7 +31,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteCodesTVAPivot(CodesTVAPivot codesTVAPivot)
         {
-          //  codesTvaRepository.Delete(Mapper.Map<CodesTVAPivot, CPT_CodesTVA>(codesTVAPivot));
+         codesTvaRepository.Delete(codesTVAPivot.Id,Mapper.Map<CodesTVAPivot, CPT_CodesTVA>(codesTVAPivot));
         }
 
         public IEnumerable<CodesTVAPivot> GetALL()
@@ -60,7 +60,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void UpdateCodesTVAPivot(CodesTVAPivot codesTVAPivot)
         {
-            codesTvaRepository.Update(Mapper.Map<CodesTVAPivot, CPT_CodesTVA>(codesTVAPivot));
+            codesTvaRepository.Update(codesTVAPivot.Id,Mapper.Map<CodesTVAPivot, CPT_CodesTVA>(codesTVAPivot));
         }
     }
 }

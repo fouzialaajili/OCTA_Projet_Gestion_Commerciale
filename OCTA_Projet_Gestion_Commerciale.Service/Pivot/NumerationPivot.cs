@@ -21,6 +21,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public DateTime? sys_dateCreation { get; set; }
 
-        public DossiersPivot GEN_Dossiers { get; set; }
+      public DossiersPivot GEN_Dossiers { get; set; }
     }
 }

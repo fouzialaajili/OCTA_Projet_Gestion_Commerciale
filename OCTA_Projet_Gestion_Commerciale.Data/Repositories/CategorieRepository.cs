@@ -19,19 +19,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public CategorieRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
-        public void Delete(object idSource, GES_Categorie entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GES_Categorie GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(object idSource, GES_Categorie entity)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

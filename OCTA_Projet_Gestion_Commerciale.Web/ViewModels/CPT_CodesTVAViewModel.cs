@@ -40,5 +40,22 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
 
         public DateTime? sys_dateCreation { get; set; }
 
+        public CPT_CompteGViewModel CPT_CompteG { get; set; }
+
+        public DossierViewModel GEN_Dossiers { get; set; }
+
+        public ItemsViewModel GEN_Items_RebriqueDeclaration { get; set; }
+
+        public ItemsViewModel GEN_Items_TypeTVA { get; set; }
+
+
+        public ICollection<CPT_CompteGViewModel> CPT_CompteG_CodeTVADefault { get; set; }
+
+
+        public ICollection<CPT_CompteGDetailTVAViewModel> CPT_CompteGDetailTVA { get; set; }
+
+        ////public long TvaSocieteId { get; set; }
+        ////public DossiersPivot TvaSociete { get; set; }
+        public ICollection<TiersViewModel> TvaFichetier { get; set; }
     }
 }

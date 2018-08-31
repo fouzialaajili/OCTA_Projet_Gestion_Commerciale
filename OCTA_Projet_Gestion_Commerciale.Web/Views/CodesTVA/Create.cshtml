@@ -1,0 +1,143 @@
+﻿@model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.CPT_CodesTVAFormViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@section pageButtons {
+
+
+    <div class="btn-group">
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="saveAll">Enregistrer</button>
+        <button class="btn-flat with-border waves-effect waves-light" type="button" name="action" onclick="window.location.href='@Url.Action("Index")'">Fermer</button>
+        <button class="btn-flat waves-effect waves-light dropdown-button" type="submit" name="action" data-activates='more-actions'><i class="material-icons">more_vert</i></button>
+        <!-- Dropdown Structure -->
+        <ul id='more-actions' class='dropdown-content'>
+            <li>
+                <a href="@Url.Action("Create", new { id = ""})">
+                    <i class="material-icons">add</i>
+                    <span>Nouveau devise</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Recommencer()">
+                    <i class="material-icons">check</i>
+                    <span>Recommencer à zéro</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Supprimer()">
+                    <i class="material-icons">delete_forever</i>
+                    <span>Supprimer</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+}
+
+
+@using (Html.BeginForm("Delete", "CodesTVA", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce code tva ?');" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <button class="btn btn-danger btn-block" type="submit" id="deleteButton" style="width:20%">Supprimer</button>
+
+
+}
+</br></br>
+
+<div class="main-form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" id="createButton" value="Create" class="btn btn-default" style="width:20%" />
+        <br /><br />
+        <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" style="width:20%;display:none"  />
+        <br /><br />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CodeTaux, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CodeTaux, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CodeTaux, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LibelleTaux, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LibelleTaux, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LibelleTaux, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TypeTVA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TypeTVA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TypeTVA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Percue, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Percue, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Percue, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Exonere, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Exonere, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Exonere, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TauxTVA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TauxTVA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TauxTVA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdRubriqueDeclaration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IdRubriqueDeclaration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IdRubriqueDeclaration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+     
+
+    }
+</div>
+<script>
+    $("#saveAll").bind({
+        click: function (e) {
+            if ($('form').valid()) {
+                $('#createButton').click();
+            }
+
+        }
+    });
+    function Recommencer() {
+        $('#recommencer').click();
+
+        function Supprimer() {
+            $('#deleteButton').click();
+        }
+
+
+    }
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

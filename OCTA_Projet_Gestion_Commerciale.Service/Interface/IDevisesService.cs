@@ -22,5 +22,15 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
         IEnumerable<DevisesPivot> GetAllDevises();
         DevisesPivot GetAttributes(DevisesPivot devisepivot);
         void SaveDevise();
+
+
+
+
+       
+     
+    
+     
+       
+
     }
 }

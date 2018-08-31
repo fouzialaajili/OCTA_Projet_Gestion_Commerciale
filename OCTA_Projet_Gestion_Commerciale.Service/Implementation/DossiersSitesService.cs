@@ -32,7 +32,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteDossiersSitePivot(DossiersSitesPivot dossiersSite)
         {
-            dossierSiteRepository.Delete(dossiersSite.IdDossier,Mapper.Map<DossiersSitesPivot, GEN_DossiersSites>(dossiersSite));
+            dossierSiteRepository.Delete(dossiersSite.Id,Mapper.Map<DossiersSitesPivot, GEN_DossiersSites>(dossiersSite));
 
         }
 
@@ -62,7 +62,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void UpdateDossierSitePivot(DossiersSitesPivot dossiersSite)
         {
-            dossierSiteRepository.Update(Mapper.Map<DossiersSitesPivot,GEN_DossiersSites>(dossiersSite));
+            dossierSiteRepository.Update(dossiersSite.Id,Mapper.Map<DossiersSitesPivot,GEN_DossiersSites>(dossiersSite));
         }
     }
 }

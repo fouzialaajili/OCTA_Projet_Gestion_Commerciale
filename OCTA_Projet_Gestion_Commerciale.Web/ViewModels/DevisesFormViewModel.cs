@@ -28,29 +28,23 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
 
         public DateTime? Devisessys_dateCreation { get; set; }
 
+        //public DossierViewModel GEN_Dossiers { get; set; }
 
-        public DossierFormViewModel GEN_Dossiers { get; set; }
+        //public ICollection<CPT_ComptesBancairesFormViewModel> CPT_ComptesBancaires { get; set; }
 
-        public ICollection<CPT_ComptesBancairesFormViewModel> CPT_ComptesBancaires { get; set; }
+        //public ICollection<CPT_ComptesBancairesTiersFormViewModel> CPT_ComptesBancairesTiers { get; set; }
 
-        public ICollection<CPT_ComptesBancairesTiersFormViewModel> CPT_ComptesBancairesTiers { get; set; }
+        //public ICollection<CPT_EcrituresFormViewModel> CPT_Ecritures_TC { get; set; }
 
-        public ICollection<CPT_EcrituresFormViewModel> CPT_Ecritures_TC { get; set; }
+        //public ICollection<CPT_EcrituresFormViewModel> CPT_Ecritures_TR { get; set; }
 
-        public ICollection<CPT_EcrituresFormViewModel> CPT_Ecritures_TR { get; set; }
+        //public ICollection<CPT_JournauxFormViewModel> CPT_Journaux { get; set; }
 
-        public ICollection<CPT_JournauxFormViewModel> CPT_Journaux { get; set; }
+        //public ICollection<CPT_PiecesFormViewModel> CPT_Pieces_TC { get; set; }
 
-        public ICollection<CPT_PiecesFormViewModel> CPT_Pieces_TC { get; set; }
-
-        public ICollection<CPT_PiecesFormViewModel> CPT_Pieces_TR { get; set; }
-        public ICollection<CPT_RelevesBancairesFormViewModel> CPT_RelevesBancaires { get; set; }
-
-
-
-
-        //public ICollection<TiersFormViewModel> GEN_Tiers { get; set; }
-        public ICollection<OpportuniteFormViewModel> GES_Opportunite { get; set; }
-
+        //public ICollection<CPT_PiecesFormViewModel> CPT_Pieces_TR { get; set; }
+        //public ICollection<CPT_RelevesBancairesFormViewModel> CPT_RelevesBancaires { get; set; }
+        ////public ICollection<TiersViewModel> GEN_Tiers { get; set; }
+        //public ICollection<OpportuniteFormViewModel> GES_Opportunite { get; set; }
     }
 }

@@ -1,0 +1,83 @@
+﻿@using Infragistics.Web.Mvc
+@model IQueryable<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.TypePaiementDetailViewModel>
+
+@{
+    ViewBag.Title = "Liste des Tiers Contacts ";
+    //Layout = "";
+}
+
+
+<link href="~/Content/Infragistics/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Infragistics/css/structure/infragistics.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/jquery-3.0.0.js" type="text/javascript"></script>
+<script src="/Scripts/jquery-3.0.0.min.js" type="text/javascript"></script>
+
+<script src="/Scripts/jquery-ui-1.12.0.js" type="text/javascript"></script>
+<script src="~/Scripts/Infragistics/js/infragistics.core.js" type="text/javascript"></script>
+
+<script src="~/Scripts/Infragistics/js/infragistics.lob.js" type="text/javascript"></script>
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+
+
+
+
+
+<div>
+    @(Html.Infragistics()
+                                                                     .Grid<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.TypePaiementDetailViewModel>(Model)
+                                                                     .ID("listGridTypePaiementDetail")
+                                                                     .AutoGenerateColumns(false)
+                                                                     .AutoGenerateLayouts(false)
+                                                                     .RenderCheckboxes(true)
+                                                                     .AutoCommit(true)
+                                                                     .Columns(column =>
+                                                                     {
+                                                                         column.For(x => x.TypePaiementDetailId).Hidden(true);
+                                                                         column.For(x => x.Pourcentage).Width("20%").Template("<a href='" + @Url.Action("Create", "GEN_TypePaiementDetail") + "/${TypePaiementDetailId}\' \">${Pourcentage}</a>");
+                                                                         column.For(x => x.NombreJour).Width("20%");
+                                                                         column.For(x => x.IdModePaiement).Width("20%");
+                                                                         column.For(x=>x.IdTypePaiement).Width("20%");
+                                                                         column.For(x => x.Delai).Width("20%");
+                                                                         column.For(x => x.DateCalcul).Width("20%");
+
+
+
+
+
+                                                                     })
+                                                                     .Features(feature =>
+                                                                     {
+                                                                         feature.Updating().EnableAddRow(false).EnableDeleteRow(false).EditMode(GridEditMode.None);
+
+                                                                         feature.Filtering().Mode(FilterMode.Simple).Type(OpType.Local);
+                                                                         feature.Sorting();
+                                                                         feature.Resizing();
+                                                                         feature.ColumnMoving();
+                                                                         feature.Paging().PageSize(10);
+
+                                                                     })
+                                                                     .PrimaryKey("Id")
+                                                                     .DataBind()
+                                                                     .Width("100%")
+                                                                     .Render()
+    )
+
+    <script type="text/javascript">
+
+      
+
+
+        $(document).ready(function () {
+            var messageErreur = "@(new MvcHtmlString((string)ViewBag.Message))";
+            if (messageErreur != "") {
+                alert(messageErreur);
+
+            }
+        });
+
+
+
+    </script>
+</div>
+
+

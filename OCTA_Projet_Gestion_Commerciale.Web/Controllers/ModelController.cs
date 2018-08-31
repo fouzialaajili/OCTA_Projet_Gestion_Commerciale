@@ -13,8 +13,10 @@ using System.Net;
 
 namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 {
+
     public class ModelController : Controller
-    {
+    { 
+    
         private readonly IModelService modelService;
         public readonly IDossiersService dossiersService;
         public ModelController(IModelService modelService, IDossiersService dossiersService)
@@ -32,7 +34,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
             IEnumerable<DossiersPivot> dossiersPivot;
             dossiersPivot = dossiersService.GetDossiersByActif(true);
 
-           modelPivot = modelService.GetModelByIdDossier(Constantes.CurrentPreferenceIdDossier);
+            modelPivot = modelService.GetModelByIdDossier(Constantes.CurrentPreferenceIdDossier);
             gEN_Model_ViewModel = Mapper.Map<IEnumerable<ModelPivot>, IEnumerable<GEN_Model_ViewModel>>(modelPivot);
             gEN_Dossiers_ViewModel = Mapper.Map<IEnumerable<DossiersPivot>, IEnumerable<GEN_Dossiers_ViewModel>>(dossiersPivot);
 

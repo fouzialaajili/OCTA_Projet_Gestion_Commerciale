@@ -1,0 +1,102 @@
+﻿@using Infragistics.Web.Mvc
+@model IQueryable<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.CPT_RelevesBancairesViewModel>
+
+@{
+    ViewBag.Title = "Liste des Releves Bancaires";
+    //Layout = "";
+}
+
+
+<link href="~/Content/Infragistics/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Infragistics/css/structure/infragistics.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/jquery-3.0.0.js" type="text/javascript"></script>
+<script src="/Scripts/jquery-3.0.0.min.js" type="text/javascript"></script>
+
+<script src="/Scripts/jquery-ui-1.12.0.js" type="text/javascript"></script>
+<script src="~/Scripts/Infragistics/js/infragistics.core.js" type="text/javascript"></script>
+
+<script src="~/Scripts/Infragistics/js/infragistics.lob.js" type="text/javascript"></script>
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+
+
+
+
+
+<div>
+    @(Html.Infragistics()
+                                                                     .Grid<OCTA_Projet_Gestion_Commerciale.Web.ViewModels.CPT_RelevesBancairesViewModel> (Model)
+                                                                     .ID("listGridRelvesBancaires")
+                                                                     .AutoGenerateColumns(false)
+                                                                     .AutoGenerateLayouts(false)
+                                                                     .RenderCheckboxes(true)
+                                                                     .AutoCommit(true)
+                                                                     .Columns(column =>
+                                                                     {
+                                                                         column.For(x => x.Id).Hidden(true);
+                                                                         column.For(x => x.Description).Width("20%").Template("<a href='" + @Url.Action("Create", "CPT_RelevesBancaires") + "/${Id}\' \">${Description}</a>");/*.FormatterFunction("lookupDevise")*/;
+
+                                                                         column.For(x => x.DateIntegration).Width("20%");
+                                                                         column.For(x => x.SoldeDebut).Width("20%");
+                                                                         column.For(x => x.SoldeFin).Width("20%");
+                                                                         column.For(x => x.Fichier).Width("20%");
+                                                                         column.For(x => x.IdDossier).Width("20%");
+                                                                         column.For(x => x.Valide).Width("20%").FormatterFunction("lookupValide");
+                                                                        
+
+
+
+                                                                     })
+                                                                     .Features(feature =>
+                                                                     {
+                                                                         feature.Updating().EnableAddRow(false).EnableDeleteRow(false).EditMode(GridEditMode.None);
+
+                                                                         feature.Filtering().Mode(FilterMode.Simple).Type(OpType.Local);
+                                                                         feature.Sorting();
+                                                                         feature.Resizing();
+                                                                         feature.ColumnMoving();
+                                                                         feature.Paging().PageSize(10);
+
+                                                                     })
+                                                                     .PrimaryKey("Id")
+                                                                     .DataBind()
+                                                                     .Width("100%")
+                                                                     .Render()
+    )
+
+    <script type="text/javascript">
+        function lookupValide(Id, record) {
+
+            if (record.Valide) {
+
+                return 'Oui';
+
+            }
+            else {
+                return 'Non';
+
+            }
+            return '';
+        }
+
+
+
+        $(document).ready(function () {
+            var messageErreur = "@(new MvcHtmlString((string)ViewBag.Message))";
+            if (messageErreur != "") {
+                alert(messageErreur);
+
+            }
+        });
+
+
+
+    </script>
+</div>
+
+
+
+
+
+
+
+

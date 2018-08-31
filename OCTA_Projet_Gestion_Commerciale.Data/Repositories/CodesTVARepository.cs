@@ -20,24 +20,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public CodesTVARepository(IDbFactory dbFactory) : base(dbFactory) { }
 
-        public CPT_CodesTVA GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        //public void Delete(object idSource, CPT_CodesTVA entity)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public CPT_CodesTVA GetById(long id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public void Update(object idSource, CPT_CodesTVA entity)
-        //{
-        //    throw new NotImplementedException();
-        //}
+     
     }
 }

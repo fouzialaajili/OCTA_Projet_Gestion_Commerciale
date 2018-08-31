@@ -28,5 +28,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
 
         public double? MntHT { get; set; }
         public string TypePayment { get; set; }
+        public CPT_LettrageFormViewModel CPT_Lettrage { get; set; }
     }
 }

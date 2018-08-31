@@ -27,7 +27,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void DeleteAffairePivot(AffairePivot affaire)
         {
-        // affaireRepository.Delete(Mapper.Map<AffairePivot, GES_Affaire>(affaire));
+        affaireRepository.Delete(affaire.AffaireId,Mapper.Map<AffairePivot, GES_Affaire>(affaire));
         }
 
         public AffairePivot GetAffaire(long id)
@@ -58,14 +58,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void UpdateAffairePivot(AffairePivot affaire)
         {
-            affaireRepository.Update(Mapper.Map<AffairePivot, GES_Affaire>(affaire));
+            affaireRepository.Update(affaire.AffaireId,Mapper.Map<AffairePivot, GES_Affaire>(affaire));
 
         }
 
-        IEnumerable<AffairePivot> IAffaireService.GetALL()
-        {
-            throw new System.NotImplementedException();
-        }
+    
     }
 
 }

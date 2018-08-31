@@ -104,10 +104,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                 }
                 else
                 {
-                    //gEN_Devises.IdDossier = CurrentPreference.IdDossier;
-                    //gEN_Devises.sys_dateCreation = DateTime.Now;
-                    //gEN_Devises.sys_dateUpdate = DateTime.Now;
-                    //gEN_Devises.sys_user = CurrentUser.Id;
+                 
                     gEN_Devises.DevisesActif = true;
                     gEN_Devises.DevisesIdDossier = Constantes.IdentifiantDossier;
                     gEN_Devises.Devisessys_dateUpdate = DateTime.Now;

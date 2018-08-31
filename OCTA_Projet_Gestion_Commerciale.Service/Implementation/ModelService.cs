@@ -83,5 +83,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             iModelRepository.Update(Mapper.Map<ModelPivot,GEN_Model>(Model));
      
         }
+
+        public IEnumerable<ModelPivot> GetModelIdDossier()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

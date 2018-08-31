@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
 {
-    interface IPeriodeService
+    public interface IPeriodeService
     {
         IEnumerable<PeriodePivot> GetALL();
         PeriodePivot GetPeriodes(long id);

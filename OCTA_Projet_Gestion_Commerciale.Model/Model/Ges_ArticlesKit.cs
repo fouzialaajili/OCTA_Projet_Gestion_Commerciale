@@ -18,7 +18,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         public long? ArticlesKitArticlesId { get; set; }
         public virtual GES_Article ArticlesKitArticle { get; set; }
         public long? ArticlesKitArticleId { get; set; }
-        public virtual GES_Article ArticlesKitArticle1 { get; set; }
+        public virtual GES_Article ArticlesKitArticle1{ get; set; }
 
     }
 }

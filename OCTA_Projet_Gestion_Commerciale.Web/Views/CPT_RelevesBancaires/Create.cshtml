@@ -1,0 +1,145 @@
+﻿@model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.CPT_RelevesBancairesFormViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@section pageButtons {
+
+
+    <div class="btn-group">
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="saveAll">Enregistrer</button>
+        <button class="btn-flat with-border waves-effect waves-light" type="button" name="action" onclick="window.location.href='@Url.Action("Index")'">Fermer</button>
+        <button class="btn-flat waves-effect waves-light dropdown-button" type="submit" name="action" data-activates='more-actions'><i class="material-icons">more_vert</i></button>
+        <!-- Dropdown Structure -->
+        <ul id='more-actions' class='dropdown-content'>
+            <li>
+                <a href="@Url.Action("Create", new { id = ""})">
+                    <i class="material-icons">add</i>
+                    <span>Nouveau devise</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Recommencer()">
+                    <i class="material-icons">check</i>
+                    <span>Recommencer à zéro</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Supprimer()">
+                    <i class="material-icons">delete_forever</i>
+                    <span>Supprimer</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+}
+
+
+@using (Html.BeginForm("Delete", "CPT_RelevesBancaires", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer ce releves bancaire?');" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <button class="btn btn-danger btn-block" type="submit" id="deleteButton" style="width:20%">Supprimer</button>
+
+
+}
+</br></br>
+
+<div class="main-form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" id="createButton" value="Create" class="btn btn-default" style="width:20%" />
+        <br /><br />
+        <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" style="width:20%;display:none" />
+        <br /><br />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateIntegration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateIntegration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateIntegration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoldeDebut, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoldeDebut, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoldeDebut, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoldeFin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoldeFin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoldeFin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Valide, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Valide, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Valide, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fichier, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Fichier, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fichier, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdDossier, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IdDossier, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IdDossier, "", new { @class = "text-danger" })
+            </div>
+        </div>
+       
+
+
+
+    }
+</div>
+<script>
+    $("#saveAll").bind({
+        click: function (e) {
+            if ($('form').valid()) {
+                $('#createButton').click();
+            }
+
+        }
+    });
+    function Recommencer() {
+        $('#recommencer').click();
+
+        function Supprimer() {
+            $('#deleteButton').click();
+        }
+
+
+    }
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

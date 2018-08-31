@@ -58,5 +58,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public long? IdJournalReglement { get; set; }
 
         public long? IdQua { get; set; }
+
+
+        public CPT_CompteGViewModel CPT_CompteG { get; set; }
+
+        public CPT_RelevesBancairesViewModel CPT_RelevesBancaires { get; set; }
+
+        public ItemsViewModel GEN_Items { get; set; }
+
+        public TiersViewModel GEN_Tiers { get; set; }
+
+        public TypePaiementViewModel   GEN_TypePaiement { get; set; }
     }
 }

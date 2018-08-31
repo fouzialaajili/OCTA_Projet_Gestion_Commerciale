@@ -8,16 +8,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
     public partial class RelevesBancairesPivot
     {
 
-
         public long Id { get; set; }
 
         public DateTime? DateIntegration { get; set; }
 
         public long? IdCompteBancaire { get; set; }
-
-
-
-
 
         public long? IdDevise { get; set; }
         public string Description { get; set; }
@@ -39,11 +34,16 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Pivot
 
         public byte[] Fichier { get; set; }
 
-        public ComptesBancairesPivot  CPT_ComptesBancaires { get; set; }
 
-        public  DevisesPivot GEN_Devises { get; set; }
+        //public ComptesBancairesPivot  CPT_ComptesBancaires { get; set; }
+
+        //public  DevisesPivot GEN_Devises { get; set; }
 
 
-        public ICollection<RelevesBancairesDetailPivot> CPT_RelevesBancairesDetail { get; set; }
+        //public ICollection<RelevesBancairesDetailPivot> CPT_RelevesBancairesDetail { get; set; }
+
+      
+
+        
     }
 }

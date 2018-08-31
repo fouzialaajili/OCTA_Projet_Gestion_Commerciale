@@ -25,6 +25,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
 
         public string Liaison { get; set; }
 
+        public CPT_JournauxFormViewModel CPT_Journaux { get; set; }
+
+        public TypePaiementFormViewModel GEN_TypePaiement { get; set; }
 
     }
 }

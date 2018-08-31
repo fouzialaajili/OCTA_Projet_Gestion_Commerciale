@@ -1,0 +1,280 @@
+﻿@model OCTA_Projet_Gestion_Commerciale.Web.ViewModels.ArticlesFormViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@section pageButtons {
+
+
+    <div class="btn-group">
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="saveAll">Enregistrer</button>
+        <button class="btn-flat with-border waves-effect waves-light" type="button" name="action" onclick="window.location.href='@Url.Action("Index")'">Fermer</button>
+        <button class="btn-flat waves-effect waves-light dropdown-button" type="submit" name="action" data-activates='more-actions'><i class="material-icons">more_vert</i></button>
+        <!-- Dropdown Structure -->
+        <ul id='more-actions' class='dropdown-content'>
+            <li>
+                <a href="@Url.Action("Create", new { id = ""})">
+                    <i class="material-icons">add</i>
+                    <span>Nouveau Admin</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Recommencer()">
+                    <i class="material-icons">check</i>
+                    <span>Recommencer à zéro</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Supprimer()">
+                    <i class="material-icons">delete_forever</i>
+                    <span>Supprimer</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+}
+
+
+@using (Html.BeginForm("Delete", "GES_Articles", FormMethod.Post, new { onsubmit = "return confirm('Voulez vous supprimer  cette article ?');" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ArticleId)
+    <button class="btn btn-danger btn-block" type="submit" id="deleteButton" style="width:20%">Supprimer</button>
+
+
+}
+</br></br>
+
+<div class="main-form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" id="createButton" value="Create" class="btn btn-default" style="width:20%" />
+        <br /><br />
+        <input type="reset" id="recommencer" value="Recommencer" class="btn btn-default" style="width:20%;display:none" />
+        <br /><br />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ArticleId)
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleTypeArticle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArticleTypeArticle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ArticleTypeArticle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleCodeArticle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArticleCodeArticle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ArticleCodeArticle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleDescription)
+                    @Html.ValidationMessageFor(model => model.ArticleDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleDescriptif, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleDescriptif)
+                    @Html.ValidationMessageFor(model => model.ArticleDescriptif, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleCodeABarre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleCodeABarre)
+                    @Html.ValidationMessageFor(model => model.ArticleCodeABarre, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleEstSerialiser, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleEstSerialiser)
+                    @Html.ValidationMessageFor(model => model.ArticleEstSerialiser, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleEstGererEnStock, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleEstGererEnStock)
+                    @Html.ValidationMessageFor(model => model.ArticleEstGererEnStock, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleEstVendu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleEstVendu)
+                    @Html.ValidationMessageFor(model => model.ArticleEstVendu, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleEstAchat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleEstAchat)
+                    @Html.ValidationMessageFor(model => model.ArticleEstAchat, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticlePrixAchatDefault, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticlePrixAchatDefault)
+                    @Html.ValidationMessageFor(model => model.ArticlePrixAchatDefault, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticlePrixVenteDefault, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticlePrixVenteDefault)
+                    @Html.ValidationMessageFor(model => model.ArticlePrixVenteDefault, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleCoefficientMarge, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleCoefficientMarge)
+                    @Html.ValidationMessageFor(model => model.ArticleCoefficientMarge, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleSeuilStockMin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleSeuilStockMin)
+                    @Html.ValidationMessageFor(model => model.ArticleSeuilStockMin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleSeuilStockMax, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleSeuilStockMax)
+                    @Html.ValidationMessageFor(model => model.ArticleSeuilStockMax, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleGarantieMaintenance, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleGarantieMaintenance)
+                    @Html.ValidationMessageFor(model => model.ArticleGarantieMaintenance, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleGarantiemois, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleGarantiemois)
+                    @Html.ValidationMessageFor(model => model.ArticleGarantiemois, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticlePubliable, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticlePubliable)
+                    @Html.ValidationMessageFor(model => model.ArticlePubliable, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleActif, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleActif)
+                    @Html.ValidationMessageFor(model => model.ArticleActif, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleImage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArticleImage)
+                    @Html.ValidationMessageFor(model => model.ArticleImage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    
+
+
+    }
+</div>
+<script>
+    $("#saveAll").bind({
+        click: function (e) {
+            if ($('form').valid()) {
+                $('#createButton').click();
+            }
+
+        }
+    });
+    function Recommencer() {
+        $('#recommencer').click();
+
+        function Supprimer() {
+            $('#deleteButton').click();
+        }
+
+
+    }
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

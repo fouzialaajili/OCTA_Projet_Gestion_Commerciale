@@ -18,7 +18,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
         public int IdObjet { get; set; }
 
-        public long IdDossier { get; set; }
+        public long? IdDossier { get; set; }
 
         public string sys_user { get; set; }
 

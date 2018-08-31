@@ -15,8 +15,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
    
         public int AffaireSysuser { get; set; }
-        public DateTime AffaireSysDateCreation { get; set; }
-        public DateTime AffaireSysDateUpdate { get; set; }
+        public DateTime? AffaireSysDateCreation { get; set; }
+        public DateTime? AffaireSysDateUpdate { get; set; }
 
         public long? AffaireSocieteId { get; set; }
         public virtual GEN_Dossiers AffaireSociete { get; set; }

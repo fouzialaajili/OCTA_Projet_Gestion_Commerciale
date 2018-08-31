@@ -91,5 +91,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
       
         public virtual ICollection<CPT_RelevesBancairesDetail> CPT_RelevesBancairesDetail { get; set; }
+
+      
     }
 }

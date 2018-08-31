@@ -9,7 +9,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
         
 
         public long Id { get; set; }
-
      
         public string CodeJournal { get; set; }
 

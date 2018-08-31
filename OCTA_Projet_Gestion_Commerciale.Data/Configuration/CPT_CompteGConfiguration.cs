@@ -14,8 +14,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
         {
             ToTable("CPT_CompteG");
             HasKey(a => a.Id);
-            HasOptional<CPT_CodesTVA>(a => a.CPT_CodesTVA_CodeTVADefault)
-           .WithMany(d => d.CPT_CompteG_CodeTVADefault)
+           HasOptional<CPT_CodesTVA>(a => a.CPT_CodesTVA_CodeTVADefault)
+          .WithMany(d => d.CPT_CompteG_CodeTVADefault)
             .HasForeignKey<long?>(a => a.IdCodeTvaDefault);
 
             HasOptional<GEN_Dossiers>(a => a.GEN_Dossiers)
@@ -24,6 +24,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
             HasOptional<CPT_Classe>(a => a.CPT_Classe)
                      .WithMany(d => d.CPT_CompteG)
                    .HasForeignKey<long?>(a => a.IdClasse);
+
+
+
+
+
 
             //HasOptional<GEN_Items>(a => a.GEN_Items_NatureCompte)
             //                     .WithMany(d => d.CPT_CompteG)

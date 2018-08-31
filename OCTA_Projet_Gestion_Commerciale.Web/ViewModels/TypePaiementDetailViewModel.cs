@@ -26,6 +26,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public DateTime? sys_dateUpdate { get; set; }
 
         public DateTime? sys_dateCreation { get; set; }
+        public ItemsViewModel GEN_Items_ModePaiement { get; set; }
+
+        public ItemsViewModel GEN_Items_DateCalcul { get; set; }
+
+        public ItemsViewModel GEN_Items_Delai { get; set; }
+
+        public TypePaiementViewModel GEN_TypePaiement { get; set; }
 
     }
 }

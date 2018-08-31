@@ -36,5 +36,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
         IEnumerable<DossiersPivot> GetDossiersByDossiersIdAndActif();
         IEnumerable<DossiersPivot> GetDossiersByActif(bool actif);
         IEnumerable<DossiersPivot> GetDossiersByDossiersId();
+
+
+
     }
 }

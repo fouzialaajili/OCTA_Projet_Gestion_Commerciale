@@ -33,5 +33,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public DateTime? sys_dateUpdate { get; set; }
 
         public DateTime? sys_dateCreation { get; set; }
+        public DevisesFormViewModel GEN_Devises { get; set; }
+
+        public TiersFormViewModel GEN_Tiers { get; set; }
     }
 }

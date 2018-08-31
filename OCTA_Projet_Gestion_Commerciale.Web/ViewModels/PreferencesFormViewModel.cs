@@ -15,5 +15,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public long IdDossier { get; set; }
 
         public long IdExercices { get; set; }
+
+        //public GEN_Dossiers_Form_ViewModel GEN_Dossiers { get; set; }
+
+        //public ExercicesFromViewModel GEN_Exercices { get; set; }
     }
 }

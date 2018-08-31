@@ -21,8 +21,33 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             this.ecritureRepository = ecritureRepository;
             this.unitOfWork = unitOfWork;
         }
- 
-      public  IEnumerable<EcrituresPivot> GetEcrituresByIdDossiersAndByIdTiers(TiersPivot tiersPivot)
+
+        public void CreateEcrituresPivot(EcrituresPivot Ecritures)
+        {
+            CPT_Ecritures clas = Mapper.Map<EcrituresPivot, CPT_Ecritures>(Ecritures);
+            ecritureRepository.Add(clas);
+        }
+
+        public void DeletEcrituresPivot(EcrituresPivot Ecritures)
+        {
+            ecritureRepository.Delete(Ecritures.Id, Mapper.Map<EcrituresPivot, CPT_Ecritures>(Ecritures));
+        }
+
+        public IEnumerable<EcrituresPivot> GetALL()
+        {
+            IEnumerable<CPT_Ecritures> comptes = ecritureRepository.GetAll().ToList();
+            IEnumerable<EcrituresPivot> comptesPivots = Mapper.Map<IEnumerable<CPT_Ecritures>, IEnumerable<EcrituresPivot>>(comptes);
+            return comptesPivots;
+        }
+
+        public EcrituresPivot GetEcritures(long? id)
+        {
+            var compteg = ecritureRepository.GetById((int)id);
+            EcrituresPivot comptegPivot = Mapper.Map<CPT_Ecritures, EcrituresPivot>(compteg);
+            return comptegPivot;
+        }
+
+        public  IEnumerable<EcrituresPivot> GetEcrituresByIdDossiersAndByIdTiers(TiersPivot tiersPivot)
         {
            GEN_Tiers gen_tiers = Mapper.Map<TiersPivot, GEN_Tiers>(tiersPivot);
 
@@ -32,5 +57,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             return ecrituresPivots;
         }
 
+        public void SaveEcrituresPivot()
+        {
+            unitOfWork.Commit();
+        }
+
+        public void UpdatEcrituresPivot(EcrituresPivot Ecritures)
+        {
+            ecritureRepository.Update(Ecritures.Id, Mapper.Map<EcrituresPivot, CPT_Ecritures>(Ecritures));
+        }
     }
 }

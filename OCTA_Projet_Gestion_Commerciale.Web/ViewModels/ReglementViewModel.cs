@@ -24,6 +24,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public double? Solde { get; set; }
 
         public string Liaison { get; set; }
+        public CPT_JournauxViewModel CPT_Journaux { get; set; }
+
+        public TypePaiementViewModel GEN_TypePaiement { get; set; }
 
 
     }

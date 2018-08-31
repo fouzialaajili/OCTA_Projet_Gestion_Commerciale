@@ -1,4 +1,5 @@
 ﻿using OCTA_Projet_Gestion_Commerciale.Data.Infrastructure;
+using OCTA_Projet_Gestion_Commerciale.Data.Utils;
 using OCTA_Projet_Gestion_Commerciale.Model;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
       
         public IEnumerable<GEN_Model> GetModelByIDDossiers()
         {
-            var models = this.DbContext.Models.Where(e => e.IdDossier == Utils.Constantes.CurrentPreferenceIdDossier);
+            var models = this.DbContext.Models.Where(e => e.IdDossier == Constantes.IdentifiantDossier);
             return models;
         }
 

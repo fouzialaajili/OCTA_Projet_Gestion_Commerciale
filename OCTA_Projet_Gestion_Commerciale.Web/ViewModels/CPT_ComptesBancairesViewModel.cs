@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OCTA_Projet_Gestion_Commerciale.Web.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -39,5 +40,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public DateTime? sys_dateCreation { get; set; }
 
         public long? IdCompteG { get; set; }
+        public CPT_CompteGViewModel CPT_CompteG { get; set; }
+
+        public DevisesViewModel GEN_Devises { get; set; }
+
+        public DossierViewModel GEN_Dossiers { get; set; }
+
+        public ItemsViewModel GEN_Items { get; set; }
+
+        public ICollection<CPT_RelevesBancairesViewModel> CPT_RelevesBancaires { get; set; }
     }
 }

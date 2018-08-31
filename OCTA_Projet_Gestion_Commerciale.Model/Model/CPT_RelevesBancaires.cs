@@ -7,18 +7,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Model
 
     public partial class CPT_RelevesBancaires
     {
-     
-
         public long Id { get; set; }
       
         public DateTime? DateIntegration { get; set; }
        
         public long? IdCompteBancaire { get; set; }
-   
-
-     
   
-
         public long? IdDevise { get; set; }
         public string Description { get; set; }
 

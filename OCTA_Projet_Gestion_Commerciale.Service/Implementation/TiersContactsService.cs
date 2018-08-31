@@ -67,7 +67,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
 
         public void UpdateTiersContacts(TiersContactsPivot TiersContact)
         {
-            tiersContactsRepository.Update(Mapper.Map<TiersContactsPivot, GEN_TiersContacts>(TiersContact));
+            tiersContactsRepository.Update(TiersContact.GEN_TiersContactsId,Mapper.Map<TiersContactsPivot, GEN_TiersContacts>(TiersContact));
         }
 
         public IEnumerable<TiersContactsPivot> GetTiersContactsByIdTiersAndActif(long id)

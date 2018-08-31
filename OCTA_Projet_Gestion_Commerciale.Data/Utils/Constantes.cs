@@ -13,5 +13,6 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Utils
         public static long CurrentUserId = 1;
         public static long IdentifiantDossier = 1;
         public static string IdentifiantUser = "";
+        public static int IdentifUser = 1;
     }
 }

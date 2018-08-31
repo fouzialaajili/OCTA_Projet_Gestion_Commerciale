@@ -41,5 +41,14 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public DateTime? sys_dateCreation { get; set; }
 
         public long? IdCompteG { get; set; }
+        public CPT_CompteGFormViewModel CPT_CompteG { get; set; }
+
+        public DevisesFormViewModel GEN_Devises { get; set; }
+
+        public DossierFormViewModel GEN_Dossiers { get; set; }
+
+        public ItemsFormViewModel GEN_Items { get; set; }
+
+        public ICollection<CPT_RelevesBancairesFormViewModel> CPT_RelevesBancaires { get; set; }
     }
 }

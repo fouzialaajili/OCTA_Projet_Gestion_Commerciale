@@ -19,37 +19,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public EcritureRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
-        public void Delete(object idSource, CPT_Ecritures entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public CPT_Ecritures GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public IEnumerable<CPT_Ecritures> GetEcrituresByIdDossiersAndByIdTiers(GEN_Tiers gEN_Tiers)
         {
             var test = this.DbContext.Ecritures.Where(e => e.IdDossier == Constantes.CurrentPreferenceIdDossier && e.IdTiers == gEN_Tiers.TypeTiers);
             return test;
         }
 
-        public void Update(object idSource, CPT_Ecritures entity)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /* IEnumerable<CPT_Ecritures> GetEcrituresByIdDossiersAndByIdTiers(GEN_Tiers gEN_Tiers)
-         {
-             var test = this.DbContext.Ecritures.Where(e => e.IdDossier == Constantes.CurrentPreferenceIdDossier && e.IdTiers == gEN_Tiers.TypeTiers);
-             return test;
-         }
-
-         IEnumerable<CPT_Ecritures> IEcritureRepository.GetEcrituresByIdDossiersAndByIdTiers(GEN_Tiers gEN_Tiers)
-         {
-             throw new NotImplementedException();
-         }*/
+       
     }
 }

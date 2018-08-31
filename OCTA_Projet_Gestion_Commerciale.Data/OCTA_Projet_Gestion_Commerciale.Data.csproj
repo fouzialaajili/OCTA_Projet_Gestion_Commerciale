@@ -122,9 +122,65 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201808142317112_gg.cs" />
-    <Compile Include="Migrations\201808142317112_gg.Designer.cs">
-      <DependentUpon>201808142317112_gg.cs</DependentUpon>
+    <Compile Include="Migrations\201808161427512_fhh.cs" />
+    <Compile Include="Migrations\201808161427512_fhh.Designer.cs">
+      <DependentUpon>201808161427512_fhh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808170950099_yarebb.cs" />
+    <Compile Include="Migrations\201808170950099_yarebb.Designer.cs">
+      <DependentUpon>201808170950099_yarebb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808171143367_yarabbi.cs" />
+    <Compile Include="Migrations\201808171143367_yarabbi.Designer.cs">
+      <DependentUpon>201808171143367_yarabbi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808182106345_yarabiii.cs" />
+    <Compile Include="Migrations\201808182106345_yarabiii.Designer.cs">
+      <DependentUpon>201808182106345_yarabiii.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808182337437_yarebb1.cs" />
+    <Compile Include="Migrations\201808182337437_yarebb1.Designer.cs">
+      <DependentUpon>201808182337437_yarebb1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808211330492_yarebb2.cs" />
+    <Compile Include="Migrations\201808211330492_yarebb2.Designer.cs">
+      <DependentUpon>201808211330492_yarebb2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808231128360_yarebbii.cs" />
+    <Compile Include="Migrations\201808231128360_yarebbii.Designer.cs">
+      <DependentUpon>201808231128360_yarebbii.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808231353279_ya3aliy.cs" />
+    <Compile Include="Migrations\201808231353279_ya3aliy.Designer.cs">
+      <DependentUpon>201808231353279_ya3aliy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808231810118_yareb.cs" />
+    <Compile Include="Migrations\201808231810118_yareb.Designer.cs">
+      <DependentUpon>201808231810118_yareb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808231842539_yaallah.cs" />
+    <Compile Include="Migrations\201808231842539_yaallah.Designer.cs">
+      <DependentUpon>201808231842539_yaallah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808232241126_yarebi.cs" />
+    <Compile Include="Migrations\201808232241126_yarebi.Designer.cs">
+      <DependentUpon>201808232241126_yarebi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808242205483_yarabi.cs" />
+    <Compile Include="Migrations\201808242205483_yarabi.Designer.cs">
+      <DependentUpon>201808242205483_yarabi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808252318519_yareb1.cs" />
+    <Compile Include="Migrations\201808252318519_yareb1.Designer.cs">
+      <DependentUpon>201808252318519_yareb1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808262045029_yareb2.cs" />
+    <Compile Include="Migrations\201808262045029_yareb2.Designer.cs">
+      <DependentUpon>201808262045029_yareb2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808262059218_yarebii.cs" />
+    <Compile Include="Migrations\201808262059218_yarebii.Designer.cs">
+      <DependentUpon>201808262059218_yarebii.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +192,9 @@
     <Compile Include="Repositories\CategorieRepository.cs" />
     <Compile Include="Repositories\ClasseRepository.cs" />
     <Compile Include="Repositories\CodesTVARepository.cs" />
+    <Compile Include="Repositories\ComptesBancairesRepository.cs" />
+    <Compile Include="Repositories\ComptesBancairesTiersRepository.cs" />
+    <Compile Include="Repositories\Compte_GDetailTVARepository.cs" />
     <Compile Include="Repositories\Compte_GRepository.cs" />
     <Compile Include="Repositories\CPT_ParametrageComptableRepository.cs" />
     <Compile Include="Repositories\DepotRepository.cs" />
@@ -145,36 +204,52 @@
     <Compile Include="Repositories\DocumentCommercialDetailRepository.cs" />
     <Compile Include="Repositories\DocumentCommercialDetailSerieRepository.cs" />
     <Compile Include="Repositories\DocumentCommercialRepository.cs" />
+    <Compile Include="Repositories\DocumentsRepository.cs" />
     <Compile Include="Repositories\DossiersContactsRepository.cs" />
     <Compile Include="Repositories\DossiersRepository.cs" />
+    <Compile Include="Repositories\EcheancesRepository.cs" />
     <Compile Include="Repositories\EcritureRepository.cs" />
     <Compile Include="Repositories\DossiersSitesRepository.cs" />
+    <Compile Include="Repositories\ExercicesRepository.cs" />
     <Compile Include="Repositories\FamilleRepositoy.cs" />
     <Compile Include="Repositories\FournisseurArticleRepository.cs" />
     <Compile Include="Repositories\GedRepository.cs" />
     <Compile Include="Repositories\ImpressionRepository.cs" />
     <Compile Include="Repositories\ItemsRepository.cs" />
+    <Compile Include="Repositories\JournauxSRepository.cs" />
+    <Compile Include="Repositories\LettrageRepository.cs" />
     <Compile Include="Repositories\LicenceRepository.cs" />
     <Compile Include="Repositories\MarqueRepository.cs" />
     <Compile Include="Repositories\ModelRepository.cs" />
     <Compile Include="Repositories\MotifRepository.cs" />
     <Compile Include="Repositories\MotifTicketRepository.cs" />
     <Compile Include="Repositories\MouvementStockRepository.cs" />
+    <Compile Include="Repositories\NatureOperationRepository.cs" />
     <Compile Include="Repositories\NomenclatureRepository.cs" />
+    <Compile Include="Repositories\NumerationRepository.cs" />
     <Compile Include="Repositories\NumerotationRepository.cs" />
     <Compile Include="Repositories\ObjectifRepository.cs" />
     <Compile Include="Repositories\OpportuniteDetailRepository.cs" />
     <Compile Include="Repositories\OpportuniteRepository.cs" />
     <Compile Include="Repositories\PaiementRepository.cs" />
     <Compile Include="Repositories\PeriodeRepository.cs" />
+    <Compile Include="Repositories\PeriodesRepository.cs" />
+    <Compile Include="Repositories\PiecesRepository.cs" />
+    <Compile Include="Repositories\PlanAnalytiqueRepository.cs" />
+    <Compile Include="Repositories\PreferencesRepository.cs" />
+    <Compile Include="Repositories\RegelementRepository.cs" />
     <Compile Include="Repositories\ReglementFactureRepository.cs" />
     <Compile Include="Repositories\ReglementRepository.cs" />
+    <Compile Include="Repositories\RelevesBancairesDetailRepository.cs" />
+    <Compile Include="Repositories\RelevesBancairesRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\RepresentantRepository.cs" />
     <Compile Include="Repositories\TicketDetailRepository.cs" />
     <Compile Include="Repositories\TicketRepository.cs" />
     <Compile Include="Repositories\TiersContactsRepository.cs" />
     <Compile Include="Repositories\TiersRepository.cs" />
     <Compile Include="Repositories\ToleranceRepository.cs" />
+    <Compile Include="Repositories\TVALettrageRepository.cs" />
     <Compile Include="Repositories\TypePaiementDetailRepository.cs" />
     <Compile Include="Repositories\TypePaiementRepository.cs" />
     <Compile Include="Repositories\UniteRepository.cs" />
@@ -193,8 +268,50 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808142317112_gg.resx">
-      <DependentUpon>201808142317112_gg.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808161427512_fhh.resx">
+      <DependentUpon>201808161427512_fhh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808170950099_yarebb.resx">
+      <DependentUpon>201808170950099_yarebb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171143367_yarabbi.resx">
+      <DependentUpon>201808171143367_yarabbi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808182106345_yarabiii.resx">
+      <DependentUpon>201808182106345_yarabiii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808182337437_yarebb1.resx">
+      <DependentUpon>201808182337437_yarebb1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211330492_yarebb2.resx">
+      <DependentUpon>201808211330492_yarebb2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231128360_yarebbii.resx">
+      <DependentUpon>201808231128360_yarebbii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231353279_ya3aliy.resx">
+      <DependentUpon>201808231353279_ya3aliy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231810118_yareb.resx">
+      <DependentUpon>201808231810118_yareb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231842539_yaallah.resx">
+      <DependentUpon>201808231842539_yaallah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808232241126_yarebi.resx">
+      <DependentUpon>201808232241126_yarebi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808242205483_yarabi.resx">
+      <DependentUpon>201808242205483_yarabi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808252318519_yareb1.resx">
+      <DependentUpon>201808252318519_yareb1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808262045029_yareb2.resx">
+      <DependentUpon>201808262045029_yareb2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808262059218_yarebii.resx">
+      <DependentUpon>201808262059218_yarebii.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

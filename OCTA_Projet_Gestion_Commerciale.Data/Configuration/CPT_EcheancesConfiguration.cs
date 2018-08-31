@@ -12,7 +12,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Configuration
     {
         public CPT_EcheancesConfiguration()
         {
-            ToTable("CPT_Classe");
+            ToTable("CPT_Echeances");
             HasKey(x => x.Id);
             HasOptional<CPT_Ecritures>(a => a.CPT_Ecritures)
         .WithMany(d => d.CPT_Echeances)

@@ -34,5 +34,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public DateTime? sys_dateUpdate { get; set; }
 
         public DateTime? sys_dateCreation { get; set; }
+        public GEN_Dossiers_Form_ViewModel GEN_Dossiers { get; set; }
+
+
+        public ICollection<PeriodesFormViewModel> GEN_Periodes { get; set; }
+
+
+        public ICollection<PreferencesFormViewModel> GEN_Preferences { get; set; }
     }
 }

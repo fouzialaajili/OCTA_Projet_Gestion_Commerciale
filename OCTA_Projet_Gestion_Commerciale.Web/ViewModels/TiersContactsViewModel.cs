@@ -36,5 +36,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public DateTime? sys_dateUpdate { get; set; }
 
         public DateTime? sys_dateCreation { get; set; }
+        public TiersViewModel GEN_Tiers { get; set; }
+        public ICollection<TicketViewModel> GES_Ticket { get; set; }
     }
 }

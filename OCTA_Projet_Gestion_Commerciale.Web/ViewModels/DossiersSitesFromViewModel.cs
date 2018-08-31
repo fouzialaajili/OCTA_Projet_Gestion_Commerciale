@@ -40,5 +40,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public DateTime? sys_dateUpdate { get; set; }
 
         public DateTime? sys_dateCreation { get; set; }
+        public ICollection<CPT_EcrituresFormViewModel> CPT_Ecritures { get; set; }
+
+
+        public ICollection<CPT_PiecesFormViewModel> CPT_Pieces { get; set; }
+
+        public GEN_Dossiers_Form_ViewModel GEN_Dossiers { get; set; }
     }
 }

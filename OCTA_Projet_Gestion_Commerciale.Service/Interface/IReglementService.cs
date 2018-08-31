@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OCTA_Projet_Gestion_Commerciale.Service.Interface
 {
-    interface IReglementService
+   public interface IReglementService
     {
 
         IEnumerable<ReglementPivot> GetALL();

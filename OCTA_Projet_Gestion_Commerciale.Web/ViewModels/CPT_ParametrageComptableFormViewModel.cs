@@ -59,5 +59,12 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public DateTime? sys_dateUpdate { get; set; }
 
         public DateTime? sys_dateCreation { get; set; }
+        public CPT_CompteGFormViewModel CPT_CompteG { get; set; }
+
+        public CPT_CompteGFormViewModel CPT_CompteG_CompteDeficit { get; set; }
+
+        public CPT_JournauxFormViewModel CPT_Journaux { get; set; }
+
+        public GEN_Dossiers_Form_ViewModel GEN_Dossiers { get; set; }
     }
 }

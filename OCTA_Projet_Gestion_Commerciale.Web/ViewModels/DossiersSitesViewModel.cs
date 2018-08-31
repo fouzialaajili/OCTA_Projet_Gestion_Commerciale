@@ -41,11 +41,11 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
 
         public DateTime? sys_dateCreation { get; set; }
 
-        //public ICollection<CPT_EcrituresViewModel> CPT_Ecritures { get; set; }
+        public ICollection<CPT_EcrituresViewModel> CPT_Ecritures { get; set; }
 
 
-        //public ICollection<CPT_PiecesViewModel> CPT_Pieces { get; set; }
+        public ICollection<CPT_PiecesViewModel> CPT_Pieces { get; set; }
 
-        //public DossierViewModel GEN_Dossiers { get; set; }
+        public GEN_Dossiers_ViewModel GEN_Dossiers { get; set; }
     }
 }

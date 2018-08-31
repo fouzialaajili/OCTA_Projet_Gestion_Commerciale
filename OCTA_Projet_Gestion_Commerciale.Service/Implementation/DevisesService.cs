@@ -35,11 +35,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Service.Implementation
             devisesRepository.Delete(devises.DevisesId, Mapper.Map<DevisesPivot, GEN_Devises>(devises));
         }
 
-        //public void DisposeDevise()
-        //{
-        //    devisesRepository.Disposing();
-        //}
-
+      
         public IEnumerable<DevisesPivot> GetAllDevises()
         {
             var devises = devisesRepository.GetAll();//.ToList();

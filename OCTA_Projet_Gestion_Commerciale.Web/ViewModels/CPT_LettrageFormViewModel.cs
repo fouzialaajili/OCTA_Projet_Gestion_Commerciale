@@ -24,5 +24,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
         public DateTime? sys_dateUpdate { get; set; }
 
         public DateTime? sys_dateCreation { get; set; }
+        public CPT_EcheancesFormViewModel CPT_Echeances { get; set; }
+
+        public ICollection<CPT_TVALettrageFormViewModel> CPT_TVALettrage { get; set; }
     }
 }

@@ -29,20 +29,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             return Periodes;
         }
 
-        public void Update(object idSource, GES_Periode entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(object idSource, GES_Periode entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GES_Periode GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 
     public interface IPeriodeRepository : IRepository<GES_Periode>

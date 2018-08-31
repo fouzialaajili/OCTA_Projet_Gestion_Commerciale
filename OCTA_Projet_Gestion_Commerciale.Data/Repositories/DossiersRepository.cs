@@ -76,7 +76,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         public IEnumerable<GEN_Items> GetAModelItem(string varr)
         {
 
-            return this.DbContext.GEN_Items.Where(e => e.GEN_Model.Model == varr && e.GEN_Model.IdDossier == Constantes.IdentifiantDossier);
+            return this.DbContext.Items.Where(e => e.GEN_Model.Model == varr && e.GEN_Model.IdDossier == Constantes.IdentifiantDossier);
         }
 
         public GEN_Dossiers GetDossierActif()

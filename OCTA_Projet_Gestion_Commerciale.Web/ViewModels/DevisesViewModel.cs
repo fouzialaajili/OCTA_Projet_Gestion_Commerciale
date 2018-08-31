@@ -28,23 +28,23 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
 
         public DateTime? Devisessys_dateCreation { get; set; }
 
-        public DossierViewModel GEN_Dossiers { get; set; }
+        //public DossierViewModel GEN_Dossiers { get; set; }
 
-        public ICollection<CPT_ComptesBancairesViewModel> CPT_ComptesBancaires { get; set; }
+        //public ICollection<CPT_ComptesBancairesViewModel> CPT_ComptesBancaires { get; set; }
 
-        public ICollection<CPT_ComptesBancairesTiersViewModel> CPT_ComptesBancairesTiers { get; set; }
+        //public ICollection<CPT_ComptesBancairesTiersViewModel> CPT_ComptesBancairesTiers { get; set; }
 
-        public ICollection<CPT_EcrituresViewModel> CPT_Ecritures_TC { get; set; }
+        //public ICollection<CPT_EcrituresViewModel> CPT_Ecritures_TC { get; set; }
 
-        public ICollection<CPT_EcrituresViewModel> CPT_Ecritures_TR { get; set; }
+        //public ICollection<CPT_EcrituresViewModel> CPT_Ecritures_TR { get; set; }
 
-        public ICollection<CPT_JournauxViewModel> CPT_Journaux { get; set; }
+        //public ICollection<CPT_JournauxViewModel> CPT_Journaux { get; set; }
 
-        public ICollection<CPT_PiecesViewModel> CPT_Pieces_TC { get; set; }
+        //public ICollection<CPT_PiecesViewModel> CPT_Pieces_TC { get; set; }
 
-        public ICollection<CPT_PiecesViewModel> CPT_Pieces_TR { get; set; }
-        public ICollection<CPT_RelevesBancairesViewModel> CPT_RelevesBancaires { get; set; }
-        //public ICollection<TiersViewModel> GEN_Tiers { get; set; }
-        public ICollection<OpportuniteViewModel> GES_Opportunite { get; set; }
+        //public ICollection<CPT_PiecesViewModel> CPT_Pieces_TR { get; set; }
+        //public ICollection<CPT_RelevesBancairesViewModel> CPT_RelevesBancaires { get; set; }
+        ////public ICollection<TiersViewModel> GEN_Tiers { get; set; }
+        //public ICollection<OpportuniteViewModel> GES_Opportunite { get; set; }
     }
 }

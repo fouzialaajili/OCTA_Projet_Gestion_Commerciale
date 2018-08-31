@@ -16,9 +16,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
     {
         private readonly ITypePaiementService typePaiementService;
         private readonly IItemsService itemsServise;
-      private readonly  ITypePaiementDetailService paiementDetailService;
+        private readonly ITypePaiementDetailService paiementDetailService;
 
-        public TypePaiementController(ITypePaiementService typePaiementService,IItemsService itemsServise, ITypePaiementDetailService paiementDetailService)
+        public TypePaiementController(ITypePaiementService typePaiementService, IItemsService itemsServise, ITypePaiementDetailService paiementDetailService)
         {
             this.typePaiementService = typePaiementService;
             this.itemsServise = itemsServise;
@@ -29,21 +29,21 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         public ActionResult Index()
         {
 
-            IEnumerable <GEN_TypePaiement_ViewModel> gEN_TypePaiement;
+            IEnumerable<GEN_TypePaiement_ViewModel> gEN_TypePaiement;
             ViewBag.Message = TempData["Message"];
-            gEN_TypePaiement = Mapper.Map< IEnumerable<TypePaiementPivot >, IEnumerable<GEN_TypePaiement_ViewModel>>(typePaiementService.GetTypePaiementByIDDossier(1));
-return View(gEN_TypePaiement.AsQueryable());
+            gEN_TypePaiement = Mapper.Map<IEnumerable<TypePaiementPivot>, IEnumerable<GEN_TypePaiement_ViewModel>>(typePaiementService.GetTypePaiementByIDDossier(1));
+            return View(gEN_TypePaiement.AsQueryable());
 
         }
         public ActionResult listTypePaiementDetait(long id, bool? isDelete)
         {
-            var gEN_TypePaiements = paiementDetailService.GetTypePaiementDetailByTypePaiementId(id); 
+            var gEN_TypePaiements = paiementDetailService.GetTypePaiementDetailByTypePaiementId(id);
             ViewBag.IdTypePaiement = id;
             ViewBag.isDelete = isDelete.HasValue;
             ViewBag.Delai = itemsServise.GetItemsByModelAndActif("Delai").Select(x => new { ID = x.Id, VALUE = x.Libelle });
 
             ViewBag.IdModePaiement = itemsServise.GetItemsByModelAndActif("ModePaiement").Select(x => new { ID = x.Id, VALUE = x.Libelle });
-            ViewBag.DateCalcul = itemsServise.GetItemsByModelAndActif("DateCalcul").Select(x => new { ID = x.Id, VALUE = x.Libelle }); 
+            ViewBag.DateCalcul = itemsServise.GetItemsByModelAndActif("DateCalcul").Select(x => new { ID = x.Id, VALUE = x.Libelle });
 
             return View(gEN_TypePaiements.AsQueryable());
         }
@@ -85,13 +85,13 @@ return View(gEN_TypePaiement.AsQueryable());
         public ActionResult Create([Bind(Include = "TypePaiementId,Libelle,Actif")] GEN_TypePaiement_Form_ViewModel gEN_TypePaiement)
         {
             TypePaiementPivot typePaiementPivot;
-               var errors = ModelState.Where(x => x.Key != "TypePaiementId").Select(x => x.Value.Errors)
-                          .Where(y => y.Count > 0)
-                          .ToList();
+            var errors = ModelState.Where(x => x.Key != "TypePaiementId").Select(x => x.Value.Errors)
+                       .Where(y => y.Count > 0)
+                       .ToList();
             if (errors.Count == 0)
             {
                 GEN_TypePaiement_Form_ViewModel gEN_TypePaiementCreer = gEN_TypePaiement;
-                if (gEN_TypePaiementCreer.TypePaiementId> 0)
+                if (gEN_TypePaiementCreer.TypePaiementId > 0)
                 {
                     gEN_TypePaiementCreer.IdDossier = Constantes.CurrentPreferenceIdDossier;
                     typePaiementPivot = Mapper.Map<GEN_TypePaiement_Form_ViewModel, TypePaiementPivot>(gEN_TypePaiementCreer);
@@ -143,4 +143,4 @@ return View(gEN_TypePaiement.AsQueryable());
             return RedirectToAction("Index");
         }
     }
-    }
+}

@@ -1,11 +1,14 @@
 ﻿using Autofac;
+using Autofac.Features.ResolveAnything;
 using Autofac.Integration.Mvc;
+using OCTA_Projet_Gestion_Commerciale.Data;
 using OCTA_Projet_Gestion_Commerciale.Data.Infrastructure;
 using OCTA_Projet_Gestion_Commerciale.Data.Repositories;
 using OCTA_Projet_Gestion_Commerciale.Service.Implementation;
 using OCTA_Projet_Gestion_Commerciale.Service.Interface;
 using OCTA_Projet_Gestion_Commerciale.Service.Mappages;
 using OCTA_Projet_Gestion_Commerciale.Web.Mappages;
+using System.Data.Entity;
 using System.Reflection;
 using System.Web.Mvc;
 
@@ -27,18 +30,24 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
 
+
             // Repositories
-  //builder.RegisterAssemblyTypes(typeof(Data.Repositories.ModelRepository).Assembly)
-  //              .Where(t => t.Name.EndsWith("Repository"))
-  //              .AsImplementedInterfaces().InstancePerRequest();
-            builder.RegisterAssemblyTypes(typeof(DossiersRepository).Assembly)
-                .Where(t => t.Name.EndsWith("Repository"))
-                .AsImplementedInterfaces().InstancePerRequest();
+            //builder.RegisterAssemblyTypes(typeof(Data.Repositories.ModelRepository).Assembly)
+            //              .Where(t => t.Name.EndsWith("Repository"))
+            //              .AsImplementedInterfaces().InstancePerRequest();
+            //builder.RegisterAssemblyTypes(typeof(DossiersRepository).Assembly)
+            //    .Where(t => t.Name.EndsWith("Repository"))
+            //    .AsImplementedInterfaces().InstancePerRequest();
+
             builder.RegisterAssemblyTypes(typeof(AdminRepository).Assembly)
       .Where(t => t.Name.EndsWith("Repository"))
       .AsImplementedInterfaces().InstancePerRequest();
 
             builder.RegisterAssemblyTypes(typeof(LicenceRepositoy).Assembly)
+               .Where(t => t.Name.EndsWith("Repository"))
+               .AsImplementedInterfaces().InstancePerRequest();
+
+            builder.RegisterAssemblyTypes(typeof(NumerationRepository).Assembly)
                .Where(t => t.Name.EndsWith("Repository"))
                .AsImplementedInterfaces().InstancePerRequest();
 
@@ -48,6 +57,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
             builder.RegisterAssemblyTypes(typeof(TiersRepository).Assembly)
      .Where(t => t.Name.EndsWith("Repository"))
     .AsImplementedInterfaces().InstancePerRequest();
+
+            builder.RegisterAssemblyTypes(typeof(DocumentsRepository).Assembly)
+   .Where(t => t.Name.EndsWith("Repository"))
+  .AsImplementedInterfaces().InstancePerRequest();
 
 
             builder.RegisterAssemblyTypes(typeof(TypePaiementRepository).Assembly)
@@ -255,7 +268,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
             builder.RegisterAssemblyTypes(typeof(ItemsService).Assembly)
 .Where(t => t.Name.EndsWith("Service"))
 .AsImplementedInterfaces().InstancePerRequest();
-
+            builder.RegisterAssemblyTypes(typeof(NumerationService).Assembly)
+.Where(t => t.Name.EndsWith("Service"))
+.AsImplementedInterfaces().InstancePerRequest();
 
             builder.RegisterAssemblyTypes(typeof(EcritureService).Assembly)
         .Where(t => t.Name.EndsWith("Service"))
@@ -285,7 +300,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
               .Where(t => t.Name.EndsWith("Service"))
               .AsImplementedInterfaces().InstancePerRequest();
 
-
+            builder.RegisterAssemblyTypes(typeof(DocumentsService).Assembly)
+          .Where(t => t.Name.EndsWith("Service"))
+          .AsImplementedInterfaces().InstancePerRequest();
 
 
             builder.RegisterAssemblyTypes(typeof(AffaireService).Assembly)
@@ -348,9 +365,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
 
 
 
-            builder.RegisterAssemblyTypes(typeof(DossiersService).Assembly)
-          .Where(t => t.Name.EndsWith("Service"))
-          .AsImplementedInterfaces().InstancePerRequest();
+          //  builder.RegisterAssemblyTypes(typeof(DossiersService).Assembly)
+          //.Where(t => t.Name.EndsWith("Service"))
+          //.AsImplementedInterfaces().InstancePerRequest();
 
             builder.RegisterAssemblyTypes(typeof(FamilleService).Assembly)
           .Where(t => t.Name.EndsWith("Service"))
@@ -446,6 +463,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.App_Start
             builder.RegisterAssemblyTypes(typeof(TiersService).Assembly)
   .Where(t => t.Name.EndsWith("Service"))
   .AsImplementedInterfaces().InstancePerRequest();
+
+
+
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }

@@ -7,13 +7,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class gg : IMigrationMetadata
+    public sealed partial class yarebbii : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(gg));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(yarebbii));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808142317112_gg"; }
+            get { return "201808231128360_yarebbii"; }
         }
         
         string IMigrationMetadata.Source

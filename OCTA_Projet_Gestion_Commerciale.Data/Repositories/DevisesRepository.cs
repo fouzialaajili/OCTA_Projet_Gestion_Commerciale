@@ -13,6 +13,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
     {
         public DevisesRepository(IDbFactory dbFactory) : base(dbFactory) { }
 
+
+
         public IEnumerable<GEN_Devises> AdeviseByCond()
         {
             var devises= this.DbContext.Devises.Where(e => e.DevisesIdDossier ==Constantes.IdentifiantDossier && e.DevisesActif).ToList();
@@ -23,12 +25,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
             var dossier = this.DbContext.Devises.Where(e => e.DevisesIdDossier == Constantes.CurrentPreferenceIdDossier && e.DevisesActif);
             return dossier;
         }
-        //public void Disposing()
-        //{
-        //    this.DbContext.Dispose();
-        //}
-
-      
+     
 
         public IEnumerable<GEN_Devises> GetDevising()
         {
@@ -55,6 +52,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Data.Repositories
         GEN_Devises GetingAttribute(GEN_Devises devise);
         IEnumerable<GEN_Devises> GetDevising();
         IEnumerable<GEN_Devises> AdeviseByCond();
+
+
+
+       
     }
 
 

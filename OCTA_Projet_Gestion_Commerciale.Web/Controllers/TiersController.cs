@@ -17,7 +17,8 @@ using OCTA_Projet_Gestion_Commerciale.Data.Utils;
 
 namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 {
-    public class TiersController : Controller
+
+ public class TiersController : Controller
     {
         private readonly ITiersService tiersService;
         private readonly IDossiersService dossiersService;
@@ -27,7 +28,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         private readonly IEcritureService ecritureService;
         private readonly ITiersContactsService tiersContactService;
         private readonly ICompte_GService compte_GService;
-        public TiersController(ICompte_GService compte_GService,ITiersContactsService tiersContactService, ITiersService tiersService, IDossiersService dossiersService, ITypePaiementService typePaiementService, IItemsService itemsService, IDevisesService devisesService, IEcritureService ecritureService)
+        public TiersController(ICompte_GService compte_GService, ITiersContactsService tiersContactService, ITiersService tiersService, IDossiersService dossiersService, ITypePaiementService typePaiementService, IItemsService itemsService, IDevisesService devisesService, IEcritureService ecritureService)
         {
             this.compte_GService = compte_GService;
             this.tiersService = tiersService;
@@ -46,13 +47,13 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
             ViewBag.Message = TempData["Message"];
             ViewBag.type = type;
             ViewBag.IdPays = itemsService.GetItemsByModel("Pays").OrderBy(e => e.Libelle).Select(x => new { ID = x.Id, VALUE = x.Libelle });
-            ViewBag.IdVille =itemsService.GetItemsByModel("Ville").OrderBy(e => e.Libelle).Select(x => new { ID = x.Id, VALUE = x.Libelle });
+            ViewBag.IdVille = itemsService.GetItemsByModel("Ville").OrderBy(e => e.Libelle).Select(x => new { ID = x.Id, VALUE = x.Libelle });
             tiersPivot = tiersService.GetTiersByItems_TypeTiers(type);
             gEN_Tiers_ViewModel = Mapper.Map<IEnumerable<TiersPivot>, IEnumerable<GEN_Tiers_ViewModel>>(tiersPivot);
 
 
             return View(gEN_Tiers_ViewModel.AsQueryable());
-          
+
         }
 
         public ActionResult listContacts(long id, bool? isDelete)
@@ -148,8 +149,8 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
                 ViewBag.IdGroupeStatistiques = new SelectList(itemsService.GetItemsByModel("GroupeStatistiques"), "Id", "Libelle");
 
                 ViewBag.IdGroupeRemise = new SelectList(itemsService.GetItemsByModel("GroupeRemise"), "Id", "Libelle");
-          ViewBag.IdCompteCollectifClient = new SelectList(compte_GService.GetCPT_CompteGsByActifandIDDossierandValeur("Clients").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
-          ViewBag.IdCompteCollectifFournisseur = new SelectList(compte_GService.GetCPT_CompteGsByActifandIDDossierandValeur("Fournisseurs").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
+                ViewBag.IdCompteCollectifClient = new SelectList(compte_GService.GetCPT_CompteGsByActifandIDDossierandValeur("Clients").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
+                ViewBag.IdCompteCollectifFournisseur = new SelectList(compte_GService.GetCPT_CompteGsByActifandIDDossierandValeur("Fournisseurs").Select(x => new { Id = x.Id, Value = x.Code + " " + x.Libelle }), "Id", "Value");
 
                 return View();
             }
@@ -213,9 +214,9 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
         {
 
             TiersPivot tiersPivot;
-           var errors = ModelState.Where(x => x.Key != "Id").Select(x => x.Value.Errors)
-                           .Where(y => y.Count > 0)
-                           .ToList();
+            var errors = ModelState.Where(x => x.Key != "Id").Select(x => x.Value.Errors)
+                            .Where(y => y.Count > 0)
+                            .ToList();
 
             if (errors.Count == 0)
             {

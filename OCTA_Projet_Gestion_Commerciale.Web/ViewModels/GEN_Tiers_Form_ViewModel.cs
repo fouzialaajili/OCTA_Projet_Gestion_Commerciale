@@ -72,10 +72,46 @@ namespace OCTA_Projet_Gestion_Commerciale.Web.ViewModels
 
         public DateTime? sys_dateCreation { get; set; }
 
-      
+        public CPT_CompteG CPT_CompteG_CompteCollectifClient { get; set; }
 
-        public  GEN_Dossiers_ViewModel GEN_Dossiers { get; set; }
-        public  GEN_TypePaiement_ViewModel GEN_TypePaiement { get; set; }
+        public CPT_CompteG CPT_CompteG_CompteCollectifFournisseur { get; set; }
+        public GEN_Devises GEN_Devises { get; set; }
+
+        public GEN_Dossiers GEN_Dossiers { get; set; }
+
+        public GEN_Items GEN_Items_CategorieFiscale { get; set; }
+
+        public GEN_Items GEN_Items_FormeJuridique { get; set; }
+
+        public GEN_Items GEN_Items_TypeTiers { get; set; }
+
+        public GEN_TypePaiement GEN_TypePaiement { get; set; }
+
+
+        public ICollection<GEN_TiersContacts> GEN_TiersContacts { get; set; }
+
+
+        public ICollection<CPT_ComptesBancairesTiers> CPT_ComptesBancairesTiers { get; set; }
+
+        public ICollection<CPT_Ecritures> CPT_Ecritures { get; set; }
+
+
+        public ICollection<CPT_Pieces> CPT_Pieces { get; set; }
+
+
+        public ICollection<CPT_RelevesBancairesDetail> CPT_RelevesBancairesDetail { get; set; }
+
+
+        public ICollection<GES_FournisseurArticle> GES_FournisseurArticle { get; set; }
+        public ICollection<GES_Opportunite> GES_Opportunite { get; set; }
+        public ICollection<GES_OpportuniteDetail> GES_OpportuniteDetail { get; set; }
+        public ICollection<GES_Reglement> GES_Reglement { get; set; }
+        public ICollection<GES_Ticket> GES_Ticket { get; set; }
+        public ICollection<GES_TicketDetail> GES_TicketDetail { get; set; }
+
+
+
+
 
 
         

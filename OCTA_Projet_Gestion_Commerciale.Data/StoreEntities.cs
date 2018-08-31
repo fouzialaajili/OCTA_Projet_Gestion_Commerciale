@@ -31,10 +31,10 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
         public DbSet<GES_DocumentCommercialDetailSerie> DocumentCommercialDetailSeries { get; set; }
         public DbSet<GES_Famille> Familles { get; set; }
 
-
+        public DbSet<GEN_TypePaiementDetail> TypePaiementDetail { get; set; }
         public DbSet<GES_FournisseurArticle> FournisseurArticles { get; set; }
         public DbSet<GES_Ged> Geds { get; set; }
-        public DbSet<GEN_Items> GEN_Items { get; set; }
+        public DbSet<GEN_Items> Items { get; set; }
         public DbSet<GEN_Model> Models { get; set; }
         public DbSet<GES_Impression> Impressions { get; set; }
         public DbSet<GES_Licence> Licences { get; set; }
@@ -136,7 +136,7 @@ namespace OCTA_Projet_Gestion_Commerciale.Data
             modelBuilder.Configurations.Add(new GES_TicketDetailConfiguration());
             //modelBuilder.Configurations.Add(new CPT_CodesTVAConfiguration());
 
-            modelBuilder.Configurations.Add(new GEN_ModelConfiguration());
+             //modelBuilder.Configurations.Add(new GEN_ModelConfiguration());
             modelBuilder.Configurations.Add(new CPT_ClasseConfiguration());
             modelBuilder.Configurations.Add(new CPT_ComptesBancairesTiersConfiguration());
             modelBuilder.Configurations.Add(new CPT_EcrituresConfiguration());

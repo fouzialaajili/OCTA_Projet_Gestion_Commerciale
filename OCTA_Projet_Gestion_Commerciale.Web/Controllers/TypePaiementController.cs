@@ -13,118 +13,134 @@ using System.Web.Mvc;
 namespace OCTA_Projet_Gestion_Commerciale.Web.Controllers
 {
     public class TypePaiementController : Controller
-    { }
-}
-//        private readonly ITypePaiementService typePaiementService;
-//        public TypePaiementController(ITypePaiementService typePaiementService)
-//        {
-//            this.typePaiementService = typePaiementService;
+    {
+        private readonly ITypePaiementService typePaiementService;
+        private readonly IItemsService itemsServise;
+      private readonly  ITypePaiementDetailService paiementDetailService;
 
-//        }
-//        // GET: TypePaiementK
-//        public ActionResult Index()
-//        {
+        public TypePaiementController(ITypePaiementService typePaiementService,IItemsService itemsServise, ITypePaiementDetailService paiementDetailService)
+        {
+            this.typePaiementService = typePaiementService;
+            this.itemsServise = itemsServise;
+            this.paiementDetailService = paiementDetailService;
 
-//            IEnumerable <GEN_TypePaiement_ViewModel> gEN_TypePaiement;
-//            ViewBag.Message = TempData["Message"];
-//            gEN_TypePaiement = Mapper.Map< IEnumerable<TypePaiementPivot >, IEnumerable<GEN_TypePaiement_ViewModel>>(typePaiementService.GetTypePaiementByIDDossier(1));
-//return View(gEN_TypePaiement.AsQueryable());
+        }
+        // GET: TypePaiementK
+        public ActionResult Index()
+        {
 
-//        }
-//        // GET: Commun/TypePaiement/Create
-//        public ActionResult Create(int? id)
-//        {
-//            TypePaiementPivot typePaiementPivot;
-//            GEN_TypePaiement_Form_ViewModel gEN_TypePaiement;
-//            if (id == null)
-//            {
+            IEnumerable <GEN_TypePaiement_ViewModel> gEN_TypePaiement;
+            ViewBag.Message = TempData["Message"];
+            gEN_TypePaiement = Mapper.Map< IEnumerable<TypePaiementPivot >, IEnumerable<GEN_TypePaiement_ViewModel>>(typePaiementService.GetTypePaiementByIDDossier(1));
+return View(gEN_TypePaiement.AsQueryable());
 
-//                typePaiementPivot = typePaiementService.GetTypePaiement();
-//                if (typePaiementPivot != null)
-//                {
-//                    typePaiementService.DeleteTypePaiement(typePaiementPivot);
+        }
+        public ActionResult listTypePaiementDetait(long id, bool? isDelete)
+        {
+            var gEN_TypePaiements = paiementDetailService.GetTypePaiementDetailByTypePaiementId(id); 
+            ViewBag.IdTypePaiement = id;
+            ViewBag.isDelete = isDelete.HasValue;
+            ViewBag.Delai = itemsServise.GetItemsByModelAndActif("Delai").Select(x => new { ID = x.Id, VALUE = x.Libelle });
 
+            ViewBag.IdModePaiement = itemsServise.GetItemsByModelAndActif("ModePaiement").Select(x => new { ID = x.Id, VALUE = x.Libelle });
+            ViewBag.DateCalcul = itemsServise.GetItemsByModelAndActif("DateCalcul").Select(x => new { ID = x.Id, VALUE = x.Libelle }); 
 
-//                }
+            return View(gEN_TypePaiements.AsQueryable());
+        }
+        // GET: Commun/TypePaiement/Create
+        public ActionResult Create(int? id)
+        {
+            TypePaiementPivot typePaiementPivot;
+            GEN_TypePaiement_Form_ViewModel gEN_TypePaiement;
+            if (id == null)
+            {
 
-//                return View();
-//            }
-//            else
-//            {
-//                typePaiementPivot = typePaiementService.GetTypePaiement((long)id);
-//                ViewBag.Message = TempData["errorMessage"] + "";
-//                if (typePaiementPivot == null)
-//                {
-//                    TempData["Message"] = "Le type d'échéancement que vous cherchez n'existe pas.";
-//                    return RedirectToAction("Index");
-//                }
-
-//                gEN_TypePaiement = Mapper.Map<TypePaiementPivot, GEN_TypePaiement_Form_ViewModel>(typePaiementPivot);
-
-//                return View(gEN_TypePaiement);
-//            }
-//        } // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult Create([Bind(Include = "TypePaiementId,Libelle,Actif,IdDossier")] GEN_TypePaiement_Form_ViewModel gEN_TypePaiement)
-//        {
-//            TypePaiementPivot typePaiementPivot;
-//               var errors = ModelState.Where(x => x.Key != "Id").Select(x => x.Value.Errors)
-//                          .Where(y => y.Count > 0)
-//                          .ToList();
-//            if (errors.Count == 0)
-//            {
-//                GEN_TypePaiement_Form_ViewModel gEN_TypePaiementCreer = gEN_TypePaiement;
-//                if (gEN_TypePaiementCreer.TypePaiementId> 0)
-//                {
-//                    gEN_TypePaiementCreer.IdDossier = Constantes.CurrentPreferenceIdDossier;
-//                    typePaiementPivot = Mapper.Map<GEN_TypePaiement_Form_ViewModel, TypePaiementPivot>(gEN_TypePaiementCreer);
+                typePaiementPivot = typePaiementService.GetTypePaiement();
+                if (typePaiementPivot != null)
+                {
+                    typePaiementService.DeleteTypePaiement(typePaiementPivot);
 
 
-//                    typePaiementService.UpdateTypePaiement(typePaiementPivot);
-//                }
-//                else
-//                {
+                }
 
-//                    typePaiementPivot = typePaiementService.GetTypePaiement();
+                return View();
+            }
+            else
+            {
+                typePaiementPivot = typePaiementService.GetTypePaiement((long)id);
+                ViewBag.Message = TempData["errorMessage"] + "";
+                if (typePaiementPivot == null)
+                {
+                    TempData["Message"] = "Le type d'échéancement que vous cherchez n'existe pas.";
+                    return RedirectToAction("Index");
+                }
+
+                gEN_TypePaiement = Mapper.Map<TypePaiementPivot, GEN_TypePaiement_Form_ViewModel>(typePaiementPivot);
+
+                return View(gEN_TypePaiement);
+            }
+        } // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "TypePaiementId,Libelle,Actif")] GEN_TypePaiement_Form_ViewModel gEN_TypePaiement)
+        {
+            TypePaiementPivot typePaiementPivot;
+               var errors = ModelState.Where(x => x.Key != "TypePaiementId").Select(x => x.Value.Errors)
+                          .Where(y => y.Count > 0)
+                          .ToList();
+            if (errors.Count == 0)
+            {
+                GEN_TypePaiement_Form_ViewModel gEN_TypePaiementCreer = gEN_TypePaiement;
+                if (gEN_TypePaiementCreer.TypePaiementId> 0)
+                {
+                    gEN_TypePaiementCreer.IdDossier = Constantes.CurrentPreferenceIdDossier;
+                    typePaiementPivot = Mapper.Map<GEN_TypePaiement_Form_ViewModel, TypePaiementPivot>(gEN_TypePaiementCreer);
+
+
+                    typePaiementService.UpdateTypePaiement(typePaiementPivot);
+                }
+                else
+                {
+
+                    typePaiementPivot = typePaiementService.GetTypePaiement();
 
 
 
-//                    if (typePaiementPivot == null)
-//                    {
-//                        typePaiementPivot = Mapper.Map<GEN_TypePaiement_Form_ViewModel, TypePaiementPivot>(gEN_TypePaiementCreer);
+                    if (typePaiementPivot == null)
+                    {
+                        typePaiementPivot = Mapper.Map<GEN_TypePaiement_Form_ViewModel, TypePaiementPivot>(gEN_TypePaiementCreer);
 
-//                        typePaiementPivot.IdDossier = Constantes.CurrentPreferenceIdDossier; ;
-//                        typePaiementService.CreateTypePaiement(typePaiementPivot);
-//                        //db.SaveChanges();
-//                    }
-//                    else
-//                    {
-//                        gEN_TypePaiementCreer.IdDossier = Constantes.CurrentPreferenceIdDossier;
-//                        gEN_TypePaiementCreer.Actif = gEN_TypePaiement.Actif;
-//                        gEN_TypePaiementCreer.Libelle = gEN_TypePaiement.Libelle;
-//                        typePaiementPivot = Mapper.Map<GEN_TypePaiement_Form_ViewModel, TypePaiementPivot>(gEN_TypePaiementCreer);
-
-
-//                        typePaiementService.UpdateTypePaiement(typePaiementPivot);
-//                    }
-//                }
+                        typePaiementPivot.IdDossier = Constantes.CurrentPreferenceIdDossier; ;
+                        typePaiementService.CreateTypePaiement(typePaiementPivot);
+                        //db.SaveChanges();
+                    }
+                    else
+                    {
+                        gEN_TypePaiementCreer.IdDossier = Constantes.CurrentPreferenceIdDossier;
+                        gEN_TypePaiementCreer.Actif = gEN_TypePaiement.Actif;
+                        gEN_TypePaiementCreer.Libelle = gEN_TypePaiement.Libelle;
+                        typePaiementPivot = Mapper.Map<GEN_TypePaiement_Form_ViewModel, TypePaiementPivot>(gEN_TypePaiementCreer);
 
 
-//                return RedirectToAction("Create", new { id = gEN_TypePaiementCreer.TypePaiementId });
-//            }
+                        typePaiementService.UpdateTypePaiement(typePaiementPivot);
+                    }
+                }
 
-//            return View(gEN_TypePaiement);
-//        }
-//        [HttpPost, ActionName("Delete")]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult DeleteConfirmed([Bind(Include = "TypePaiementId")] GEN_TypePaiement_Form_ViewModel gEN_TypePaiement)
-//        {
-//            TypePaiementPivot modelPivot = typePaiementService.GetTypePaiement(gEN_TypePaiement.TypePaiementId);
-//            // modelPivot.IdDossier = Constantes.CurrentPreferenceIdDossier;
 
-//            typePaiementService.DeleteTypePaiement(modelPivot);
-//            return RedirectToAction("Index");
-//        }
-//    }
-//    }
+                return RedirectToAction("Create", new { id = gEN_TypePaiementCreer.TypePaiementId });
+            }
+
+            return View(gEN_TypePaiement);
+        }
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed([Bind(Include = "TypePaiementId")] GEN_TypePaiement_Form_ViewModel gEN_TypePaiement)
+        {
+            TypePaiementPivot modelPivot = typePaiementService.GetTypePaiement(gEN_TypePaiement.TypePaiementId);
+            // modelPivot.IdDossier = Constantes.CurrentPreferenceIdDossier;
+
+            typePaiementService.DeleteTypePaiement(modelPivot);
+            return RedirectToAction("Index");
+        }
+    }
+    }
